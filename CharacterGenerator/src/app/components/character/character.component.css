@@ -1,0 +1,66 @@
+header, div, section, p {
+    border-style: solid;
+    margin: 0.1rem;
+}
+
+input[type="text"]
+{
+    background: transparent;
+    border: none;
+}
+#Charname {
+    font-size:24px;
+    font-weight: bold;
+}
+input:focus {
+    background: transparent;
+    border: none;
+}
+
+header {
+    width: 61rem;
+    height: 10rem;
+    background-image: url(src/app/components/character/Header.png);
+    background-size: 61rem 10rem;
+}
+#main {
+    width: 61rem;
+}
+
+#name {
+    border-style: hidden;
+    width: 16rem;
+    height: 1.6rem;
+    font-size: 150%;
+    font-weight: bold;
+    position: relative;
+    left: 4rem;
+    top: 4.8rem;
+}
+#info {
+    border-style: hidden;
+    width: 16rem;
+    height: 1.6rem;
+    position: relative;
+    left: 26rem;
+    top: 2rem;
+}
+
+#AbilitiesProficiencies {
+    display: inline-block;
+    width: 21rem;
+}
+#AbilityScores {
+    border-style: hidden;
+    background-image: url(AbilityScores.png);
+    width: 5rem;
+    height: 30rem;
+    background-size: 5rem 30rem;
+}
+
+#OtherInfo {
+    display: inline-block;
+    position: relative;
+    top: 0rem;
+    width: 39rem;
+}
