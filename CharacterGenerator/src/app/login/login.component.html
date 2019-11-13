@@ -1,0 +1,20 @@
+<p>login works!</p>
+<form>
+
+    <div>
+        <input [(ngModel)] = "inputUsername"
+        type = "text" name = "username"
+        >
+    </div>
+
+    <div>
+        <input [(ngModel)] = "inputPassword"
+        type = "text" name = "password"
+        >
+    </div>
+    <input (click)="submit()" 
+        type="submit" 
+         value="Sign in" 
+        class="btn btn-lg btn-primary btn-block text-uppercase" 
+    >
+</form>
