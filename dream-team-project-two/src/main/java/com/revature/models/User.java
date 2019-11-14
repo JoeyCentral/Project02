@@ -18,24 +18,18 @@ public class User {
 
 	private String hashpass;
 
-	private int salt;
+	private String salt;
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
-	public User(int id, String username, String hashpass, int salt) {
+	public User(int id, String username, String hashpass, String salt) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.hashpass = hashpass;
 		this.salt = salt;
-	}
-
-	@Override
-	public String toString() {
-		return "Users [id=" + id + ", username=" + username + ", hashpass=" + hashpass + ", salt=" + salt + "]";
 	}
 
 	public int getId() {
@@ -62,13 +56,57 @@ public class User {
 		this.hashpass = hashpass;
 	}
 
-	public int getSalt() {
+	public String getSalt() {
 		return salt;
 	}
 
-	public void setSalt(int salt) {
+	public void setSalt(String salt) {
 		this.salt = salt;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((hashpass == null) ? 0 : hashpass.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((salt == null) ? 0 : salt.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (hashpass == null) {
+			if (other.hashpass != null)
+				return false;
+		} else if (!hashpass.equals(other.hashpass))
+			return false;
+		if (id != other.id)
+			return false;
+		if (salt == null) {
+			if (other.salt != null)
+				return false;
+		} else if (!salt.equals(other.salt))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", hashpass=" + hashpass + ", salt=" + salt + "]";
+	}
 
 }

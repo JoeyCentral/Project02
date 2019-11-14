@@ -8,7 +8,7 @@ import com.revature.models.User;
 public class LoginService {
  
 	public User checkUser(User user) {
-		return new User(2, "haroldo", "temp2");
+		return new User(2, "haroldo", "temp2", "temp2");
 	}
 	
 	public User newUser(User user) {
