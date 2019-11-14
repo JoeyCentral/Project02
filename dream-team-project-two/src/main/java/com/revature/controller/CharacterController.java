@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.models.Characters;
 import com.revature.models.User;
 import com.revature.services.CharacterService;
 
@@ -21,11 +22,11 @@ public class CharacterController {
 		return null;
 	}
 	@PostMapping("/save")
-	public Character saveCharacter() {
+	public Characters saveCharacter() {
 		return null;
 	}
 	@PostMapping("/copy")
-	public Character copyCharacter() {
+	public Characters copyCharacter() {
 		return null;
 	}
 	@PostMapping("/share")
@@ -33,7 +34,7 @@ public class CharacterController {
 		return null;
 	}
 	@DeleteMapping("/delete")
-	public Character deleteCharacter() {
+	public Characters deleteCharacter() {
 		return null;
 	}
 	
