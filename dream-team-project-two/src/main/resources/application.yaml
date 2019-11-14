@@ -1,0 +1,13 @@
+server:
+  port: 8081
+  
+  spring:
+    application:
+      name: dream-team-project-two
+    datasource:
+      username: ${DT_USER}
+      password: ${DT_PASS}
+      url: database-1.cp9w9ieqesxp.us-east-2.rds.amazonaws.com
+    jpa:
+      hibernate:
+        ddl-auto: update
