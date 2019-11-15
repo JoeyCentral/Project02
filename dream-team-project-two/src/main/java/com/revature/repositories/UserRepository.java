@@ -18,7 +18,7 @@ public class UserRepository {
 	EntityManager em;
 	
 	
-	public Users create(Users user) {
+	public Users createUser(Users user) {
 		Session session = em.unwrap(Session.class);
 		session.save(user);
 		return user;

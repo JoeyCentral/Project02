@@ -1,6 +1,15 @@
+drop table customrolls;
+drop table my_spells;
+drop table my_feats;
+drop table spellsources;
+drop table spells;
+drop table features;
+drop table my_characters;
+drop table backgrounds;
+drop table race;
+drop table character_class;
+drop table proficiencies;
 drop table users;
-drop table 
-
 
 
 

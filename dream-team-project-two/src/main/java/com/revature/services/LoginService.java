@@ -17,6 +17,7 @@ public class LoginService {
 	}
 	
 	public Users checkUser(Users user) {
+		System.out.println("Checking");
 		return new Users(2, "haroldo", "temp2", "temp2");
 	}
 	
@@ -24,8 +25,8 @@ public class LoginService {
 		return user;
 	}
 	
-	public Users create(Users user) {
-		return userRepository.create(user);
+	public Users createUser(Users user) {
+		return userRepository.createUser(user);
 	}
 	
 	
