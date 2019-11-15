@@ -1,28 +1,21 @@
 package com.revature.repositories;
 
-
 import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.models.Users;
-
-
+import com.revature.models.Characters;
 
 @Repository
-public class UserRepository {
-
+public class CharacterRepository {
 	@Autowired(required = true)
 	EntityManager em;
 	
-	
-	public Users create(Users user) {
+	public Characters create(Characters character) {
 		Session session = em.unwrap(Session.class);
-		session.save(user);
-		return user;
+		session.save(character);
+		return character;
 	}
-	
-	
 }

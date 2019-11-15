@@ -16,7 +16,7 @@ import com.revature.models.Proficiencies;
 import com.revature.models.Race;
 import com.revature.models.Spells;
 import com.revature.models.Spellsources;
-import com.revature.models.User;
+import com.revature.models.Users;
 
 
 public class HibernateUtil {
@@ -27,9 +27,9 @@ public class HibernateUtil {
 		
 		Configuration configuration = new Configuration()
 				.configure()
-				.addAnnotatedClass(User.class)
-				.addAnnotatedClass(Backgrounds.class)
+				.addAnnotatedClass(Users.class)
 				.addAnnotatedClass(Proficiencies.class)
+				.addAnnotatedClass(Backgrounds.class)
 				.addAnnotatedClass(Race.class)
 				.addAnnotatedClass(CharClass.class)
 				.addAnnotatedClass(Characters.class)
