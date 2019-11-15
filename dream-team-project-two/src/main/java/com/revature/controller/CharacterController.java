@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Characters;
-import com.revature.models.User;
+import com.revature.models.Users;
 import com.revature.services.CharacterService;
 
 @RestController
@@ -30,7 +30,7 @@ public class CharacterController {
 		return null;
 	}
 	@PostMapping("/share")
-	public User shareCharacter() {
+	public Users shareCharacter() {
 		return null;
 	}
 	@DeleteMapping("/delete")

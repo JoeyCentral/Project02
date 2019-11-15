@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 
 @Entity
-public class User {
+public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
@@ -20,11 +20,11 @@ public class User {
 
 	private String salt;
 
-	public User() {
+	public Users() {
 		super();
 	}
 	
-	public User(int id, String username, String hashpass, String salt) {
+	public Users(int id, String username, String hashpass, String salt) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -83,7 +83,7 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Users other = (Users) obj;
 		if (hashpass == null) {
 			if (other.hashpass != null)
 				return false;
