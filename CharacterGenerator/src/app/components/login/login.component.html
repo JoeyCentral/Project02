@@ -1,16 +1,28 @@
-<p>login works!</p>
+<p *ngIf="!notValid">login works!</p>
 <form>
 
     <div>
         <input [(ngModel)] = "inputUsername"
         type = "text" name = "username"
         >
+        <label for="inputUsername" class='texgt-center'>
+            username
+        </label>
     </div>
 
     <div>
         <input [(ngModel)] = "inputPassword"
         type = "text" name = "password"
         >
+        <label for="inputPassword" class='texgt-center'>
+            password
+        </label>
+    </div>
+
+    <div *ngIf="notValid">
+        <div class="authentication-failure"> 
+            Incorrect Username/Password combination
+        </div>
     </div>
     <input (click)="submit()" 
         type="submit" 
