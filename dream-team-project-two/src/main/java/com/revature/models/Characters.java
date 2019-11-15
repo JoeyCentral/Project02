@@ -17,6 +17,14 @@ public class Characters {
 	@Column(name = "char_id")
 	private int id;
 	
+	private String character_name;
+	
+	public String getCharacter_name() {
+		return character_name;
+	}
+	public void setCharacter_name(String character_name) {
+		this.character_name = character_name;
+	}
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User player;
@@ -164,6 +172,7 @@ public class Characters {
 		result = prime * result + ((background == null) ? 0 : background.hashCode());
 		result = prime * result + ((backstory == null) ? 0 : backstory.hashCode());
 		result = prime * result + ((bonds == null) ? 0 : bonds.hashCode());
+		result = prime * result + ((character_name == null) ? 0 : character_name.hashCode());
 		result = prime * result + ((class_prof1 == null) ? 0 : class_prof1.hashCode());
 		result = prime * result + ((class_prof2 == null) ? 0 : class_prof2.hashCode());
 		result = prime * result + equiped_ac;
@@ -211,6 +220,11 @@ public class Characters {
 			if (other.bonds != null)
 				return false;
 		} else if (!bonds.equals(other.bonds))
+			return false;
+		if (character_name == null) {
+			if (other.character_name != null)
+				return false;
+		} else if (!character_name.equals(other.character_name))
 			return false;
 		if (class_prof1 == null) {
 			if (other.class_prof1 != null)
@@ -267,18 +281,21 @@ public class Characters {
 	}
 	@Override
 	public String toString() {
-		return "Characters [id=" + id + ", player=" + player + ", my_class=" + my_class + ", my_race=" + my_race
-				+ ", class_prof1=" + class_prof1 + ", class_prof2=" + class_prof2 + ", background=" + background
-				+ ", gear=" + gear + ", equiped_ac=" + equiped_ac + ", personality=" + personality + ", ideals="
-				+ ideals + ", bonds=" + bonds + ", flaws=" + flaws + ", appearance=" + appearance + ", allies=" + allies
-				+ ", backstory=" + backstory + ", tempdata=" + tempdata + "]";
+		return "Characters [id=" + id + ", character_name=" + character_name + ", player=" + player + ", my_class="
+				+ my_class + ", my_race=" + my_race + ", class_prof1=" + class_prof1 + ", class_prof2=" + class_prof2
+				+ ", background=" + background + ", gear=" + gear + ", equiped_ac=" + equiped_ac + ", personality="
+				+ personality + ", ideals=" + ideals + ", bonds=" + bonds + ", flaws=" + flaws + ", appearance="
+				+ appearance + ", allies=" + allies + ", backstory=" + backstory + ", tempdata=" + tempdata + "]";
 	}
-	public Characters(int id, User player, CharClass my_class, Race my_race, Proficiencies class_prof1,
-			Proficiencies class_prof2, Backgrounds background, String gear, int equiped_ac, String personality,
-			String ideals, String bonds, String flaws, String appearance, String allies, String backstory,
-			int tempdata) {
+
+	
+	public Characters(int id, String character_name, User player, CharClass my_class, Race my_race,
+			Proficiencies class_prof1, Proficiencies class_prof2, Backgrounds background, String gear, int equiped_ac,
+			String personality, String ideals, String bonds, String flaws, String appearance, String allies,
+			String backstory, int tempdata) {
 		super();
 		this.id = id;
+		this.character_name = character_name;
 		this.player = player;
 		this.my_class = my_class;
 		this.my_race = my_race;
