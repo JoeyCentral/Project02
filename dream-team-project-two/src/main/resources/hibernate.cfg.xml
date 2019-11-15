@@ -6,7 +6,8 @@
 		</property>
 
 		<property name="hibernate.connection.url">
-			jdbc:postgresql://localhost:5432/postgres
+			<!-- jdbc:postgresql://localhost:5432/postgres-->
+			jdbc:postgresql://database-1.cp9w9ieqesxp.us-east-2.rds.amazonaws.com:5432/postgres
 		</property>
 
 		<!-- <property name="hibernate.connection.username">${EM_ROLE}</property> 

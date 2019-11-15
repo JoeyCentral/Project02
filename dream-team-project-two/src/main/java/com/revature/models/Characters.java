@@ -34,7 +34,7 @@ public class Characters {
 	private Proficiencies class_prof1;
 	
 	@ManyToOne
-	@JoinColumn(name = "prof_id")
+	@JoinColumn(name = "prof_id", insertable = false, updatable = false)
 	private Proficiencies class_prof2;
 	
 	@ManyToOne

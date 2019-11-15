@@ -22,7 +22,7 @@ public class Backgrounds {
 	private Proficiencies proficiency1;
 	
 	@ManyToOne
-	@JoinColumn(name = "prof_id")
+	@JoinColumn(name = "prof_id", insertable = false, updatable = false)
 	private Proficiencies proficiency2;
 
 	public int getId() {

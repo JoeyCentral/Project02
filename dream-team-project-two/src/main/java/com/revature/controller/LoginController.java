@@ -19,7 +19,8 @@ public class LoginController {
 	}
 	@PostMapping("/create")
 	public User newUser(@RequestBody User user) {
-		return loginService.newUser(user);
+		//return loginService.newUser(user);
+		return loginService.create(user);
 	}
 	@Autowired
 	public LoginController(LoginService loginService) {

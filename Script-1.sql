@@ -1,3 +1,11 @@
+drop table users;
+drop table 
+
+
+
+
+
+
 create table users(
 	user_id serial primary key,
 	username varchar,
@@ -37,6 +45,7 @@ create table backgrounds(
 	proficiency2 int references proficiencies(prof_id),
 	bonus_gear varchar
 );
+
 
 create table my_characters(
 	char_id serial primary key,
@@ -108,9 +117,6 @@ create table customrolls(
 	damage_type varchar,
 	char_id int references my_characters(char_id)
 );
-
-
-
 
 
 
