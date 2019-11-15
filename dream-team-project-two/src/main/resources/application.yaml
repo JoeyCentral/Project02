@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: dream-team-project-two
+  # Database Credentials
+  datasource:
+    username: ${DT_USER}
+    password: ${DT_PASS}
+    url: jdbc:postgresql://database-1.cp9w9ieqesxp.us-east-2.rds.amazonaws.com:5432/postgres
+  # hbm2ddl 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.temp.use_jdbc_metadata_defaults: false

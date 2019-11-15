@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.models.User;
+import com.revature.models.Users;
 import com.revature.services.LoginService;
 
 @RestController
@@ -14,12 +14,13 @@ import com.revature.services.LoginService;
 public class LoginController {
 	LoginService loginService;
 	@PostMapping("/login")
-	public User checkUser(@RequestBody User user) {
+	public Users checkUser(@RequestBody Users user) {
 		return loginService.checkUser(user);
 	}
 	@PostMapping("/create")
-	public User newUser(@RequestBody User user) {
-		return loginService.newUser(user);
+	public Users newUser(@RequestBody Users user) {
+		//return loginService.newUser(user);
+		return loginService.create(user);
 	}
 	@Autowired
 	public LoginController(LoginService loginService) {
