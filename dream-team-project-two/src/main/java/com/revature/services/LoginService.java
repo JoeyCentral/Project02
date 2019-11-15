@@ -3,7 +3,7 @@ package com.revature.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.models.User;
+import com.revature.models.Users;
 import com.revature.repositories.UserRepository;
 
 @Service
@@ -16,15 +16,15 @@ public class LoginService {
 		this.userRepository = userRepository;
 	}
 	
-	public User checkUser(User user) {
-		return new User(2, "haroldo", "temp2", "temp2");
+	public Users checkUser(Users user) {
+		return new Users(2, "haroldo", "temp2", "temp2");
 	}
 	
-	public User newUser(User user) {
+	public Users newUser(Users user) {
 		return user;
 	}
 	
-	public User create(User user) {
+	public Users create(Users user) {
 		return userRepository.create(user);
 	}
 	

@@ -19,7 +19,7 @@ public class Characters {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User player;
+	private Users player;
 	
 	@ManyToOne
 	@JoinColumn(name = "class_id")
@@ -59,10 +59,10 @@ public class Characters {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public User getPlayer() {
+	public Users getPlayer() {
 		return player;
 	}
-	public void setPlayer(User player) {
+	public void setPlayer(Users player) {
 		this.player = player;
 	}
 	public CharClass getMy_class() {
@@ -273,7 +273,7 @@ public class Characters {
 				+ ideals + ", bonds=" + bonds + ", flaws=" + flaws + ", appearance=" + appearance + ", allies=" + allies
 				+ ", backstory=" + backstory + ", tempdata=" + tempdata + "]";
 	}
-	public Characters(int id, User player, CharClass my_class, Race my_race, Proficiencies class_prof1,
+	public Characters(int id, Users player, CharClass my_class, Race my_race, Proficiencies class_prof1,
 			Proficiencies class_prof2, Backgrounds background, String gear, int equiped_ac, String personality,
 			String ideals, String bonds, String flaws, String appearance, String allies, String backstory,
 			int tempdata) {
