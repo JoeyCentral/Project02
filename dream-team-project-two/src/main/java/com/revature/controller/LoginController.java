@@ -17,13 +17,14 @@ public class LoginController {
 	LoginService loginService;
 
 	@PostMapping("/login")
-	public Users checkUser(@RequestBody Users user) {
-		return loginService.checkUser(user);
+	public int checkUser(@RequestBody Users user) {
+		Users oldUser = loginService.checkUser(user);
+		return oldUser.getId();
 	}
 	@PostMapping("/create")
-	public Users newUser(@RequestBody Users user) {
-		//return loginService.newUser(user);
-		return loginService.create(user);
+	public int newUser(@RequestBody Users user) {
+		Users newUser = loginService.create(user);
+		return newUser.getId();
 	}
 	@Autowired
 	public LoginController(LoginService loginService) {

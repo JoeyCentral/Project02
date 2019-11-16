@@ -20,7 +20,6 @@ input:focus {
 header {
     width: 61rem;
     height: 10rem;
-    background-image: url(src/app/components/character/Header.png);
     background-size: 61rem 10rem;
 }
 #main {
@@ -52,7 +51,6 @@ header {
 }
 #AbilityScores {
     border-style: hidden;
-    background-image: url(AbilityScores.png);
     width: 5rem;
     height: 30rem;
     background-size: 5rem 30rem;
