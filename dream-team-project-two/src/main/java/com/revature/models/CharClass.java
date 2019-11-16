@@ -26,7 +26,7 @@ public class CharClass {
 	private Proficiencies saveprof1;
 	
 	@ManyToOne
-	@JoinColumn(name = "prof_id")
+	@JoinColumn(name = "prof_id", insertable = false, updatable = false)
 	private Proficiencies saveprof2;
 	
 	private int spellprog;
