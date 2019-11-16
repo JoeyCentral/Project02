@@ -10,22 +10,48 @@ export class LoginComponent implements OnInit {
 
   inputUsername = '';
   inputPassword = '';
+  verifyPassword = '';
 
-  notValid = false; //to validate if password and username exist 
+  notValid = false;
+  badPass = false;
+  loggedIn=false;
+  m1 = true;
+  m2 = true;
   constructor(private loginService: LoginServiceService) { }
 
   ngOnInit() {
   }
-  async submit(){
+
+  async submitLogin() {
     const verify = {
       username: this.inputUsername,
       password: this.inputPassword
     };
     const loginSuccessful = await this.loginService.loginHttp(verify);
-    console.log(loginSuccessful);
     if (!loginSuccessful) {
       this.notValid = true;
+    } else {
+      this.m1 = false;
+      this.loggedIn = true;
     }
-    console.log(this.notValid);
+  }
+
+  async submitCreate() {
+    if (this.inputPassword == this.verifyPassword && this.verifyPassword != '') {
+      const verify = {
+        username: this.inputUsername,
+        password: this.inputPassword
+      };
+
+      const loginSuccessful = await this.loginService.createHttp(verify);
+      if (!loginSuccessful) {
+        this.notValid = true;
+      } else {
+        this.m2 = false;
+        this.loggedIn = true;
+      }
+    } else {
+      this.badPass = true;
+    }
   }
 }

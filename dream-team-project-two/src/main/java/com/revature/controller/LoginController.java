@@ -19,16 +19,15 @@ public class LoginController {
 	LoginService loginService;
 
 	@PostMapping("/login")
-	public Users checkUser(@RequestBody Users user) {
-		return loginService.checkUser(user);
+	public int checkUser(@RequestBody Users user) {
+		Users oldUser = loginService.checkUser(user);
+		return oldUser.getId();
 	}
 
 	@PostMapping("/create")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Users newUser(@RequestBody Users user) {
-		// return loginService.newUser(user);
-		System.out.println("Attemping Creation");
-		return loginService.createUser(user);
+	public int newUser(@RequestBody Users user) {
+		Users newUser = loginService.create(user);
+		return newUser.getId();
 	}
 
 	@Autowired
