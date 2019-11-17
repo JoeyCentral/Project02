@@ -5,15 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 
-@Entity
+@Entity 
+@Table(name="users")
 public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private int id;
-	@Column(nullable = false, length = 25, unique = true)
+	@Column(name = "username", nullable = false, length = 25, unique = true)
 	private String username;
 
 	private String hashpass;
