@@ -1,5 +1,8 @@
 package com.revature.services;
 
+import java.security.SecureRandom;
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,12 +43,29 @@ public class LoginService {
 	}
 
 	public Users createUser(Users user) {
-		if((user.getUsername().length() <= 25) && (user.getHashpass().length() >=6)) {
-			System.out.println("User Created");
-			return userRepository.createUser(user);
+		String username = user.getUsername();
+		String password = user.getHashpass();
+		if (username.length() <= 25) {
+			if (password.length() >= 6) {
+				
+				//generate salt if user and pass follows rules
+				Random r = new SecureRandom();
+				byte[] salt = new byte[20];
+				r.nextBytes(salt);
+				user.setSalt(salt.toString());
+				
+				//hash password to be stored in db
+				String passwordHashed = UserRepository.passwordHasher(password, salt.toString());
+				user.setHashpass(passwordHashed);
+				
+				System.out.println("User Created");
+				return userRepository.createUser(user);
+			}
+			System.out.println("Password too short");
+			return null;
 		}
 		System.out.println("Username too long");
-		
+
 		return null;
 	}
 

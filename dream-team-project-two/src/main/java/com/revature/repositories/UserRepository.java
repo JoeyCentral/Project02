@@ -81,7 +81,7 @@ public class UserRepository {
 		return 0;
 	}
 
-	public String passwordHasher(String passwordToHash, String salt) {
+	public static String passwordHasher(String passwordToHash, String salt) {
 		int iterations = 100;
 		int keyLength = 512;
 		char[] passwordChars = passwordToHash.toCharArray();
