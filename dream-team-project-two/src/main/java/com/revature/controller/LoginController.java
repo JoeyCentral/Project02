@@ -31,7 +31,7 @@ public class LoginController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Users newUser(@RequestBody Users user) {
 		// return loginService.newUser(user);
-		System.out.println("Attempting Creation");
+		System.out.println("Attempting User Creation...");
 		return loginService.createUser(user);
 
 	}

@@ -40,7 +40,13 @@ public class LoginService {
 	}
 
 	public Users createUser(Users user) {
-		return userRepository.createUser(user);
+		if((user.getUsername().length() <= 25) && (user.getHashpass().length() >=6)) {
+			System.out.println("User Created");
+			return userRepository.createUser(user);
+		}
+		System.out.println("Username too long");
+		
+		return null;
 	}
 
 }
