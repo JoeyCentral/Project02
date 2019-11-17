@@ -50,48 +50,48 @@ li {
 
 #Front{width:100%;text-align: center;}
 #Cover{display: inline-block;width:1208px;}
+#Header{background-image: url(../../../assets/images/WideInfoHeader.png);
+    background-size:1200px 225px;width:1200px; height:225px;}
+
 #Full{display: inline-block;width:1208px;}
 #Left{display: inline-block;width:402px;}
-#Right{display: inline-block;width:806px;}
-#Top{display: inline-flex;width:804px;height:302px;}
-#Middle{display: inline-block;width:804px;}
-#Header{background-image: url(../../../assets/images/WideFrontHeader.png);
-    background-size:1200px 225px;width:1200px; height:225px;}
-#Abilities{background-image: url(../../../assets/images/Abilities.png);
-    background-size:400px 1000px;width:400px; height:1000px;}
-#Health{background-image: url(../../../assets/images/HealthTracker.png);
-    background-size:400px 300px;width:400px; height:300px;}
-#Other{background-image: url(../../../assets/images/Other.png);
-    background-size:400px 300px;width:400px; height:300px;}
-
-#Attacks{width:800px;}
-#AttacksTop{background-image: url(../../../assets/images/DoubleColumnAttacksHeader.png);
-    background-size:800px 35px;width:800px; height:35px;}
-#AttacksBody{background-image: url(../../../assets/images/DoubleColumnAttacksBody.png);
-    background-size:800px 60px;width:800px; height:60px;}
-#AttacksFoot{background-image: url(../../../assets/images/DoubleColumnAttacksFooter.png);
-    background-size:800px 60px;width:800px; height:60px;}
-
-#Features{width:800px;}
-#FeaturesTop{background-image: url(../../../assets/images/DoubleColumnHeader.png);
-    background-size:800px 35px;width:800px; height:35px;}
-#FeaturesBody{background-image: url(../../../assets/images/DoubleColumnBody.png);
-    background-size:800px 30px;width:800px; height:30px;}
-#FeaturesFoot{background-image: url(../../../assets/images/DoubleColumnFeaturesFooter.png);
-    background-size:800px 60px;width:800px; height:60px;}
-
-#Languages{width:400px;}
-#LanguagesTop{background-image: url(../../../assets/images/SingleColumnTop.png);
-    background-size:400px 15px;width:400px; height:15px;}
-#LanguagesBody{background-image: url(../../../assets/images/SingleColumnRow.png);
+#Info{width:400px;}
+#InfoTop{background-image: url(../../../assets/images/InfoTop.png);
+    background-size:400px 50px;width:400px; height:50px;}
+#InfoBody{background-image: url(../../../assets/images/InfoBody.png);
     background-size:400px 30px;width:400px; height:30px;}
-#LanguagesFoot{background-image: url(../../../assets/images/Languages.png);
-    background-size:400px 30px;width:400px; height:30px;}
+#InfoPerson{background-image: url(../../../assets/images/InfoPersonality.png);
+    background-size:400px 110px;width:400px; height:110px;}
+#InfoIdeals{background-image: url(../../../assets/images/InfoIdeals.png);
+    background-size:400px 113px;width:400px; height:113px;}
+#InfoBonds{background-image: url(../../../assets/images/InfoBonds.png);
+    background-size:400px 109px;width:400px; height:109px;}
+#InfoFlaws{background-image: url(../../../assets/images/InfoFlaws.png);
+    background-size:400px 55px;width:400px; height:55px;}
 
-#Equipment{width:800px;}
-#EquipmentTop{background-image: url(../../../assets/images/DoubleColumnHeader2.png);
-    background-size:800px 35px;width:800px; height:35px;}
-#EquipmentBody{background-image: url(../../../assets/images/DoubleColumnBody2.png);
+#Backstory{display: inline-block;width:402px;}    
+#Symbol{background-image: url(../../../assets/images/InfoSymbol.png);
+    background-size:400px 307px;width:400px; height:307px;}
+#BackstoryBody{background-image: url(../../../assets/images/InfoBackstoryBody.png);
+    background-size:400px 30px;width:400px; height:30px;}
+#BackstoryFoot{background-image: url(../../../assets/images/InfoBackstory.png);
+    background-size:400px 33px;width:400px; height:33px;}
+
+#Right{display: inline-block;width:804px;}
+#Allies{width:800px;}
+#AlliesTop{background-image: url(../../../assets/images/InfoPictureDoubleHeader.png);
     background-size:800px 30px;width:800px; height:30px;}
-#EquipmentFoot{background-image: url(../../../assets/images/DoubleColumnEquipmentFooter.png);
-    background-size:800px 315px;width:800px; height:315px;}
+#AlliesBody{background-image: url(../../../assets/images/InfoPictureDoubleBody.png);
+    background-size:800px 30px;width:800px; height:30px;}
+#AlliesFoot{background-image: url(../../../assets/images/InfoPictureDoubleFooter.png);
+    background-size:800px 65px;width:800px; height:65px;}
+
+
+
+#Notes{width:800px;}
+#NotesTop{background-image: url(../../../assets/images/NotesDoubleHeader.png);
+    background-size:800px 35px;width:800px; height:35px;}
+#NotesBody{background-image: url(../../../assets/images/NotesDoubleBody.png);
+    background-size:800px 30px;width:800px; height:30px;}
+#NotesFoot{background-image: url(../../../assets/images/NotesDoubleFooter.png);
+    background-size:800px 75px;width:800px; height:75px;}
