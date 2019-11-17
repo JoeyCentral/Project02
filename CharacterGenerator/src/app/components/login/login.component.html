@@ -1,7 +1,7 @@
 <div>
     <div class="background"></div>
     <div *ngIf="loggedIn" style="text-align:center; z-index: 1; top:0; position: absolute;">
-        <h1>User functions go here.</h1>
+        
     </div>
     <div *ngIf="!loggedIn" style="width:100%; text-align: center; top:10%; z-index: 1;position: absolute;">
         <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; margin-right: 10%;">Login</button>
@@ -52,7 +52,7 @@
                 <label for="psw"><b>Password</b></label>
                 <input type="password" [(ngModel)]="inputPassword" placeholder="Enter Password" name="psw" required>
 
-                <label for="psw"><b>Very Password</b></label>
+                <label for="psw"><b>Verify Password</b></label>
                 <input type="password" [(ngModel)]="verifyPassword" placeholder="Enter Password" name="psw2" required>
                 <div *ngIf="badPass">
                     <div class="authentication-failure">
