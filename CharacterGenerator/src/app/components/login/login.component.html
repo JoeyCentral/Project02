@@ -29,4 +29,10 @@
          value="Sign in" 
         class="btn btn-lg btn-primary btn-block text-uppercase" 
     >
+
+    <div *ngIf="!notValid">
+        <div class="authentication-success">
+            Login success!
+        </div>
+    </div>
 </form>
