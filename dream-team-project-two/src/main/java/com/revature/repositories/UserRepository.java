@@ -1,5 +1,6 @@
 package com.revature.repositories;
 
+
 import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -46,6 +47,9 @@ public class UserRepository {
 		}
 		return saltValue;
 	}
+	
+
+	
 
 	public int verifyPassword(Users user, String salt) {
 		Session session = em.unwrap(Session.class);

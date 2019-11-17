@@ -1,5 +1,6 @@
 package com.revature.services;
 
+
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -41,6 +42,7 @@ public class LoginService {
 		return 0;
 
 	}
+
 
 	public Users createUser(Users user) {
 		String username = user.getUsername();
