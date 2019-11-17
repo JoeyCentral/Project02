@@ -18,6 +18,34 @@ public class Characters {
 	private int id;
 	
 	private String character_name;
+
+	public Characters(int id, Users player, CharClass my_class, Race my_race, Proficiencies class_prof1,
+			Proficiencies class_prof2, Backgrounds background, String gear, int equiped_ac, String personality,
+			String ideals, String bonds, String flaws, String appearance, String allies, String backstory,
+			int tempdata) {
+		super();
+		this.id = id;
+		this.player = player;
+		this.my_class = my_class;
+		this.my_race = my_race;
+		this.class_prof1 = class_prof1;
+		this.class_prof2 = class_prof2;
+		this.background = background;
+		this.gear = gear;
+		this.equiped_ac = equiped_ac;
+		this.personality = personality;
+		this.ideals = ideals;
+		this.bonds = bonds;
+		this.flaws = flaws;
+		this.appearance = appearance;
+		this.allies = allies;
+		this.backstory = backstory;
+		this.tempdata = tempdata;
+	}
+
+	public Characters() {
+		super();
+	}
 	
 	public String getCharacter_name() {
 		return character_name;
@@ -287,33 +315,7 @@ public class Characters {
 				+ personality + ", ideals=" + ideals + ", bonds=" + bonds + ", flaws=" + flaws + ", appearance="
 				+ appearance + ", allies=" + allies + ", backstory=" + backstory + ", tempdata=" + tempdata + "]";
 	}
-	public Characters(int id, Users player, CharClass my_class, Race my_race, Proficiencies class_prof1,
-			Proficiencies class_prof2, Backgrounds background, String gear, int equiped_ac, String personality,
-			String ideals, String bonds, String flaws, String appearance, String allies, String backstory,
-			int tempdata) {
-		super();
-		this.id = id;
-		this.character_name = character_name;
-		this.player = player;
-		this.my_class = my_class;
-		this.my_race = my_race;
-		this.class_prof1 = class_prof1;
-		this.class_prof2 = class_prof2;
-		this.background = background;
-		this.gear = gear;
-		this.equiped_ac = equiped_ac;
-		this.personality = personality;
-		this.ideals = ideals;
-		this.bonds = bonds;
-		this.flaws = flaws;
-		this.appearance = appearance;
-		this.allies = allies;
-		this.backstory = backstory;
-		this.tempdata = tempdata;
-	}
-	public Characters() {
-		super();
-	}
+
 	
 	
 }
