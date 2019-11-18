@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -55,6 +56,7 @@ public class Profile {
 	@JoinColumn(name="race_id")
 	private Race race;
 	
+	@OneToOne
 	@JoinColumn(name="character_id")
 	private Character character;
 	
