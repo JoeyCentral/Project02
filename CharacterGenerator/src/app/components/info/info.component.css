@@ -1,0 +1,97 @@
+header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Rye';
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display:inline-block;
+    margin: 20px 8px 10px 8px; 
+    color: rgb(3, 33, 66);
+}
+nav {
+    height: 30px;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    width: 70%;
+    margin: 0 auto;
+}
+
+li {
+    flex-grow: 1;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.bevelBox{
+    background: #666666;
+    border: 1px solid #000000;    
+    -moz-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
+    -webkit-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
+    background-color: rgba(0, 255, 255, 0.2);
+    margin:auto;
+    width: 60%;
+    height: 4rem;
+    border-radius: 1rem;
+}
+
+#Front{width:100%;text-align: center;}
+#Cover{display: inline-block;width:1208px;}
+#Header{background-image: url(../../../assets/images/WideInfoHeader.png);
+    background-size:1200px 225px;width:1200px; height:225px;}
+
+#Full{display: inline-block;width:1208px;}
+#Left{display: inline-block;width:402px;}
+#Info{width:400px;}
+#InfoTop{background-image: url(../../../assets/images/InfoTop.png);
+    background-size:400px 50px;width:400px; height:50px;}
+#InfoBody{background-image: url(../../../assets/images/InfoBody.png);
+    background-size:400px 30px;width:400px; height:30px;}
+#InfoPerson{background-image: url(../../../assets/images/InfoPersonality.png);
+    background-size:400px 110px;width:400px; height:110px;}
+#InfoIdeals{background-image: url(../../../assets/images/InfoIdeals.png);
+    background-size:400px 113px;width:400px; height:113px;}
+#InfoBonds{background-image: url(../../../assets/images/InfoBonds.png);
+    background-size:400px 109px;width:400px; height:109px;}
+#InfoFlaws{background-image: url(../../../assets/images/InfoFlaws.png);
+    background-size:400px 55px;width:400px; height:55px;}
+
+#Backstory{display: inline-block;width:402px;}    
+#Symbol{background-image: url(../../../assets/images/InfoSymbol.png);
+    background-size:400px 307px;width:400px; height:307px;}
+#BackstoryBody{background-image: url(../../../assets/images/InfoBackstoryBody.png);
+    background-size:400px 30px;width:400px; height:30px;}
+#BackstoryFoot{background-image: url(../../../assets/images/InfoBackstory.png);
+    background-size:400px 33px;width:400px; height:33px;}
+
+#Right{display: inline-block;width:804px;}
+#Allies{width:800px;}
+#AlliesTop{background-image: url(../../../assets/images/InfoPictureDoubleHeader.png);
+    background-size:800px 30px;width:800px; height:30px;}
+#AlliesBody{background-image: url(../../../assets/images/InfoPictureDoubleBody.png);
+    background-size:800px 30px;width:800px; height:30px;}
+#AlliesFoot{background-image: url(../../../assets/images/InfoPictureDoubleFooter.png);
+    background-size:800px 65px;width:800px; height:65px;}
+
+
+
+#Notes{width:800px;}
+#NotesTop{background-image: url(../../../assets/images/NotesDoubleHeader.png);
+    background-size:800px 35px;width:800px; height:35px;}
+#NotesBody{background-image: url(../../../assets/images/NotesDoubleBody.png);
+    background-size:800px 30px;width:800px; height:30px;}
+#NotesFoot{background-image: url(../../../assets/images/NotesDoubleFooter.png);
+    background-size:800px 75px;width:800px; height:75px;}
