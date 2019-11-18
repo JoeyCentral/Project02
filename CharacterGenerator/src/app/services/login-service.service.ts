@@ -15,7 +15,7 @@ export class LoginServiceService {
   async loginHttp(credentails: {username: string, password: string}){
     const loginCredentials = {
       username: credentails.username,
-      password: credentails.password,
+      hashpass: credentails.password,
     };
 // NOTE: Until server is up, we are using localhost. If your post isn't 8081, fix it in lines 21 and 34.
     const url = "http://localhost:8081/start/login";
@@ -29,7 +29,7 @@ export class LoginServiceService {
   async createHttp(credentails: {username: string, password: string}){
     const loginCredentials = {
       username: credentails.username,
-      password: credentails.password,
+      hashpass: credentails.password,
     };
     const url = "http://localhost:8081/start/create";
     const userID = await this.httpClient.post(url, loginCredentials).toPromise();

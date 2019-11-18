@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { CharacterComponent } from './components/character/character.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { InfoComponent } from './components/info/info.component';
+import { SpellsComponent } from './components/spells/spells.component';
 
 
 
@@ -17,7 +19,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     AppComponent,
     CharacterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    InfoComponent,
+    SpellsComponent
   ],
   imports: [
     BrowserModule,
