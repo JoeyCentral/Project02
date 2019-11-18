@@ -34,7 +34,7 @@ public class LoginService {
 	}
 
 
-	public Users createUser(Users user) {
+	public int createUser(Users user) {
 		String username = user.getUsername();
 		String password = user.getHashpass();
 		String saltFromUser = userRepository.returnSaltIfUserExist(username);
