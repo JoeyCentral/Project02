@@ -63,6 +63,7 @@ public class LoginService {
 				System.out.println("User Created");
 				return userRepository.createUser(user);
 			}
+			
 			System.out.println("Password too short");
 			return null;
 		}
