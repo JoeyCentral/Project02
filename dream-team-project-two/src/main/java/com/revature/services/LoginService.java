@@ -1,5 +1,6 @@
 package com.revature.services;
 
+
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -12,24 +13,14 @@ import com.revature.repositories.UserRepository;
 @Service
 public class LoginService {
 	UserRepository userRepository;
-
+	
 	@Autowired
 	public LoginService(UserRepository userRepository) {
 		super();
 		this.userRepository = userRepository;
 	}
 
-	public Users checkUser(Users user) {
-		System.out.println("Checking");
-		return new Users(2, "haroldo", "temp2", "temp2");
-	}
-
-	public Users newUser(Users user) {
-		return user;
-	}
-
-	// wei methods are below, method above are front end test from haroldo
-	public int checkUser2(Users user) {
+	public int checkUser(Users user) {
 		String username = user.getUsername();
 		String saltFromUser = userRepository.returnSaltIfUserExist(username);
 		if (!saltFromUser.equals("0")) {
@@ -42,9 +33,12 @@ public class LoginService {
 
 	}
 
-	public Users createUser(Users user) {
+
+	public int createUser(Users user) {
 		String username = user.getUsername();
 		String password = user.getHashpass();
+		String saltFromUser = userRepository.returnSaltIfUserExist(username);
+		if (saltFromUser.equals("0")) {
 		if (username.length() <= 25) {
 			if (password.length() >= 6) {
 				
@@ -59,14 +53,18 @@ public class LoginService {
 				user.setHashpass(passwordHashed);
 				
 				System.out.println("User Created");
-				return userRepository.createUser(user);
+				Users newUser = userRepository.create(user);
+				return newUser.getId();
 			}
 			System.out.println("Password too short");
-			return null;
+			// returns -2 if password is too short
+			return -2;
 		}
 		System.out.println("Username too long");
-
-		return null;
+		// returns -1 if username is too long
+		return -1;
+	}	// returns 0 if username already exists
+		return 0;
 	}
 
 }

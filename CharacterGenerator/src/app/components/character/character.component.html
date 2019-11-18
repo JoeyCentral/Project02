@@ -1,23 +1,21 @@
-<!--<header>
-    <section id='name'>
-        <input type="text" id="Charname" width="16rem" >
-    </section>
-    <section id='info'>
-        <input type="text" id="Class" width="10rem">
-        <input type="text" id="Race" width="10rem">
-        <input type="text" id="Player" width="10rem">
-        <input type="text" id="Experiance" width="10rem">
-        <input type="text" id="Alignment" width="10rem">
-        <input type="text" id="Background" width="10rem">
-    </section>
-</header>
-<div id='main'>
-    <div id='AbilitiesProficiencies'>
-        <div id='AbilityScores'>
-            
-        </div>
-    </div>
-    <div id='OtherInfo'>
-        <p>content</p>
-    </div>
-</div> -->
+<div class="bevelBox">
+    <header>
+        <nav>
+            <ul class="nav nav-tabs">
+                <li>
+                    <a class="nav-link" routerLink="/profile">Abilities</a>
+                </li>
+                <li>
+                    <a class="nav-link" routerLink="/info">Description</a>
+                </li>
+                <li>
+                    <a class="nav-link" routerLink="/spells">Spellcasting</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+<div>
+    <router-outlet></router-outlet>
+</div>

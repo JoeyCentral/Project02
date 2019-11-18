@@ -20,8 +20,10 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #4CAF50;
-  color: white;
+  background-image: url(../../../assets/images/LoginBorder.png);
+  background-size: 125px 107px;
+  height: 107px;
+  width:125px;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
