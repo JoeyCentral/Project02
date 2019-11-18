@@ -1,6 +1,7 @@
 package com.revature.repositories;
 
 
+import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 

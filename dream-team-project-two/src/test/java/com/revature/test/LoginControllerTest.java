@@ -70,7 +70,11 @@ public class LoginControllerTest {
 
 		Users returnedUser = new Users();
 		returnedUser.setUsername(user.getUsername());
+<<<<<<< HEAD
+		when(mockUserRepository.createUser(user)).thenReturn(returnedUser);
+=======
 		when(mockUserRepository.create(user)).thenReturn(returnedUser);
+>>>>>>> ac247c42bdd26ebf838bd11f2f91c197297bab96
 
 		this.mockMvc
 				.perform(
@@ -104,7 +108,11 @@ public class LoginControllerTest {
 		String salt = mockUserRepository.returnSaltIfUserExist(username);
 		user.setSalt(salt);
 
+<<<<<<< HEAD
+		int userid = loginService.checkUser2(user);
+=======
 		int userid = loginService.checkUser(user);
+>>>>>>> ac247c42bdd26ebf838bd11f2f91c197297bab96
 		assertSame("If user doesn't exist: ", 6, userid);
 
 	}

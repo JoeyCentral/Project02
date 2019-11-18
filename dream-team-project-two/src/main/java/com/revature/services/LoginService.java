@@ -56,6 +56,7 @@ public class LoginService {
 				Users newUser = userRepository.create(user);
 				return newUser.getId();
 			}
+			
 			System.out.println("Password too short");
 			// returns -2 if password is too short
 			return -2;
