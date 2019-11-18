@@ -21,7 +21,7 @@ public class CharacterController {
 	int userId;
 	@GetMapping("/view")					//Retrieves all characters belonging to a user
 	public List<Character> getCharacters() {
-		return characterService.getCharacters(userId);
+		return null;
 	}
 	@PostMapping("/save")
 	public Characters saveCharacter() {
