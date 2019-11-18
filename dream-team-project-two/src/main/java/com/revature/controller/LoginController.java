@@ -23,22 +23,26 @@ public class LoginController {
 	public int checkUser(@RequestBody Users user) {
 		System.out.println("Attempting Login");
 		System.out.println("User Input:"+ user.getUsername() + " " + user.getHashpass());
-		int OldUserId = loginService.checkUser2(user);
+		int OldUserId = loginService.checkUser(user);
 		return OldUserId;
 	}
 
 	@PostMapping("/create")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Users newUser(@RequestBody Users user) {
-		// return loginService.newUser(user);
+	public int newUser(@RequestBody Users user) {
 		System.out.println("Attempting User Creation...");
 		return loginService.createUser(user);
 
 	}
-
 	@Autowired
 	public LoginController(LoginService loginService) {
 		super();
 		this.loginService = loginService;
 	}
 }
+
+
+
+
+
+
