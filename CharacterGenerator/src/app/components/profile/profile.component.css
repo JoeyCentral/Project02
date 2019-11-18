@@ -88,3 +88,20 @@ li {
     background-size:800px 30px;width:800px; height:30px;}
 #EquipmentFoot{background-image: url(../../../assets/images/DoubleColumnEquipmentFooter.png);
     background-size:800px 315px;width:800px; height:315px;}
+
+
+.abilityStyle{
+    font-size: 200%;
+    padding-top: 71px;
+}
+.abilityNum{
+    width:32px;
+    padding-top: 12px;
+}
+
+#Proficiencies{
+    background-size:250px 1000px;
+    width:250px; 
+    height:1000px;
+    float: right;
+}

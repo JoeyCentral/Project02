@@ -41,26 +41,42 @@
     </div>
     <div id="Full">
         <div id="Left">
-            <div class="item" id="Abilities">
-                <div id=AbilityScores style="display: block; width:148px;">
-                    <div style="font-size: 200%;padding-top: 80px;">{{StrMod}}</div>
-                <input type="number" id="Strength" [(ngModel)]="Str" style="width:30px;padding-top: 12px;">
-                <div style="font-size: 200%;padding-top: 70px;">{{DexMod}}</div>
-                <input type="number" id="Dexterity" [(ngModel)]="Dex" style="width:30px;padding-top: 12px;">
-                <div style="font-size: 200%;padding-top: 70px;">{{ConMod}}</div>
-                <input type="number" id="Constitution" [(ngModel)]="Con" style="width:30px;padding-top: 12px;">
-                <div style="font-size: 200%;padding-top: 70px;">{{IntMod}}</div>
-                <input type="number" id="Intelligence" [(ngModel)]="Int" style="width:30px;padding-top: 12px;">
-                <div style="font-size: 200%;padding-top: 70px;">{{WisMod}}</div>
-                <input type="number" id="Wisdom" [(ngModel)]="Wis" style="width:30px;padding-top: 12px;">
-                <div style="font-size: 200%;padding-top: 70px;">{{ChrMod}}</div>
-                <input type="number" id="Charisma" [(ngModel)]="Chr" style="width:30px;padding-top: 12px;">
-            </div>
+
             <div id="Proficiencies">
                 <div id="Inspiration">
-                    
+                            
                 </div>
+
+                <div 
+                style="float: left; padding-top: 150px; width: 120px;"
+                >{{0}}</div>
+                <input 
+                type="radio" 
+                style="padding-top: px; width: 130px;"/>
+
             </div>
+
+            <div class="item" id="Abilities">
+                <div id=AbilityScores style="display: block; width:148px;">
+                    <div class="abilityStyle">{{(Str - 10) / 2 | round}}</div>
+                <input class="abilityNum" type="number" [(ngModel)]="Str">
+
+                <div class="abilityStyle">{{(Dex - 10) / 2 | round}}</div>
+                <input class="abilityNum" type="number" [(ngModel)]="Dex">
+
+                <div class="abilityStyle">{{(Con - 10) / 2 | round}}</div>
+                <input class="abilityNum" type="number" [(ngModel)]="Con">
+
+                <div class="abilityStyle">{{(Int - 10) / 2 | round}}</div>
+                <input class="abilityNum" type="number" [(ngModel)]="Int">
+
+                <div class="abilityStyle">{{(Wis - 10) / 2 | round}}</div>
+                <input class="abilityNum" type="number" [(ngModel)]="Wis">
+
+                <div class="abilityStyle">{{(Chr - 10) / 2 | round}}</div>
+                <input class="abilityNum" type="number" [(ngModel)]="Chr">
+            </div>
+
             </div>
             <div class="item" id="Languages">
                 <div class="item" id="LanguagesTop"></div>
