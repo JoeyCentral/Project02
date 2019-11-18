@@ -19,7 +19,7 @@ public class CharacterService {
 		this.characterRepository = characterRepository;
 	}
 	
-	public List<Character> getCharacters() {
+	public List<Character> getCharacters(int userId) {
 		String sql = "SELECT * FROM Character WHERE user_id = ?";
 		PreparedStatement statement = conn.prepareStatement(sql);
 		
