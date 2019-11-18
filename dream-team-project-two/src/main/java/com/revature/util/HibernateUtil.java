@@ -10,10 +10,14 @@ import com.revature.models.CharClass;
 import com.revature.models.Characters;
 import com.revature.models.CustomRolls;
 import com.revature.models.Features;
+import com.revature.models.Info;
 import com.revature.models.JoinFeats;
 import com.revature.models.JoinSpells;
+import com.revature.models.Multiclass;
 import com.revature.models.Proficiencies;
+import com.revature.models.Profile;
 import com.revature.models.Race;
+import com.revature.models.SpellList;
 import com.revature.models.Spells;
 import com.revature.models.Spellsources;
 import com.revature.models.Users;
@@ -35,10 +39,11 @@ public class HibernateUtil {
 				.addAnnotatedClass(Characters.class)
 				.addAnnotatedClass(Features.class)
 				.addAnnotatedClass(Spells.class)
-				.addAnnotatedClass(Spellsources.class)
-				.addAnnotatedClass(JoinFeats.class)
-				.addAnnotatedClass(JoinSpells.class)
 				.addAnnotatedClass(CustomRolls.class)
+				.addAnnotatedClass(Profile.class)
+				.addAnnotatedClass(Multiclass.class)
+				.addAnnotatedClass(SpellList.class)
+				.addAnnotatedClass(Info.class)
 				.setProperty("hibernate.connection.username", System.getenv("DT_USER"))
 				.setProperty("hibernate.connection.password", System.getenv("DT_PASS"));
 		
