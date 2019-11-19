@@ -11,27 +11,29 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Entity
 public class Spells {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "spell_id")
 	private int id;
-	
+	@Value("")
 	private String spellname;
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private int spelllevel;
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private int school;
-	
+	@Value("")
 	private String casttime;
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private int spellrange;
-	
+	@Value("")
 	private String components;
-	
+	@Value("")
 	private String duration;
-	
+	@Value("")
 	private String description;
 	
 	@ManyToMany

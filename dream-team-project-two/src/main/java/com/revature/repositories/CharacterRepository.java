@@ -40,6 +40,7 @@ public class CharacterRepository {
 
 	public int save(Characters myCharacter) {
 		if (myCharacter.getId()==0) {
+			System.out.println(myCharacter);
 		Session session = em.unwrap(Session.class);
 		Profile myProfile = myCharacter.getProfile();
 		Info myInfo = myCharacter.getInfo();

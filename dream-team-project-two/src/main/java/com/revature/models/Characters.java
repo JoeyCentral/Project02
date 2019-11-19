@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Entity
 @Table(name= "my_characters")
 public class Characters {
@@ -18,12 +20,14 @@ public class Characters {
 	@Column(name = "char_id")
 	private int id;
 	
+	@Value("")
 	private String character_name;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private Users player;
 	
+	@Value("")
 	private String playername;
 	
     @OneToOne
