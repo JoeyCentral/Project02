@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,17 +30,17 @@ public class CharacterController {
 		return characterService.getMyCharacter(charId);
 	}
 	@PostMapping("/save")
-	public int saveCharacter(Characters myCharacter) {
+	public int saveCharacter(@RequestBody Characters myCharacter) {
 		int result = characterService.saveCharacter(myCharacter);
 		return result;
 	}
 	@PostMapping("/copy")
-	public int copyCharacter(Characters copyChar) {
+	public int copyCharacter(@RequestBody Characters copyChar) {
 		int result = characterService.copyCharacter(copyChar);
 		return result;
 	}
 	@PostMapping("/share")
-	public int shareCharacter(Characters shareChar) {
+	public int shareCharacter(@RequestBody Characters shareChar) {
 		int result = characterService.shareCharacter(shareChar);
 		return result;
 	}
