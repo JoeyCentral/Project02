@@ -20,8 +20,14 @@ public class Info {
 	}
 
 	private String image;
+	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int age;
+	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private double height;
+	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private double weight;
 	private String skin;
 	private String hair;

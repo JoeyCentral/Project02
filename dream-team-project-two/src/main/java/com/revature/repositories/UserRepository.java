@@ -1,7 +1,6 @@
 package com.revature.repositories;
 
 
-import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -103,6 +102,16 @@ public class UserRepository {
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public Users getUserByName(String username) {
+		Session session = em.unwrap(Session.class);
+		String hql = "from Users where username is :username";
+		Users user = session
+				.createQuery(hql, Users.class)
+				.setParameter("username", username, StringType.INSTANCE)
+				.getSingleResult();
+		return user;
 	}
 
 }

@@ -14,6 +14,7 @@ public class Multiclass {
 	@Column(name = "multiclass_id")
 	private int id;
 	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int level;
 	
 	@ManyToOne

@@ -27,6 +27,8 @@ public class SpellList {
 	}
 
 	private String castingFocus;
+	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int spellsLeft;
 	private String component;
 	
