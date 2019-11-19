@@ -19,13 +19,13 @@ public class Spells {
 	private int id;
 	
 	private String spellname;
-	
+	@Column(nullable=false)
 	private int spelllevel;
-	
+	@Column(nullable=false)
 	private int school;
 	
 	private String casttime;
-	
+	@Column(nullable=false)
 	private int spellrange;
 	
 	private String components;

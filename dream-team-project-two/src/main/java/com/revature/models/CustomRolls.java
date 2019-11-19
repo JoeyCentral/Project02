@@ -17,10 +17,13 @@ public class CustomRolls {
 	
 	private String roll_name;
 	
+	@Column(nullable=false)
 	private int ability;
 	
+	@Column(nullable=false)
 	private int modifier;
 	
+	@Column(nullable=false)
 	private int damage_amount;
 	
 	private String damage_type;

@@ -18,14 +18,30 @@ public class Profile {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "profile_id")
 	private int id;
+	
+	@Column(nullable=false)
 	private int abilityScores;
+	
+	@Column(nullable=false)
 	private int inspiration;
 	private String alignment;
+	
+	@Column(nullable=false)
 	private int experience;
+	
+	@Column(nullable=false)
 	private int maximumHealth;
+	
+	@Column(nullable=false)
 	private int ac;
+	
+	@Column(nullable=false)
 	private int deathsaves;
+	
+	@Column(nullable=false)
 	private int hitDice;
+	
+	@Column(nullable=false)
 	private int currentHealth;
 	private String inventory;
 	private String languages;
