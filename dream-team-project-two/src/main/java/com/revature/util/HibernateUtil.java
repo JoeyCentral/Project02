@@ -11,7 +11,10 @@ import com.revature.models.Characters;
 import com.revature.models.CustomRolls;
 import com.revature.models.Features;
 import com.revature.models.Info;
+<<<<<<< HEAD
 import com.revature.models.Multiclass;
+=======
+>>>>>>> a5a4d8b2ae52f226249194cee5cfd8e12e7e35ac
 import com.revature.models.Proficiencies;
 import com.revature.models.Profile;
 import com.revature.models.Race;
@@ -29,11 +32,14 @@ public class HibernateUtil {
 		Configuration configuration = new Configuration()
 				.configure()
 				.addAnnotatedClass(Users.class)
+				.addAnnotatedClass(Profile.class)
+				.addAnnotatedClass(SpellList.class)
+				.addAnnotatedClass(Info.class)
+				.addAnnotatedClass(Characters.class)
 				.addAnnotatedClass(Proficiencies.class)
 				.addAnnotatedClass(Backgrounds.class)
 				.addAnnotatedClass(Race.class)
 				.addAnnotatedClass(CharClass.class)
-				.addAnnotatedClass(Characters.class)
 				.addAnnotatedClass(Features.class)
 				.addAnnotatedClass(Spells.class)
 				.addAnnotatedClass(CustomRolls.class)

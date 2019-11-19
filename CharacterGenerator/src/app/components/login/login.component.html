@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<p *ngIf="!notValid">login works!</p>
-<form>
-=======
 <div>
     <div class="background"></div>
     <div *ngIf="loggedIn" style="text-align:center; z-index: 1; top:0; position: absolute;">
@@ -29,27 +25,15 @@
             <div class="container">
                 <label for="uname"><b>Username</b></label>
                 <input type="text" [(ngModel)]="inputUsername" placeholder="Enter Username" name="uname" required>
->>>>>>> ac247c42bdd26ebf838bd11f2f91c197297bab96
 
-    <div>
-        <input [(ngModel)] = "inputUsername"
-        type = "text" name = "username"
-        >
-        <label for="inputUsername" class='texgt-center'>
-            username
-        </label>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" [(ngModel)]="inputPassword" placeholder="Enter Password" name="psw" required>
+
+                <button (click)="submitLogin()" type="submit">Login</button>
+            </div>
+        </form>
     </div>
 
-<<<<<<< HEAD
-    <div>
-        <input [(ngModel)] = "inputPassword"
-        type = "password" name = "password"
-        >
-        <label for="inputPassword" class='texgt-center'>
-            password
-        </label>
-    </div>
-=======
     <div id="id02" class="modal" *ngIf="m2">
         <form class="modal-content animate" action="/action_page.php" method="post">
             <div class="imgcontainer">
@@ -65,25 +49,10 @@
             <div class="container">
                 <label for="uname"><b>Username</b></label>
                 <input type="text" [(ngModel)]="inputUsername" placeholder="Enter Username" name="uname" required>
->>>>>>> ac247c42bdd26ebf838bd11f2f91c197297bab96
 
-    <div *ngIf="notValid">
-        <div class="authentication-failure"> 
-            Incorrect Username/Password combination
-        </div>
-    </div>
-    <input (click)="submit()" 
-        type="submit" 
-         value="Sign in" 
-        class="btn btn-lg btn-primary btn-block text-uppercase" 
-    >
+                <label for="psw"><b>Password</b></label>
+                <input type="password" [(ngModel)]="inputPassword" placeholder="Enter Password" name="psw" required>
 
-<<<<<<< HEAD
-    <div *ngIf="!notValid">
-        <div class="authentication-success">
-            Login success!
-        </div>
-=======
                 <label for="psw"><b>Verify Password</b></label>
                 <input type="password" [(ngModel)]="verifyPassword" placeholder="Enter Password" name="psw2" required>
                 <div *ngIf="badPass">
@@ -91,9 +60,8 @@
                         Passwords much match.
                     </div>
                 </div>
-                <button type="submit">Create Account</button>
+                <button type="submit" (click)="submitCreate()">Create Account</button>
             </div>
         </form>
->>>>>>> ac247c42bdd26ebf838bd11f2f91c197297bab96
     </div>
-</form>
+</div>

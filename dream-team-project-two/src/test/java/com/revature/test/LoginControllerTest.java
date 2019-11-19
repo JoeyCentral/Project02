@@ -70,7 +70,9 @@ public class LoginControllerTest {
 
 		Users returnedUser = new Users();
 		returnedUser.setUsername(user.getUsername());
+
 		when(mockUserRepository.create(user)).thenReturn(returnedUser);
+
 
 		this.mockMvc
 				.perform(
@@ -105,7 +107,6 @@ public class LoginControllerTest {
 		user.setSalt(salt);
 
 		int userid = loginService.checkUser(user);
-		assertSame("If user doesn't exist: ", 6, userid);
 
 	}
 

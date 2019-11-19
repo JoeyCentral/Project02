@@ -20,8 +20,8 @@ public class CharacterController {
 	CharacterService characterService;
 	int userId;
 	@GetMapping("/view")					//Retrieves all characters belonging to a user
-	public List<Character> getCharacters() {
-		return null;
+	public ArrayList<Character> getCharacters() {
+		return characterService.getCharacters(userId);
 	}
 	@PostMapping("/save")
 	public Characters saveCharacter() {
