@@ -20,7 +20,13 @@ public class CharacterService {
 	
 	
 	public List<Characters> getCharacters(int userId) {
-		return characterRepository.getCharactersByUserId(userId);
+		List<Characters> allCharacters = characterRepository.getCharactersByUserId(userId);
+		for (Characters mychar: allCharacters) {
+			mychar.setProfile(null);
+			mychar.setInfo(null);
+			mychar.setSpellList(null);
+		}
+		return allCharacters;
 	}
 	public Characters getMyCharacter(int charId) {
 		return characterRepository.getCharacterByCharId(charId);
