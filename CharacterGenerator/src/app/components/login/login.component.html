@@ -43,7 +43,7 @@
             </div>
             <div *ngIf="notValid">
                 <div class="authentication-failure">
-                    That username has already been taken.
+                    Error message.
                 </div>
             </div>
             <div class="container">
@@ -60,7 +60,7 @@
                         Passwords much match.
                     </div>
                 </div>
-                <button type="submit">Create Account</button>
+                <button type="submit" (click)="submitCreate()">Create Account</button>
             </div>
         </form>
     </div>

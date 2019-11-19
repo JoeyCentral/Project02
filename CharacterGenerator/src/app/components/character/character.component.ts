@@ -10,7 +10,6 @@ export class CharacterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    let ClassLevel = 'No class selected';
   }
 
 }
