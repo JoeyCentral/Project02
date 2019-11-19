@@ -1,12 +1,33 @@
 package com.revature.models;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
 public class Info {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "info_id")
+	private int id;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	private String image;
+	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int age;
+	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private double height;
+	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private double weight;
 	private String skin;
 	private String hair;
@@ -18,34 +39,8 @@ public class Info {
 	private String alliance;
 	private String backstory;
 	
-	@OneToOne
-	@JoinColumn(name="character_id")
-	private Characters character;
-	
-	
-	public Info(String image, int age, double height, double weight, String skin, String hair, String personality,
-			String flaws, String bonds, String ideals, String symbol, String alliance, String backstory,
-			Characters character) {
-		super();
-		this.image = image;
-		this.age = age;
-		this.height = height;
-		this.weight = weight;
-		this.skin = skin;
-		this.hair = hair;
-		this.personality = personality;
-		this.flaws = flaws;
-		this.bonds = bonds;
-		this.ideals = ideals;
-		this.symbol = symbol;
-		this.alliance = alliance;
-		this.backstory = backstory;
-		this.character = character;
-	}
-
 	public Info() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 
@@ -153,13 +148,6 @@ public class Info {
 		this.backstory = backstory;
 	}
 
-	public Characters getCharacter() {
-		return character;
-	}
-
-	public void setCharacter(Characters character) {
-		this.character = character;
-	}
 
 	@Override
 	public int hashCode() {
@@ -169,12 +157,12 @@ public class Info {
 		result = prime * result + ((alliance == null) ? 0 : alliance.hashCode());
 		result = prime * result + ((backstory == null) ? 0 : backstory.hashCode());
 		result = prime * result + ((bonds == null) ? 0 : bonds.hashCode());
-		result = prime * result + ((character == null) ? 0 : character.hashCode());
 		result = prime * result + ((flaws == null) ? 0 : flaws.hashCode());
 		result = prime * result + ((hair == null) ? 0 : hair.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(height);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + id;
 		result = prime * result + ((ideals == null) ? 0 : ideals.hashCode());
 		result = prime * result + ((image == null) ? 0 : image.hashCode());
 		result = prime * result + ((personality == null) ? 0 : personality.hashCode());
@@ -211,11 +199,6 @@ public class Info {
 				return false;
 		} else if (!bonds.equals(other.bonds))
 			return false;
-		if (character == null) {
-			if (other.character != null)
-				return false;
-		} else if (!character.equals(other.character))
-			return false;
 		if (flaws == null) {
 			if (other.flaws != null)
 				return false;
@@ -227,6 +210,8 @@ public class Info {
 		} else if (!hair.equals(other.hair))
 			return false;
 		if (Double.doubleToLongBits(height) != Double.doubleToLongBits(other.height))
+			return false;
+		if (id != other.id)
 			return false;
 		if (ideals == null) {
 			if (other.ideals != null)
@@ -260,10 +245,30 @@ public class Info {
 
 	@Override
 	public String toString() {
-		return "Info [image=" + image + ", age=" + age + ", height=" + height + ", weight=" + weight + ", skin=" + skin
-				+ ", hair=" + hair + ", personality=" + personality + ", flaws=" + flaws + ", bonds=" + bonds
-				+ ", ideals=" + ideals + ", symbol=" + symbol + ", alliance=" + alliance + ", backstory=" + backstory
-				+ ", character=" + character + "]";
+		return "Info [id=" + id + ", image=" + image + ", age=" + age + ", height=" + height + ", weight=" + weight
+				+ ", skin=" + skin + ", hair=" + hair + ", personality=" + personality + ", flaws=" + flaws + ", bonds="
+				+ bonds + ", ideals=" + ideals + ", symbol=" + symbol + ", alliance=" + alliance + ", backstory="
+				+ backstory + "]";
+	}
+
+	public Info(int id, String image, int age, double height, double weight, String skin, String hair,
+			String personality, String flaws, String bonds, String ideals, String symbol, String alliance,
+			String backstory) {
+		super();
+		this.id = id;
+		this.image = image;
+		this.age = age;
+		this.height = height;
+		this.weight = weight;
+		this.skin = skin;
+		this.hair = hair;
+		this.personality = personality;
+		this.flaws = flaws;
+		this.bonds = bonds;
+		this.ideals = ideals;
+		this.symbol = symbol;
+		this.alliance = alliance;
+		this.backstory = backstory;
 	}
 
 	

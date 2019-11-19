@@ -1,56 +1,165 @@
 package com.revature.models;
 
+
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
-
+@Entity
 public class SpellList {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "spell_list_id")
+	private int id;
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	private String castingFocus;
+	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int spellsLeft;
 	private String component;
 	
-	public SpellList(String castingFocus, int spellsLeft, String component, Characters character, Spells knownSpells,
-			Features features, Spells availableSpells) {
+	@ManyToMany
+	@JoinTable(name = "spells_known", joinColumns = { @JoinColumn(name = "spell_list_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "spell_id") })
+	private List<Spells> spellsknown;
+	
+	@ManyToMany
+	@JoinTable(name = "spellsavailable", joinColumns = { @JoinColumn(name = "spell_list_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "spell_id") })
+	private List<Spells> spellsavailable;
+	
+	@ManyToMany
+	@JoinTable(name = "spell_features", joinColumns = { @JoinColumn(name = "spell_list_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "feat_id") })
+	private List<Features> features;
+	
+
+	public SpellList(int id, String castingFocus, int spellsLeft, String component, List<Spells> spellsknown,
+			List<Spells> spellsavailable, List<Features> features) {
 		super();
+		this.id = id;
 		this.castingFocus = castingFocus;
 		this.spellsLeft = spellsLeft;
 		this.component = component;
-		this.character = character;
-		this.knownSpells = knownSpells;
+		this.spellsknown = spellsknown;
+		this.spellsavailable = spellsavailable;
 		this.features = features;
-		this.availableSpells = availableSpells;
 	}
+
+
+	public List<Features> getFeatures() {
+		return features;
+	}
+
+
+	public void setFeatures(List<Features> features) {
+		this.features = features;
+	}
+
+
+	@Override
+	public String toString() {
+		return "SpellList [id=" + id + ", castingFocus=" + castingFocus + ", spellsLeft=" + spellsLeft + ", component="
+				+ component + ", spellsknown=" + spellsknown + ", spellsavailable=" + spellsavailable + ", features="
+				+ features + "]";
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((castingFocus == null) ? 0 : castingFocus.hashCode());
+		result = prime * result + ((component == null) ? 0 : component.hashCode());
+		result = prime * result + ((features == null) ? 0 : features.hashCode());
+		result = prime * result + id;
+		result = prime * result + spellsLeft;
+		result = prime * result + ((spellsavailable == null) ? 0 : spellsavailable.hashCode());
+		result = prime * result + ((spellsknown == null) ? 0 : spellsknown.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SpellList other = (SpellList) obj;
+		if (castingFocus == null) {
+			if (other.castingFocus != null)
+				return false;
+		} else if (!castingFocus.equals(other.castingFocus))
+			return false;
+		if (component == null) {
+			if (other.component != null)
+				return false;
+		} else if (!component.equals(other.component))
+			return false;
+		if (features == null) {
+			if (other.features != null)
+				return false;
+		} else if (!features.equals(other.features))
+			return false;
+		if (id != other.id)
+			return false;
+		if (spellsLeft != other.spellsLeft)
+			return false;
+		if (spellsavailable == null) {
+			if (other.spellsavailable != null)
+				return false;
+		} else if (!spellsavailable.equals(other.spellsavailable))
+			return false;
+		if (spellsknown == null) {
+			if (other.spellsknown != null)
+				return false;
+		} else if (!spellsknown.equals(other.spellsknown))
+			return false;
+		return true;
+	}
+
+
+	public List<Spells> getSpellsknown() {
+		return spellsknown;
+	}
+
+
+	public void setSpellsknown(List<Spells> spellsknown) {
+		this.spellsknown = spellsknown;
+	}
+
+
+	public List<Spells> getSpellsavailable() {
+		return spellsavailable;
+	}
+
+
+	public void setSpellsavailable(List<Spells> spellsavailable) {
+		this.spellsavailable = spellsavailable;
+	}
+
 
 	public SpellList() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	
-	@Override
-	public String toString() {
-		return "SpellList [castingFocus=" + castingFocus + ", spellsLeft=" + spellsLeft + ", component=" + component
-				+ ", character=" + character + ", knownSpells=" + knownSpells + ", features=" + features
-				+ ", availableSpells=" + availableSpells + "]";
-	}
-
-	@OneToOne
-	@JoinColumn(name="character_id")
-	private Characters character;
-	
-	@ManyToMany
-	@JoinColumn(name="known_spells_id")
-	private Spells knownSpells;
-	
-	@ManyToMany
-	@JoinColumn(name="features_id")
-	private Features features;
-	
-	@ManyToMany
-	@JoinColumn(name="available_spells_id")
-	private Spells availableSpells;
 
 	public String getCastingFocus() {
 		return castingFocus;
@@ -76,96 +185,4 @@ public class SpellList {
 		this.component = component;
 	}
 
-	public Characters getCharacter() {
-		return character;
-	}
-
-	public void setCharacter(Characters character) {
-		this.character = character;
-	}
-
-	public Spells getKnownSpells() {
-		return knownSpells;
-	}
-
-	public void setKnownSpells(Spells knownSpells) {
-		this.knownSpells = knownSpells;
-	}
-
-	public Features getFeatures() {
-		return features;
-	}
-
-	public void setFeatures(Features features) {
-		this.features = features;
-	}
-
-	public Spells getAvailableSpells() {
-		return availableSpells;
-	}
-
-	public void setAvailableSpells(Spells availableSpells) {
-		this.availableSpells = availableSpells;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((availableSpells == null) ? 0 : availableSpells.hashCode());
-		result = prime * result + ((castingFocus == null) ? 0 : castingFocus.hashCode());
-		result = prime * result + ((character == null) ? 0 : character.hashCode());
-		result = prime * result + ((component == null) ? 0 : component.hashCode());
-		result = prime * result + ((features == null) ? 0 : features.hashCode());
-		result = prime * result + ((knownSpells == null) ? 0 : knownSpells.hashCode());
-		result = prime * result + spellsLeft;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		SpellList other = (SpellList) obj;
-		if (availableSpells == null) {
-			if (other.availableSpells != null)
-				return false;
-		} else if (!availableSpells.equals(other.availableSpells))
-			return false;
-		if (castingFocus == null) {
-			if (other.castingFocus != null)
-				return false;
-		} else if (!castingFocus.equals(other.castingFocus))
-			return false;
-		if (character == null) {
-			if (other.character != null)
-				return false;
-		} else if (!character.equals(other.character))
-			return false;
-		if (component == null) {
-			if (other.component != null)
-				return false;
-		} else if (!component.equals(other.component))
-			return false;
-		if (features == null) {
-			if (other.features != null)
-				return false;
-		} else if (!features.equals(other.features))
-			return false;
-		if (knownSpells == null) {
-			if (other.knownSpells != null)
-				return false;
-		} else if (!knownSpells.equals(other.knownSpells))
-			return false;
-		if (spellsLeft != other.spellsLeft)
-			return false;
-		return true;
-	}
-
-	
-	
 }

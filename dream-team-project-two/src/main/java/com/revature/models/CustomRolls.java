@@ -17,17 +17,20 @@ public class CustomRolls {
 	
 	private String roll_name;
 	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int ability;
 	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int modifier;
 	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int damage_amount;
 	
 	private String damage_type;
 	
 	@ManyToOne
-	@JoinColumn(name = "char_id")
-	private Characters char_id;
+	@JoinColumn(name = "profile_id")
+	private Profile profile_id;
 
 	public int getId() {
 		return id;
@@ -77,12 +80,12 @@ public class CustomRolls {
 		this.damage_type = damage_type;
 	}
 
-	public Characters getChar_id() {
-		return char_id;
+	public Profile getProfile_id() {
+		return profile_id;
 	}
 
-	public void setChar_id(Characters char_id) {
-		this.char_id = char_id;
+	public void setProfile_id(Profile profile_id) {
+		this.profile_id = profile_id;
 	}
 
 	@Override
@@ -90,11 +93,11 @@ public class CustomRolls {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ability;
-		result = prime * result + ((char_id == null) ? 0 : char_id.hashCode());
 		result = prime * result + damage_amount;
 		result = prime * result + ((damage_type == null) ? 0 : damage_type.hashCode());
 		result = prime * result + id;
 		result = prime * result + modifier;
+		result = prime * result + ((profile_id == null) ? 0 : profile_id.hashCode());
 		result = prime * result + ((roll_name == null) ? 0 : roll_name.hashCode());
 		return result;
 	}
@@ -110,11 +113,6 @@ public class CustomRolls {
 		CustomRolls other = (CustomRolls) obj;
 		if (ability != other.ability)
 			return false;
-		if (char_id == null) {
-			if (other.char_id != null)
-				return false;
-		} else if (!char_id.equals(other.char_id))
-			return false;
 		if (damage_amount != other.damage_amount)
 			return false;
 		if (damage_type == null) {
@@ -126,6 +124,11 @@ public class CustomRolls {
 			return false;
 		if (modifier != other.modifier)
 			return false;
+		if (profile_id == null) {
+			if (other.profile_id != null)
+				return false;
+		} else if (!profile_id.equals(other.profile_id))
+			return false;
 		if (roll_name == null) {
 			if (other.roll_name != null)
 				return false;
@@ -134,14 +137,8 @@ public class CustomRolls {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "CustomRolls [id=" + id + ", roll_name=" + roll_name + ", ability=" + ability + ", modifier=" + modifier
-				+ ", damage_amount=" + damage_amount + ", damage_type=" + damage_type + ", char_id=" + char_id + "]";
-	}
-
 	public CustomRolls(int id, String roll_name, int ability, int modifier, int damage_amount, String damage_type,
-			Characters char_id) {
+			Profile profile_id) {
 		super();
 		this.id = id;
 		this.roll_name = roll_name;
@@ -149,12 +146,20 @@ public class CustomRolls {
 		this.modifier = modifier;
 		this.damage_amount = damage_amount;
 		this.damage_type = damage_type;
-		this.char_id = char_id;
+		this.profile_id = profile_id;
+	}
+
+	@Override
+	public String toString() {
+		return "CustomRolls [id=" + id + ", roll_name=" + roll_name + ", ability=" + ability + ", modifier=" + modifier
+				+ ", damage_amount=" + damage_amount + ", damage_type=" + damage_type + ", profile_id=" + profile_id
+				+ "]";
 	}
 
 	public CustomRolls() {
 		super();
 	}
-	
-	
+
+
+
 }

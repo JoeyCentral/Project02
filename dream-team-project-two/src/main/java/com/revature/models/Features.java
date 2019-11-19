@@ -1,5 +1,6 @@
 package com.revature.models;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,10 +18,12 @@ public class Features {
 	
 	private String field_modified;
 	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int modifier;
 	
 	private String prereq;
 	
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int reqval;
 
 	public int getId() {

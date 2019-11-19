@@ -1,38 +1,67 @@
-<p *ngIf="!notValid">login works!</p>
-<form>
-
-    <div>
-        <input [(ngModel)] = "inputUsername"
-        type = "text" name = "username"
-        >
-        <label for="inputUsername" class='texgt-center'>
-            username
-        </label>
+<div>
+    <div class="background"></div>
+    <div *ngIf="loggedIn" style="text-align:center; z-index: 1; top:0; position: absolute;">
+        
+    </div>
+    <div *ngIf="!loggedIn" style="width:100%; text-align: left; top:50px; z-index: 1;position: absolute;">
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:125px;top:50px;
+        margin-left: 30%;">Login</button>
+        <button onclick="document.getElementById('id02').style.display='block'" style="width:125px;top:50px;
+        margin-left: 10%;">Create Account</button>
     </div>
 
-    <div>
-        <input [(ngModel)] = "inputPassword"
-        type = "password" name = "password"
-        >
-        <label for="inputPassword" class='texgt-center'>
-            password
-        </label>
+    <div id="id01" class="modal" *ngIf="m1">
+        <form class="modal-content animate" action="/action_page.php" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <img src="../../../assets/images/knight-3002031_640.jpg" alt="Login" class="avatar">
+            </div>
+            <div *ngIf="notValid">
+                <div class="authentication-failure">
+                    Incorrect Username/Password combination
+                </div>
+            </div>
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" [(ngModel)]="inputUsername" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" [(ngModel)]="inputPassword" placeholder="Enter Password" name="psw" required>
+
+                <button (click)="submitLogin()" type="submit">Login</button>
+            </div>
+        </form>
     </div>
 
-    <div *ngIf="notValid">
-        <div class="authentication-failure"> 
-            Incorrect Username/Password combination
-        </div>
-    </div>
-    <input (click)="submit()" 
-        type="submit" 
-         value="Sign in" 
-        class="btn btn-lg btn-primary btn-block text-uppercase" 
-    >
+    <div id="id02" class="modal" *ngIf="m2">
+        <form class="modal-content animate" action="/action_page.php" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <img src="../../../assets/images/accolade-63001_640.jpg" alt="Create Account" class="avatar">
+            </div>
+            <div *ngIf="notValid">
+                <div class="authentication-failure">
+                    Error message.
+                </div>
+            </div>
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" [(ngModel)]="inputUsername" placeholder="Enter Username" name="uname" required>
 
-    <div *ngIf="!notValid">
-        <div class="authentication-success">
-            Login success!
-        </div>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" [(ngModel)]="inputPassword" placeholder="Enter Password" name="psw" required>
+
+                <label for="psw"><b>Verify Password</b></label>
+                <input type="password" [(ngModel)]="verifyPassword" placeholder="Enter Password" name="psw2" required>
+                <div *ngIf="badPass">
+                    <div class="authentication-failure">
+                        Passwords much match.
+                    </div>
+                </div>
+                <button type="submit" (click)="submitCreate()">Create Account</button>
+            </div>
+        </form>
     </div>
-</form>
+</div>
