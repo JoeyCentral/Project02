@@ -17,13 +17,13 @@ public class CustomRolls {
 	
 	private String roll_name;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int ability;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int modifier;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int damage_amount;
 	
 	private String damage_type;

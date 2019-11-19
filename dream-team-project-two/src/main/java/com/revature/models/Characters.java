@@ -2,7 +2,6 @@ package com.revature.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,15 +26,15 @@ public class Characters {
 	
 	private String playername;
 	
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "profile_id")
     private Profile profile;
 	
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "info_id")
     private Info info;
     
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "spellList_id")
     private SpellList spellList;
 	

@@ -18,12 +18,12 @@ public class Features {
 	
 	private String field_modified;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int modifier;
 	
 	private String prereq;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, columnDefinition = "int default 0")
 	private int reqval;
 
 	public int getId() {
