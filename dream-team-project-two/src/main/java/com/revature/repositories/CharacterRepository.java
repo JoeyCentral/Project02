@@ -34,10 +34,7 @@ public class CharacterRepository {
 		
 		if (character == null) 
 			return Optional.empty();
-		
-		List<Characters> characters = character.getBooks();
-		Hibernate.initialize(books);
-		return Optional.of(books);
+		return null;
 
 	}
 }

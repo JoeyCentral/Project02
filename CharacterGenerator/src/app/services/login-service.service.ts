@@ -22,7 +22,7 @@ export class LoginServiceService {
     const userID = await this.httpClient.post(url, loginCredentials).toPromise();
     var b = JSON.parse(JSON.stringify(userID));
     if (b == 0) this.authenticated = false;
-    else this.authenticated = true;
+    else {this.authenticated = true; await this.router.navigateByUrl("/character")};
     return this.authenticated;
   }
 
@@ -35,7 +35,7 @@ export class LoginServiceService {
     const userID = await this.httpClient.post(url, loginCredentials).toPromise();
     var b = JSON.parse(JSON.stringify(userID));
     if (b == 0) this.authenticated = false;
-    else this.authenticated = true;
+    else {this.authenticated = true; await this.router.navigateByUrl("/character")};
     return this.authenticated;
   }
 }
