@@ -1,7 +1,6 @@
 package com.revature.repositories;
 
 
-import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -16,6 +15,7 @@ import org.hibernate.type.StringType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.revature.models.Characters;
 import com.revature.models.Users;
 
 
@@ -103,6 +103,16 @@ public class UserRepository {
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public Users getUserByName(String username) {
+		Session session = em.unwrap(Session.class);
+		String hql = "from Users where username is :username";
+		Users user = session
+				.createQuery(hql, Users.class)
+				.setParameter("username", username, StringType.INSTANCE)
+				.getSingleResult();
+		return user;
 	}
 
 }

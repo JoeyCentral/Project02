@@ -1,17 +1,16 @@
 package com.revature.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Characters;
-import com.revature.models.Users;
 import com.revature.services.CharacterService;
 
 @RestController
@@ -19,25 +18,33 @@ import com.revature.services.CharacterService;
 public class CharacterController {
 	CharacterService characterService;
 	int userId;
-	@GetMapping("/view")					//Retrieves all characters belonging to a user
-	public ArrayList<Character> getCharacters() {
+	@GetMapping("/view/{userId}")					//Retrieves all characters belonging to a user
+	public List<Characters> getCharacters(@PathVariable int userId) {
 		return characterService.getCharacters(userId);
 	}
+	@GetMapping("/select/{charId}")					//Retrieves all data for one character
+	public Characters getMyCharacter(@PathVariable int charId) {
+		return characterService.getMyCharacter(charId);
+	}
 	@PostMapping("/save")
-	public Characters saveCharacter() {
-		return null;
+	public int saveCharacter(Characters myCharacter) {
+		int result = characterService.saveCharacter(myCharacter);
+		return result;
 	}
 	@PostMapping("/copy")
-	public Characters copyCharacter() {
-		return null;
+	public int copyCharacter(Characters copyChar) {
+		int result = characterService.copyCharacter(copyChar);
+		return result;
 	}
 	@PostMapping("/share")
-	public Users shareCharacter() {
-		return null;
+	public int shareCharacter(Characters shareChar) {
+		int result = characterService.shareCharacter(shareChar);
+		return result;
 	}
-	@DeleteMapping("/delete")
-	public Characters deleteCharacter() {
-		return null;
+	@DeleteMapping("/delete/{charId}")
+	public int deleteCharacter(@PathVariable int charId) {
+		int result = characterService.deleteCharacter(charId);
+		return result;
 	}
 	
 	
