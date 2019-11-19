@@ -18,7 +18,7 @@ import com.revature.services.LoginService;
 public class LoginController {
 	LoginService loginService;
 
-	@PostMapping("/login")
+	@PostMapping("/login")					//Tested successfully with Postman
 	//return user id if logged in in successfully
 	public int checkUser(@RequestBody Users user) {
 		System.out.println("Attempting Login");
@@ -27,7 +27,7 @@ public class LoginController {
 		return OldUserId;
 	}
 
-	@PostMapping("/create")
+	@PostMapping("/create")					//Tested successfully with Postman
 	@ResponseStatus(HttpStatus.CREATED)
 	public int newUser(@RequestBody Users user) {
 		System.out.println("Attempting User Creation...");

@@ -19,10 +19,12 @@ public class CharacterController {
 	CharacterService characterService;
 	int userId;
 	@GetMapping("/view/{userId}")					//Retrieves all characters belonging to a user
+													//Tested successfully with Postman
 	public List<Characters> getCharacters(@PathVariable int userId) {
 		return characterService.getCharacters(userId);
 	}
 	@GetMapping("/select/{charId}")					//Retrieves all data for one character
+													//Tested successfully with Postman
 	public Characters getMyCharacter(@PathVariable int charId) {
 		return characterService.getMyCharacter(charId);
 	}

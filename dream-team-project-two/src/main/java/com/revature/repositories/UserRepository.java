@@ -15,7 +15,6 @@ import org.hibernate.type.StringType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.models.Characters;
 import com.revature.models.Users;
 
 

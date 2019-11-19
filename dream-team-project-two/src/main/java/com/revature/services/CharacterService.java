@@ -30,11 +30,13 @@ public class CharacterService {
 	}
 	public int copyCharacter(Characters copyChar) {
 		copyChar.setCharacter_name(copyChar.getCharacter_name()+"(copy)");
-		return characterRepository.copy(copyChar);
+		copyChar.setId(0);
+		return characterRepository.save(copyChar);
 	}
 	public int shareCharacter(Characters shareChar) {
 		shareChar.setPlayer(userRepository.getUserByName(shareChar.getPlayername()));
-		return characterRepository.share(shareChar);
+		shareChar.setId(0);
+		return characterRepository.save(shareChar);
 	}
 	public int deleteCharacter(int charId) {
 		characterRepository.delete(charId);

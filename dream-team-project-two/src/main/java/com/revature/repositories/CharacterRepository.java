@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.revature.models.Characters;
+import com.revature.models.Info;
+import com.revature.models.Profile;
+import com.revature.models.SpellList;
 
 @Repository
 public class CharacterRepository {
@@ -36,23 +39,42 @@ public class CharacterRepository {
 	}
 
 	public int save(Characters myCharacter) {
+		if (myCharacter.getId()==0) {
 		Session session = em.unwrap(Session.class);
+		Profile myProfile = myCharacter.getProfile();
+		Info myInfo = myCharacter.getInfo();
+		SpellList mySpells = myCharacter.getSpellList();
+		session.save(myProfile);
+		session.save(myInfo);
+		session.save(mySpells);
 		session.save(myCharacter);
+		} else {
+			Session session = em.unwrap(Session.class);
+			Profile myProfile = myCharacter.getProfile();
+			Info myInfo = myCharacter.getInfo();
+			SpellList mySpells = myCharacter.getSpellList();
+			session.update(myProfile);
+			session.update(myInfo);
+			session.update(mySpells);
+			session.update(myCharacter);
+		}
 		return myCharacter.getId();
 	}
 
-	public int copy(Characters copyChar) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
-	public int share(Characters shareChar) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public void delete(int charId) {
-		// TODO Auto-generated method stub
-		
+	public void delete(int char_id) {
+		Session session = em.unwrap(Session.class);
+		String hql = "from Characters where char_id is :char_id";
+		Characters myCharacter = session
+				.createQuery(hql, Characters.class)
+				.setParameter("char_id", char_id)
+				.getSingleResult();
+		Profile myProfile = myCharacter.getProfile();
+		Info myInfo = myCharacter.getInfo();
+		SpellList mySpells = myCharacter.getSpellList();
+		session.delete(myProfile);
+		session.delete(myInfo);
+		session.delete(mySpells);
+		session.delete(myCharacter);
 	}
 }
