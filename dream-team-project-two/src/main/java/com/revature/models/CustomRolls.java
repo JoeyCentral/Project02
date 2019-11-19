@@ -8,24 +8,26 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Entity
 public class CustomRolls {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "roll_id")
 	private int id;
-	
+	@Value("")
 	private String roll_name;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private int ability;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private int modifier;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private int damage_amount;
-	
+	@Value("")
 	private String damage_type;
 	
 	@ManyToOne

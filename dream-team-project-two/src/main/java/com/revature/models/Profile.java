@@ -12,6 +12,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Entity
 public class Profile {
 	@Id
@@ -19,29 +21,30 @@ public class Profile {
 	@Column(name = "profile_id")
 	private int id;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
-	private int abilityScores;
+	@Value("")
+	private String abilityScores;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private int inspiration;
+	@Value("")
 	private String alignment;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private int experience;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("1")
 	private int maximumHealth;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("10")
 	private int ac;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private int deathsaves;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private int hitDice;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("1")
 	private int currentHealth;
 	private String inventory;
 	private String languages;
@@ -72,11 +75,11 @@ public class Profile {
 		this.id = id;
 	}
 
-	public int getAbilityScores() {
+	public String getAbilityScores() {
 		return abilityScores;
 	}
 
-	public void setAbilityScores(int abilityScores) {
+	public void setAbilityScores(String abilityScores) {
 		this.abilityScores = abilityScores;
 	}
 
@@ -196,7 +199,7 @@ public class Profile {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + abilityScores;
+		result = prime * result + ((abilityScores == null) ? 0 : abilityScores.hashCode());
 		result = prime * result + ac;
 		result = prime * result + ((alignment == null) ? 0 : alignment.hashCode());
 		result = prime * result + ((background == null) ? 0 : background.hashCode());
@@ -224,7 +227,10 @@ public class Profile {
 		if (getClass() != obj.getClass())
 			return false;
 		Profile other = (Profile) obj;
-		if (abilityScores != other.abilityScores)
+		if (abilityScores == null) {
+			if (other.abilityScores != null)
+				return false;
+		} else if (!abilityScores.equals(other.abilityScores))
 			return false;
 		if (ac != other.ac)
 			return false;
@@ -289,7 +295,7 @@ public class Profile {
 				+ ", background=" + background + ", proficiencies=" + proficiencies + ", features=" + features + "]";
 	}
 
-	public Profile(int id, int abilityScores, int inspiration, String alignment, int experience,
+	public Profile(int id, String abilityScores, int inspiration, String alignment, int experience,
 			int maximumHealth, int ac, int deathsaves, int hitDice, int currentHealth, String inventory,
 			String languages, Race race, Backgrounds background, List<Proficiencies> proficiencies,
 			List<Features> features) {
