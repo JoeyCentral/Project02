@@ -1,6 +1,7 @@
 package com.revature.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,9 +18,10 @@ import com.revature.services.CharacterService;
 @RequestMapping("character")
 public class CharacterController {
 	CharacterService characterService;
+	int userId;
 	@GetMapping("/view")					//Retrieves all characters belonging to a user
 	public ArrayList<Character> getCharacters() {
-		return null;
+		return characterService.getCharacters(userId);
 	}
 	@PostMapping("/save")
 	public Characters saveCharacter() {

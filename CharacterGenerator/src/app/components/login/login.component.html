@@ -3,10 +3,11 @@
     <div *ngIf="loggedIn" style="text-align:center; z-index: 1; top:0; position: absolute;">
         
     </div>
-    <div *ngIf="!loggedIn" style="width:100%; text-align: center; top:10%; z-index: 1;position: absolute;">
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; margin-right: 10%;">Login</button>
-        <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Create
-            Account</button>
+    <div *ngIf="!loggedIn" style="width:100%; text-align: left; top:50px; z-index: 1;position: absolute;">
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:125px;top:50px;
+        margin-left: 30%;">Login</button>
+        <button onclick="document.getElementById('id02').style.display='block'" style="width:125px;top:50px;
+        margin-left: 10%;">Create Account</button>
     </div>
 
     <div id="id01" class="modal" *ngIf="m1">
@@ -42,7 +43,7 @@
             </div>
             <div *ngIf="notValid">
                 <div class="authentication-failure">
-                    That username has already been taken.
+                    Error message.
                 </div>
             </div>
             <div class="container">
@@ -59,7 +60,7 @@
                         Passwords much match.
                     </div>
                 </div>
-                <button type="submit">Create Account</button>
+                <button type="submit" (click)="submitCreate()">Create Account</button>
             </div>
         </form>
     </div>

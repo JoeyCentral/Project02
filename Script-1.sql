@@ -1,6 +1,15 @@
+drop table customrolls;
+drop table my_spells;
+drop table my_feats;
+drop table spellsources;
+drop table spells;
+drop table features;
+drop table my_characters;
+drop table backgrounds;
+drop table race;
+drop table character_class;
+drop table proficiencies;
 drop table users;
-drop table 
-
 
 
 
@@ -119,6 +128,9 @@ create table customrolls(
 );
 
 
+select * from users where username like 'weitest' and hashpass like 'password';
 
-
+UPDATE users
+SET hashpass = '425147479a70f4e7eb7f38a96990c56fba2b7b5dd8e98e3f63ad5b4a34d69d7b158f56fdfa89faae5606ecf4098d4ba2f2b75c946dab387a02df9a5833b4cbad'
+WHERE username = 'weitest';
 
