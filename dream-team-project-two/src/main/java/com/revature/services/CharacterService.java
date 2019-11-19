@@ -32,6 +32,7 @@ public class CharacterService {
 		return characterRepository.getCharacterByCharId(charId);
 	}
 	public int saveCharacter(Characters myCharacter) {
+		System.out.println(myCharacter);
 		return characterRepository.save(myCharacter);
 	}
 	public int copyCharacter(Characters copyChar) {

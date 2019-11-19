@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.beans.factory.annotation.Value;
 @Entity
 public class Info {
 	@Id
@@ -18,25 +20,34 @@ public class Info {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	@Value("")
 	private String image;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private int age;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private double height;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private double weight;
+	@Value("")
 	private String skin;
+	@Value("")
 	private String hair;
+	@Value("")
 	private String personality;
+	@Value("")
 	private String flaws;
+	@Value("")
 	private String bonds;
+	@Value("")
 	private String ideals;
+	@Value("")
 	private String symbol;
+	@Value("")
 	private String alliance;
+	@Value("")
 	private String backstory;
 	
 	public Info() {

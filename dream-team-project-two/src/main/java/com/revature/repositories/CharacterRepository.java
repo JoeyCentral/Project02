@@ -27,8 +27,20 @@ public class CharacterRepository {
 		session.save(character);
 		return character;
 	}
-	
-	public Optional<List<Characters>> getCharactersByUserId(int userId) {
+
+	public Characters getCharacterByCharId(int char_id) {
+		Session session = em.unwrap(Session.class);
+		String hql = "from Characters where char_id is :char_id";
+		Characters myCharacter = session
+				.createQuery(hql, Characters.class)
+				.setParameter("char_id", char_id)
+				.getSingleResult();
+		return myCharacter;
+	}
+
+	public int save(Characters myCharacter) {
+		if (myCharacter.getId()==0) {
+			System.out.println(myCharacter);
 		Session session = em.unwrap(Session.class);
 		Characters character = session.get(Characters.class, userId);
 		

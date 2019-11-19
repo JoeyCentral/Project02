@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import org.springframework.beans.factory.annotation.Value;
 @Entity
 public class Multiclass {
 	@Id
@@ -14,7 +16,7 @@ public class Multiclass {
 	@Column(name = "multiclass_id")
 	private int id;
 	
-	@Column(nullable=false, columnDefinition = "int default 0")
+	@Value("0")
 	private int level;
 	
 	@ManyToOne
