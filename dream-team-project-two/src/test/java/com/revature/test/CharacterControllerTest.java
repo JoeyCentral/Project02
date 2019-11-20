@@ -10,6 +10,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.Assert;
@@ -61,7 +63,7 @@ public class CharacterControllerTest {
 	}
 	
 	@Test
-	public void createUserTest() throws JsonProcessingException, Exception {
+	public void getCharacterByIdTest() throws JsonProcessingException, Exception {
 		Characters character = new Characters();
 		character.setCharacter_name("Fred");
 		character.setId(1);
@@ -92,13 +94,57 @@ public class CharacterControllerTest {
 		when(mockCharacterRepository.getCharacterByCharId(character.getId())).thenReturn(existingCharacter);
 
 
+		// I just want to compare the character IDs and names. I dont want to compare the rest of the information obtained from the JSON calls.
+		
 		this.mockMvc
 				.perform(
-						get("/select/" + existingCharacter.getId()).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(character)))
+						get("character/select/1").contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(character)))
 				.andDo(print()).andExpect(status().isCreated())
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(content().json(om.writeValueAsString(existingCharacter)));
 
 	}
+	
+	@Test
+	public void getCharactersByUserIdTest() throws JsonProcessingException, Exception {
+		Users existingUser = new Users();
+		existingUser.setUsername("Critesk");
+		existingUser.setId(1);
+		existingUser.setSalt("[B@2346885b");
+		existingUser.setHashpass("f3b144e788f008d568b2be2cc19c2692fe640ca01c1a5c0c89acf8edfd043a01ba631da6d324f1061a9812c9f290999e8907fda37b5563bcb2edabcf9b147269");
+		
+		List<Characters> expectedCharacters = new ArrayList<>();
+		
+		Characters character1 = new Characters();
+		Characters character2 = new Characters();
+		
+		character1.setId(1);
+		character2.setId(3);
+		
+		character1.setPlayername("Critesk");
+		character2.setPlayername("Critesk");
+		
+		character1.setCharacter_name("Fred");
+		character2.setCharacter_name("Fred");
+		
+		expectedCharacters.add(character1);
+		expectedCharacters.add(character2);
+		
+		List<Characters> actualCharacters = new ArrayList<>();
+		
+		when(mockCharacterRepository.getCharactersByUserId(existingUser.getId())).thenReturn(actualCharacters);
+		
+		// I just want to compare the character IDs and names. I dont want to compare the rest of the information obtained from the JSON calls.
+		
+		this.mockMvc
+		.perform(
+				get("character/view/" + existingUser.getId()).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(expectedCharacters)))
+		.andDo(print()).andExpect(status().isCreated())
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(content().json(om.writeValueAsString(actualCharacters)));
+		
+	}
+	
+	
 
 }
