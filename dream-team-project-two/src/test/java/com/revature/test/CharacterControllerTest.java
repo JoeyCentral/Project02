@@ -99,7 +99,7 @@ public class CharacterControllerTest {
 		this.mockMvc
 				.perform(
 						get("character/select/1").contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(character)))
-				.andDo(print()).andExpect(status().isCreated())
+				.andDo(print()).andExpect(status().isOk())
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(content().json(om.writeValueAsString(existingCharacter)));
 
@@ -139,7 +139,7 @@ public class CharacterControllerTest {
 		this.mockMvc
 		.perform(
 				get("character/view/" + existingUser.getId()).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(expectedCharacters)))
-		.andDo(print()).andExpect(status().isCreated())
+		.andDo(print()).andExpect(status().isOk())
 		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 		.andExpect(content().json(om.writeValueAsString(actualCharacters)));
 		
