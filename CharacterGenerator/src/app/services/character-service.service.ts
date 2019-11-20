@@ -8,5 +8,6 @@ export class CharacterServiceService {
   Level:number;
   CharClass:string;
   Player:string;
+  Languages:string;
   constructor() { }
 }

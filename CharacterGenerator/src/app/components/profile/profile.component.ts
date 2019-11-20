@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   Race = "";
   Alignment = "";
   Test = "This is a Test";
+  Languages = "This is a demonstration of how the language box expands when sufficient lines are contained to require expantion. The base size will be three lines, but will expand to as much as needed. This principle will be applied to every text diplay area.";
   
 
   races=[{name:"Elf"}, {name:"Dwarf"}, {name:"Human"}];
