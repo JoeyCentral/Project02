@@ -1,24 +1,115 @@
 <div class="bevelBox">
-        <header>
-            <nav>
-                <ul class="nav nav-tabs">
-                    <li>
-                        <a class="nav-link" routerLink="/profile">Abilities</a>
-                    </li>
-                    <li>
-                        <a class="nav-link" routerLink="/info">Description</a>
-                    </li>
-                    <li>
-                        <p>Spellcasting</p>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+    <header>
+        <nav>
+            <ul class="nav nav-tabs">
+                <li>
+                    <p>Abilities</p>
+                </li>
+                <li>
+                    <a class="nav-link" routerLink="/info">Description</a>
+                </li>
+                <li>
+                    <a class="nav-link" routerLink="/spells">Spellcasting</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<div class= "row m-0 p-0" >
+    <div class= "col-md-12">
+        <div id="Front">
+            <div id="Cover">
+                <div class="item" id="{{Header}}">
+                    <section id='name'>
+                        <input  type="text" id="Charname" width="16rem">
+                    </section>
+                    <section id='info'>
+                        <div style="display: inline-flex;margin:0;">
+                            <div style="width: 220px;">Level {{Level}} {{Class}} </div>
+                            <select ng-model="Race" style="width: 180px;" ng-options="x.name for x in races">
+                            </select>
+                            <div style="width: 200px;padding-left: 30px;">{{Player}}</div>
+                        </div>
+                        <div style="margin-top:22px;">
+                            <input type="number" id="Experience" min=0 value=0 style="width: 220px;">
+                            <select ng-model="Alignment" style="width: 180px;" ng-options="x.name for x in aligns">
+                            </select>
+                            <select ng-model="Background" style="width: 180px; padding-left: 30px;"
+                                ng-options="x.name for x in backgrounds">
+                            </select>
+                        </div>
+                    </section>
+                </div>
+            </div>
     </div>
-    <div>
-        <p>Test Spells</p>
-    </div>
+</div>
+<div class= "row m-0 p-0" style="text-align: center;width:100%;">
+    <div class="col-md-4">
+        <div id="Left">
+            <div class="item" id="Abilities">
+                <div id=AbilityScores style="display: block; width:148px;">
+                    <div style="font-size: 200%;padding-top: 80px;">{{StrMod}}</div>
+                <input type="number" id="Strength" [(ngModel)]="Str" style="width:30px;padding-top: 12px;">
+                <div style="font-size: 200%;padding-top: 70px;">{{DexMod}}</div>
+                <input type="number" id="Dexterity" [(ngModel)]="Dex" style="width:30px;padding-top: 12px;">
+                <div style="font-size: 200%;padding-top: 70px;">{{ConMod}}</div>
+                <input type="number" id="Constitution" [(ngModel)]="Con" style="width:30px;padding-top: 12px;">
+                <div style="font-size: 200%;padding-top: 70px;">{{IntMod}}</div>
+                <input type="number" id="Intelligence" [(ngModel)]="Int" style="width:30px;padding-top: 12px;">
+                <div style="font-size: 200%;padding-top: 70px;">{{WisMod}}</div>
+                <input type="number" id="Wisdom" [(ngModel)]="Wis" style="width:30px;padding-top: 12px;">
+                <div style="font-size: 200%;padding-top: 70px;">{{ChrMod}}</div>
+                <input type="number" id="Charisma" [(ngModel)]="Chr" style="width:30px;padding-top: 12px;">
+            </div>
+            <div id="Proficiencies">
+                <div id="Inspiration">
+                    
+                </div>
+            </div>
+            </div>
+            <div class="item" id="Languages">
+                <div class="item" id="LanguagesTop"></div>
+                <div class="item" id="LanguagesBody">
 
-    <div>
-            <router-outlet></router-outlet>
+                </div>
+                <div class="item" id="LanguagesFoot"></div>
+            </div>
         </div>
+    </div>
+    <div class="col-md-8" id="Right">
+        <div class="row" id="Top">
+            <div class="col-md-6">
+                <div class="item" id="Health"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="item" id="Other"></div>
+            </div>
+        </div>
+        <div class="row mx-auto">
+            <div class="col-md-12 mx-auto">
+                <div class="item" id="Attacks">
+                    <div class="item" id="AttacksTop"></div>
+                    <div class="item" id="AttacksBody">
+
+                    </div>
+                    <div class="item" id="AttacksFoot"></div>
+                </div>
+                <div class="item" id="Features">
+                    <div class="item" id="FeaturesTop"></div>
+                    <div class="item" id="FeaturesBody">
+
+                    </div>
+                    <div class="item" id="FeaturesFoot"></div>
+                </div>
+
+                <div class="item" id="Equipment">
+                    <div class="item" id="EquipmentTop"></div>
+                    <div class="item" id="EquipmentBody">
+
+                    </div>
+                    <div class="item" id="EquipmentFoot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

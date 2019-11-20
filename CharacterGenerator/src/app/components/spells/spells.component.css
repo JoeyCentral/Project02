@@ -1,26 +1,16 @@
-header {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
+input[type="text"]{background: transparent;border: none;}
+input[type="number"]{background: transparent;border: none;}
 
-h1 {
-    font-family: 'Rye';
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    display:inline-block;
-    margin: 20px 8px 10px 8px; 
-    color: rgb(3, 33, 66);
-}
-nav {
-    height: 30px;
-}
+#Charname {font-size:24px;font-weight: bold;}
 
-hr {
-    width: 80%;
-}
+input:focus {background: transparent;border: none;}
+
+#name {border-style: hidden;width: 256px;height: 26px;font-size: 150%;
+    font-weight: bold;position: relative;left: 64px;top: 100px;}
+
+#info {border-style: hidden;width: 650px;height: 50px;position: relative;left: 520px;top: 50px;display:block}
+
+
 
 ul {
     display: flex;
@@ -51,3 +41,59 @@ li {
     height: 4rem;
     border-radius: 1rem;
 }
+#Front{width:100%;text-align: center;}
+#Cover{display: inline-block;width:1208px;text-align: center;}
+#Full{display: inline-block;width:1220px;}
+#Left{display: inline-block;width:402px;}
+#Right{display: inline-block;width:806px;}
+#Top{display: inline-flex;width:804px;height:302px;}
+#Middle{display: inline-block;width:804px;text-align: center;}
+
+#HeaderWide{background-image: url(../../../assets/images/WideFrontHeader.png);
+background-size:1200px 225px;width:1200px; height:225px;}
+#HeaderMiddle {background-image: url(../../../assets/images/MiddleFrontHeader.png);
+background-size: 800px 239px;width:800px;height:239px;}
+#HeaderNarrow {background-image: url(../../../assets/images/NarrowFrontHeader.png);
+background-size: 400px 409px;width:400px;height:409px;}
+
+
+
+
+#Abilities{background-image: url(../../../assets/images/Abilities.png);
+    background-size:400px 1000px;width:400px; height:1000px;}
+#Health{background-image: url(../../../assets/images/HealthTracker.png);
+    background-size:400px 300px;width:400px; height:300px;}
+#Other{background-image: url(../../../assets/images/Other.png);
+    background-size:400px 300px;width:400px; height:300px;}
+
+#Attacks{width:800px;}
+#AttacksTop{background-image: url(../../../assets/images/DoubleColumnAttacksHeader.png);
+    background-size:800px 35px;width:800px; height:35px;}
+#AttacksBody{background-image: url(../../../assets/images/DoubleColumnAttacksBody.png);
+    background-size:800px 60px;width:800px; height:60px;}
+#AttacksFoot{background-image: url(../../../assets/images/DoubleColumnAttacksFooter.png);
+    background-size:800px 60px;width:800px; height:60px;}
+
+#Features{width:800px;}
+#FeaturesTop{background-image: url(../../../assets/images/DoubleColumnHeader.png);
+    background-size:800px 35px;width:800px; height:35px;}
+#FeaturesBody{background-image: url(../../../assets/images/DoubleColumnBody.png);
+    background-size:800px 30px;width:800px; height:30px;}
+#FeaturesFoot{background-image: url(../../../assets/images/DoubleColumnFeaturesFooter.png);
+    background-size:800px 60px;width:800px; height:60px;}
+
+#Languages{width:400px;}
+#LanguagesTop{background-image: url(../../../assets/images/SingleColumnTop.png);
+    background-size:400px 15px;width:400px; height:15px;}
+#LanguagesBody{background-image: url(../../../assets/images/SingleColumnRow.png);
+    background-size:400px 30px;width:400px; height:30px;}
+#LanguagesFoot{background-image: url(../../../assets/images/Languages.png);
+    background-size:400px 30px;width:400px; height:30px;}
+
+#Equipment{width:800px;}
+#EquipmentTop{background-image: url(../../../assets/images/DoubleColumnHeader2.png);
+    background-size:800px 35px;width:800px; height:35px;}
+#EquipmentBody{background-image: url(../../../assets/images/DoubleColumnBody2.png);
+    background-size:800px 30px;width:800px; height:30px;}
+#EquipmentFoot{background-image: url(../../../assets/images/DoubleColumnEquipmentFooter.png);
+    background-size:800px 315px;width:800px; height:315px;}

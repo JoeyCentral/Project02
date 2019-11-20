@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CharacterServiceService {
-
+  Charname:string;
+  Level:number;
+  CharClass:string;
+  Player:string;
   constructor() { }
 }

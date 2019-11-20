@@ -18,6 +18,7 @@ import com.revature.models.Race;
 import com.revature.models.SpellList;
 import com.revature.models.Spells;
 import com.revature.models.Users;
+import com.revature.models.Multiclass;
 
 
 public class HibernateUtil {
@@ -40,10 +41,7 @@ public class HibernateUtil {
 				.addAnnotatedClass(Features.class)
 				.addAnnotatedClass(Spells.class)
 				.addAnnotatedClass(CustomRolls.class)
-				.addAnnotatedClass(Profile.class)
 				.addAnnotatedClass(Multiclass.class)
-				.addAnnotatedClass(SpellList.class)
-				.addAnnotatedClass(Info.class)
 				.setProperty("hibernate.connection.username", System.getenv("DT_USER"))
 				.setProperty("hibernate.connection.password", System.getenv("DT_PASS"));
 		
