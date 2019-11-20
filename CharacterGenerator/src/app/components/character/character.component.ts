@@ -19,7 +19,7 @@ export class CharacterComponent implements OnInit {
     const url = "http://localhost:8081/character/save";
     
     
-    await this.httpClient.post(url, container).toPromise();
+    //await this.httpClient.post(url, container).toPromise();
   }
 
 }

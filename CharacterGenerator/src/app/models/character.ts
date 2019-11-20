@@ -1,11 +1,16 @@
+import { SpellList } from './spelllist';
+import { Info } from './info';
+import { Profile } from 'selenium-webdriver/firefox';
+import { User } from './user';
+
 export class Character{
     id:number;
     character_name:string;
-    player:string;//Users type in backend
+    player:User;
     playerName:string
-    profile:string//Profile type in backend
-    info:string//Info type in backend
-    spellList:string//SpellList type in backend
+    profile:Profile;
+    info:Info;
+    spellList:SpellList;
 
  
 }
