@@ -11,3 +11,20 @@ input[type="number"]{background: transparent;border: none;}
 
 #info {border-style: hidden;width: 650px;height: 50px;position: relative;left: 520px;top: 50px;display:block}
 #Charname {font-size:24px;font-weight: bold;}
+
+#Abilities{background-image: url(../../../assets/images/Abilities.png);
+    background-size:400px 1000px;width:400px; height:1000px;}
+.AbilityScore {width:40px;padding-top: 12px;margin-left:45px;}
+.AbilityMod {font-size: 200%;padding-top: 70px;margin-left:50px;}
+.AbilityModTop {font-size: 200%;padding-top: 80px;margin-left:50px;}
+
+#Health{background-image: url(../../../assets/images/HealthTracker.png);
+    background-size:400px 300px;width:400px; height:300px;}
+#Other{background-image: url(../../../assets/images/Other.png);
+    background-size:400px 300px;width:400px; height:300px;}
+#LanguagesTop{background-image: url(../../../assets/images/SingleColumnTop.png);
+    background-size:400px 15px;width:400px; height:15px;}
+#LanguagesBody{background-image: url(../../../assets/images/SingleColumnRow.png);
+    background-size:400px 30px;width:400px; min-height:30px; padding-left:30px;padding-right:20px;font-size:120%}
+#LanguagesFoot{background-image: url(../../../assets/images/Languages.png);
+    background-size:400px 36px;width:400px; height:36px;}

@@ -1,4 +1,4 @@
-<div class="row m-0 p-0 mx-auto">
+<div class="row m-0 p-0 mx-auto" style="max-width: 1208px;">
     <div class="row m-0 p-0 mx-auto">
         <div class="col-md-12 m-0 p-0 mx-auto">
             <div class="row" id={{Header}}>
@@ -107,7 +107,8 @@
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
                                 <div class="col-md-6 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;padding-top: 40px;margin-left:20px">Level {{Level}} {{CharClass}} </div>
+                                    <div style="width: 200px;padding-top: 40px;margin-left:20px">Level {{Level}}
+                                        {{CharClass}} </div>
                                 </div>
                                 <!--Race-->
                                 <div class="col-md-6 p-0">
@@ -150,4 +151,74 @@
             </div>
         </div>
     </div>
+    <div class="col-md-12 m-0 p-0 mx-auto">
+        <div class="row m-0 p-0 mx-auto">
+            <div class="col-md-4 m-0 p-0 mx-auto">
+                <!--Abilities-->
+                <div class="col-md-12 m-0 p-0 mx-auto" id="Abilities">
+                    <div class="col-md-5">
+                            <div class="AbilityModTop">{{(Str - 10) / 2 | round}}</div>
+                            <input class="AbilityScore" type="number" [(ngModel)]="Str">
+                            <div class="AbilityMod">{{(Dex - 10) / 2 | round}}</div>
+                            <input class="AbilityScore" type="number" [(ngModel)]="Dex" >
+                            <div class="AbilityMod">{{(Con - 10) / 2 | round}}</div>
+                            <input class="AbilityScore" type="number" [(ngModel)]="Con">
+                            <div class="AbilityMod">{{(Int - 10) / 2 | round}}</div>
+                            <input class="AbilityScore" type="number" [(ngModel)]="Int">
+                            <div class="AbilityMod">{{(Wis - 10) / 2 | round}}</div>
+                            <input class="AbilityScore" type="number" [(ngModel)]="Wis">
+                            <div class="AbilityMod">{{(Chr - 10) / 2 | round}}</div>
+                            <input class="AbilityScore" type="number" [(ngModel)]="Chr">
+                    </div>
+                    <div class="col-md-7">
+
+                    </div>
+                </div>
+                <!--Languages-->
+                <div class="col-md-12 m-0 p-0">
+                    <div id="LanguagesTop"></div>
+                    <div id="LanguagesBody">
+                        {{Languages}}
+                    </div>
+                    <div id="LanguagesFoot"></div>
+                </div>
+            </div>
+            <div class="col-md-8 m-0 p-0 mx-auto">
+                <div class="row m-0 p-0 mx-auto">
+                    <div class="col-md-6 m-0 p-0 mx-auto">
+                        <!--Health-->
+                    </div>
+                    <div class="col-md-6 m-0 p-0 mx-auto">
+                        <!--Other Info-->
+                    </div>
+                </div>
+                <div class="col-md-12 m-0 p-0 mx-auto">
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<!--
+            <div id="Left">
+            <div class="item" id="Abilities">
+                <div id=AbilityScores style="display: block; width:148px;">
+
+            </div>
+            <div id="Proficiencies">
+                <div id="Inspiration">
+                    
+                </div>
+            </div>
+            </div>
+            <div class="item" id="Languages">
+                <div class="item" id="LanguagesTop"></div>
+                <div class="item" id="LanguagesBody">
+
+                </div>
+                <div class="item" id="LanguagesFoot"></div>
+            </div>
+        </div>
+-->
