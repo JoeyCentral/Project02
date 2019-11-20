@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {Pipe, PipeTransform} from "@angular/core"
 //import { Router } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +14,17 @@ import { InfoComponent } from './components/info/info.component';
 import { SpellsComponent } from './components/spells/spells.component';
 
 
-
+@Pipe({name: 'round'})
+export class RoundPipe implements PipeTransform {
+    /**
+     *
+     * @param value
+     * @returns {number}
+     */
+    transform(value: number): number {
+        return Math.floor(value);
+    }
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +32,8 @@ import { SpellsComponent } from './components/spells/spells.component';
     LoginComponent,
     ProfileComponent,
     InfoComponent,
-    SpellsComponent
+    SpellsComponent,
+    RoundPipe
   ],
   imports: [
     BrowserModule,
