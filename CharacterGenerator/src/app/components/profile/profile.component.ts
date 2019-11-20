@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
   screenWidth: number;
   Header="HeaderNarrow";
   constructor() { this.getScreenSize}
-  Class = "Barbarian";
+  CharClass = "Barbarian";
   Level = 3;
   Player = "Critesk";
   Background = "Select Background";
