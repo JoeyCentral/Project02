@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HostListener } from "@angular/core";
+import { CharacterServiceService } from '../../services/character-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,15 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor() { }
-  Class = "Barbarian";
+  screenWidth: number;
+  Header="HeaderNarrow";
+  constructor() { this.getScreenSize}
+  CharClass = "Barbarian";
   Level = 3;
   Player = "Critesk";
   Background = "Select Background";
   Race = "";
   Alignment = "";
   Test = "This is a Test";
+  
 
   races=[{name:"Elf"}, {name:"Dwarf"}, {name:"Human"}];
   aligns=[{name:"Lawful Good"}, {name:"Lawful Neutral"}, {name:"Lawful Evil"}];
@@ -28,7 +32,17 @@ export class ProfileComponent implements OnInit {
   ChrMod=Math.round((this.Chr-10)/2);
 
 
-  ngOnInit() {
+  ngOnInit() {this.getScreenSize()
   }
-
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?) {
+        this.screenWidth = window.innerWidth;
+        if (this.screenWidth>=1200){
+          this.Header="HeaderWide";
+        } else if (this.screenWidth<=800){
+          this.Header="HeaderNarrow";
+        } else {
+          this.Header="HeaderMiddle";
+        }
+  }
 }
