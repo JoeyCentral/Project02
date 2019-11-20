@@ -1,19 +1,14 @@
+import { User } from './user';
+import { Profile } from './profile';
+import { Info } from './info';
+import { SpellList } from './spelllist';
+
 export class Character{
     id:number;
-    player:number;
     character_name:string;
-    my_class:number;
-    my_race:number;
-    class_prof1:number;
-    class_prof2:number;
-    background:number;
-    gear:string;
-    equiped_ac:number;
-    personality:string;
-    ideals:string;
-    bonds:string;
-    flaws:string;
-    appearance:string;
-    allies:string;
-    tempdata:number;
+    player:User;//Users type in backend
+    playerName:string
+    profile:Profile//Profile type in backend
+    info:Info//Info type in backend
+    spellList:SpellList//SpellList type in backend
 }

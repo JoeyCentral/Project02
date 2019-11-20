@@ -7,21 +7,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Entity
 public class Features {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "feat_id")
 	private int id;
-	
+	@Value("")
 	private String feat_name;
-	
+	@Value("")
 	private String field_modified;
 	
+	@Value("0")
 	private int modifier;
-	
+	@Value("")
 	private String prereq;
 	
+	@Value("0")
 	private int reqval;
 
 	public int getId() {

@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import org.springframework.beans.factory.annotation.Value;
 @Entity
 public class SpellList {
 	@Id
@@ -25,9 +27,12 @@ public class SpellList {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	@Value("")
 	private String castingFocus;
+	
+	@Value("0")
 	private int spellsLeft;
+	@Value("")
 	private String component;
 	
 	@ManyToMany

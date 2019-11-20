@@ -2,7 +2,6 @@ package com.revature.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 @Table(name= "my_characters")
@@ -19,23 +20,25 @@ public class Characters {
 	@Column(name = "char_id")
 	private int id;
 	
+	@Value("")
 	private String character_name;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private Users player;
 	
+	@Value("")
 	private String playername;
 	
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "profile_id")
     private Profile profile;
 	
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "info_id")
     private Info info;
     
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "spellList_id")
     private SpellList spellList;
 	
