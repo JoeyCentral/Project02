@@ -25,6 +25,7 @@ public class CharacterService {
 			mychar.setProfile(null);
 			mychar.setInfo(null);
 			mychar.setSpellList(null);
+			mychar.setPlayer(null);
 		}
 		return allCharacters;
 	}
