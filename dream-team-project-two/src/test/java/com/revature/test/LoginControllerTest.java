@@ -43,7 +43,7 @@ public class LoginControllerTest {
 	@InjectMocks
 	private LoginService loginService;
 	@Autowired
-	ObjectMapper om;
+	LoginService mockLoginService;
 
 	@Before
 	public void setup() {

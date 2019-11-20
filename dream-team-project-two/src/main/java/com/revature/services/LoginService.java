@@ -25,7 +25,7 @@ public class LoginService {
 		String saltFromUser = userRepository.returnSaltIfUserExist(username);
 		if (!saltFromUser.equals("0")) {
 			System.out.println("Checking password...");
-			// pw checking
+			// pw checking  
 			int userId = userRepository.verifyPassword(user, saltFromUser);
 			return userId;
 		}
