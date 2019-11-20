@@ -85,18 +85,19 @@ public class CharacterControllerTest {
 		
 		
 
-		Characters existingChatacter = new Characters();
-		existingChatacter.setCharacter_name(character.getCharacter_name());
+		Characters existingCharacter = new Characters();
+		existingCharacter.setCharacter_name(character.getCharacter_name());
+		existingCharacter.setPlayername(character.getPlayername());
 
-		when(mockCharacterRepository.getCharacterByCharId(character.getId())).thenReturn(existingChatacter);
+		when(mockCharacterRepository.getCharacterByCharId(character.getId())).thenReturn(existingCharacter);
 
 
 		this.mockMvc
 				.perform(
-						post("/create").contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(character)))
+						get("/select/" + existingCharacter.getId()).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(character)))
 				.andDo(print()).andExpect(status().isCreated())
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-				.andExpect(content().json(om.writeValueAsString(existingChatacter)));
+				.andExpect(content().json(om.writeValueAsString(existingCharacter)));
 
 	}
 
