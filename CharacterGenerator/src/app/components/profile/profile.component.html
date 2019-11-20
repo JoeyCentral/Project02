@@ -1,36 +1,224 @@
-<div class="row m-0 p-0 mx-auto">
+<div class="row m-0 p-0 mx-auto" style="max-width: 1208px;">
     <div class="row m-0 p-0 mx-auto">
-        <div class="col-md-12 m-0 p-0 mx-auto" >
+        <div class="col-md-12 m-0 p-0 mx-auto">
             <div class="row" id={{Header}}>
-                <div class="col-md-5" style="height:160px">
-                    <input *ngIf="Header=='HeaderWide'" type="text" id="Charname" 
-                    style="margin-left: 64px;margin-top: 100px;" [(ngModel)]="Charname">
-                    <input *ngIf="Header=='HeaderMiddle'" type="text" id="Charname" 
-                    style="margin-left: 64px;margin-top: 100px;" [(ngModel)]="Charname">
-                    <input *ngIf="Header=='HeaderNarrow'" type="text" id="Charname" 
-                    style="margin-left: 64px;margin-top: 75px;" [(ngModel)]="Charname">
+                <div class="col-md-5" style="height:160px;min-width: 300px;">
+                    <input *ngIf="Header=='HeaderWide'" type="text" id="Charname"
+                        style="margin-left: 64px;margin-top: 100px;" [(ngModel)]="Charname">
+                    <input *ngIf="Header=='HeaderMiddle'" type="text" id="Charname"
+                        style="margin-left: 64px;margin-top: 100px;" [(ngModel)]="Charname">
+                    <input *ngIf="Header=='HeaderNarrow'" type="text" id="Charname"
+                        style="margin-left: 64px;margin-top: 75px;width:300px" [(ngModel)]="Charname">
                 </div>
                 <div class="col-md-7" style="height:249px">
-                    Test
+                    <!--Wide-->
+                    <div *ngIf="Header=='HeaderWide'">
+                        <div class="row">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <div class="col-md-4 p-0">
+                                    <!--Class and Level-->
+                                    <div style="width: 200px;margin-left: 30px;margin-top: 80px;">Level {{Level}}
+                                        {{CharClass}}
+                                    </div>
+                                </div>
+                                <div class="col-md-3 p-0">
+                                    <!--Race-->
+                                    <select ng-model="Race" style="width: 180px;margin-left:10px;margin-top:78px;"
+                                        ng-options="x.name for x in races"></select>
+                                </div>
+                                <div class="col-md-5 p-0">
+                                    <!--Player-->
+                                    <div style="width: 200px;margin-left: 40px;margin-top:80px;">{{Player}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <div class="col-md-4 p-0">
+                                    <!--Experiance-->
+                                    <input type="number" id="Experience" min=0 value=0 style="width: 200px;
+                                        margin-top:26px;margin-left:20px;text-align: right;">
+                                </div>
+                                <div class="col-md-3 p-0">
+                                    <!--Alignment-->
+                                    <select ng-model="Alignment" ng-options="x.name for x in aligns"
+                                        style="margin-top: 24px;width: 180px;margin-left:10px"></select>
+                                </div>
+                                <div class="col-md-5 p-0">
+                                    <!--Background-->
+                                    <select ng-model="Background"
+                                        style="width: 180px; margin-left:45px;margin-top: 24px;"
+                                        ng-options="x.name for x in backgrounds">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Middle-->
+                    <div *ngIf="Header=='HeaderMiddle'">
+                        <div class="row">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <div class="col-md-7 p-0">
+                                    <!--Class and Level-->
+                                    <div style="width: 200px;padding-left: 79px;margin-top: 36px;">Level {{Level}}
+                                        {{CharClass}}
+                                    </div>
+                                </div>
+                                <!--Race-->
+                                <div class="col-md-5 p-0">
+                                    <select ng-model="Race" style="width: 170px;margin-left:15px;margin-top:30px;"
+                                        ng-options="x.name for x in races"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <!--Experiance-->
+                                <div class="col-md-7 p-0">
+                                    <input type="number" id="Experience" min=0 value=0 style="width: 170px;
+                                    margin-top:24px;margin-left:80px;text-align: right;">
+                                </div>
+                                <!--Alignment-->
+                                <div class="col-md-5 p-0">
+                                    <select ng-model="Alignment" ng-options="x.name for x in aligns"
+                                        style="width: 170px;margin-top:22px;margin-left:15px;"> </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <div class="col-md-7 p-0">
+                                    <!--Player-->
+                                    <div style="width: 200px;margin-left: 90px;margin-top:30px;">{{Player}}</div>
+                                </div>
+                                <!--Background-->
+                                <div class="col-md-5 p-0">
+                                    <select ng-model="Background"
+                                        style="width: 170px; margin-left: 15px;margin-top:22px;"
+                                        ng-options="x.name for x in backgrounds">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Narrow-->
+                    <div *ngIf="Header=='HeaderNarrow'" style="width:400px;">
+                        <div class="row" style="width:400px;">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <div class="col-md-6 p-0">
+                                    <!--Class and Level-->
+                                    <div style="width: 200px;padding-top: 40px;margin-left:20px">Level {{Level}}
+                                        {{CharClass}} </div>
+                                </div>
+                                <!--Race-->
+                                <div class="col-md-6 p-0">
+                                    <select ng-model="Race" style="width: 170px;margin-top: 40px;"
+                                        ng-options="x.name for x in races"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="width:400px;">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <!--Experiance-->
+                                <div class="col-md-7 p-0">
+                                    <input type="number" id="Experience" min=0 value=0 style="width: 170px;
+                                    margin-top:24px;margin-left:20px;text-align: right;">
+                                </div>
+                                <!--Alignment-->
+                                <div class="col-md-5 p-0">
+                                    <select ng-model="Alignment" ng-options="x.name for x in aligns"
+                                        style="width: 170px;margin-top:22px;margin-left:19px;"> </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="width:400px;">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <div class=" col-md-6 p-0">
+                                    <!--Player-->
+                                    <div style="width: 200px;margin-left: 20px;margin-top:30px;">{{Player}}</div>
+                                </div>
+                                <!--Background-->
+                                <div class="col-md-5 p-0">
+                                    <select ng-model="Background"
+                                        style="width: 170px; margin-left: 0px;margin-top:22px;"
+                                        ng-options="x.name for x in backgrounds">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 m-0 p-0 mx-auto">
+        <div class="row m-0 p-0 mx-auto">
+            <div class="col-md-4 m-0 p-0 mx-auto">
+                <!--Abilities-->
+                <div class="col-md-12 m-0 p-0 mx-auto" id="Abilities">
+                    <div class="col-md-5">
+                            <div class="AbilityModTop">{{(Str - 10) / 2 | round}}</div>
+                            <input class="AbilityScore" type="number" [(ngModel)]="Str">
+                            <div class="AbilityMod">{{(Dex - 10) / 2 | round}}</div>
+                            <input class="AbilityScore" type="number" [(ngModel)]="Dex" >
+                            <div class="AbilityMod">{{(Con - 10) / 2 | round}}</div>
+                            <input class="AbilityScore" type="number" [(ngModel)]="Con">
+                            <div class="AbilityMod">{{(Int - 10) / 2 | round}}</div>
+                            <input class="AbilityScore" type="number" [(ngModel)]="Int">
+                            <div class="AbilityMod">{{(Wis - 10) / 2 | round}}</div>
+                            <input class="AbilityScore" type="number" [(ngModel)]="Wis">
+                            <div class="AbilityMod">{{(Chr - 10) / 2 | round}}</div>
+                            <input class="AbilityScore" type="number" [(ngModel)]="Chr">
+                    </div>
+                    <div class="col-md-7">
+
+                    </div>
+                </div>
+                <!--Languages-->
+                <div class="col-md-12 m-0 p-0">
+                    <div id="LanguagesTop"></div>
+                    <div id="LanguagesBody">
+                        {{Languages}}
+                    </div>
+                    <div id="LanguagesFoot"></div>
+                </div>
+            </div>
+            <div class="col-md-8 m-0 p-0 mx-auto">
+                <div class="row m-0 p-0 mx-auto">
+                    <div class="col-md-6 m-0 p-0 mx-auto">
+                        <!--Health-->
+                    </div>
+                    <div class="col-md-6 m-0 p-0 mx-auto">
+                        <!--Other Info-->
+                    </div>
+                </div>
+                <div class="col-md-12 m-0 p-0 mx-auto">
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--width:256px; border-style: hidden;width: 256px;height: 26px;font-size: 150%;
-                    font-weight: bold;position: relative;
-                
-                                  <div style="display: inline-flex;margin:0;">
-                        <div style="width: 220px;">Level {{Level}} {{Class}} </div>
-                        <select ng-model="Race" style="width: 180px;" ng-options="x.name for x in races">
-                        </select>
-                        <div style="width: 200px;padding-left: 30px;">{{Player}}</div>
-                    </div>
-                    <div style="margin-top:22px;">
-                        <input type="number" id="Experience" min=0 value=0 style="width: 220px;">
-                        <select ng-model="Alignment" style="width: 180px;" ng-options="x.name for x in aligns">
-                        </select>
-                        <select ng-model="Background" style="width: 180px; padding-left: 30px;"
-                            ng-options="x.name for x in backgrounds">
-                        </select>
-                    </div>-->
+
+
+<!--
+            <div id="Left">
+            <div class="item" id="Abilities">
+                <div id=AbilityScores style="display: block; width:148px;">
+
+            </div>
+            <div id="Proficiencies">
+                <div id="Inspiration">
+                    
+                </div>
+            </div>
+            </div>
+            <div class="item" id="Languages">
+                <div class="item" id="LanguagesTop"></div>
+                <div class="item" id="LanguagesBody">
+
+                </div>
+                <div class="item" id="LanguagesFoot"></div>
+            </div>
+        </div>
+-->

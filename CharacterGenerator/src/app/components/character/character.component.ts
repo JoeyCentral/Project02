@@ -24,4 +24,5 @@ export class CharacterComponent implements OnInit {
           this.Header="HeaderMiddle";
         }
   }
+  
 }
