@@ -40,7 +40,7 @@ public class CharacterServiceTest {
 
 	
 	@Test
-	public void getCharactersByUserIdTest() {
+	public void getCharacterByCharacterIdTest() {
 
 //		Characters character1 = new Characters();
 //		character1.setCharacter_name("Fred");
@@ -49,9 +49,15 @@ public class CharacterServiceTest {
 		
 		Characters character = new Characters();
 		
-		when(mockCharacterRepository.getCharacterByCharId(0)).thenReturn(character);
+		int characterId = 1000;
 		
-		Characters returnedCharacter = characterService.getMyCharacter(character.getId());
+		when(mockCharacterRepository.getCharacterByCharId(characterId)).thenReturn(character);
+		
+//		System.out.println("Character ID: " + character.getId());
+		
+		Characters returnedCharacter = characterService.getMyCharacter(characterId);
+		
+//		System.out.println("returnedCharacter ID: " + returnedCharacter.getId());
 		
 		assertSame("Expecting character to be same as returnedCharacter...", character, returnedCharacter);
 		
@@ -59,5 +65,22 @@ public class CharacterServiceTest {
 		
 
 	}
+	
+	@Test
+	public void getCharactersByUserIdTest() {
+		List<Characters> characters = new ArrayList<>();
+		
+		int userId = 50;
+		
+		when(mockCharacterRepository.getCharactersByUserId(userId)).thenReturn(characters);
+		
+		List<Characters> actualCharacters = characterService.getCharacters(userId);
+		
+		assertSame("Expecting a list of two characters to be the same...", characters, actualCharacters);
+		
+		System.out.println("getCharactersByUserId test passed!");
+	}
+	
+	
 
 }
