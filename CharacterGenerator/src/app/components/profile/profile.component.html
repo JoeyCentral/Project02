@@ -157,17 +157,17 @@
                 <!--Abilities-->
                 <div class="col-md-12 m-0 p-0 mx-auto" id="Abilities">
                     <div class="col-md-5">
-                            <div class="AbilityModTop">{{StrMod}}</div>
+                            <div class="AbilityModTop">{{(Str - 10) / 2 | round}}</div>
                             <input class="AbilityScore" type="number" [(ngModel)]="Str">
-                            <div class="AbilityMod">{{DexMod}}</div>
+                            <div class="AbilityMod">{{(Dex - 10) / 2 | round}}</div>
                             <input class="AbilityScore" type="number" [(ngModel)]="Dex" >
-                            <div class="AbilityMod">{{ConMod}}</div>
+                            <div class="AbilityMod">{{(Con - 10) / 2 | round}}</div>
                             <input class="AbilityScore" type="number" [(ngModel)]="Con">
-                            <div class="AbilityMod">{{IntMod}}</div>
+                            <div class="AbilityMod">{{(Int - 10) / 2 | round}}</div>
                             <input class="AbilityScore" type="number" [(ngModel)]="Int">
-                            <div class="AbilityMod">{{WisMod}}</div>
+                            <div class="AbilityMod">{{(Wis - 10) / 2 | round}}</div>
                             <input class="AbilityScore" type="number" [(ngModel)]="Wis">
-                            <div class="AbilityMod">{{ChrMod}}</div>
+                            <div class="AbilityMod">{{(Chr - 10) / 2 | round}}</div>
                             <input class="AbilityScore" type="number" [(ngModel)]="Chr">
                     </div>
                     <div class="col-md-7">

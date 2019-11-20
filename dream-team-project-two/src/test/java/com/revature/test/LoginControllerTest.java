@@ -1,6 +1,9 @@
 package com.revature.test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -16,11 +19,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -39,17 +44,21 @@ import com.revature.services.LoginService;
 public class LoginControllerTest {
 
 	private MockMvc mockMvc;
-	@Mock
-	private UserRepository mockUserRepository;
-
-	@Mock
-	private LoginController loginController;
-
-	@Mock
-	private LoginService loginService;
-
-	@Autowired
+//
+//	@Mock
+//	private UserRepository mockUserRepository;
+//
+//	@InjectMocks
+//	private LoginController mockLoginController;
+//
+//	@Mock
+//	private LoginService mockLoginService;
+//	@Autowired
 	ObjectMapper om;
+	
+	@Autowired
+	LoginService mockLoginService;
+
 
 	@Test
 	public void easyTest() {
@@ -59,55 +68,39 @@ public class LoginControllerTest {
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
-		mockMvc = MockMvcBuilders.standaloneSetup(loginController).setControllerAdvice().build();
+		mockMvc = MockMvcBuilders.standaloneSetup(mockLoginService).build();
 	}
-
-	@Test
-	public void createUserTest() throws JsonProcessingException, Exception {
-		Users user = new Users();
-		user.setUsername("weitesttest");
-		user.setHashpass("password");
-
-		Users returnedUser = new Users();
-		returnedUser.setUsername(user.getUsername());
-
-		when(mockUserRepository.create(user)).thenReturn(returnedUser);
-
-
-		this.mockMvc
-				.perform(
-						post("/create").contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(user)))
-				.andDo(print()).andExpect(status().isCreated())
-				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-				.andExpect(content().json(om.writeValueAsString(returnedUser)));
-
-	}
-
-
-	@Test
-	public void createUserTest2() throws JsonProcessingException, Exception {
-		Users user = new Users();
-		user.setUsername("weitest");
-		String username = user.getUsername();
-		String salt = mockUserRepository.returnSaltIfUserExist("weitest");
-		user.setSalt(salt);
-		assertSame("Expect 0 if user doesn't exist", 0, salt);
-
-	}
-
+	
 	@Test
 	public void checkUserTest() {
 		Users user = new Users();
-		user.setUsername("weitest");
-		String username = user.getUsername();
+		user.setUsername("Weii");
+		user.setHashpass("PassWord");
+		
+		int returnedId = mockLoginService.checkUser(user);
+System.out.println(returnedId);
+		assertTrue(".checkUser() should return a userId with one inside the database (with user_id of 2).", returnedId != 0);
+		
+	}
 
-		user.setHashpass("password");
 
-		String salt = mockUserRepository.returnSaltIfUserExist(username);
-		user.setSalt(salt);
 
-		int userid = loginService.checkUser(user);
+	// fail, needs work
+	@Test
+	public void createUserTest() throws JsonProcessingException, Exception {
+		Users user = new Users();
+		user.setUsername("Weii");
+		user.setHashpass("PassWord");
+		user.setSalt("asdf");
 
+		when(mockLoginService.createUser(user)).thenReturn(user.getId());
+		System.out.println(user.getId());
+		this.mockMvc
+				.perform(post("/start/create").contentType(MediaType.APPLICATION_JSON)
+						.content(om.writeValueAsString(user)))
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(content().json(om.writeValueAsString(user)))
+				.andExpect(status().is(HttpStatus.CREATED.value()));
 
 	}
 
