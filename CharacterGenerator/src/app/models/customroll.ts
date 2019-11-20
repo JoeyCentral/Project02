@@ -1,4 +1,4 @@
-import { Profile } from './profile';
+import { Profile } from 'selenium-webdriver/firefox';
 
 export class CustomRoll {
     id:number;
@@ -7,5 +7,5 @@ export class CustomRoll {
     modifier:number;
     damage_amount:number;
     damage_type:string;
-    char_id:Profile;//Profile type in backend
+    profile_id:Profile;
 }
