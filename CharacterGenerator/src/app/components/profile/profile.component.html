@@ -209,9 +209,39 @@
             </div>
             <div id="Proficiencies">
                 <div id="Inspiration">
-                    
+                            
                 </div>
+
+                <div 
+                style="float: left; padding-top: 150px; width: 120px;"
+                >{{0}}</div>
+                <input 
+                type="radio" 
+                style="padding-top: px; width: 130px;"/>
+
             </div>
+
+            <div class="item" id="Abilities">
+                <div id=AbilityScores style="display: block; width:148px;">
+                    <div class="abilityStyle">{{(Str - 10) / 2 | round}}</div>
+                <input class="abilityNum" type="number" [(ngModel)]="Str">
+
+                <div class="abilityStyle">{{(Dex - 10) / 2 | round}}</div>
+                <input class="abilityNum" type="number" [(ngModel)]="Dex">
+
+                <div class="abilityStyle">{{(Con - 10) / 2 | round}}</div>
+                <input class="abilityNum" type="number" [(ngModel)]="Con">
+
+                <div class="abilityStyle">{{(Int - 10) / 2 | round}}</div>
+                <input class="abilityNum" type="number" [(ngModel)]="Int">
+
+                <div class="abilityStyle">{{(Wis - 10) / 2 | round}}</div>
+                <input class="abilityNum" type="number" [(ngModel)]="Wis">
+
+                <div class="abilityStyle">{{(Chr - 10) / 2 | round}}</div>
+                <input class="abilityNum" type="number" [(ngModel)]="Chr">
+            </div>
+
             </div>
             <div class="item" id="Languages">
                 <div class="item" id="LanguagesTop"></div>
