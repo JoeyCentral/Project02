@@ -1,31 +1,31 @@
 package com.revature.repositories;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 import javax.persistence.EntityManager;
 
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
-import org.hibernate.type.StringType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.revature.models.Characters;
-import com.revature.models.Users;
+import com.revature.models.Info;
+import com.revature.models.Profile;
+import com.revature.models.SpellList;
 
 @Repository
 public class CharacterRepository {
 	@Autowired(required = true)
 	EntityManager em;
-	
-	public Characters create(Characters character) {
+		
+	public List<Characters> getCharactersByUserId(int user_id) {
 		Session session = em.unwrap(Session.class);
-		session.save(character);
-		return character;
+				String hql = "from Characters where user_id is :user_id";
+				List<Characters> myCharacters = session
+						.createQuery(hql, Characters.class)
+						.setParameter("user_id", user_id)
+						.getResultList();
+				return myCharacters;
 	}
 
 	public Characters getCharacterByCharId(int char_id) {
@@ -37,16 +37,46 @@ public class CharacterRepository {
 				.getSingleResult();
 		return myCharacter;
 	}
+	
 
 	public int save(Characters myCharacter) {
-		if (myCharacter.getId()==0) {
+		if (myCharacter.getId() == 0) {
 			System.out.println(myCharacter);
 		Session session = em.unwrap(Session.class);
-		Characters character = session.get(Characters.class, userId);
-		
-		if (character == null) 
-			return Optional.empty();
-		return null;
+		Profile myProfile = myCharacter.getProfile();
+		Info myInfo = myCharacter.getInfo();
+		SpellList mySpells = myCharacter.getSpellList();
+		session.save(myProfile);
+		session.save(myInfo);
+		session.save(mySpells);
+		session.save(myCharacter);
+		} else {
+			Session session = em.unwrap(Session.class);
+			Profile myProfile = myCharacter.getProfile();
+			Info myInfo = myCharacter.getInfo();
+			SpellList mySpells = myCharacter.getSpellList();
+			session.update(myProfile);
+			session.update(myInfo);
+			session.update(mySpells);
+			session.update(myCharacter);
+		}
+		return myCharacter.getId();
+	}
 
+
+	public void delete(int char_id) {
+		Session session = em.unwrap(Session.class);
+		String hql = "from Characters where char_id is :char_id";
+		Characters myCharacter = session
+				.createQuery(hql, Characters.class)
+				.setParameter("char_id", char_id)
+				.getSingleResult();
+		Profile myProfile = myCharacter.getProfile();
+		Info myInfo = myCharacter.getInfo();
+		SpellList mySpells = myCharacter.getSpellList();
+		session.delete(myProfile);
+		session.delete(myInfo);
+		session.delete(mySpells);
+		session.delete(myCharacter);
 	}
 }
