@@ -12,4 +12,15 @@ export class CharacterComponent implements OnInit {
   ngOnInit() {
   }
 
+  async save(){
+    const container = {
+    
+    }
+    const url = "http://localhost:8081/character/save";
+    
+    
+    await this.httpClient.post(url, container).toPromise();
+  }
+
 }
+

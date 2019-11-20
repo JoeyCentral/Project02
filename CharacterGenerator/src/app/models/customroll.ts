@@ -5,5 +5,5 @@ export class CustomRoll {
     modifier:number;
     damage_amount:number;
     damage_type:string;
-    char_id:number;
+    char_id:number;//Profile type in backend
 }
