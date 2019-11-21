@@ -27,8 +27,8 @@ public class Race {
 	private List<Features> features;
 	
 	@ManyToMany
-	@JoinTable(name = "spells_feats", joinColumns = { @JoinColumn(name = "spells_id") }, inverseJoinColumns = { 
-			@JoinColumn(name = "feat_id") })
+	@JoinTable(name = "racial_spells", joinColumns = { @JoinColumn(name = "race_id") }, inverseJoinColumns = { 
+			@JoinColumn(name = "spells_id") })
 	private List<Spells> spells;
 	
 	public Race() {

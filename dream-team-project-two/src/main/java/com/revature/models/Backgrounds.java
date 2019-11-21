@@ -23,8 +23,8 @@ public class Backgrounds {
 	private String description;
 	
 	@ManyToMany
-	@JoinTable(name = "proficiencies", joinColumns = { @JoinColumn(name = "proficiencies_id") }, inverseJoinColumns = { 
-			@JoinColumn(name = "proficiencies_id") })
+	@JoinTable(name = "prof_background", joinColumns = { @JoinColumn(name = "background_id") }, inverseJoinColumns = { 
+			@JoinColumn(name = "prof_id") })
 	private List<Proficiencies> proficiencies;
 	
 	public Backgrounds() {
