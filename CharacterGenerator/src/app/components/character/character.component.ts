@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterServiceService } from 'src/app/services/character-service.service';
 import { Character } from 'src/app/models/character';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-character',
@@ -8,26 +9,45 @@ import { Character } from 'src/app/models/character';
   styleUrls: ['./character.component.css']
 })
 export class CharacterComponent implements OnInit {
-  screenWidth: number;
-  Header="Narrow";
-  constructor() { this.getScreenSize(); }
+  //screenWidth: number;
+  //Header="Narrow";
+  //constructor() { this.getScreenSize(); }
 
-  characters = <Character[]>;
-  constructor(private characterService : CharacterServiceService) { }
+  characterList= <Character[]>[];
+
+  charactersForm : FormGroup;
+  constructor(private characterService : CharacterServiceService
+    ) { }
 
   ngOnInit() {
   }
 
-  async getCharater(){
-    this.characters = await this.characterService.charService(1);
-  }
+  this.charactersForm = this.formBuilder.group({
+    character_name: '',
+  });
+  this.characterList = <Character>await this.characterService.getCharacters(1)
+  this.populateCharacterPage();
 
-  async updateCharacter(){
-    //this.character.id = charId
-  }
-  
 
-}
+
+
+/**
+populateCharacterPage() {
+  let v = this.character;
+  v.id = this.charactersForm.value['name'];
+  v.character_name = this.charactersForm.value['vin'];
+  v.player = this.charactersForm.value['year'];
+  v.profile = this.charactersForm.value['make'];
+  v.info = this.charactersForm.value['model'];
+  v.spellList = this.charactersForm.value['color'];
+
+  this.CharacterServiceService.populateCharacterPage(v).subscribe(
+    () => console.log(v)
+  );
+
+  */
+
+};
 //character properties   
   // id = this.charNumber;
   // character_name:string;

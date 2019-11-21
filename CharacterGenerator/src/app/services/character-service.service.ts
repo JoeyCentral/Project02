@@ -8,15 +8,39 @@ import { Observable } from 'rxjs';
 })
 export class CharacterServiceService {
 
-  character: Character;
-
+  character: Character[];
 
   constructor(private httpClient: HttpClient) { }
 
-  charService(): Observable<Character[]>{
-    const url = "http://localhost:8081/view/userid";
-    
-    return await this.httpClient.get<Character[]>(url, id);
+  ngOnInit(){
+    this.character = null;
   }
-     
+
+  async getCharacters(id: number){
+    return this.httpClient.get<Character>("character/view"+id).toPromise();
+  }
+
+  async getMyCharacter(charId: number){
+    return this.httpClient.get<Character[]>("character/select/"+charId).toPromise();
+  }
+/** 
+  async saveCharacter(id: Character){
+    return this.httpClient.post<Character>("character/save").toPromise();
+  }
+
+  async shareCharacter(id: Character){
+    return this.httpClient.post<Character>("character/copy").toPromise();
+  }
+
+  async copyCharacter(id: number){
+    return this.httpClient.post<Character>("character/share").toPromise();
+  }
+
+  async deleteCharacter(id: number){
+    return this.httpClient.delete<Character>("character/delete"+id).toPromise();
+  }
+*/
+
+
+
 }
