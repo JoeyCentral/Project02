@@ -28,6 +28,56 @@ public class CharClass {
 	@JoinTable(name = "class_feats", joinColumns = { @JoinColumn(name = "class_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "feat_id") })
 	private List<Features> features;
+	
+	@ManyToMany
+	@JoinTable(name = "class_spells", joinColumns = { @JoinColumn(name = "class_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "spells_id")	})
+	private List<Spells> spells;
+	
+	@ManyToMany
+	@JoinTable(name = "class_profs", joinColumns = { @JoinColumn(name = "class_id")}, inverseJoinColumns = {
+			@JoinColumn(name = "proficiencies_id")	})
+	private List<Proficiencies> proficiencies;
+	
+	public CharClass() {
+		super();
+	}
+
+	
+	public CharClass(int id, String classname, int hit_die, List<Features> features) {
+		super();
+		this.id = id;
+		this.classname = classname;
+		this.hit_die = hit_die;
+		this.features = features;
+	}
+
+	public CharClass(int id, String classname, int hit_die, List<Features> features, List<Spells> spells,
+			List<Proficiencies> proficiencies) {
+		super();
+		this.id = id;
+		this.classname = classname;
+		this.hit_die = hit_die;
+		this.features = features;
+		this.spells = spells;
+		this.proficiencies = proficiencies;
+	}
+
+	public List<Spells> getSpells() {
+		return spells;
+	}
+
+	public void setSpells(List<Spells> spells) {
+		this.spells = spells;
+	}
+
+	public List<Proficiencies> getProficiencies() {
+		return proficiencies;
+	}
+
+	public void setProficiencies(List<Proficiencies> proficiencies) {
+		this.proficiencies = proficiencies;
+	}
 
 	public int getId() {
 		return id;
@@ -55,6 +105,16 @@ public class CharClass {
 		if (hit_die != other.hit_die)
 			return false;
 		if (id != other.id)
+			return false;
+		if (proficiencies == null) {
+			if (other.proficiencies != null)
+				return false;
+		} else if (!proficiencies.equals(other.proficiencies))
+			return false;
+		if (spells == null) {
+			if (other.spells != null)
+				return false;
+		} else if (!spells.equals(other.spells))
 			return false;
 		return true;
 	}
@@ -95,6 +155,8 @@ public class CharClass {
 		result = prime * result + ((features == null) ? 0 : features.hashCode());
 		result = prime * result + hit_die;
 		result = prime * result + id;
+		result = prime * result + ((proficiencies == null) ? 0 : proficiencies.hashCode());
+		result = prime * result + ((spells == null) ? 0 : spells.hashCode());
 		return result;
 	}
 
@@ -102,22 +164,13 @@ public class CharClass {
 
 
 
-	public CharClass(int id, String classname, int hit_die, List<Features> features) {
-		super();
-		this.id = id;
-		this.classname = classname;
-		this.hit_die = hit_die;
-		this.features = features;
-	}
 
 	@Override
 	public String toString() {
 		return "CharClass [id=" + id + ", classname=" + classname + ", hit_die=" + hit_die + ", features=" + features
-				+ "]";
+				+ ", spells=" + spells + ", proficiencies=" + proficiencies + "]";
 	}
 
-	public CharClass() {
-		super();
-	}
+
 	
 }

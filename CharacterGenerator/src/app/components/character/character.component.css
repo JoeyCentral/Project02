@@ -1,1 +1,7 @@
-
+.background {
+    background-image: url("../../../assets/images/fantasy-3194227_1920.jpg");
+    background-position: center;
+    max-width: 1920px;
+    height: 949px;
+    z-index: -1;
+}

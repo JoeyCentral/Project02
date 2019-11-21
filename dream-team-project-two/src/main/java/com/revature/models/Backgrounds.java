@@ -1,10 +1,15 @@
 package com.revature.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Backgrounds {
@@ -16,6 +21,40 @@ public class Backgrounds {
 	private String background_name;
 	
 	private String description;
+	
+	@ManyToMany
+	@JoinTable(name = "prof_background", joinColumns = { @JoinColumn(name = "background_id") }, inverseJoinColumns = { 
+			@JoinColumn(name = "prof_id") })
+	private List<Proficiencies> proficiencies;
+	
+	public Backgrounds() {
+		super();
+	}
+
+	public Backgrounds(int id, String background_name, String description) {
+		super();
+		this.id = id;
+		this.background_name = background_name;
+		this.description = description;
+	}
+
+
+	public Backgrounds(int id, String background_name, String description, List<Proficiencies> proficiencies) {
+		super();
+		this.id = id;
+		this.background_name = background_name;
+		this.description = description;
+		this.proficiencies = proficiencies;
+	}
+	
+
+	public List<Proficiencies> getProficiencies() {
+		return proficiencies;
+	}
+
+	public void setProficiencies(List<Proficiencies> proficiencies) {
+		this.proficiencies = proficiencies;
+	}
 
 	public int getId() {
 		return id;
@@ -48,6 +87,7 @@ public class Backgrounds {
 		result = prime * result + ((background_name == null) ? 0 : background_name.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
+		result = prime * result + ((proficiencies == null) ? 0 : proficiencies.hashCode());
 		return result;
 	}
 
@@ -72,24 +112,20 @@ public class Backgrounds {
 			return false;
 		if (id != other.id)
 			return false;
+		if (proficiencies == null) {
+			if (other.proficiencies != null)
+				return false;
+		} else if (!proficiencies.equals(other.proficiencies))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Backgrounds [id=" + id + ", background_name=" + background_name + ", description=" + description + "]";
+		return "Backgrounds [id=" + id + ", background_name=" + background_name + ", description=" + description
+				+ ", proficiencies=" + proficiencies + "]";
 	}
 
-	public Backgrounds(int id, String background_name, String description) {
-		super();
-		this.id = id;
-		this.background_name = background_name;
-		this.description = description;
-	}
-
-	public Backgrounds() {
-		super();
-	}
 
 	
 }
