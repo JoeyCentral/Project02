@@ -1,29 +1,22 @@
 import { Injectable } from '@angular/core';
-
-
+import { HttpClient } from '@angular/common/http';
+import { Character } from '../models/character';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterServiceService {
 
-  constructor() { }
-}
+  character: Character;
 
-// super();
-// this.id = id;
-// this.abilityScores = abilityScores;
-// this.inspiration = inspiration;
-// this.alignment = alignment;
-// this.experience = experience;
-// this.maximumHealth = maximumHealth;
-// this.ac = ac;
-// this.deathsaves = deathsaves;
-// this.hitDice = hitDice;
-// this.currentHealth = currentHealth;
-// this.inventory = inventory;
-// this.languages = languages;
-// this.race = race;
-// this.background = background;
-// this.proficiencies = proficiencies;
-// this.features = features;
+
+  constructor(private httpClient: HttpClient) { }
+
+  charService(): Observable<Character[]>{
+    const url = "http://localhost:8081/view/userid";
+    
+    return await this.httpClient.get<Character[]>(url, id);
+  }
+     
+}
