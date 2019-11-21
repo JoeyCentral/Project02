@@ -81,13 +81,55 @@ public class CharacterControllerTest {
 			.andExpect(status().is(HttpStatus.OK.value()));
 		 */
 		
-		System.out.println("Character ID: " + characterId);
+//		System.out.println("Character ID: " + characterId);
 		
 		this.mockMvc.perform(get("/character/view/" + characterId))
 		.andExpect(content().contentTypeCompatibleWith("application/json"))
 		.andExpect(content().json(om.writeValueAsString(characters)))
 		.andExpect(status().is(HttpStatus.OK.value()));
 		
+	}
+	
+	@Test
+	public void saveCharacterTest() throws JsonProcessingException, Exception {
+		int characterId = 1;
+		
+		Characters character = new Characters();
+		
+		int newCharacterId = 0;
+		
+		when(mockCharacterRepository.save(character)).thenReturn(newCharacterId);
+		
+		/*
+		 * 		this.mockMvc.perform(post("/authors/")
+				// Include the request data
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(om.writeValueAsString(author)))
+			.andDo(print())
+			.andExpect(status().isCreated())
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+			.andExpect(content().json(om.writeValueAsString(returnedAuthor)));
+
+.contentType(MediaType.APPLICATION_JSON)
+						.content(om.writeValueAsString(user)))
+				.andDo(print()).andExpect(status().is(HttpStatus.OK.value()))
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(content().json(om.writeValueAsString(user.getId())));
+		 */
+		
+		
+		this.mockMvc.perform(post("/character/save").contentType(MediaType.APPLICATION_JSON)
+				.content(om.writeValueAsString(character)))
+		.andDo(print()).andExpect(status().is(HttpStatus.OK.value()))
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(content().json(om.writeValueAsString(newCharacterId)));
+
+	}
+	
+	@Test
+	public void deleteCharacterTest() throws JsonProcessingException, Exception {
+	//to be done when we have time
+		// problem: return void
 	}
 	
 	
