@@ -1,53 +1,30 @@
-header {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-h1 {
-    font-family: 'Rye';
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    display:inline-block;
-    margin: 20px 8px 10px 8px; 
-    color: rgb(3, 33, 66);
-}
-nav {
-    height: 30px;
-}
-
-hr {
-    width: 80%;
-}
-
-ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    width: 70%;
-    margin: 0 auto;
-}
-
-li {
-    flex-grow: 1;
-    text-align: center;
-    cursor: pointer;
-    font-size: 1.5rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
 
 
-.bevelBox{
-    background: #666666;
-    border: 1px solid #000000;    
-    -moz-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
-    -webkit-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
-    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
-    background-color: rgba(0, 255, 255, 0.2);
-    margin:auto;
-    width: 60%;
-    height: 4rem;
-    border-radius: 1rem;
-}
+
+
+#Attacks{width:800px;}
+#AttacksTop{background-image: url(../../../assets/images/DoubleColumnAttacksHeader.png);
+    background-size:800px 35px;width:800px; height:35px;}
+#AttacksBody{background-image: url(../../../assets/images/DoubleColumnAttacksBody.png);
+    background-size:800px 60px;width:800px; height:60px;}
+#AttacksFoot{background-image: url(../../../assets/images/DoubleColumnAttacksFooter.png);
+    background-size:800px 60px;width:800px; height:60px;}
+
+#Features{width:800px;}
+#FeaturesTop{background-image: url(../../../assets/images/DoubleColumnHeader.png);
+    background-size:800px 35px;width:800px; height:35px;}
+#FeaturesBody{background-image: url(../../../assets/images/DoubleColumnBody.png);
+    background-size:800px 30px;width:800px; height:30px;}
+#FeaturesFoot{background-image: url(../../../assets/images/DoubleColumnFeaturesFooter.png);
+    background-size:800px 60px;width:800px; height:60px;}
+
+#Languages{width:400px;}
+
+
+#Equipment{width:800px;}
+#EquipmentTop{background-image: url(../../../assets/images/DoubleColumnHeader2.png);
+    background-size:800px 35px;width:800px; height:35px;}
+#EquipmentBody{background-image: url(../../../assets/images/DoubleColumnBody2.png);
+    background-size:800px 30px;width:800px; height:30px;}
+#EquipmentFoot{background-image: url(../../../assets/images/DoubleColumnEquipmentFooter.png);
+    background-size:800px 315px;width:800px; height:315px;}

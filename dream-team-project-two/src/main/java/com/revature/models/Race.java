@@ -26,6 +26,42 @@ public class Race {
 			@JoinColumn(name = "feat_id") })
 	private List<Features> features;
 	
+	@ManyToMany
+	@JoinTable(name = "racial_spells", joinColumns = { @JoinColumn(name = "race_id") }, inverseJoinColumns = { 
+			@JoinColumn(name = "spells_id") })
+	private List<Spells> spells;
+	
+	public Race() {
+		super();
+	}
+	
+	public Race(int id, String racename, String description, List<Features> features) {
+		super();
+		this.id = id;
+		this.racename = racename;
+		this.description = description;
+		this.features = features;
+	}
+	
+
+	public Race(int id, String racename, String description, List<Features> features, List<Spells> spells) {
+		super();
+		this.id = id;
+		this.racename = racename;
+		this.description = description;
+		this.features = features;
+		this.spells = spells;
+	}
+	
+	
+	public List<Spells> getSpells() {
+		return spells;
+	}
+
+	public void setSpells(List<Spells> spells) {
+		this.spells = spells;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -50,13 +86,6 @@ public class Race {
 		this.description = description;
 	}
 
-	public Race(int id, String racename, String description, List<Features> features) {
-		super();
-		this.id = id;
-		this.racename = racename;
-		this.description = description;
-		this.features = features;
-	}
 
 	public List<Features> getFeatures() {
 		return features;
@@ -74,6 +103,7 @@ public class Race {
 		result = prime * result + ((features == null) ? 0 : features.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((racename == null) ? 0 : racename.hashCode());
+		result = prime * result + ((spells == null) ? 0 : spells.hashCode());
 		return result;
 	}
 
@@ -103,18 +133,20 @@ public class Race {
 				return false;
 		} else if (!racename.equals(other.racename))
 			return false;
+		if (spells == null) {
+			if (other.spells != null)
+				return false;
+		} else if (!spells.equals(other.spells))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "Race [id=" + id + ", racename=" + racename + ", description=" + description + ", features=" + features
-				+ "]";
+				+ ", spells=" + spells + "]";
 	}
 
 
-	public Race() {
-		super();
-	}
 
 }

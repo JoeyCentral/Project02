@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterServiceService } from 'src/app/services/character-service.service';
 import { Character } from 'src/app/models/character';
+import { HttpClient } from '@angular/common/http';
+import { LoginServiceService } from 'src/app/services/login-service.service';
 
 @Component({
   selector: 'app-character',
@@ -9,54 +11,17 @@ import { Character } from 'src/app/models/character';
 })
 export class CharacterComponent implements OnInit {
 
-  characters = <Character[]>;
-  constructor(private characterService : CharacterServiceService) { }
+  characterList= [Character];
+
+  constructor(private httpClient: HttpClient, private characterService : CharacterServiceService, private loginService : LoginServiceService) { }
 
   ngOnInit() {
+    this.getCharactersHttp();
   }
-
-  async getCharater(){
-    this.characters = await this.characterService.charService(1);
-  }
-
-  async updateCharacter(){
-    //this.character.id = charId
-  }
-  
-
+  async getCharactersHttp() {
+  const url = 'http://localhost:8081/character/view/'+this.loginService.userId;
+  const data = await this.httpClient.get(url).toPromise();
+  console.log(data);
+  this.characterList=JSON.parse(JSON.stringify(data));
+};
 }
-//character properties   
-  // id = this.charNumber;
-  // character_name:string;
-  // player:User;
-  // playerName:string
-  // profile:Profile;
-  // info:Info;
-  // spellList:SpellList;
-
-  //profile properties
-  // id:number;
-	// abilityScores:string;
-	// inspiration:number;
-	// alignmnet:string;
-	// experience:number;
-	// maximumHealth:number;
-	// ac:number;
-	// deathSaves:number;
-	// hitDice:number;
-	// currentHealth:number;
-	// inventory:string;
-	// languages:string;
-	// race:Race;
-	// background:Backgrounds;
-	// proficiencies:[Proficiencies];
-  // features:[Features];
-  
-  //spelllist properties
-  // id:number;
-	// castingFocus:string;
-	// spellsLeft:number;
-	// component:string;
-	// spellsKnown:[Spells];
-	// spellsAvilable:[Spells];
-	// features:[Features];

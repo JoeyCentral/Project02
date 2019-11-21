@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.beans.factory.annotation.Value;
 
@@ -57,6 +58,70 @@ public class Profile {
 	@JoinColumn(name = "background_id")
 	private Backgrounds background;
 	
+	@OneToMany
+	@JoinColumn(name = "custom_id")
+	private List<CustomRolls> customRolls;
+
+	public Profile() {
+		super();
+	}
+	
+	public Profile(int id, String abilityScores, int inspiration, String alignment, int experience,
+			int maximumHealth, int ac, int deathsaves, int hitDice, int currentHealth, String inventory,
+			String languages, Race race, Backgrounds background, List<Proficiencies> proficiencies,
+			List<Features> features) {
+		super();
+		this.id = id;
+		this.abilityScores = abilityScores;
+		this.inspiration = inspiration;
+		this.alignment = alignment;
+		this.experience = experience;
+		this.maximumHealth = maximumHealth;
+		this.ac = ac;
+		this.deathsaves = deathsaves;
+		this.hitDice = hitDice;
+		this.currentHealth = currentHealth;
+		this.inventory = inventory;
+		this.languages = languages;
+		this.race = race;
+		this.background = background;
+		this.proficiencies = proficiencies;
+		this.features = features;
+	}
+
+
+	public Profile(int id, String abilityScores, int inspiration, String alignment, int experience, int maximumHealth,
+			int ac, int deathsaves, int hitDice, int currentHealth, String inventory, String languages, Race race,
+			Backgrounds background, List<CustomRolls> customRolls, List<Proficiencies> proficiencies,
+			List<Features> features) {
+		super();
+		this.id = id;
+		this.abilityScores = abilityScores;
+		this.inspiration = inspiration;
+		this.alignment = alignment;
+		this.experience = experience;
+		this.maximumHealth = maximumHealth;
+		this.ac = ac;
+		this.deathsaves = deathsaves;
+		this.hitDice = hitDice;
+		this.currentHealth = currentHealth;
+		this.inventory = inventory;
+		this.languages = languages;
+		this.race = race;
+		this.background = background;
+		this.customRolls = customRolls;
+		this.proficiencies = proficiencies;
+		this.features = features;
+	}
+	
+	public List<CustomRolls> getCustomRolls() {
+		return customRolls;
+	}
+
+	public void setCustomRolls(List<CustomRolls> customRolls) {
+		this.customRolls = customRolls;
+	}
+
 	@ManyToMany
 	@JoinTable(name = "my_Profs", joinColumns = { @JoinColumn(name = "profile_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "prof_id") })
@@ -204,6 +269,7 @@ public class Profile {
 		result = prime * result + ((alignment == null) ? 0 : alignment.hashCode());
 		result = prime * result + ((background == null) ? 0 : background.hashCode());
 		result = prime * result + currentHealth;
+		result = prime * result + ((customRolls == null) ? 0 : customRolls.hashCode());
 		result = prime * result + deathsaves;
 		result = prime * result + experience;
 		result = prime * result + ((features == null) ? 0 : features.hashCode());
@@ -245,6 +311,11 @@ public class Profile {
 		} else if (!background.equals(other.background))
 			return false;
 		if (currentHealth != other.currentHealth)
+			return false;
+		if (customRolls == null) {
+			if (other.customRolls != null)
+				return false;
+		} else if (!customRolls.equals(other.customRolls))
 			return false;
 		if (deathsaves != other.deathsaves)
 			return false;
@@ -292,34 +363,10 @@ public class Profile {
 				+ ", alignment=" + alignment + ", experience=" + experience + ", maximumHealth=" + maximumHealth
 				+ ", ac=" + ac + ", deathsaves=" + deathsaves + ", hitDice=" + hitDice + ", currentHealth="
 				+ currentHealth + ", inventory=" + inventory + ", languages=" + languages + ", race=" + race
-				+ ", background=" + background + ", proficiencies=" + proficiencies + ", features=" + features + "]";
+				+ ", background=" + background + ", customRolls=" + customRolls + ", proficiencies=" + proficiencies
+				+ ", features=" + features + "]";
 	}
 
-	public Profile(int id, String abilityScores, int inspiration, String alignment, int experience,
-			int maximumHealth, int ac, int deathsaves, int hitDice, int currentHealth, String inventory,
-			String languages, Race race, Backgrounds background, List<Proficiencies> proficiencies,
-			List<Features> features) {
-		super();
-		this.id = id;
-		this.abilityScores = abilityScores;
-		this.inspiration = inspiration;
-		this.alignment = alignment;
-		this.experience = experience;
-		this.maximumHealth = maximumHealth;
-		this.ac = ac;
-		this.deathsaves = deathsaves;
-		this.hitDice = hitDice;
-		this.currentHealth = currentHealth;
-		this.inventory = inventory;
-		this.languages = languages;
-		this.race = race;
-		this.background = background;
-		this.proficiencies = proficiencies;
-		this.features = features;
-	}
 
-	public Profile() {
-		super();
-	}
 	
 }

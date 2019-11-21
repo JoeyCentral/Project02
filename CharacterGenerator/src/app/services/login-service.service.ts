@@ -10,7 +10,8 @@ export class LoginServiceService {
 
   constructor(private router: Router, private httpClient: HttpClient) { }
 
-  authenticated = false; 
+  authenticated = false;
+  userId = 0;
 
   async loginHttp(credentails: {username: string, password: string}){
     const loginCredentials = {
@@ -22,7 +23,10 @@ export class LoginServiceService {
     const userID = await this.httpClient.post(url, loginCredentials).toPromise();
     var b = JSON.parse(JSON.stringify(userID));
     if (b == 0) this.authenticated = false;
-    else {this.authenticated = true; await this.router.navigateByUrl("/character")};
+    else {
+      this.authenticated = true; 
+      this.userId = b;
+      await this.router.navigateByUrl("/character")};
     return this.authenticated;
   }
 
@@ -35,7 +39,10 @@ export class LoginServiceService {
     const userID = await this.httpClient.post(url, loginCredentials).toPromise();
     var b = JSON.parse(JSON.stringify(userID));
     if (b == 0) this.authenticated = false;
-    else {this.authenticated = true; await this.router.navigateByUrl("/character")};
+    else {
+      this.authenticated = true; 
+      this.userId = b;
+      await this.router.navigateByUrl("/character")};
     return this.authenticated;
   }
 }
