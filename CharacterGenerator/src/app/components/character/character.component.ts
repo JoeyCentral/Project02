@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HostListener } from "@angular/core";
+import { CharacterServiceService } from 'src/app/services/character-service.service';
+import { Character } from 'src/app/models/character';
 
 @Component({
   selector: 'app-character',
@@ -11,19 +12,54 @@ export class CharacterComponent implements OnInit {
   Header="Narrow";
   constructor() { this.getScreenSize(); }
 
+  characters = <Character[]>;
+  constructor(private characterService : CharacterServiceService) { }
+
   ngOnInit() {
   }
-  @HostListener('window:resize', ['$event'])
-  getScreenSize(event?) {
-        this.screenWidth = window.innerWidth;
-        if (this.screenWidth>=1200){
-          this.Header="HeaderWide";
-        } else if (this.screenWidth<=800){
-          this.Header="HeaderNarrow";
-        } else {
-          this.Header="HeaderMiddle";
-        }
+
+  async getCharater(){
+    this.characters = await this.characterService.charService(1);
+  }
+
+  async updateCharacter(){
+    //this.character.id = charId
   }
   
-}
 
+}
+//character properties   
+  // id = this.charNumber;
+  // character_name:string;
+  // player:User;
+  // playerName:string
+  // profile:Profile;
+  // info:Info;
+  // spellList:SpellList;
+
+  //profile properties
+  // id:number;
+	// abilityScores:string;
+	// inspiration:number;
+	// alignmnet:string;
+	// experience:number;
+	// maximumHealth:number;
+	// ac:number;
+	// deathSaves:number;
+	// hitDice:number;
+	// currentHealth:number;
+	// inventory:string;
+	// languages:string;
+	// race:Race;
+	// background:Backgrounds;
+	// proficiencies:[Proficiencies];
+  // features:[Features];
+  
+  //spelllist properties
+  // id:number;
+	// castingFocus:string;
+	// spellsLeft:number;
+	// component:string;
+	// spellsKnown:[Spells];
+	// spellsAvilable:[Spells];
+	// features:[Features];
