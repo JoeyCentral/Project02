@@ -11,13 +11,13 @@ import com.revature.models.Characters;
 import com.revature.models.CustomRolls;
 import com.revature.models.Features;
 import com.revature.models.Info;
+import com.revature.models.Multiclass;
 import com.revature.models.Proficiencies;
 import com.revature.models.Profile;
 import com.revature.models.Race;
 import com.revature.models.SpellList;
 import com.revature.models.Spells;
 import com.revature.models.Users;
-import com.revature.models.Multiclass;
 
 
 public class HibernateUtil {

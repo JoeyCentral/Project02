@@ -1,4 +1,4 @@
-<div class="row m-0 p-0 mx-auto" style="max-width: 1208px;">
+<div class="row m-0 p-0 mx-auto" style="max-width: 1200px;">
     <div class="row m-0 p-0 mx-auto">
         <div class="col-md-12 m-0 p-0 mx-auto">
             <div class="row" id={{Header}}>
@@ -151,104 +151,208 @@
             </div>
         </div>
     </div>
-    <div class="col-md-12 m-0 p-0 mx-auto">
-        <div class="row m-0 p-0 mx-auto">
-            <div class="col-md-4 m-0 p-0 mx-auto">
-                <!--Abilities-->
-                <div class="col-md-12 m-0 p-0 mx-auto" id="Abilities">
-                    <div class="col-md-5">
-                            <div class="AbilityModTop">{{(Str - 10) / 2 | round}}</div>
-                            <input class="AbilityScore" type="number" [(ngModel)]="Str">
-                            <div class="AbilityMod">{{(Dex - 10) / 2 | round}}</div>
-                            <input class="AbilityScore" type="number" [(ngModel)]="Dex" >
-                            <div class="AbilityMod">{{(Con - 10) / 2 | round}}</div>
-                            <input class="AbilityScore" type="number" [(ngModel)]="Con">
-                            <div class="AbilityMod">{{(Int - 10) / 2 | round}}</div>
-                            <input class="AbilityScore" type="number" [(ngModel)]="Int">
-                            <div class="AbilityMod">{{(Wis - 10) / 2 | round}}</div>
-                            <input class="AbilityScore" type="number" [(ngModel)]="Wis">
-                            <div class="AbilityMod">{{(Chr - 10) / 2 | round}}</div>
-                            <input class="AbilityScore" type="number" [(ngModel)]="Chr">
+    <div class="row mx-auto">
+        <div [class]="WidthControl">
+            <div class="row m-0 p-0 mx-auto">
+                <div [class]="SingleColumn">
+                    <div class="row mx-auto">
+                        <!--Abilities-->
+                        <div class="col-md-12 m-0 p-0" id="Abilities">
+                            <div class="col-md-4 m-0 p-0" style="max-width: 135px; text-align: left;">
+                                <div class="AbilityModTop">{{(Str - 10) / 2 | round}}</div>
+                                <input class="AbilityScore" type="number" [(ngModel)]="Str">
+                                <div class="AbilityMod">{{(Dex - 10) / 2 | round}}</div>
+                                <input class="AbilityScore" type="number" [(ngModel)]="Dex">
+                                <div class="AbilityMod">{{(Con - 10) / 2 | round}}</div>
+                                <input class="AbilityScore" type="number" [(ngModel)]="Con">
+                                <div class="AbilityMod">{{(Int - 10) / 2 | round}}</div>
+                                <input class="AbilityScore" type="number" [(ngModel)]="Int">
+                                <div class="AbilityMod">{{(Wis - 10) / 2 | round}}</div>
+                                <input class="AbilityScore" type="number" [(ngModel)]="Wis">
+                                <div class="AbilityMod">{{(Chr - 10) / 2 | round}}</div>
+                                <input class="AbilityScore" type="number" [(ngModel)]="Chr">
+                            </div>
+                            <!--Proficiencies-->
+                            <div class="col-md-8 m-0 p-0" style="text-align: left;">
+                                <div style="margin-left:37px;margin-top:0px;font-size:300%;
+                        height:48px;">{{Inspiration}}</div>
+                                <div style="margin-left:45px;margin-top:28px;font-size:200%;">{{ProfBonus}}</div>
+                                <div class="col-md-12 m-0 p-0">
+                                    <div class={{Prof1}}>{{P1}}</div>
+                                    <div class={{Prof2}}>{{P2}}</div>
+                                    <div class={{Prof3}}>{{P3}}</div>
+                                    <div class={{Prof4}}>{{P4}}</div>
+                                    <div class={{Prof5}}>{{P5}}</div>
+                                    <div class={{Prof6}}>{{P6}}</div>
+                                    <div class={{Prof7}}>{{P7}}</div>
+                                    <div class={{Prof8}}>{{P8}}</div>
+                                    <div class={{Prof9}}>{{P9}}</div>
+                                    <div class={{Prof10}}>{{P10}}</div>
+                                    <div class={{Prof11}}>{{P11}}</div>
+                                    <div class={{Prof12}}>{{P12}}</div>
+                                    <div class={{Prof13}}>{{P13}}</div>
+                                    <div class={{Prof14}}>{{P14}}</div>
+                                    <div class={{Prof15}}>{{P15}}</div>
+                                    <div class={{Prof16}}>{{P16}}</div>
+                                    <div class={{Prof17}}>{{P17}}</div>
+                                    <div class={{Prof18}}>{{P18}}</div>
+                                    <div class={{Prof19}}>{{P19}}</div>
+                                    <div class={{Prof20}}>{{P20}}</div>
+                                    <div class={{Prof21}}>{{P21}}</div>
+                                    <div class={{Prof22}}>{{P22}}</div>
+                                    <div class={{Prof23}}>{{P23}}</div>
+                                    <div class={{Prof24}}>{{P24}}</div>
+                                </div>
+                                <div style="margin-left:37px;margin-top:60px;font-size:200%;
+                            margin-bottom:27px;height:48px;">{{Passive}}</div>
+                            </div>
+                        </div>
+                        <!--Languages, for Wide-->
+                        <div class="col-md-12 m-0 p-0" *ngIf="WidthControl=='Wide'">
+                            <div id="LanguagesTop"></div>
+                            <div id="LanguagesBody">
+                                {{Languages}}
+                            </div>
+                            <div id="LanguagesFoot"></div>
+                        </div>
                     </div>
-                    <div class="col-md-7">
+                </div>
 
+                <div [class]="DoubleColumn">
+                    <div class="row m-0 p-0">
+                        <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
+                            <!--Health-->
+                            <div id="Health">
+                                <div class="row">
+                                    <input type="number" [(ngModel)]="AC" class="HP">
+                                    <input type="number" [(ngModel)]="MaximumHP" class="HP">
+                                    <input type="number" [(ngModel)]="TemporaryHP" class="HP">
+                                </div>
+                                <input type="number" [(ngModel)]="CurrentHP" class="HP"
+                                    style="margin-top: 70px;font-size:400%;width:100px;margin-left:20px;">
+                            </div>
+                        </div>
+                        <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
+                            <!--Other Info-->
+                            <div id="Other">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div style="margin-top:28px;margin-left:60px;">{{HitSix}}</div>
+                                                <div style="margin-top:4px;margin-left:60px;">{{HitEight}}</div>
+                                                <div style="margin-top:4px;margin-left:60px;">{{HitTen}}</div>
+                                                <div style="margin-top:4px;margin-left:60px;">{{HitTwelve}}</div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div style="margin-top:28px;margin-left:80px;">{{DiceSix}}</div>
+                                                <div style="margin-top:4px;margin-left:80px;">{{DiceEight}}</div>
+                                                <div style="margin-top:4px;margin-left:80px;">{{DiceTen}}</div>
+                                                <div style="margin-top:4px;margin-left:80px;">{{DiceTwelve}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="font-weight: bold;">
+                                            <div class="col-12" style="display: inline-flex;text-align: left;">
+                                                <div *ngIf="DeathPass>=1" style="margin-top:53px;margin-left:113px;">x
+                                                </div>
+                                                <div *ngIf="DeathPass>=2" style="margin-top:53px;margin-left:18px;">x
+                                                </div>
+                                                <div *ngIf="DeathPass==3" style="margin-top:53px;margin-left:18px;">x
+                                                </div>
+                                            </div>
+                                            <div class="col-12" style="display: inline-flex;height: 16px;">
+                                                <div *ngIf="DeathFail>=1" style="margin-top:3px;margin-left:113px;">x
+                                                </div>
+                                                <div *ngIf="DeathFail>=2" style="margin-top:3px;margin-left:18px">x
+                                                </div>
+                                                <div *ngIf="DeathFail==3" style="margin-top:3px;margin-left:18px;">x
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div style="margin-top:40px;font-size:200%">{{Initiative}}</div>
+                                        <div style="margin-top:35px;font-size:200%">{{Speed}}</div>
+                                        <div style="margin-top:35px;font-size:200%">{{Vision}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Languages, for Middle and Narrow-->
+                        <div class="col-md-6 m-0 p-0" *ngIf="WidthControl!='Wide'">
+                            <div id="LanguagesTop"></div>
+                            <div id="LanguagesBody">
+                                {{Languages}}
+                            </div>
+                            <div id="LanguagesFoot"></div>
+                        </div>
                     </div>
-                </div>
-                <!--Languages-->
-                <div class="col-md-12 m-0 p-0">
-                    <div id="LanguagesTop"></div>
-                    <div id="LanguagesBody">
-                        {{Languages}}
+                    <div *ngIf="WidthControl=='Wide'">
+                        <!--Custom Rolls for Wide-->
+                        <div id="AttacksTop"></div>
+                        <div id="AttacksBody">
+                            {{Attacks}}
+                        </div>
+                        <div id="AttacksFoot"></div>
+                        <!--Features for Wide-->
+                        <div id="FeaturesTop"></div>
+                        <div id="FeaturesBody">
+                            {{Features}}
+                        </div>
+                        <div id="FeaturesFoot"></div>
+                        <!--Custom Rolls for Wide-->
+                        <div id="GearTop"></div>
+                        <div id="GearBody">
+                            {{Gear}}
+                        </div>
+                        <div id="GearFoot"></div>
                     </div>
-                    <div id="LanguagesFoot"></div>
-                </div>
-            </div>
-            <div class="col-md-8 m-0 p-0 mx-auto">
-                <div class="row m-0 p-0 mx-auto">
-                    <div class="col-md-6 m-0 p-0 mx-auto">
-                        <!--Health-->
-                    </div>
-                    <div class="col-md-6 m-0 p-0 mx-auto">
-                        <!--Other Info-->
-                    </div>
-                </div>
-                <div class="col-md-12 m-0 p-0 mx-auto">
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-<!--
-            <div id="Left">
-            <div class="item" id="Abilities">
-                <div id=AbilityScores style="display: block; width:148px;">
-
+<div class="col-12 mx-auto">
+    <div class="row mx-auto" [id]="MaxWidth">
+        <div *ngIf="WidthControl=='Middle'" >
+            <!--Custom Rolls for Middle-->
+            <div id="AttacksTop"></div>
+            <div id="AttacksBody">
+                {{Attacks}}
             </div>
-            <div id="Proficiencies">
-                <div id="Inspiration">
-                            
-                </div>
-
-                <div 
-                style="float: left; padding-top: 150px; width: 120px;"
-                >{{0}}</div>
-                <input 
-                type="radio" 
-                style="padding-top: px; width: 130px;"/>
-
+            <div id="AttacksFoot"></div>
+            <!--Features for Middle-->
+            <div id="FeaturesTop"></div>
+            <div id="FeaturesBody">
+                {{Features}}
             </div>
-
-            <div class="item" id="Abilities">
-                <div id=AbilityScores style="display: block; width:148px;">
-                    <div class="abilityStyle">{{(Str - 10) / 2 | round}}</div>
-                <input class="abilityNum" type="number" [(ngModel)]="Str">
-
-                <div class="abilityStyle">{{(Dex - 10) / 2 | round}}</div>
-                <input class="abilityNum" type="number" [(ngModel)]="Dex">
-
-                <div class="abilityStyle">{{(Con - 10) / 2 | round}}</div>
-                <input class="abilityNum" type="number" [(ngModel)]="Con">
-
-                <div class="abilityStyle">{{(Int - 10) / 2 | round}}</div>
-                <input class="abilityNum" type="number" [(ngModel)]="Int">
-
-                <div class="abilityStyle">{{(Wis - 10) / 2 | round}}</div>
-                <input class="abilityNum" type="number" [(ngModel)]="Wis">
-
-                <div class="abilityStyle">{{(Chr - 10) / 2 | round}}</div>
-                <input class="abilityNum" type="number" [(ngModel)]="Chr">
+            <div id="FeaturesFoot"></div>
+            <!--Gear for Middle-->
+            <div id="GearTop"></div>
+            <div id="GearBody">
+                {{Gear}}
             </div>
-
-            </div>
-            <div class="item" id="Languages">
-                <div class="item" id="LanguagesTop"></div>
-                <div class="item" id="LanguagesBody">
-
-                </div>
-                <div class="item" id="LanguagesFoot"></div>
-            </div>
+            <div id="GearFoot"></div>
         </div>
--->
+        <div *ngIf="WidthControl=='Narrow'">
+            <!--Custom Rolls for Narrow-->
+            <div id="AttacksTopNarrow"></div>
+            <div id="AttacksBodyNarrow">
+                {{Attacks}}
+            </div>
+            <div id="AttacksFootNarrow"></div>
+            <!--Features for Narrow-->
+            <div id="FeaturesTopNarrow"></div>
+            <div id="FeaturesBodyNarrow">
+                {{Features}}
+            </div>
+            <div id="FeaturesFootNarrow"></div>
+            <!--Gear for Narrow-->
+            <div id="GearTopNarrow"></div>
+            <div id="GearBodyNarrow">
+                {{Gear}}
+            </div>
+            <div id="GearFootNarrow"></div>
+        </div>
+    </div>
+</div>
