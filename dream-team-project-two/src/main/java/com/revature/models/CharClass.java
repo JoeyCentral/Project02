@@ -30,12 +30,12 @@ public class CharClass {
 	private List<Features> features;
 	
 	@ManyToMany
-	@JoinTable(name = "spells_id", joinColumns = { @JoinColumn(name = "class_id") }, inverseJoinColumns = {
+	@JoinTable(name = "class_spells", joinColumns = { @JoinColumn(name = "class_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "spells_id")	})
 	private List<Spells> spells;
 	
 	@ManyToMany
-	@JoinTable(name = "proficiencies_id", joinColumns = { @JoinColumn(name = "class_id")}, inverseJoinColumns = {
+	@JoinTable(name = "class_profs", joinColumns = { @JoinColumn(name = "class_id")}, inverseJoinColumns = {
 			@JoinColumn(name = "proficiencies_id")	})
 	private List<Proficiencies> proficiencies;
 	

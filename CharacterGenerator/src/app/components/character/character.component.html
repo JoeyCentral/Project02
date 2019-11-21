@@ -1,16 +1,7 @@
-<div>
-<div id="top"></div>
-
-<div id="foot"></div>
+<div>Head</div>
+<div class="col-12">
+    <div *ngFor="let character of characterList">
+        <div>{{character.character_name}}</div>
+    </div>
 </div>
-
-
-<div>
-    <div id="Wide"></div>
-    <div id="Middle"></div>
-    <div id="Narrow"></div>
-</div>
-
-<div id={{Width}}>
-{{Width}} {{screenWidth}}
-</div>
+<div>Foot</div>
