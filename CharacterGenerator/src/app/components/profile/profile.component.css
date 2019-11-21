@@ -8,8 +8,8 @@ background-size: 400px 409px;width:400px;height:409px;}
 .Narrow{width:400px;text-align: center;}
 .Middle{width:800px;text-align: center;}
 .Wide{width:1200px;text-align: center;}
-
-
+#MMiddle{max-width:800px;text-align: center;}
+#MNarrow{max-width:400px;text-align: center;}
 
 input[type="text"]{background: transparent;border: none;}
 input[type="number"]{background: transparent;border: none;}
@@ -57,9 +57,9 @@ input[type="number"]{background: transparent;border: none;}
 #AttacksFoot{background-image: url(../../../assets/images/DoubleColumnAttacksFooter.png);
     background-size:800px 60px;width:800px; height:60px;}
 #AttacksTopNarrow{background-image: url(../../../assets/images/SingleColumnAttacksHeader.png);
-    background-size:400px 15px;width:400px; height:15px;}
+    background-size:400px 46px;width:400px; height:46px;}
 #AttacksBodyNarrow{background-image: url(../../../assets/images/SingleColumnAttacksBody.png);
-    background-size:400px 30px;width:400px; min-height:30px; padding-left:30px;padding-right:20px;font-size:120%;text-align: left;}
+    background-size:400px 120px;width:400px; min-height:120px; padding-left:30px;padding-right:20px;font-size:120%;text-align: left;}
 #AttacksFootNarrow{background-image: url(../../../assets/images/SingleColumnAttacksFooter.png);
     background-size:400px 65px;width:400px; height:65px;}
 
@@ -74,7 +74,7 @@ input[type="number"]{background: transparent;border: none;}
 #FeaturesBodyNarrow{background-image: url(../../../assets/images/SingleColumnBody.png);
     background-size:400px 30px;width:400px; min-height:30px; padding-left:30px;padding-right:20px;font-size:120%;text-align: left;}
 #FeaturesFootNarrow{background-image: url(../../../assets/images/SingleColumnFeaturesFooter.png);
-    background-size:400px 36px;width:400px; height:36px;}
+    background-size:400px 65px;width:400px; height:65px;}
 
 #GearTop{background-image: url(../../../assets/images/DoubleColumnHeader2.png);
     background-size:800px 15px;width:800px; height:15px;}
@@ -84,7 +84,7 @@ input[type="number"]{background: transparent;border: none;}
     background-size:800px 315px;width:800px; height:315px;}
 #GearTopNarrow{background-image: url(../../../assets/images/SingleColumnHeader2.png);
     background-size:400px 15px;width:400px; height:15px;}
-#GearBodyNarrow{background-image: url(../../../assets/images/SingleColumnRow.png);
+#GearBodyNarrow{background-image: url(../../../assets/images/SingleColumnBody2.png);
     background-size:400px 30px;width:400px; min-height:30px; padding-left:30px;padding-right:20px;font-size:120%;text-align: left;}
 #GearFootNarrow{background-image: url(../../../assets/images/SingleColumnEquipmentFooter.png);
-    background-size:400px 36px;width:400px; height:36px;}
+    background-size:400px 315px;width:400px; height:315px;}
