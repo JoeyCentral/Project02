@@ -10,6 +10,7 @@ export class ProfileComponent implements OnInit {
   screenWidth: number;
   Header="HeaderNarrow";
   WidthControl="Narrow";
+  MaxWidth="MNarrow";
   constructor() { this.getScreenSize}
   CharClass = "Barbarian";
   Level = 3;
@@ -53,16 +54,19 @@ export class ProfileComponent implements OnInit {
           this.DoubleColumn="col-md-8 m-0 p-0 mx-auto";
           this.SingleColumn = "col-md-4 m-0 p-0 mx-auto";
           this.WidthControl="Wide";
+          this.MaxWidth="MMiddle";
         } else if (this.screenWidth<=800){
           this.Header="HeaderNarrow";
           this.DoubleColumn="col-md-12 m-0 p-0 mx-auto";
           this.SingleColumn = "col-md-12 m-0 p-0 mx-auto";
           this.WidthControl="Narrow";
+          this.MaxWidth="MNarrow";
         } else {
           this.Header="HeaderMiddle";
           this.DoubleColumn="col-md-6 m-0 p-0 mx-auto";
           this.SingleColumn = "col-md-6 m-0 p-0 mx-auto";
           this.WidthControl="Middle";
+          this.MaxWidth="MMiddle";
         }
   }
 }

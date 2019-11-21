@@ -279,7 +279,7 @@
                             </div>
                         </div>
                         <!--Languages, for Middle and Narrow-->
-                        <div class="col-md-6 m-0 p-0" *ngIf="WidthControl!='Wide'">>
+                        <div class="col-md-6 m-0 p-0" *ngIf="WidthControl!='Wide'">
                             <div id="LanguagesTop"></div>
                             <div id="LanguagesBody">
                                 {{Languages}}
@@ -312,45 +312,47 @@
         </div>
     </div>
 </div>
-<div class="row mx-auto">
-    <div *ngIf="WidthControl=='Middle'">
-        <!--Custom Rolls for Middle-->
-        <div id="AttacksTop"></div>
-        <div id="AttacksBody">
-            {{Attacks}}
+<div class="col-12 mx-auto">
+    <div class="row mx-auto" [id]="MaxWidth">
+        <div *ngIf="WidthControl=='Middle'" >
+            <!--Custom Rolls for Middle-->
+            <div id="AttacksTop"></div>
+            <div id="AttacksBody">
+                {{Attacks}}
+            </div>
+            <div id="AttacksFoot"></div>
+            <!--Features for Middle-->
+            <div id="FeaturesTop"></div>
+            <div id="FeaturesBody">
+                {{Features}}
+            </div>
+            <div id="FeaturesFoot"></div>
+            <!--Gear for Middle-->
+            <div id="GearTop"></div>
+            <div id="GearBody">
+                {{Gear}}
+            </div>
+            <div id="GearFoot"></div>
         </div>
-        <div id="AttacksFoot"></div>
-        <!--Features for Middle-->
-        <div id="FeaturesTop"></div>
-        <div id="FeaturesBody">
-            {{Features}}
+        <div *ngIf="WidthControl=='Narrow'">
+            <!--Custom Rolls for Narrow-->
+            <div id="AttacksTopNarrow"></div>
+            <div id="AttacksBodyNarrow">
+                {{Attacks}}
+            </div>
+            <div id="AttacksFootNarrow"></div>
+            <!--Features for Narrow-->
+            <div id="FeaturesTopNarrow"></div>
+            <div id="FeaturesBodyNarrow">
+                {{Features}}
+            </div>
+            <div id="FeaturesFootNarrow"></div>
+            <!--Gear for Narrow-->
+            <div id="GearTopNarrow"></div>
+            <div id="GearBodyNarrow">
+                {{Gear}}
+            </div>
+            <div id="GearFootNarrow"></div>
         </div>
-        <div id="FeaturesFoot"></div>
-        <!--Gear for Middle-->
-        <div id="GearTop"></div>
-        <div id="GearBody">
-            {{Gear}}
-        </div>
-        <div id="GearFoot"></div>
-    </div>
-    <div *ngIf="WidthControl=='Narrow'">
-        <!--Custom Rolls for Narrow-->
-        <div id="AttacksTopNarrow"></div>
-        <div id="AttacksBodyNarrow">
-            {{Attacks}}
-        </div>
-        <div id="AttacksFootNarrow"></div>
-        <!--Features for Narrow-->
-        <div id="FeaturesTopNarrow"></div>
-        <div id="FeaturesBodyNarrow">
-            {{Features}}
-        </div>
-        <div id="FeaturesFootNarrow"></div>
-        <!--Gear for Narrow-->
-        <div id="GearTopNarrow"></div>
-        <div id="GearBodyNarrow">
-            {{Gear}}
-        </div>
-        <div id="GearFootNarrow"></div>
     </div>
 </div>

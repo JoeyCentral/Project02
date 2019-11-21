@@ -1,8 +1,5 @@
 package com.revature.test;
 
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.fail;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -12,9 +9,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,15 +24,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.controller.CharacterController;
-import com.revature.controller.LoginController;
 import com.revature.models.*;
 import com.revature.repositories.CharacterRepository;
-import com.revature.repositories.UserRepository;
 import com.revature.services.CharacterService;
-import com.revature.services.LoginService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -50,6 +42,9 @@ public class CharacterControllerTest {
 	private CharacterRepository mockCharacterRepository;
 
 	@InjectMocks
+	private CharacterController characterController;
+
+	@Mock
 	private CharacterService characterService;
 
 	@Autowired
@@ -58,83 +53,75 @@ public class CharacterControllerTest {
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
-//		mockMvc = MockMvcBuilders.standaloneSetup(characterController).setControllerAdvice().build();
+		mockMvc = MockMvcBuilders.standaloneSetup(characterController)
+				.setControllerAdvice().build();	
+		}
+	
+	@Test
+	public void getCharactersTest() throws JsonProcessingException, Exception {
+		int characterId = 1;
+		
+		List<Characters> characters = new ArrayList<>();
+		
+		when(mockCharacterRepository.getCharactersByUserId(1)).thenReturn(characters);
+		
+		/*
+		 * 	this.mockMvc.perform(get("/authors/" + id))
+			.andExpect(content().contentTypeCompatibleWith("application/json"))
+			.andExpect(content().json(om.writeValueAsString(author)))
+			.andExpect(status().is(HttpStatus.OK.value()));
+		 */
+		
+//		System.out.println("Character ID: " + characterId);
+		
+		this.mockMvc.perform(get("/character/view/" + characterId))
+		.andExpect(content().contentTypeCompatibleWith("application/json"))
+		.andExpect(content().json(om.writeValueAsString(characters)))
+		.andExpect(status().is(HttpStatus.OK.value()));
+		
 	}
 	
 	@Test
-	public void getCharacterByIdTest() throws JsonProcessingException, Exception {
+	public void saveCharacterTest() throws JsonProcessingException, Exception {
+		
 		Characters character = new Characters();
-		character.setCharacter_name("Fred");
-		character.setId(1);
-		character.setPlayername("Critesk");
 		
-		Info testInfo = new Info();
-		testInfo.setId(1);
-		Users testUser = new Users();
-		testUser.setId(1);
-		SpellList testSpelllist = new SpellList();
-		testSpelllist.setId(1);
-		Profile testProfile = new Profile();
-		testProfile.setId(1);
+		int newCharacterId = 0;
 		
-		character.setInfo(testInfo);
-		character.setPlayer(testUser);
-		character.setProfile(testProfile);
-		character.setSpellList(testSpelllist);
+		when(mockCharacterRepository.save(character)).thenReturn(newCharacterId);
+		
+		/*
+		 * 		this.mockMvc.perform(post("/authors/")
+				// Include the request data
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(om.writeValueAsString(author)))
+			.andDo(print())
+			.andExpect(status().isCreated())
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+			.andExpect(content().json(om.writeValueAsString(returnedAuthor)));
 
-		Characters existingCharacter = new Characters();
-		existingCharacter.setCharacter_name(character.getCharacter_name());
-		existingCharacter.setPlayername(character.getPlayername());
-
-		when(mockCharacterRepository.getCharacterByCharId(character.getId())).thenReturn(existingCharacter);
-
-		// I just want to compare the character IDs and names. I dont want to compare the rest of the information obtained from the JSON calls.
-		this.mockMvc
-				.perform(
-						get("character/select/1").contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(character)))
+.contentType(MediaType.APPLICATION_JSON)
+						.content(om.writeValueAsString(user)))
 				.andDo(print()).andExpect(status().is(HttpStatus.OK.value()))
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-				.andExpect(content().json(om.writeValueAsString(existingCharacter)));
+				.andExpect(content().json(om.writeValueAsString(user.getId())));
+		 */
+		
+		
+		this.mockMvc.perform(post("/character/save").contentType(MediaType.APPLICATION_JSON)
+				.content(om.writeValueAsString(character)))
+		.andDo(print()).andExpect(status().is(HttpStatus.OK.value()))
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(content().json(om.writeValueAsString(newCharacterId)));
 
 	}
 	
 	@Test
-	public void getCharactersByUserIdTest() throws JsonProcessingException, Exception {
-		Users existingUser = new Users();
-		existingUser.setUsername("Critesk");
-		existingUser.setId(1);
-		existingUser.setSalt("[B@2346885b");
-		existingUser.setHashpass("f3b144e788f008d568b2be2cc19c2692fe640ca01c1a5c0c89acf8edfd043a01ba631da6d324f1061a9812c9f290999e8907fda37b5563bcb2edabcf9b147269");
-		
-		List<Characters> expectedCharacters = new ArrayList<>();
-		
-		Characters character1 = new Characters();
-		Characters character2 = new Characters();
-		
-		character1.setId(1);
-		character2.setId(3);
-		
-		character1.setPlayername("Critesk");
-		character2.setPlayername("Critesk");
-		
-		character1.setCharacter_name("Fred");
-		character2.setCharacter_name("Fred");
-		
-		expectedCharacters.add(character1);
-		expectedCharacters.add(character2);
-		
-		List<Characters> actualCharacters = new ArrayList<>();
-		
-		when(mockCharacterRepository.getCharactersByUserId(existingUser.getId())).thenReturn(actualCharacters);
-		
-		// I just want to compare the character IDs and names. I dont want to compare the rest of the information obtained from the JSON calls.
-		
-		this.mockMvc
-		.perform(get("character/view/" + existingUser.getId()).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(expectedCharacters)))
-		.andDo(print()).andExpect(status().isOk())
-		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-		.andExpect(content().json(om.writeValueAsString(actualCharacters)));
-		
+	public void deleteCharacterTest() throws JsonProcessingException, Exception {
+	//to be done when we have time
+		// problem: return void
 	}
+	
+	
 
 }
