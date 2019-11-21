@@ -5,6 +5,12 @@ background-size: 800px 239px;width:800px;height:239px;}
 #HeaderNarrow {background-image: url(../../../assets/images/NarrowFrontHeader.png);
 background-size: 400px 409px;width:400px;height:409px;}
 
+.Narrow{width:400px;text-align: center;}
+.Middle{width:800px;text-align: center;}
+.Wide{width:1200px;text-align: center;}
+
+
+
 input[type="text"]{background: transparent;border: none;}
 input[type="number"]{background: transparent;border: none;}
 
@@ -13,10 +19,10 @@ input[type="number"]{background: transparent;border: none;}
 #Charname {font-size:24px;font-weight: bold;}
 
 #Abilities{background-image: url(../../../assets/images/Abilities.png);
-    background-size:400px 1000px;width:400px; height:1000px;}
-.AbilityScore {width:40px;padding-top: 12px;margin-left:45px;}
-.AbilityMod {font-size: 200%;padding-top: 70px;margin-left:50px;}
-.AbilityModTop {font-size: 200%;padding-top: 80px;margin-left:50px;}
+    background-size:400px 1000px;max-width:400px;display: inline-flex;text-align: right;}
+.AbilityScore {width:40px;padding-top: 12px;margin-left:60px;}
+.AbilityMod {font-size: 200%;padding-top: 70px;margin-left:65px;}
+.AbilityModTop {font-size: 200%;padding-top: 80px;margin-left:65px;}
 
 #Health{background-image: url(../../../assets/images/HealthTracker.png);
     background-size:400px 300px;width:400px; height:300px;}
@@ -25,6 +31,19 @@ input[type="number"]{background: transparent;border: none;}
 #LanguagesTop{background-image: url(../../../assets/images/SingleColumnTop.png);
     background-size:400px 15px;width:400px; height:15px;}
 #LanguagesBody{background-image: url(../../../assets/images/SingleColumnRow.png);
-    background-size:400px 30px;width:400px; min-height:30px; padding-left:30px;padding-right:20px;font-size:120%}
+    background-size:400px 30px;width:400px; min-height:30px; padding-left:30px;padding-right:20px;font-size:120%;text-align: left;}
 #LanguagesFoot{background-image: url(../../../assets/images/Languages.png);
     background-size:400px 36px;width:400px; height:36px;}
+
+.ProfYes{background-image: url(../../../assets/images/Radio.png);height:20px;width:50px;
+    background-size:16px 20px;margin-top:8px;margin-left:35px;background-repeat: no-repeat;text-align: right;}
+.ProfNo{height:20px;width:50px;margin-top:8px;margin-left:35px;text-align: right;}
+.TProfYes{background-image: url(../../../assets/images/Radio.png);height:20px;width:50px;
+    background-size:16px 20px;margin-top:28px;margin-left:35px;background-repeat: no-repeat;text-align: right;}
+.TProfNo{height:20px;width:50px;margin-top:28px;margin-left:35px;text-align: right;}
+.HProfYes{background-image: url(../../../assets/images/Radio.png);height:20px;width:50px;
+    background-size:16px 20px;margin-top:7px;margin-left:35px;background-repeat: no-repeat;text-align: right;}
+.HProfNo{height:20px;width:50px;margin-top:7px;margin-left:35px;text-align: right;}
+.MProfYes{background-image: url(../../../assets/images/Radio.png);height:20px;width:50px;
+    background-size:16px 20px;margin-top:68px;margin-left:35px;background-repeat: no-repeat;text-align: right;}
+.MProfNo{height:20px;width:50px;margin-top:68px;margin-left:35px;text-align: right;}

@@ -2,6 +2,7 @@ package com.revature.test;
 
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -35,70 +36,63 @@ import com.revature.services.LoginService;
 @AutoConfigureMockMvc
 public class LoginControllerTest {
 
+	
 	private MockMvc mockMvc;
 
+	// @Mock
+	// private UserRepository mockUserRepository;
+
 	@Mock
-	private UserRepository mockUserRepository;
+	private LoginService mockLoginService;
 
 	@InjectMocks
-	private LoginService loginService;
+	private LoginController loginController;
+
 	@Autowired
-	LoginService mockLoginService;
+	ObjectMapper om;
 
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
-		mockMvc = MockMvcBuilders.standaloneSetup(loginService).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(loginController).build();
 	}
+
+	@Test
+	public void loginRouterTest() throws JsonProcessingException, Exception {
 	
-	@Test
-    public void checkUserTest() {
-        Users user = new Users();
-        user.setUsername("Wei");
-        user.setHashpass("PassWord");
+		Users user = new Users();
+		user.setId(1);
+		user.setUsername("Wei");
+		user.setHashpass("PassWord");
 
-        String saltString = "";
-        when(mockUserRepository.returnSaltIfUserExist(user.getUsername())).thenReturn(saltString);
+		when(mockLoginService.checkUser(user)).thenReturn(user.getId());
 
-        Integer id= 1;
-        when(mockUserRepository.verifyPassword(user, saltString)).thenReturn(id);
-        
-        int returnedId = loginService.checkUser(user);
-        System.out.println(returnedId);
-        assertTrue(".checkUser() should return a userId with one inside the database (with user_id of 1).",
-                returnedId != 0);
-
-    }
+		this.mockMvc
+				.perform(post("/start/login").contentType(MediaType.APPLICATION_JSON)
+						.content(om.writeValueAsString(user)))
+				.andDo(print()).andExpect(status().is(HttpStatus.OK.value()))
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(content().json(om.writeValueAsString(user.getId())));
+	}
 
 	@Test
-    public void checkBadUserTest() {
-        Users user = new Users();
-        user.setUsername("Wei");
-        user.setHashpass("PassWord");
-
-        when(mockUserRepository.returnSaltIfUserExist(user.getUsername())).thenReturn("");
-
-        
-        int returnedId = loginService.checkUser(user);
-        System.out.println(returnedId);
-        assertTrue(".checkUser() should return a userId of 0 if user is not in database.",
-                returnedId == 0);
-
-    }
-	@Test
-	public void createUserTest() throws JsonProcessingException, Exception {
+	public void createRouterTest() throws JsonProcessingException, Exception {
 		Users user = new Users();
 		user.setId(1);
 		user.setUsername("Weii");
 		user.setHashpass("PassWord");
 		String salt = "whatever";
-		when(mockUserRepository.returnSaltIfUserExist(user.getUsername())).thenReturn(salt);
-		when(mockUserRepository.create(user)).thenReturn(user);
+		user.setSalt(salt);
+
+		Users returnedUser = user;
+
+		when(mockLoginService.createUser(user)).thenReturn(returnedUser.getId());
+
 		this.mockMvc
 				.perform(post("/start/create").contentType(MediaType.APPLICATION_JSON)
-						.content(om.writeValueAsString(user))).andDo(print())
+						.content(om.writeValueAsString(user)))
+				.andDo(print()).andExpect(status().isCreated())
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-				.andExpect(content().json(om.writeValueAsString(user.getId())))
-				.andExpect(status().is(HttpStatus.CREATED.value()));
+				.andExpect(content().json(om.writeValueAsString(returnedUser.getId())));
 	}
 }
