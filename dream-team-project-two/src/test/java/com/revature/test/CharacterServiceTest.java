@@ -103,8 +103,8 @@ public class CharacterServiceTest {
 		
 		Integer copyCharacterId = characterService.copyCharacter(character);
 		
-		System.out.println(copyCharacterId);
-		System.out.println(character.getId());
+//		System.out.println(copyCharacterId);
+//		System.out.println(character.getId());
 		
 		assertTrue("Dark Magician ID is set to 1 and its copy's ID is set to 0", copyCharacterId == 0 && 
 				character.getId() == 0);
@@ -116,7 +116,24 @@ public class CharacterServiceTest {
 		// Pulls player name, user object from database that matches player name, replaces player object assoc.
 		// w/ character and sets id to 0, and saves
 		
+		Characters character = new Characters();
 		
+		character.setId(1);
+		
+		// Asserts that the original ID of character is 1
+		
+		assertTrue("Original ID of character is equal to 1", character.getId() == 1);
+		
+		character.setCharacter_name("Dark Magician Girl");
+		character.setPlayername("Yami Yugi");
+		
+		Integer sharedCharacterId = characterService.shareCharacter(character);
+		
+		// Now character has been shared, the copy character ID should be of value 0 and the new id value of 
+		// character is also 0
+		
+		assertTrue("The value of sharedCharacterId is equal to 0 and the value of character's ID is now also"
+				+ "equal to 0", sharedCharacterId == 0 && character.getId() == 0);
 	}
 	
 
