@@ -15,18 +15,18 @@ export class CharacterComponent implements OnInit {
 
   characterList= <Character[]>[];
 
-  charactersForm : FormGroup;
+  //charactersForm : FormGroup;
   constructor(private characterService : CharacterServiceService
     ) { }
 
   ngOnInit() {
   }
 
-  this.charactersForm = this.formBuilder.group({
-    character_name: '',
-  });
-  this.characterList = <Character>await this.characterService.getCharacters(1)
-  this.populateCharacterPage();
+ // this.charactersForm = this.formBuilder.group({
+  //  character_name: '',
+ // });
+//  this.characterList = <Character>await this.characterService.getCharacters(1)
+//  this.populateCharacterPage();
 
 
 

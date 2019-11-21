@@ -6,21 +6,25 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.revature.models.Characters;
 import com.revature.repositories.CharacterRepository;
 import com.revature.repositories.UserRepository;
 import com.revature.services.CharacterService;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@AutoConfigureMockMvc
 public class CharacterServiceTest {
 
 	@Mock

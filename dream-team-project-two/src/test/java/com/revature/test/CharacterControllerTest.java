@@ -1,8 +1,5 @@
 package com.revature.test;
 
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.fail;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -12,9 +9,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,12 +28,9 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.controller.CharacterController;
-import com.revature.controller.LoginController;
 import com.revature.models.*;
 import com.revature.repositories.CharacterRepository;
-import com.revature.repositories.UserRepository;
 import com.revature.services.CharacterService;
-import com.revature.services.LoginService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -92,7 +83,6 @@ public class CharacterControllerTest {
 	
 	@Test
 	public void saveCharacterTest() throws JsonProcessingException, Exception {
-		int characterId = 1;
 		
 		Characters character = new Characters();
 		
