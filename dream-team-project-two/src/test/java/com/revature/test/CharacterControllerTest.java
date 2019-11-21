@@ -18,13 +18,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -49,7 +47,10 @@ public class CharacterControllerTest {
 	@Mock
 	private CharacterRepository mockCharacterRepository;
 
-	@InjectMocks
+	@Mock
+	private CharacterController characterController;
+
+	@Mock
 	private CharacterService characterService;
 
 	@Autowired
@@ -58,7 +59,7 @@ public class CharacterControllerTest {
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
-//		mockMvc = MockMvcBuilders.standaloneSetup(characterController).setControllerAdvice().build();
+		mockMvc = MockMvcBuilders.standaloneSetup(characterController).setControllerAdvice().build();
 	}
 	
 	@Test
@@ -67,6 +68,7 @@ public class CharacterControllerTest {
 		character.setCharacter_name("Fred");
 		character.setId(1);
 		character.setPlayername("Critesk");
+		
 		
 		Info testInfo = new Info();
 		testInfo.setId(1);
@@ -81,6 +83,9 @@ public class CharacterControllerTest {
 		character.setPlayer(testUser);
 		character.setProfile(testProfile);
 		character.setSpellList(testSpelllist);
+		
+		
+		
 
 		Characters existingCharacter = new Characters();
 		existingCharacter.setCharacter_name(character.getCharacter_name());
@@ -88,11 +93,13 @@ public class CharacterControllerTest {
 
 		when(mockCharacterRepository.getCharacterByCharId(character.getId())).thenReturn(existingCharacter);
 
+
 		// I just want to compare the character IDs and names. I dont want to compare the rest of the information obtained from the JSON calls.
+		
 		this.mockMvc
 				.perform(
 						get("character/select/1").contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(character)))
-				.andDo(print()).andExpect(status().is(HttpStatus.OK.value()))
+				.andDo(print()).andExpect(status().isOk())
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(content().json(om.writeValueAsString(existingCharacter)));
 
@@ -130,11 +137,14 @@ public class CharacterControllerTest {
 		// I just want to compare the character IDs and names. I dont want to compare the rest of the information obtained from the JSON calls.
 		
 		this.mockMvc
-		.perform(get("character/view/" + existingUser.getId()).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(expectedCharacters)))
+		.perform(
+				get("character/view/" + existingUser.getId()).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(expectedCharacters)))
 		.andDo(print()).andExpect(status().isOk())
 		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 		.andExpect(content().json(om.writeValueAsString(actualCharacters)));
 		
 	}
+	
+	
 
 }

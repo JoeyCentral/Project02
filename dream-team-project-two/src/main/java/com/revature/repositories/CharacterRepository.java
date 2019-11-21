@@ -37,9 +37,10 @@ public class CharacterRepository {
 				.getSingleResult();
 		return myCharacter;
 	}
+	
 
 	public int save(Characters myCharacter) {
-		if (myCharacter.getId()==0) {
+		if (myCharacter.getId() == 0) {
 			System.out.println(myCharacter);
 		Session session = em.unwrap(Session.class);
 		Profile myProfile = myCharacter.getProfile();

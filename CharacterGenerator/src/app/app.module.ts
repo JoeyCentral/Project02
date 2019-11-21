@@ -13,7 +13,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { InfoComponent } from './components/info/info.component';
 import { SpellsComponent } from './components/spells/spells.component';
 
-
 @Pipe({name: 'round'})
 export class RoundPipe implements PipeTransform {
     /**
@@ -46,3 +45,5 @@ export class RoundPipe implements PipeTransform {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
