@@ -208,7 +208,11 @@
                             </div>
                         </div>
                         <!--Languages, for Wide-->
+<<<<<<< HEAD
                         <div class="col-md-12 m-0 p-0" *ngIf="Header=='HeaderWide'">
+=======
+                        <div class="col-md-12 m-0 p-0" *ngIf="WidthControl=='Wide'">>
+>>>>>>> 8fb5581c924b793f39fd0654f06a5493e087b78d
                             <div id="LanguagesTop"></div>
                             <div id="LanguagesBody">
                                 {{Languages}}
@@ -223,17 +227,63 @@
                         <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
                             <!--Health-->
                             <div id="Health">
-
+                                <div class="row">
+                                    <input type="number" [(ngModel)]="AC" class="HP">
+                                    <input type="number" [(ngModel)]="MaximumHP" class="HP">
+                                    <input type="number" [(ngModel)]="TemporaryHP" class="HP">
+                                </div>
+                                <input type="number" [(ngModel)]="CurrentHP" class="HP"
+                                    style="margin-top: 70px;font-size:400%;width:100px;margin-left:20px;">
                             </div>
                         </div>
                         <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
                             <!--Other Info-->
                             <div id="Other">
-
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div style="margin-top:28px;margin-left:60px;">{{HitSix}}</div>
+                                                <div style="margin-top:4px;margin-left:60px;">{{HitEight}}</div>
+                                                <div style="margin-top:4px;margin-left:60px;">{{HitTen}}</div>
+                                                <div style="margin-top:4px;margin-left:60px;">{{HitTwelve}}</div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div style="margin-top:28px;margin-left:80px;">{{DiceSix}}</div>
+                                                <div style="margin-top:4px;margin-left:80px;">{{DiceEight}}</div>
+                                                <div style="margin-top:4px;margin-left:80px;">{{DiceTen}}</div>
+                                                <div style="margin-top:4px;margin-left:80px;">{{DiceTwelve}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="font-weight: bold;">
+                                            <div class="col-12" style="display: inline-flex;text-align: left;">
+                                                <div *ngIf="DeathPass>=1" style="margin-top:53px;margin-left:113px;">x
+                                                </div>
+                                                <div *ngIf="DeathPass>=2" style="margin-top:53px;margin-left:18px;">x
+                                                </div>
+                                                <div *ngIf="DeathPass==3" style="margin-top:53px;margin-left:18px;">x
+                                                </div>
+                                            </div>
+                                            <div class="col-12" style="display: inline-flex;height: 16px;">
+                                                <div *ngIf="DeathFail>=1" style="margin-top:3px;margin-left:113px;">x
+                                                </div>
+                                                <div *ngIf="DeathFail>=2" style="margin-top:3px;margin-left:18px">x
+                                                </div>
+                                                <div *ngIf="DeathFail==3" style="margin-top:3px;margin-left:18px;">x
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div style="margin-top:40px;font-size:200%">{{Initiative}}</div>
+                                        <div style="margin-top:35px;font-size:200%">{{Speed}}</div>
+                                        <div style="margin-top:35px;font-size:200%">{{Vision}}</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <!--Languages, for Middle-->
-                        <div class="col-md-6 m-0 p-0" *ngIf="Header=='HeaderMiddle'">
+                        <!--Languages, for Middle and Narrow-->
+                        <div class="col-md-6 m-0 p-0" *ngIf="WidthControl!='Wide'">>
                             <div id="LanguagesTop"></div>
                             <div id="LanguagesBody">
                                 {{Languages}}
@@ -241,11 +291,70 @@
                             <div id="LanguagesFoot"></div>
                         </div>
                     </div>
-                    <div class="col-md-12 m-0 p-0 mx-auto">
-
+                    <div *ngIf="WidthControl=='Wide'">
+                        <!--Custom Rolls for Wide-->
+                        <div id="AttacksTop"></div>
+                        <div id="AttacksBody">
+                            {{Attacks}}
+                        </div>
+                        <div id="AttacksFoot"></div>
+                        <!--Features for Wide-->
+                        <div id="FeaturesTop"></div>
+                        <div id="FeaturesBody">
+                            {{Features}}
+                        </div>
+                        <div id="FeaturesFoot"></div>
+                        <!--Custom Rolls for Wide-->
+                        <div id="GearTop"></div>
+                        <div id="GearBody">
+                            {{Gear}}
+                        </div>
+                        <div id="GearFoot"></div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="row mx-auto">
+    <div *ngIf="WidthControl=='Middle'">
+        <!--Custom Rolls for Middle-->
+        <div id="AttacksTop"></div>
+        <div id="AttacksBody">
+            {{Attacks}}
+        </div>
+        <div id="AttacksFoot"></div>
+        <!--Features for Middle-->
+        <div id="FeaturesTop"></div>
+        <div id="FeaturesBody">
+            {{Features}}
+        </div>
+        <div id="FeaturesFoot"></div>
+        <!--Gear for Middle-->
+        <div id="GearTop"></div>
+        <div id="GearBody">
+            {{Gear}}
+        </div>
+        <div id="GearFoot"></div>
+    </div>
+    <div *ngIf="WidthControl=='Narrow'">
+        <!--Custom Rolls for Narrow-->
+        <div id="AttacksTopNarrow"></div>
+        <div id="AttacksBodyNarrow">
+            {{Attacks}}
+        </div>
+        <div id="AttacksFootNarrow"></div>
+        <!--Features for Narrow-->
+        <div id="FeaturesTopNarrow"></div>
+        <div id="FeaturesBodyNarrow">
+            {{Features}}
+        </div>
+        <div id="FeaturesFootNarrow"></div>
+        <!--Gear for Narrow-->
+        <div id="GearTopNarrow"></div>
+        <div id="GearBodyNarrow">
+            {{Gear}}
+        </div>
+        <div id="GearFootNarrow"></div>
     </div>
 </div>
