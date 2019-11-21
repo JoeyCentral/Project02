@@ -17,8 +17,10 @@ export class ProfileComponent implements OnInit {
   Background = "Select Background";
   Race = "";
   Alignment = "";
-  Test = "This is a Test";
   Languages = "This is a demonstration of how the language box expands when sufficient lines are contained to require expantion. The base size will be three lines, but will expand to as much as needed. This principle will be applied to every text diplay area.";
+  Gear = "This is a demonstration of how the gear box expands when sufficient lines are contained to require expantion. The base size will be three lines, but will expand to as much as needed. This principle will be applied to every text diplay area.";
+  Features = "This is a demonstration of how the feature box expands when sufficient lines are contained to require expantion. The base size will be three lines, but will expand to as much as needed. This principle will be applied to every text diplay area.";
+  Attacks = "";
   ProfBonus = Math.ceil((this.Level/4)+1);
   Inspiration = ""; Passive = 15;
   Prof1 = "TProfYes";Prof2 = "ProfYes";Prof3 = "ProfYes";Prof4 = "HProfYes";Prof5 = "ProfYes";Prof6 = "ProfYes";
@@ -28,6 +30,12 @@ export class ProfileComponent implements OnInit {
   P1=1;P2=2;P3=3;P4=4;P5=5;P6=6;P7=7;P8=8;P9=9;P10=10;P11=11;P12=12;P13=13;P14=14;P15=15;P16=16;P17=17;P18=18;P19=19;P20=20;P21=21;P22=22;P23=23;P24=24;
   DoubleColumn = "col-md-12 m-0 p-0 mx-auto";
   SingleColumn = "col-md-12 m-0 p-0 mx-auto";
+  AC=10;MaximumHP=20;CurrentHP=10;TemporaryHP=0;
+  Initiative=2;Speed=30;Vision=60;
+  HitSix=0; HitEight=0; HitTen=1; HitTwelve=0;
+  DiceSix=0; DiceEight=0; DiceTen=1; DiceTwelve=0;
+  DeathPass="3";DeathFail="3";
+
 
   races=[{name:"Elf"}, {name:"Dwarf"}, {name:"Human"}];
   aligns=[{name:"Lawful Good"}, {name:"Lawful Neutral"}, {name:"Lawful Evil"}];
