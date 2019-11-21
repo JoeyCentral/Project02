@@ -81,6 +81,13 @@ public class CharacterServiceTest {
 		System.out.println("getCharactersByUserId test passed!");
 	}
 	
+	@Test
+	public void saveCharacterTest() {
+		
+		
+		System.out.println("saveCharacter test passed!");
+	}
+	
 	
 
 }
