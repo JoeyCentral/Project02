@@ -1,20 +1,192 @@
 <div class="bevelBox">
-    <header>
-        <nav>
-            <ul class="nav nav-tabs">
-                <li>
-                    <a class="nav-link" routerLink="/profile">Abilities</a>
-                </li>
-                <li>
-                    <a class="nav-link" routerLink="/info">Description</a>
-                </li>
-                <li>
-                    <a class="nav-link" routerLink="/spells">Spellcasting</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <div class="row mx-auto" style="margin-top: 10px;">
+        <div class="col-4 mx-auto">
+            <h4>Save and Exit</h4>
+        </div>
+        <div class="col-4 mx-auto">
+            <h4>Save</h4>
+        </div>
+        <div class="col-4 mx-auto">
+            <h4>Exit Without Saving</h4>
+        </div>
+    </div>
+    <div class="row mx-auto">
+        <div class="col-4 mx-auto">
+            <h4>Share</h4>
+        </div>
+        <div class="col-4 mx-auto">
+            <h4>Copy</h4>
+        </div>
+        <div class="col-4 mx-auto">
+            <h4>Delete</h4>
+        </div>
+    </div>
+    <div class="row mx-auto">
+        <div class="col-4 mx-auto">
+            <a class="nav-link" routerLink="/profile" style="width:100%;padding: 0;">
+                <h4>Abilities</h4>
+            </a>
+        </div>
+        <div class="col-4 mx-auto">
+            <a class="nav-link" routerLink="/info" style="width:100%;padding: 0;">
+                <h4>Info</h4>
+            </a>
+        </div>
+        <div class="col-4 mx-auto">
+            <a class="nav-link" routerLink="/spells" style="width:100%;padding: 0;">
+                <h4>Spells</h4>
+            </a>
+        </div>
+    </div>
 </div>
+<div class="row m-0 p-0 mx-auto" style="max-width: 1200px;">
+    <div class="row m-0 p-0 mx-auto">
+        <div class="col-md-12 m-0 p-0 mx-auto">
+            <div class="row" id={{Header}}>
+                <div class="col-md-5" style="height:160px;min-width: 300px;">
+                    <input *ngIf="Header=='HeaderWide'" type="text" id="Charname"
+                        style="margin-left: 100px;margin-top: 100px;" [(ngModel)]="Charname">
+                    <input *ngIf="Header=='HeaderMiddle'" type="text" id="Charname"
+                        style="margin-left: 100px;margin-top: 100px;" [(ngModel)]="Charname">
+                    <input *ngIf="Header=='HeaderNarrow'" type="text" id="Charname"
+                        style="margin-left: 100px;margin-top: 75px;width:300px" [(ngModel)]="Charname">
+                </div>
+                <div class="col-md-7" style="height:249px">
+                    <!--Wide-->
+                    <div *ngIf="Header=='HeaderWide'">
+                        <div class="row">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <div class="col-md-4 p-0">
+                                    <!--Age-->
+                                    <div style="width: 200px;margin-left: 30px;margin-top: 80px;">
+                                    <input type="number" [(ngModel)]="Age" style="width: 40px;text-align: center;"> Years Old</div>
+                                </div>
+                                <div class="col-md-3 p-0">
+                                    <!--Height-->
+                                    <div style="width: 200px;margin-left: 10px;margin-top: 80px;">
+                                    <input type="number" [(ngModel)]="Height" style="width: 40px;text-align: center;"> Inches</div>
+                                </div>
+                                <div class="col-md-5 p-0">
+                                    <!--Weight-->
+                                    <div style="width: 200px;margin-left: 30px;margin-top: 80px;">
+                                    <input type="number" [(ngModel)]="Weight" style="width: 40px;text-align: center;"> Pounds</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <div class="col-md-4 p-0">
+                                    <!--Eyes-->
+                                    <div style="width: 200px;margin-left: 30px;margin-top: 25px;">
+                                     <input type="text" [(ngModel)]="Eyes" style="width: 100px;"></div>
+                                </div>
+                                <div class="col-md-3 p-0">
+                                        <div style="width: 200px;margin-left: 10px;margin-top: 25px;">
+                                        <input type="text" [(ngModel)]="Skin" style="width: 100px;"></div>
+                                </div>
+                                <div class="col-md-5 p-0">
+                                    <!--Hair-->
+                                    <div style="width: 200px;margin-left: 30px;margin-top: 25px;">
+                                    <input type="text" [(ngModel)]="Hair" style="width: 100px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Middle-->
+                    <div *ngIf="Header=='HeaderMiddle'">
+                        <div class="row">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <div class="col-md-7 p-0">
+                                    <!--Age-->
+                                    <div style="width: 200px;padding-left: 79px;margin-top: 36px;">{{Age}} Years Old</div>
+                                </div>
+                                <!--Eyes-->
+                                <div class="col-md-5 p-0">                     
+                                    <div style="width: 170px;margin-left:15px;margin-top:30px;">{{Eyes}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <!--Experiance-->
+                                <div class="col-md-7 p-0">
+                                    <input type="number" id="Experience" min=0 value=0 style="width: 170px;
+                                        margin-top:24px;margin-left:80px;text-align: right;">
+                                </div>
+                                <!--Alignment-->
+                                <div class="col-md-5 p-0">
+                                    <select ng-model="Alignment" ng-options="x.name for x in aligns"
+                                        style="width: 170px;margin-top:22px;margin-left:15px;"> </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <div class="col-md-7 p-0">
+                                    <!--Player-->
+                                    <div style="width: 200px;margin-left: 90px;margin-top:30px;">{{Player}}</div>
+                                </div>
+                                <!--Background-->
+                                <div class="col-md-5 p-0">
+                                    <select ng-model="Background"
+                                        style="width: 170px; margin-left: 15px;margin-top:22px;"
+                                        ng-options="x.name for x in backgrounds">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Narrow-->
+                    <div *ngIf="Header=='HeaderNarrow'" style="width:400px;">
+                        <div class="row" style="width:400px;">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <div class="col-md-6 p-0">
+                                    <!--Age-->
+                                    <div style="width: 200px;padding-top: 40px;margin-left:20px">{{Age}} Years Old</div>
+                                </div>
+                                <!--Race-->
+                                <div class="col-md-6 p-0">
+                                    <select ng-model="Race" style="width: 170px;margin-top: 40px;"
+                                        ng-options="x.name for x in races"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="width:400px;">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <!--Experiance-->
+                                <div class="col-md-7 p-0">
+                                    <input type="number" id="Experience" min=0 value=0 style="width: 170px;
+                                        margin-top:24px;margin-left:20px;text-align: right;">
+                                </div>
+                                <!--Alignment-->
+                                <div class="col-md-5 p-0">
+                                    <select ng-model="Alignment" ng-options="x.name for x in aligns"
+                                        style="width: 170px;margin-top:22px;margin-left:19px;"> </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="width:400px;">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                <div class=" col-md-6 p-0">
+                                    <!--Player-->
+                                    <div style="width: 200px;margin-left: 20px;margin-top:30px;">{{Player}}</div>
+                                </div>
+                                <!--Background-->
+                                <div class="col-md-5 p-0">
+                                    <select ng-model="Background"
+                                        style="width: 170px; margin-left: 0px;margin-top:22px;"
+                                        ng-options="x.name for x in backgrounds">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div id="Front">
     <div id="Cover">
         <div id="Header">
@@ -34,26 +206,26 @@
                 </div>
                 <div id="InfoIdeals"></div>
                 <div id="InfoBody">
-                
+
                 </div>
                 <div id="InfoBonds"></div>
                 <div id="InfoBody">
-                
+
                 </div>
                 <div id="InfoFlaws"></div>
             </div>
             <div id="Backstory">
-                <div  id="Symbol"></div>
-                <div  id="BackstoryBody">
+                <div id="Symbol"></div>
+                <div id="BackstoryBody">
 
                 </div>
                 <div id="BackstoryFoot"></div>
             </div>
         </div>
         <div id="Right">
-            <div  id="Allies">
-                <div  id="AlliesTop"></div>
-                <div  id="AlliesBody">
+            <div id="Allies">
+                <div id="AlliesTop"></div>
+                <div id="AlliesBody">
 
                 </div>
                 <div id="AlliesFoot"></div>

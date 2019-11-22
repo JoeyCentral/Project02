@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,6 +25,11 @@ public class Characters {
 	
 	@Value("")
 	private String character_name;
+	
+	// Newly created state
+	@OneToMany
+	@JoinColumn(name = "character_id")
+	private List<Multiclass> multiclass;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -41,6 +49,43 @@ public class Characters {
     @OneToOne
     @JoinColumn(name = "spellList_id")
     private SpellList spellList;
+    
+    public Characters() {
+    	super();
+    }
+    
+    public List<Multiclass> getMulticlass() {
+		return multiclass;
+	}
+
+	public void setMulticlass(List<Multiclass> multiclass) {
+		this.multiclass = multiclass;
+	}
+
+	public Characters(int id, String character_name, Users player, String playername, Profile profile, Info info,
+			SpellList spellList) {
+		super();
+		this.id = id;
+		this.character_name = character_name;
+		this.player = player;
+		this.playername = playername;
+		this.profile = profile;
+		this.info = info;
+		this.spellList = spellList;
+	}
+	public Characters(int id, String character_name, List<Multiclass> multiclass, Users player, String playername,
+			Profile profile, Info info, SpellList spellList) {
+		super();
+		this.id = id;
+		this.character_name = character_name;
+		this.multiclass = multiclass;
+		this.player = player;
+		this.playername = playername;
+		this.profile = profile;
+		this.info = info;
+		this.spellList = spellList;
+	}
+
 	
 	public String getCharacter_name() {
 		return character_name;
@@ -73,6 +118,7 @@ public class Characters {
 		result = prime * result + ((character_name == null) ? 0 : character_name.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((info == null) ? 0 : info.hashCode());
+		result = prime * result + ((multiclass == null) ? 0 : multiclass.hashCode());
 		result = prime * result + ((player == null) ? 0 : player.hashCode());
 		result = prime * result + ((playername == null) ? 0 : playername.hashCode());
 		result = prime * result + ((profile == null) ? 0 : profile.hashCode());
@@ -118,6 +164,11 @@ public class Characters {
 				return false;
 		} else if (!info.equals(other.info))
 			return false;
+		if (multiclass == null) {
+			if (other.multiclass != null)
+				return false;
+		} else if (!multiclass.equals(other.multiclass))
+			return false;
 		if (player == null) {
 			if (other.player != null)
 				return false;
@@ -142,23 +193,10 @@ public class Characters {
 	}
 	@Override
 	public String toString() {
-		return "Characters [id=" + id + ", character_name=" + character_name + ", player=" + player + ", playername="
-				+ playername + ", profile=" + profile + ", info=" + info + ", spellList=" + spellList + "]";
+		return "Characters [id=" + id + ", character_name=" + character_name + ", multiclass=" + multiclass
+				+ ", player=" + player + ", playername=" + playername + ", profile=" + profile + ", info=" + info
+				+ ", spellList=" + spellList + "]";
 	}
 
-	public Characters(int id, String character_name, Users player, String playername, Profile profile, Info info,
-			SpellList spellList) {
-		super();
-		this.id = id;
-		this.character_name = character_name;
-		this.player = player;
-		this.playername = playername;
-		this.profile = profile;
-		this.info = info;
-		this.spellList = spellList;
-	}
-	public Characters() {
-		super();
-	}
-
+	
 }
