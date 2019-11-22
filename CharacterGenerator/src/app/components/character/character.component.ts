@@ -3,6 +3,7 @@ import { CharacterService } from 'src/app/services/character-service.service';
 import { Character } from 'src/app/models/character';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from 'src/app/services/login-service.service';
+import { Multiclass } from 'src/app/models/multiclass';
 
 @Component({
   selector: 'app-character',
@@ -11,10 +12,15 @@ import { LoginService } from 'src/app/services/login-service.service';
 })
 export class CharacterComponent implements OnInit {
 
-  characterList= [Character];
+  characterList: Character[];
 
   constructor(private httpClient: HttpClient, private characterService : CharacterService, private loginService : LoginService) { }
   player=this.loginService.playername;
+  ClassList:Multiclass[];
+  Classes="";
+  
+  
+  
   ngOnInit() {
     this.getCharactersHttp();
   }
@@ -23,5 +29,8 @@ export class CharacterComponent implements OnInit {
   const data = await this.httpClient.get(url).toPromise();
   console.log(data);
   this.characterList=JSON.parse(JSON.stringify(data));
+  const test = this.characterList[1];
+  console.log(test);
+  console.log(test.classes)
 };
 }
