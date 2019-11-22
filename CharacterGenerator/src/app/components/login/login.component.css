@@ -72,6 +72,31 @@ button:hover {
 }
 
 
+/*Picture rotate and sign up pan upwards on form init*/
+
+.avatar {
+    transform-style: preserve-3d;
+    transition-duration: 2s;
+    position: relative;
+}
+
+.avatar:hover {
+    transform: rotateY(-360deg);
+    transition-delay: 1s;
+    transition: all 2s linear 0.2s;
+    -webkit-transform: rotate(90deg) scale(0.6);
+    -moz-transform: rotate(90deg) scale(0.6);
+    -ms-transform: rotate(90deg) scale(0.6);
+    -o-transform: rotate(90deg) scale(0.6);
+    transform: rotateY(-360deg) scale(0.6) translateY(-50%);
+}
+
+#slideup:hover {
+    transition: all 1s linear 0.2s;
+    transform: translate(0rem, -75%);
+}
+
+
 /* Center the image and position the close button */
 
 .imgcontainer {
