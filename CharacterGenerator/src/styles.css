@@ -1,2 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* Main "Flashy" Fonts*/
+
+@font-face {
+    font-family: Vecna;
+    src: url("/assets/fonts/Vecna.ttf") format("OpenType");
+}
+
+@font-face {
+    font-family: VecnaBold;
+    src: url("/assets/fonts/VecnaBold.ttf") format("OpenType");
+}
+
+@font-face {
+    font-family: VecnaBoldItalic;
+    src: url("/assets/fonts/VecnaBoldItalic.ttf") format("OpenType");
+}
+
+@font-face {
+    font-family: VecnaItalic;
+    src: url("/assets/fonts/VecnaItalic.ttf") format("OpenType");
+}
+
+
+/*Pixel or Dungeon Optional Fonts*/
+
+@font-face {
+    font-family: PixelFont;
+    src: url("/assets/fonts/PixelAzureBonds.ttf") format("OpenType");
+}
+
+@font-face {
+    font-family: DungeonFont;
+    src: url("/assets/fonts/Dungeon.ttf") format("OpenType");
+}
+
+@font-face {
+    font-family: DragonForceFont;
+    src: url("/assets/fonts/DragonForce.ttf") format("OpenType");
+}
+
+@font-face {
+    font-family: DungeonBrickFont;
+    src: url("/assets/fonts/DungeonBrick.ttf") format("OpenType");
+}
+
+
+/*Global Fonts Styling*/
+
+h1 {
+    font-family: 'DragonForceFont';
+}
+
+* {
+    font-family: 'VecnaBold';
+}

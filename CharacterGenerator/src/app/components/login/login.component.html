@@ -1,21 +1,18 @@
 <div>
     <div class="background"></div>
     <div *ngIf="loggedIn" style="text-align:center; z-index: 1; top:0; position: absolute;">
-        
+
     </div>
-    <div *ngIf="!loggedIn" style="width:100%; text-align: left; top:50px; z-index: 1;position: absolute;">
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:125px;top:50px;
-        margin-left: 30%;">Existing User</button>
-        <button onclick="document.getElementById('id02').style.display='block'" style="width:125px;top:50px;
-        margin-left: 10%;">Create Account</button>
+    <div *ngIf="!loggedIn" style="width:100%; text-align: left; top:50px; z-index: 1; position: absolute;">
+        <button id="userBTN" onclick="document.getElementById('id01').style.display='block'">Existing User</button>
+        <button id="userBTN" onclick="document.getElementById('id02').style.display='block'">Create Account</button>
     </div>
 
     <div id="id01" class="modal" *ngIf="m1">
         <form class="modal-content animate" action="/action_page.php" method="post">
             <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                    title="Close Modal">&times;</span>
-                <img src="../../../assets/images/knight-3002031_640.jpg" alt="Login" class="avatar">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="../../../assets/images/knight-3002031_640.jpg" alt="Login" class="avatar" style="box-shadow: 20px 25px 13px rgba(34,34,34,0.6);">
             </div>
             <div *ngIf="notValid">
                 <div class="authentication-failure">
@@ -23,10 +20,10 @@
                 </div>
             </div>
             <div class="container">
-                <label for="uname"><b>Username</b></label>
+                <label for="uname">Username</label>
                 <input type="text" [(ngModel)]="inputUsername" placeholder="Enter Username" name="uname" required>
 
-                <label for="psw"><b>Password</b></label>
+                <label for="psw">Password</label>
                 <input type="password" [(ngModel)]="inputPassword" placeholder="Enter Password" name="psw" required>
 
                 <button (click)="submitLogin()" type="submit">Login</button>
@@ -37,9 +34,8 @@
     <div id="id02" class="modal" *ngIf="m2">
         <form class="modal-content animate" action="/action_page.php" method="post">
             <div class="imgcontainer">
-                <span onclick="document.getElementById('id02').style.display='none'" class="close"
-                    title="Close Modal">&times;</span>
-                <img src="../../../assets/images/accolade-63001_640.jpg" alt="Create Account" class="avatar">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="../../../assets/images/accolade-63001_640.jpg" alt="Create Account" class="avatar" style="box-shadow: 20px 25px 13px rgba(34,34,34,0.6);">
             </div>
             <div *ngIf="notValid">
                 <div class="authentication-failure">
