@@ -1,9 +1,9 @@
 #HeaderWide{background-image: url(../../../assets/images/WideFrontHeader.png);
-background-size:1200px 225px;width:1200px; height:225px;}
+background-size:1200px 225px;width:1200px; height:225px;margin: auto;}
 #HeaderMiddle {background-image: url(../../../assets/images/MiddleFrontHeader.png);
-background-size: 800px 239px;width:800px;height:239px;}
+background-size: 800px 239px;width:800px;height:239px;margin: auto;}
 #HeaderNarrow {background-image: url(../../../assets/images/NarrowFrontHeader.png);
-background-size: 400px 409px;width:400px;height:409px;}
+background-size: 400px 409px;width:400px;height:409px;margin: auto;}
 
 h4 {text-align: center;text-transform: uppercase;display:inline-block; border: 1px solid #000000;
     border-radius: 1rem;width:100%;background-color: rgba(200, 200, 200, 0.2);
@@ -17,9 +17,9 @@ h4 {text-align: center;text-transform: uppercase;display:inline-block; border: 1
     box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
     background-color: rgba(200, 200, 200, 0.2);}
 
-.Narrow{width:400px;text-align: center;}
-.Middle{width:800px;text-align: center;}
-.Wide{width:1200px;text-align: center;}
+.Narrow{width:400px;text-align: center;margin: auto;}
+.Middle{width:800px;text-align: center;margin: auto;}
+.Wide{width:1200px;text-align: center;margin: auto;}
 #MMiddle{max-width:800px;text-align: center;}
 #MNarrow{max-width:400px;text-align: center;}
 

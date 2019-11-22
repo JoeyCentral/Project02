@@ -22,14 +22,17 @@ export class ProfileComponent implements OnInit {
   Player = this.charServe.character.player.username;
   Gear = this.charServe.character.profile.inventory;
   TemporaryHP=this.charServe.character.profile.tempHP;
-  
+  Classes=this.charServe.character.multiclass;
+  Alignment = this.charServe.character.profile.alignment;
+  Race = this.charServe.character.profile.race.raceName;
+  Background = this.charServe.character.profile.background.background_name;
   /*
 
 
   Inspiration = this.charServe.character.profile.inspiration; //if inspiration=0 then value = 0, if inspiration = 1 then inspiration=x where 'x'
-  Alignment = this.charServe.character.profile.alignmnet; //number from 1 - 10, populate a drop down menu from an array of strings line 168 profile html
-  Background = this.charServe.character.profile.background; // "
-  Race = this.charServe.character.profile.race; // "
+   //number from 1 - 10, populate a drop down menu from an array of strings line 168 profile html
+   // "
+   // "
   Features = this.charServe.character.profile.features;//display array w ngFor
   CharClass = this.charServe.character.classes;//read from multiclass costom pipe
   Level = this.charServe.character.classes;//"

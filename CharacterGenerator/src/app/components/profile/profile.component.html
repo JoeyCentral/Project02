@@ -41,7 +41,7 @@
 </div>
 <div class="row m-0 p-0 mx-auto" style="max-width: 1200px;">
     <div class="row m-0 p-0 mx-auto">
-        <div class="col-md-12 m-0 p-0 mx-auto">
+        <div class="col-md-12 m-0 p-0 mx-auto" style="margin:auto">
             <div class="row" id={{Header}}>
                 <div class="col-md-5" style="height:160px;min-width: 300px;">
                     <input *ngIf="Header=='HeaderWide'" type="text" id="Charname"
@@ -58,14 +58,13 @@
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
                                 <div class="col-md-4 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;margin-left: 30px;margin-top: 80px;">Level {{Level}}
-                                        {{CharClass}}
+                                    <div style="width: 200px;margin-left: 30px;margin-top: 80px;">Level
+                                        {{Classes | level}} {{Classes | class}}
                                     </div>
                                 </div>
                                 <div class="col-md-3 p-0">
                                     <!--Race-->
-                                    <select ng-model="Race" style="width: 180px;margin-left:10px;margin-top:78px;"
-                                        ng-options="x.name for x in races"></select>
+                                    <div style="width: 180px;margin-left:10px;margin-top:78px;">{{Race}}</div>
                                 </div>
                                 <div class="col-md-5 p-0">
                                     <!--Player-->
@@ -82,15 +81,12 @@
                                 </div>
                                 <div class="col-md-3 p-0">
                                     <!--Alignment-->
-                                    <select ng-model="Alignment" ng-options="x.name for x in aligns"
-                                        style="margin-top: 24px;width: 180px;margin-left:10px"></select>
+                                    <div style="margin-top: 24px;width: 180px;margin-left:10px">{{Alignment}}</div>
                                 </div>
                                 <div class="col-md-5 p-0">
                                     <!--Background-->
-                                    <select ng-model="Background"
-                                        style="width: 180px; margin-left:45px;margin-top: 24px;"
-                                        ng-options="x.name for x in backgrounds">
-                                    </select>
+                                    <div style="width: 180px; margin-left:45px;margin-top: 24px;">{{Background}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -98,17 +94,16 @@
                     <!--Middle-->
                     <div *ngIf="Header=='HeaderMiddle'">
                         <div class="row">
-                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                            <div class="col-md-12 p-0" style="display: inline-flex;margin:auto;">
                                 <div class="col-md-7 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;padding-left: 79px;margin-top: 36px;">Level {{Level}}
-                                        {{CharClass}}
+                                    <div style="width: 200px;margin-left: 79px;margin-top: 36px;">Level
+                                        {{Classes | level}} {{Classes | class}}
                                     </div>
                                 </div>
                                 <!--Race-->
                                 <div class="col-md-5 p-0">
-                                    <select ng-model="Race" style="width: 170px;margin-left:15px;margin-top:30px;"
-                                        ng-options="x.name for x in races"></select>
+                                    <div style="width: 170px;margin-left:15px;margin-top:36px;">{{Race}}</div>
                                 </div>
                             </div>
                         </div>
@@ -121,8 +116,7 @@
                                 </div>
                                 <!--Alignment-->
                                 <div class="col-md-5 p-0">
-                                    <select ng-model="Alignment" ng-options="x.name for x in aligns"
-                                        style="width: 170px;margin-top:22px;margin-left:15px;"> </select>
+                                    <div style="width: 170px;margin-top:28px;margin-left:15px;">{{Alignment}}</div>
                                 </div>
                             </div>
                         </div>
@@ -134,27 +128,23 @@
                                 </div>
                                 <!--Background-->
                                 <div class="col-md-5 p-0">
-                                    <select ng-model="Background"
-                                        style="width: 170px; margin-left: 15px;margin-top:22px;"
-                                        ng-options="x.name for x in backgrounds">
-                                    </select>
+                                    <div style="width: 170px; margin-left: 20px;margin-top:28px;">{{Background}}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--Narrow-->
-                    <div *ngIf="Header=='HeaderNarrow'" style="width:400px;">
+                    <div *ngIf="Header=='HeaderNarrow'" style="width:400px;margin:auto">
                         <div class="row" style="width:400px;">
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
                                 <div class="col-md-6 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;padding-top: 40px;margin-left:20px">Level {{Level}}
-                                        {{CharClass}} </div>
+                                    <div style="width: 200px;padding-top: 40px;margin-left:20px">Level
+                                        {{Classes | level}} {{Classes | class}} </div>
                                 </div>
                                 <!--Race-->
                                 <div class="col-md-6 p-0">
-                                    <select ng-model="Race" style="width: 170px;margin-top: 40px;"
-                                        ng-options="x.name for x in races"></select>
+                                    <div style="width: 170px;margin-top: 40px;">{{Race}}</div>
                                 </div>
                             </div>
                         </div>
@@ -167,23 +157,18 @@
                                 </div>
                                 <!--Alignment-->
                                 <div class="col-md-5 p-0">
-                                    <select ng-model="Alignment" ng-options="x.name for x in aligns"
-                                        style="width: 170px;margin-top:22px;margin-left:19px;"> </select>
-                                </div>
+                                    <div style="width: 170px;margin-top:28px;margin-left:19px;">{{Alignment}}</div>
                             </div>
                         </div>
                         <div class="row" style="width:400px;">
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
                                 <div class=" col-md-6 p-0">
                                     <!--Player-->
-                                    <div style="width: 200px;margin-left: 20px;margin-top:30px;">{{Player}}</div>
+                                    <div style="width: 200px;margin-left: 40px;margin-top:30px;">{{Player}}</div>
                                 </div>
                                 <!--Background-->
                                 <div class="col-md-5 p-0">
-                                    <select ng-model="Background"
-                                        style="width: 170px; margin-left: 0px;margin-top:22px;"
-                                        ng-options="x.name for x in backgrounds">
-                                    </select>
+                                    <div style="width: 170px; margin-left: 16px;margin-top:28px;">{{Background}}</div>
                                 </div>
                             </div>
                         </div>

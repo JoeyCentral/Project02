@@ -44,8 +44,8 @@ export class CharacterComponent implements OnInit {
     this.characterService.character = {
       character_name: "", profile: {
         abilityScores: "101010101010", id: 0, ac: 10, maximumHealth: 0, currentHealth: 0, languages: "", inventory: "",
-        tempHP: 0, race: null, experience: 0, features: null, hitDice: "0000000000000000", inspiration: 0, proficiencies: null, roll: null, alignment: "",
-        deathSaves: 0, background: null
+        tempHP: 0, race: {id:16,raceName:"Select Race", description:"", features:null}, experience: 0, features: null, hitDice: "0000000000000000", inspiration: 0, proficiencies: null, roll: null, alignment: "",
+        deathSaves: 0, background: {id:13,background_name:"Select Background", description:""}
       }, id: 0, spellList: null, multiclass: [{ level: 1, charClass: null, id: 0 }], player: {
         id: this.loginService.userId,
         password: "", username: this.loginService.playername
@@ -55,5 +55,11 @@ export class CharacterComponent implements OnInit {
       }
     }
     this.router.navigateByUrl("/profile");
+  }
+  logout() {
+    this.loginService.userId=0;
+    this.loginService.authenticated=false;
+    this.loginService.playername="";
+    this.router.navigateByUrl("/login");
   }
 }

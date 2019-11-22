@@ -11,8 +11,8 @@ export class LoginService {
   constructor(private router: Router, private httpClient: HttpClient) { }
 
   authenticated = false;
-  userId = 9;
-  playername = "User";
+  userId = 0;
+  playername = "";
 
   async loginHttp(credentials: {username: string, password: string}){
     this.playername=credentials.username;
