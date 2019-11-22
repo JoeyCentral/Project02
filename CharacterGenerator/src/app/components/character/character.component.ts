@@ -31,31 +31,16 @@ export class CharacterComponent implements OnInit {
   async getCharactersHttp() {
     const url = `http://localhost:8081/character/view/${this.loginService.userId}`;
     const data = await this.httpClient.get(url).toPromise();
-
-    console.log(this.loginService.userId);
     this.characterList = JSON.parse(JSON.stringify(data));
-    const test = this.characterList[1];
   };
 
   async selectCharacter(c : Character) {
+    const url = `http://localhost:8081/character/select/${c.id}`;
     console.log(c.id);
-    this.characterService.character = await this.characterService.getMyCharacter(c.id)[0];
-    
+    const data = await this.httpClient.get(url).toPromise();
+    this.characterService.character = JSON.parse(JSON.stringify(data));
           console.log(c);
           console.log(this.characterService.character)
           this.router.navigateByUrl("/profile");
-          // Tried to reroute to profile/{char ID}. Able to click on character on character page and retrieve character ID.
-
-
-    // const charChecker = 
-    //   setInterval(()=>{
-    //     if (this.characterService.character) {
-    //       console.log(c);
-    //       console.log(this.characterService.character)
-    //       this.router.navigateByUrl("/profile");
-    //       clearInterval(charChecker);
-    //     }
-    //   }, 100);
-
   }
 }
