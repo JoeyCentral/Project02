@@ -12,7 +12,7 @@ export class LoginService {
 
   authenticated = false;
   userId = 9;
-  playername = "Name";
+  playername = "User";
 
   async loginHttp(credentials: {username: string, password: string}){
     this.playername=credentials.username;
