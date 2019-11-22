@@ -39,8 +39,27 @@ button {
     background-color: #ffffff00;
 }
 
+
+/*Set style for fonts */
+
+label {
+    font-family: 'DragonForceFont';
+}
+
+
+/*Centering buttons on top of each other*/
+
+#userBTN {
+    width: 250px;
+    top: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 button:hover {
     opacity: 0.8;
+    transform: scale(1.05);
 }
 
 
