@@ -1,23 +1,23 @@
 <div class="bevelBox">
     <div class="row mx-auto" style="margin-top: 10px;">
-        <div class="col-4 mx-auto">
+        <div class="col-4 mx-auto" (click)="SaveAndExit()">
             <h4>Save and Exit</h4>
         </div>
-        <div class="col-4 mx-auto">
+        <div class="col-4 mx-auto" (click)="Save()">
             <h4>Save</h4>
         </div>
-        <div class="col-4 mx-auto">
+        <div class="col-4 mx-auto" (click)="Exit()">
             <h4>Exit Without Saving</h4>
         </div>
     </div>
     <div class="row mx-auto">
-        <div class="col-4 mx-auto">
+        <div class="col-4 mx-auto" (click)="Share()">
             <h4>Share</h4>
         </div>
-        <div class="col-4 mx-auto">
+        <div class="col-4 mx-auto" (click)="Copy()">
             <h4>Copy</h4>
         </div>
-        <div class="col-4 mx-auto">
+        <div class="col-4 mx-auto" (click)="Delete()">
             <h4>Delete</h4>
         </div>
     </div>
@@ -283,11 +283,11 @@
             <div *ngIf="WidthControl=='Narrow'">
                 <!--Picture for Narrow-->
                 <div id="PictureNarrow">
-                        <div id="PictureTopNarrow"></div>
-                        <div id="PictureBodyNarrow">
-                        </div>
-                        <div id="PictureFootNarrow"></div>
+                    <div id="PictureTopNarrow"></div>
+                    <div id="PictureBodyNarrow">
                     </div>
+                    <div id="PictureFootNarrow"></div>
+                </div>
                 <!--Allies and Organization for Narrow-->
                 <div id="AlliesNarrow">
                     <div id="AlliesTopNarrow"></div>

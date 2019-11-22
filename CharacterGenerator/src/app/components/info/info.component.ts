@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener } from "@angular/core";
+import { CharacterService } from 'src/app/services/character-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-info',
@@ -13,14 +15,21 @@ export class InfoComponent implements OnInit {
   MaxWidth="MNarrow";
   DoubleColumn = "col-md-12 m-0 p-0 mx-auto";
   SingleColumn = "col-md-12 m-0 p-0 mx-auto";
-  constructor() {this.getScreenSize}
-  Age = 10;
-  Charname = "Freddy";
-  Skin = "Green";
-  Hair = "Yellow";
-  Eyes = "Blue";
-  Height = 72;
-  Weight = 200;
+  constructor(private charServe: CharacterService, private router: Router) {this.getScreenSize}
+  Age = this.charServe.character.info.age;
+  Charname = this.charServe.character.character_name;
+  Skin = this.charServe.character.info.skin;
+  Hair = this.charServe.character.info.hair;
+  Eyes = this.charServe.character.info.eyes;
+  Height = this.charServe.character.info.height;
+  Weight = this.charServe.character.info.weight;
+  Personality = this.charServe.character.info.personality;
+  Bonds = this.charServe.character.info.bonds;
+  Backstory = this.charServe.character.info.backstory;
+  Ideals = this.charServe.character.info.ideals;
+  Flaws = this.charServe.character.info.flaws;
+  //Symbol = this.charServe.character.info.symbol;
+  //Picture = this.charServe.character.info.image;
 
   ngOnInit() {this.getScreenSize()
   }
@@ -46,5 +55,25 @@ export class InfoComponent implements OnInit {
           this.WidthControl="Middle";
           this.MaxWidth="MMiddle";
         }
+  }
+  async SaveAndExit(){
+    let x = await this.charServe.saveCharacterHttp(this.charServe.character);
+    this.router.navigateByUrl("/character");
+  }
+  async Save(){
+    let x = await this.charServe.saveCharacterHttp(this.charServe.character);
+  }
+  Exit(){
+    this.router.navigateByUrl("/character");
+  }
+  async Copy(){
+    let x = await this.charServe.copyCharacterHttp(this.charServe.character);
+  }
+  async Share(){
+    let Shared = this.charServe.character;
+    let x = await this.charServe.shareCharacterHttp(Shared);
+  }
+  async Delete(){
+    await this.charServe.shareCharacterHttp(this.charServe.character.id);
   }
 }

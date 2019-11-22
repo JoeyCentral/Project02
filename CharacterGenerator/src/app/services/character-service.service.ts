@@ -30,4 +30,9 @@ export class CharacterService {
     const data = await this.httpClient.post(url, c).toPromise();
     return JSON.parse(JSON.stringify(data));
   };
+  async deleteCharacterHttp(x:number) {
+    const url = `http://localhost:8081/character/delete/${x}`;
+    const data = await this.httpClient.delete(url).toPromise();
+    return JSON.parse(JSON.stringify(data));
+  };
 }

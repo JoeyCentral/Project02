@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   DoubleColumn = "col-md-12 m-0 p-0 mx-auto";
   SingleColumn = "col-md-12 m-0 p-0 mx-auto";
   constructor(private charServe: CharacterService) { this.getScreenSize}
+  Charname=this.charServe.character.character_name;
   AC=this.charServe.character.profile.ac;
   MaximumHP=this.charServe.character.profile.maximumHealth;
   CurrentHP=this.charServe.character.profile.currentHealth;
