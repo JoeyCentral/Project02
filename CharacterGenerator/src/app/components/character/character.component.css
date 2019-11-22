@@ -20,3 +20,10 @@
     position: absolute;
     top: 0;
 }
+
+#linker{border-radius: 5px;}
+
+
+#linker:hover{
+    background-color: rgba(90,90,90,0.8);
+}
