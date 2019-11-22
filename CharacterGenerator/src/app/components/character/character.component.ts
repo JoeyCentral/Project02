@@ -31,6 +31,6 @@ export class CharacterComponent implements OnInit {
   this.characterList=JSON.parse(JSON.stringify(data));
   const test = this.characterList[1];
   console.log(test);
-  console.log(test.classes)
+  console.log(test.multiclass)
 };
 }

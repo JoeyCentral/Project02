@@ -31,6 +31,16 @@ export class ClassPipe implements PipeTransform {
       }
   }
 }
+@Pipe({name: 'level'})
+export class LevelPipe implements PipeTransform {
+    transform(value: Multiclass[]): number {
+      var totalLevel = 0;
+      for(let multiclass of value){
+        totalLevel+=multiclass.level;
+      }
+      return totalLevel;
+      }
+  }
 
 
 
@@ -46,7 +56,8 @@ export class ClassPipe implements PipeTransform {
     InfoComponent,
     SpellsComponent,
     RoundPipe,
-    ClassPipe
+    ClassPipe,
+    LevelPipe
   ],
   imports: [
     BrowserModule,
