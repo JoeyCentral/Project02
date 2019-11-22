@@ -4,6 +4,20 @@
     <div class="bevelBox" style="margin-top: 50px;margin-bottom: 20px;">
         <div class="col-12"style="margin-bottom: 10px;">
             <h1>Welcome {{player}}</h1>
+            <div class="row">
+            <div class="col-12 p-0 m-0" style="display: inline-flex;">
+                    <div class="col-6 p-0 m-0">
+                        <h2>Character Name</h2>
+                    </div>
+                    <div class="col-4 p-0 m-0">
+                        <h2>Class</h2>
+                    </div>
+                    <div class="col-2 p-0 m-0">
+                        <h2>Lv.</h2>
+                    </div>
+                </div>
+            </div>
+            <hr style="width: 95%; size:10px; border: 2px solid;margin:0;">
             <div class="col-12 p-0 m-0" *ngFor="let character of characterList" style="display: inline-flex;" id="linker">
                 <div class="col-6">
                     <h3>{{character.character_name}}</h3>
