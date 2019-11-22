@@ -20,6 +20,11 @@ h4 {text-align: center;text-transform: uppercase;display:inline-block; border: 1
     input[type="number"]{background: transparent;border: none;}
     #Charname {font-size:24px;font-weight: bold;}
 
+.Narrow{width:400px;text-align: center;}
+.Middle{width:800px;text-align: center;}
+.Wide{width:1200px;text-align: center;}
+#MMiddle{max-width:800px;text-align: center;}
+#MNarrow{max-width:400px;text-align: center;}
 
 
 
