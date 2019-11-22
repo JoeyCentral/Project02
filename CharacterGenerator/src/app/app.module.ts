@@ -12,18 +12,31 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { InfoComponent } from './components/info/info.component';
 import { SpellsComponent } from './components/spells/spells.component';
+import { Multiclass } from './models/multiclass';
 
 @Pipe({name: 'round'})
 export class RoundPipe implements PipeTransform {
-    /**
-     *
-     * @param value
-     * @returns {number}
-     */
     transform(value: number): number {
         return Math.floor(value);
     }
 }
+
+@Pipe({name: 'class'})
+export class ClassPipe implements PipeTransform {
+    transform(value: Multiclass[]): string {
+      if(value.length>1){return "Multiclass";}
+      else {
+        const classitem=value[0];
+        return classitem.charClass.classname;
+      }
+  }
+}
+
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +45,8 @@ export class RoundPipe implements PipeTransform {
     ProfileComponent,
     InfoComponent,
     SpellsComponent,
-    RoundPipe
+    RoundPipe,
+    ClassPipe
   ],
   imports: [
     BrowserModule,

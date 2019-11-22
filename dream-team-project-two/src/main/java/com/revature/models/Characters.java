@@ -28,7 +28,7 @@ public class Characters {
 	
 	// Newly created state
 	@OneToMany
-	@JoinColumn(name = "multiclass")
+	@JoinColumn(name = "character_id")
 	private List<Multiclass> multiclass;
 	
 	@ManyToOne

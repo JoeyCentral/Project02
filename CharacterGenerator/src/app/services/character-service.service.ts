@@ -6,10 +6,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CharacterServiceService {
+export class CharacterService {
 
-  character: Character[];
-
+  characterList: Character[];
+  character: Character;
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(){
@@ -27,15 +27,12 @@ export class CharacterServiceService {
   async saveCharacter(id: Character){
     return this.httpClient.post<Character>("character/save").toPromise();
   }
-
   async shareCharacter(id: Character){
     return this.httpClient.post<Character>("character/copy").toPromise();
   }
-
   async copyCharacter(id: number){
     return this.httpClient.post<Character>("character/share").toPromise();
   }
-
   async deleteCharacter(id: number){
     return this.httpClient.delete<Character>("character/delete"+id).toPromise();
   }
