@@ -198,71 +198,112 @@
             <div [class]="SingleColumn">
                 <div class="row mx-auto">
                     <div id="Info">
+                        <!--Personality-->
                         <div id="InfoTop"></div>
                         <div id="InfoBody">
-
+                            {{Personality}}
                         </div>
+                        <!--Ideals-->
                         <div id="InfoPerson"></div>
                         <div id="InfoBody">
-
+                            {{Ideals}}
                         </div>
+                        <!--Bonds-->
                         <div id="InfoIdeals"></div>
                         <div id="InfoBody">
-
+                            {{Bonds}}
                         </div>
+                        <!--Flaws-->
                         <div id="InfoBonds"></div>
                         <div id="InfoBody">
-
+                            {{Flaws}}
                         </div>
                         <div id="InfoFlaws"></div>
                     </div>
                 </div>
                 <div *ngIf="WidthControl!='Middle'">
-                        <div id="Backstory">
-                                <div id="Symbol"></div>
-                                <div id="BackstoryBody">
-                
-                                </div>
-                                <div id="BackstoryFoot"></div>
-                            </div>
+                    <!--Backstory for Wide and Narrow-->
+                    <div id="Backstory">
+                        <div id="Symbol"></div>
+                        <div id="BackstoryBody">
+                            {{Background}}
+                        </div>
+                        <div id="BackstoryFoot"></div>
+                    </div>
                 </div>
             </div>
             <div class="col-6" *ngIf="WidthControl=='Middle'">
-                    <div id="Backstory">
-                            <div id="Symbol"></div>
-                            <div id="BackstoryBody">
-            
-                            </div>
-                            <div id="BackstoryFoot"></div>
-                        </div>
+                <!--Backstory for Middle-->
+                <div id="Backstory">
+                    <div id="Symbol"></div>
+                    <div id="BackstoryBody">
+                        {{Background}}
+                    </div>
+                    <div id="BackstoryFoot"></div>
+                </div>
             </div>
             <div [class]="DoubleColumn">
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="Front">
-    <div id="Full">
-        <div id="Left">
-
-
-        </div>
-        <div id="Right">
-            <div id="Allies">
-                <div id="AlliesTop"></div>
-                <div id="AlliesBody">
-
+                <div *ngIf="WidthControl=='Wide'">
+                    <!--Allies and Organization for Wide-->
+                    <div id="Allies">
+                        <div id="AlliesTop"></div>
+                        <div id="AlliesBody">
+                            {{Allies}}
+                        </div>
+                        <div id="AlliesFoot"></div>
+                    </div>
+                    <!--Notes for Wide-->
+                    <div id="Notes">
+                        <div id="NotesTop"></div>
+                        <div id="NotesBody">
+                            {{Notes}}
+                        </div>
+                        <div id="NotesFoot"></div>
+                    </div>
                 </div>
-                <div id="AlliesFoot"></div>
             </div>
-            <div id="Notes">
-                <div id="NotesTop"></div>
-                <div id="NotesBody">
-
+            <div *ngIf="WidthControl=='Middle'">
+                <!--Allies and Organization for Middle-->
+                <div id="Allies">
+                    <div id="AlliesTop"></div>
+                    <div id="AlliesBody">
+                        {{Allies}}
+                    </div>
+                    <div id="AlliesFoot"></div>
                 </div>
-                <div id="NotesFoot"></div>
+                <!--Notes for Middle-->
+                <div id="Notes">
+                    <div id="NotesTop"></div>
+                    <div id="NotesBody">
+                        {{Notes}}
+                    </div>
+                    <div id="NotesFoot"></div>
+                </div>
+            </div>
+            <div *ngIf="WidthControl=='Narrow'">
+                <!--Picture for Narrow-->
+                <div id="PictureNarrow">
+                        <div id="PictureTopNarrow"></div>
+                        <div id="PictureBodyNarrow">
+                        </div>
+                        <div id="PictureFootNarrow"></div>
+                    </div>
+                <!--Allies and Organization for Narrow-->
+                <div id="AlliesNarrow">
+                    <div id="AlliesTopNarrow"></div>
+                    <div id="AlliesBodyNarrow">
+                        {{Allies}}
+                    </div>
+                    <div id="AlliesFootNarrow"></div>
+                </div>
+                <!--Notes for Narrow-->
+                <div id="NotesNarrow">
+                    <div id="NotesTopNarrow"></div>
+                    <div id="NotesBodyNarrow">
+                        {{Notes}}
+                    </div>
+                    <div id="NotesFootNarrow"></div>
+                </div>
             </div>
         </div>
     </div>

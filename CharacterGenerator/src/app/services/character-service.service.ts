@@ -9,11 +9,12 @@ import { Observable } from 'rxjs';
 export class CharacterService {
 
   characterList: Character[];
-  character: Character;
+  character : Character;
   constructor(private httpClient: HttpClient) { }
+  
+
 
   ngOnInit(){
-    this.character = null;
   }
   async saveCharacterHttp(c:Character) {
     const url = "http://localhost:8081/character/save";
