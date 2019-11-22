@@ -12,5 +12,5 @@ export class Character{
     profile:Profile
     info:Info
     spellList:SpellList
-    classes:Multiclass[]
+    multiclass:Multiclass[]
 }

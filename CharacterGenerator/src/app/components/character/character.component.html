@@ -4,21 +4,21 @@
     <div class="bevelBox" style="margin-top: 50px;">
         <div class="col-12">
             <h1>Welcome {{player}}</h1>
-            <div *ngFor="let character of characterList">
+            <div class="col-12 p-0 m-0" *ngFor="let character of characterList" style="display: inline-flex;">
                 <div class="col-6">
-                    <h1>{{character.character_name}}</h1>
+                    <h3>{{character.character_name}}</h3>
                 </div>
                 <div class="col-4">
-                    <h1>{{character?.classes | class}}</h1>
+                    <h3>{{character.multiclass | class}}</h3>
                 </div>
                 <div class="col-2">
-                    <h1></h1>
+                    <h3>{{character.multiclass | level}}</h3>
                 </div>
             </div>
         </div>
     </div>
     
-    <div class="row mx-auto" style="width: 60%;">
+    <div class="row mx-auto" style="width: 60%;min-width: 400px;">
         <div class="col-6 bevelBox">
             <h1>Log Out</h1>
         </div>
