@@ -64,7 +64,8 @@ public class CharacterServiceTest {
 		assertSame("Expecting character to be same as returnedCharacter...", character, returnedCharacter);
 
 		// System.out.println("getCharacterByUserId test passed!");
-
+		
+		
 	}
 
 	@Test
@@ -139,6 +140,23 @@ public class CharacterServiceTest {
 		assertTrue("The value of sharedCharacterId is equal to 0 and the value of character's ID is now also"
 				+ "equal to 0", sharedCharacterId == 0 && character.getId() == 0);
 	}
+	
+    @Test
+    public void getCharacterByIdTestFail() {
+        Characters character = new Characters();
+        
+        int id = 4;
+        
+        when(mockCharacterRepository.getCharacterByCharId(id)).thenReturn(character);
+        
+        Characters returnCharacter = characterService.getMyCharacter(5);
+        
+        assertSame("Expecting character to be different", character, returnCharacter);
+        
+        
+    }
+	
+	
 	
 
 }
