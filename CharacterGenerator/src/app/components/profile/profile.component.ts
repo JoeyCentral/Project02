@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
   Features = "This is a demonstration of how the feature box expands when sufficient lines are contained to require expantion. The base size will be three lines, but will expand to as much as needed. This principle will be applied to every text diplay area.";
   Attacks = "";
   ProfBonus = Math.ceil((this.Level/4)+1);
-  Inspiration = ""; Passive = 15;
+  Inspiration = "X"; Passive = 15;
   Prof1 = "TProfYes";Prof2 = "ProfYes";Prof3 = "ProfYes";Prof4 = "HProfYes";Prof5 = "ProfYes";Prof6 = "ProfYes";
   Prof7 = "MProfYes";Prof8 = "ProfYes";Prof9 = "ProfYes";Prof10 = "ProfYes";Prof11 = "HProfYes";Prof12 = "ProfYes";
   Prof13 = "HProfYes";Prof14 = "HProfYes";Prof15 = "HProfYes";Prof16 = "ProfYes";Prof17 = "HProfYes";Prof18 = "ProfYes";
