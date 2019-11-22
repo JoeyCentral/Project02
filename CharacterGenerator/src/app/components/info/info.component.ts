@@ -14,13 +14,13 @@ export class InfoComponent implements OnInit {
   DoubleColumn = "col-md-12 m-0 p-0 mx-auto";
   SingleColumn = "col-md-12 m-0 p-0 mx-auto";
   constructor() {this.getScreenSize}
-  Age:10;
+  Age = 10;
   Charname = "Freddy";
-  Skin:"Green";
-  Hair:"Yellow";
-  Eyes: "Blue";
-  Height: 72;
-  Weight: 200;
+  Skin = "Green";
+  Hair = "Yellow";
+  Eyes = "Blue";
+  Height = 72;
+  Weight = 200;
 
   ngOnInit() {this.getScreenSize()
   }
