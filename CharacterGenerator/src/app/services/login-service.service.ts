@@ -6,17 +6,19 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginServiceService {
+export class LoginService {
 
   constructor(private router: Router, private httpClient: HttpClient) { }
 
   authenticated = false;
-  userId = 0;
+  userId = 9;
+  playername = "Name";
 
-  async loginHttp(credentails: {username: string, password: string}){
+  async loginHttp(credentials: {username: string, password: string}){
+    this.playername=credentials.username;
     const loginCredentials = {
-      username: credentails.username,
-      hashpass: credentails.password,
+      username: credentials.username,
+      hashpass: credentials.password,
     };
 // NOTE: Until server is up, we are using localhost. If your post isn't 8081, fix it in lines 21 and 34.
     const url = "http://localhost:8081/start/login";

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CharacterServiceService } from 'src/app/services/character-service.service';
+import { CharacterService } from 'src/app/services/character-service.service';
 import { Character } from 'src/app/models/character';
 import { HttpClient } from '@angular/common/http';
-import { LoginServiceService } from 'src/app/services/login-service.service';
+import { LoginService } from 'src/app/services/login-service.service';
 
 @Component({
   selector: 'app-character',
@@ -13,8 +13,8 @@ export class CharacterComponent implements OnInit {
 
   characterList= [Character];
 
-  constructor(private httpClient: HttpClient, private characterService : CharacterServiceService, private loginService : LoginServiceService) { }
-
+  constructor(private httpClient: HttpClient, private characterService : CharacterService, private loginService : LoginService) { }
+  player=this.loginService.playername;
   ngOnInit() {
     this.getCharactersHttp();
   }

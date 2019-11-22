@@ -1,8 +1,29 @@
 <div class="background"></div>
-<div>Head</div>
-<div class="col-12">
-    <div *ngFor="let character of characterList">
-        <div>{{character.character_name}}</div>
+
+<div class="col-12 mx-auto" id="overlay">
+    <div class="bevelBox" style="margin-top: 50px;">
+        <div class="col-12">
+            <h1>Welcome {{player}}</h1>
+            <div *ngFor="let character of characterList">
+                <div class="col-6">
+                    <h1>{{character.character_name}}</h1>
+                </div>
+                <div class="col-4">
+                    <h1>{{Class}}</h1>
+                </div>
+                <div class="col-2">
+                    <h1>{{Level}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mx-auto" style="width: 60%;">
+        <div class="col-6 bevelBox">
+            <h1>Log Out</h1>
+        </div>
+        <div class="col-6 bevelBox">
+            <h1>Create Character</h1>
+        </div>
     </div>
 </div>
-<div>Foot</div>

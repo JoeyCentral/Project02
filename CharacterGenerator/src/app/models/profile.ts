@@ -2,6 +2,7 @@ import { Backgrounds } from './backgrounds';
 import { Proficiencies } from './proficiencies';
 import { Features } from './features';
 import { Race } from './race';
+import { CustomRoll } from './customroll';
 
 export class Profile{
 	id:number;
@@ -18,7 +19,8 @@ export class Profile{
 	languages:string;
 	race:Race;
 	background:Backgrounds;
-	proficiencies:[Proficiencies];
-	features:[Features];
-
+	proficiencies:Proficiencies[];
+	features:Features[];
+	roll:CustomRoll[];
+	tempHP:Number;
 }

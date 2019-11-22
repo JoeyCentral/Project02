@@ -37,16 +37,6 @@ public class Spells {
 	private String description;
 	
 	@ManyToMany
-	@JoinTable(name = "spell_race", joinColumns = { @JoinColumn(name = "spell_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "race_id") })
-	private List<Race> race;
-	
-	@ManyToMany
-	@JoinTable(name = "spell_class", joinColumns = { @JoinColumn(name = "spell_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "class_id") })
-	private List<CharClass> charClass;
-
-	@ManyToMany
 	@JoinTable(name = "spell_feats", joinColumns = { @JoinColumn(name = "spell_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "feat_id") })
 	private List<Features> features;
@@ -122,23 +112,7 @@ public class Spells {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public List<Race> getRace() {
-		return race;
-	}
-
-	public void setRace(List<Race> race) {
-		this.race = race;
-	}
-
-	public List<CharClass> getCharClass() {
-		return charClass;
-	}
-
-	public void setCharClass(List<CharClass> charClass) {
-		this.charClass = charClass;
-	}
-
+	
 	public List<Features> getFeatures() {
 		return features;
 	}
@@ -152,13 +126,11 @@ public class Spells {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((casttime == null) ? 0 : casttime.hashCode());
-		result = prime * result + ((charClass == null) ? 0 : charClass.hashCode());
 		result = prime * result + ((components == null) ? 0 : components.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((duration == null) ? 0 : duration.hashCode());
 		result = prime * result + ((features == null) ? 0 : features.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((race == null) ? 0 : race.hashCode());
 		result = prime * result + school;
 		result = prime * result + spelllevel;
 		result = prime * result + ((spellname == null) ? 0 : spellname.hashCode());
@@ -179,11 +151,6 @@ public class Spells {
 			if (other.casttime != null)
 				return false;
 		} else if (!casttime.equals(other.casttime))
-			return false;
-		if (charClass == null) {
-			if (other.charClass != null)
-				return false;
-		} else if (!charClass.equals(other.charClass))
 			return false;
 		if (components == null) {
 			if (other.components != null)
@@ -207,11 +174,6 @@ public class Spells {
 			return false;
 		if (id != other.id)
 			return false;
-		if (race == null) {
-			if (other.race != null)
-				return false;
-		} else if (!race.equals(other.race))
-			return false;
 		if (school != other.school)
 			return false;
 		if (spelllevel != other.spelllevel)
@@ -230,13 +192,11 @@ public class Spells {
 	public String toString() {
 		return "Spells [id=" + id + ", spellname=" + spellname + ", spelllevel=" + spelllevel + ", school=" + school
 				+ ", casttime=" + casttime + ", spellrange=" + spellrange + ", components=" + components + ", duration="
-				+ duration + ", description=" + description + ", race=" + race + ", charClass=" + charClass
-				+ ", features=" + features + "]";
+				+ duration + ", description=" + description + ", features=" + features + "]";
 	}
 
 	public Spells(int id, String spellname, int spelllevel, int school, String casttime, int spellrange,
-			String components, String duration, String description, List<Race> race, List<CharClass> charClass,
-			List<Features> features) {
+			String components, String duration, String description, List<Features> features) {
 		super();
 		this.id = id;
 		this.spellname = spellname;
@@ -247,8 +207,6 @@ public class Spells {
 		this.components = components;
 		this.duration = duration;
 		this.description = description;
-		this.race = race;
-		this.charClass = charClass;
 		this.features = features;
 	}
 
