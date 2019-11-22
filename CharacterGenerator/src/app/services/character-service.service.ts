@@ -23,10 +23,19 @@ export class CharacterService {
   async getMyCharacter(charId: number){
     return this.httpClient.get<Character[]>("character/select/"+charId).toPromise();
   }
-/** 
+
+  async saveCharactersHttp(c:Character) {
+    const url = `http://localhost:8081/character/view/${this.loginService.userId}`;
+    const data = await this.httpClient.get(url).toPromise();
+    this.characterList = JSON.parse(JSON.stringify(data));
+  };
+
+
+    /** 
   async saveCharacter(id: Character){
     return this.httpClient.post<Character>("character/save").toPromise();
   }
+
   async shareCharacter(id: Character){
     return this.httpClient.post<Character>("character/copy").toPromise();
   }
