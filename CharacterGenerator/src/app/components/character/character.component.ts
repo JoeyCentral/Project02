@@ -4,6 +4,8 @@ import { Character } from 'src/app/models/character';
 import { HttpClient } from '@angular/common/http';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 
+
+
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
@@ -19,9 +21,11 @@ export class CharacterComponent implements OnInit {
     this.getCharactersHttp();
   }
   async getCharactersHttp() {
-  const url = 'http://localhost:8081/character/view/'+this.loginService.userId;
+  const url = `http://localhost:8081/character/view/${this.loginService.userId}`;
   const data = await this.httpClient.get(url).toPromise();
-  console.log(data);
+  
+  console.log(this.loginService.userId);
   this.characterList=JSON.parse(JSON.stringify(data));
+  console.log(this.characterList);
 };
 }
