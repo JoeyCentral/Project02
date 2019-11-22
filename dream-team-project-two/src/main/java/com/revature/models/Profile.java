@@ -66,30 +66,6 @@ public class Profile {
 		super();
 	}
 	
-	public Profile(int id, String abilityScores, int inspiration, String alignment, int experience,
-			int maximumHealth, int ac, int deathsaves, int hitDice, int currentHealth, String inventory,
-			String languages, Race race, Backgrounds background, List<Proficiencies> proficiencies,
-			List<Features> features) {
-		super();
-		this.id = id;
-		this.abilityScores = abilityScores;
-		this.inspiration = inspiration;
-		this.alignment = alignment;
-		this.experience = experience;
-		this.maximumHealth = maximumHealth;
-		this.ac = ac;
-		this.deathsaves = deathsaves;
-		this.hitDice = hitDice;
-		this.currentHealth = currentHealth;
-		this.inventory = inventory;
-		this.languages = languages;
-		this.race = race;
-		this.background = background;
-		this.proficiencies = proficiencies;
-		this.features = features;
-	}
-
-
 	public Profile(int id, String abilityScores, int inspiration, String alignment, int experience, int maximumHealth,
 			int ac, int deathsaves, int hitDice, int currentHealth, String inventory, String languages, Race race,
 			Backgrounds background, List<CustomRolls> customRolls, List<Proficiencies> proficiencies,

@@ -29,10 +29,6 @@ public class CustomRolls {
 	private int damage_amount;
 	@Value("")
 	private String damage_type;
-	
-	@ManyToOne
-	@JoinColumn(name = "profile_id")
-	private Profile profile_id;
 
 	public int getId() {
 		return id;
@@ -82,14 +78,6 @@ public class CustomRolls {
 		this.damage_type = damage_type;
 	}
 
-	public Profile getProfile_id() {
-		return profile_id;
-	}
-
-	public void setProfile_id(Profile profile_id) {
-		this.profile_id = profile_id;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -99,7 +87,6 @@ public class CustomRolls {
 		result = prime * result + ((damage_type == null) ? 0 : damage_type.hashCode());
 		result = prime * result + id;
 		result = prime * result + modifier;
-		result = prime * result + ((profile_id == null) ? 0 : profile_id.hashCode());
 		result = prime * result + ((roll_name == null) ? 0 : roll_name.hashCode());
 		return result;
 	}
@@ -126,11 +113,6 @@ public class CustomRolls {
 			return false;
 		if (modifier != other.modifier)
 			return false;
-		if (profile_id == null) {
-			if (other.profile_id != null)
-				return false;
-		} else if (!profile_id.equals(other.profile_id))
-			return false;
 		if (roll_name == null) {
 			if (other.roll_name != null)
 				return false;
@@ -148,14 +130,12 @@ public class CustomRolls {
 		this.modifier = modifier;
 		this.damage_amount = damage_amount;
 		this.damage_type = damage_type;
-		this.profile_id = profile_id;
 	}
 
 	@Override
 	public String toString() {
 		return "CustomRolls [id=" + id + ", roll_name=" + roll_name + ", ability=" + ability + ", modifier=" + modifier
-				+ ", damage_amount=" + damage_amount + ", damage_type=" + damage_type + ", profile_id=" + profile_id
-				+ "]";
+				+ ", damage_amount=" + damage_amount + ", damage_type=" + damage_type + "]";
 	}
 
 	public CustomRolls() {
