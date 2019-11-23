@@ -4,6 +4,7 @@
     max-width: 1920px;
     height: 949px;
     z-index: -1;
+
 }
 
 body {
@@ -76,17 +77,17 @@ button:hover {
 
 .imgcontainer {
     text-align: center;
-    margin: 24px 0 12px 0;
     position: relative;
 }
 
 img.avatar {
-    width: 100%;
+    width:250px;
     border-radius: 50%;
 }
 
 .container {
     padding: 16px;
+    margin-top:-32px;
 }
 
 span.psw {
@@ -96,7 +97,6 @@ span.psw {
 
 span.psw2 {
     float: right;
-    padding-top: 16px;
 }
 
 
@@ -129,7 +129,7 @@ span.psw2 {
 
 .modal-content {
     background-color: rgba(170, 170, 170, 0.7);
-    margin: 5% auto 15% auto;
+    margin: 1% auto 15% auto;
     /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 80%;
