@@ -42,8 +42,7 @@ public class Profile {
 	@Value("0")
 	private int deathsaves;
 	
-	@Value("0")
-	private int hitDice;
+	private String hitDice;
 	
 	@Value("1")
 	private int currentHealth;
@@ -67,7 +66,7 @@ public class Profile {
 	}
 	
 	public Profile(int id, String abilityScores, int inspiration, String alignment, int experience, int maximumHealth,
-			int ac, int deathsaves, int hitDice, int currentHealth, String inventory, String languages, Race race,
+			int ac, int deathsaves, String hitDice, int currentHealth, String inventory, String languages, Race race,
 			Backgrounds background, List<CustomRolls> customRolls, List<Proficiencies> proficiencies,
 			List<Features> features) {
 		super();
@@ -172,11 +171,14 @@ public class Profile {
 		this.deathsaves = deathsaves;
 	}
 
-	public int getHitDice() {
+
+
+
+	public String getHitDice() {
 		return hitDice;
 	}
 
-	public void setHitDice(int hitDice) {
+	public void setHitDice(String hitDice) {
 		this.hitDice = hitDice;
 	}
 
@@ -236,6 +238,8 @@ public class Profile {
 		this.features = features;
 	}
 
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -249,7 +253,7 @@ public class Profile {
 		result = prime * result + deathsaves;
 		result = prime * result + experience;
 		result = prime * result + ((features == null) ? 0 : features.hashCode());
-		result = prime * result + hitDice;
+		result = prime * result + ((hitDice == null) ? 0 : hitDice.hashCode());
 		result = prime * result + id;
 		result = prime * result + inspiration;
 		result = prime * result + ((inventory == null) ? 0 : inventory.hashCode());
@@ -302,7 +306,10 @@ public class Profile {
 				return false;
 		} else if (!features.equals(other.features))
 			return false;
-		if (hitDice != other.hitDice)
+		if (hitDice == null) {
+			if (other.hitDice != null)
+				return false;
+		} else if (!hitDice.equals(other.hitDice))
 			return false;
 		if (id != other.id)
 			return false;

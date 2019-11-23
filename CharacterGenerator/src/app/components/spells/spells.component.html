@@ -1,35 +1,42 @@
 <div class="bevelBox">
-        <div class="row mx-auto" style="margin-top: 10px;">
-            <div class="col-4 mx-auto">
-                <h4>Save and Exit</h4>
-            </div>
-            <div class="col-4 mx-auto">
-                <h4>Save</h4>
-            </div>
-            <div class="col-4 mx-auto">
-                <h4>Exit Without Saving</h4>
-            </div>
+    <div class="row mx-auto" style="margin-top: 10px;">
+        <div class="col-4 mx-auto" (click)="SaveAndExit()">
+            <h4>Save and Exit</h4>
         </div>
-        <div class="row mx-auto">
-            <div class="col-4 mx-auto">
-                <h4>Share</h4>
-            </div>
-            <div class="col-4 mx-auto">
-                <h4>Copy</h4>
-            </div>
-            <div class="col-4 mx-auto">
-                <h4>Delete</h4>
-            </div>
+        <div class="col-4 mx-auto" (click)="Save()">
+            <h4>Save</h4>
         </div>
-        <div class="row mx-auto">
-            <div class="col-4 mx-auto">
-                <a class="nav-link" routerLink="/profile" style="width:100%;padding: 0;"><h4>Abilities</h4></a>
-            </div>
-            <div class="col-4 mx-auto">
-                <a class="nav-link" routerLink="/info" style="width:100%;padding: 0;"><h4>Info</h4></a>
-            </div>
-            <div class="col-4 mx-auto">
-                <a class="nav-link" routerLink="/spells" style="width:100%;padding: 0;"><h4>Spells</h4></a>
-            </div>
+        <div class="col-4 mx-auto" (click)="Exit()">
+            <h4>Exit Without Saving</h4>
         </div>
     </div>
+    <div class="row mx-auto">
+        <div class="col-4 mx-auto" (click)="Share()">
+            <h4>Share</h4>
+        </div>
+        <div class="col-4 mx-auto" (click)="Copy()">
+            <h4>Copy</h4>
+        </div>
+        <div class="col-4 mx-auto" (click)="Delete()">
+            <h4>Delete</h4>
+        </div>
+    </div>
+    <div class="row mx-auto">
+        <div class="col-4 mx-auto">
+            <a class="nav-link" routerLink="/profile" style="width:100%;padding: 0;">
+                <h4>Abilities</h4>
+            </a>
+        </div>
+        <div class="col-4 mx-auto">
+            <a class="nav-link" routerLink="/info" style="width:100%;padding: 0;">
+                <h4>Info</h4>
+            </a>
+        </div>
+        <div class="col-4 mx-auto">
+            <a class="nav-link" routerLink="/spells" style="width:100%;padding: 0;">
+                <h4>Spells</h4>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="page"></div>

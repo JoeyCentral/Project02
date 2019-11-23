@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Character } from '../models/character';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +8,12 @@ import { Observable } from 'rxjs';
 export class CharacterService {
 
   characterList: Character[];
-  character: Character;
+  character : Character;
   constructor(private httpClient: HttpClient) { }
+  
+
 
   ngOnInit(){
-    this.character = null;
   }
   async saveCharacterHttp(c:Character) {
     const url = "http://localhost:8081/character/save";
@@ -28,6 +28,11 @@ export class CharacterService {
   async shareCharacterHttp(c:Character) {
     const url = "http://localhost:8081/character/share";
     const data = await this.httpClient.post(url, c).toPromise();
+    return JSON.parse(JSON.stringify(data));
+  };
+  async deleteCharacterHttp(x:number) {
+    const url = `http://localhost:8081/character/delete/${x}`;
+    const data = await this.httpClient.delete(url).toPromise();
     return JSON.parse(JSON.stringify(data));
   };
 }

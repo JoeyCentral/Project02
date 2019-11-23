@@ -8,12 +8,12 @@ export class Profile{
 	id:number;
 	abilityScores:string;
 	inspiration:number;
-	alignmnet:string;
+	alignment:string;
 	experience:number;
 	maximumHealth:number;
 	ac:number;
 	deathSaves:number;
-	hitDice:number;
+	hitDice:string;
 	currentHealth:number;
 	inventory:string;
 	languages:string;
