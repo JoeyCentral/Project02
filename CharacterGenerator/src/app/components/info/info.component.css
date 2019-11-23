@@ -20,9 +20,9 @@ h4 {text-align: center;text-transform: uppercase;display:inline-block; border: 1
     input[type="number"]{background: transparent;border: none;}
     #Charname {font-size:24px;font-weight: bold;}
 
-.Narrow{width:400px;text-align: center;}
-.Middle{width:800px;text-align: center;}
-.Wide{width:1200px;text-align: center;}
+.Narrow{width:400px;text-align: center;margin:auto;}
+.Middle{width:800px;text-align: center;margin:auto;}
+.Wide{width:1200px;text-align: center;margin:auto;}
 #MMiddle{max-width:800px;text-align: center;}
 #MNarrow{max-width:400px;text-align: center;}
 
@@ -50,16 +50,13 @@ h4 {text-align: center;text-transform: uppercase;display:inline-block; border: 1
 #BackstoryFoot{background-image: url(../../../assets/images/InfoBackstory.png);
     background-size:400px 33px;width:400px; height:33px;}
 
-#Right{display: inline-block;width:804px;}
 #Allies{width:800px;}
 #AlliesTop{background-image: url(../../../assets/images/InfoPictureDoubleHeader.png);
     background-size:800px 30px;width:800px; height:30px;}
 #AlliesBody{background-image: url(../../../assets/images/InfoPictureDoubleBody.png);
-    background-size:800px 30px;width:800px; height:30px;}
+    background-size:800px 30px;width:800px; height:30px;display: inline-flex;}
 #AlliesFoot{background-image: url(../../../assets/images/InfoPictureDoubleFooter.png);
     background-size:800px 65px;width:800px; height:65px;}
-
-
 
 #Notes{width:800px;}
 #NotesTop{background-image: url(../../../assets/images/NotesDoubleHeader.png);
@@ -68,3 +65,151 @@ h4 {text-align: center;text-transform: uppercase;display:inline-block; border: 1
     background-size:800px 30px;width:800px; height:30px;}
 #NotesFoot{background-image: url(../../../assets/images/NotesDoubleFooter.png);
     background-size:800px 75px;width:800px; height:75px;}
+
+#AlliesNarrow{width:400px;}
+#AlliesTopNarrow{background-image: url(../../../assets/images/InfoPictureSingleHeader.png);
+    background-size:400px 30px;width:400px; height:30px;}
+#AlliesBodyNarrow{background-image: url(../../../assets/images/InfoAlliesBody.png);
+    background-size:400px 30px;width:400px; height:30px;}
+#AlliesFootNarrow{background-image: url(../../../assets/images/InfoAlliesFooter.png);
+    background-size:400px 65px;width:400px; height:65px;}
+
+#NotesNarrow{width:400px;}
+#NotesTopNarrow{background-image: url(../../../assets/images/NotesSingleHeader.png);
+    background-size:400px 35px;width:400px; height:35px;}
+#NotesBodyNarrow{background-image: url(../../../assets/images/NotesSingleBody.png);
+    background-size:400px 30px;width:400px; height:30px;}
+#NotesFootNarrow{background-image: url(../../../assets/images/NotesSingleFooter.png);
+    background-size:400px 75px;width:400px; height:75px;}
+
+#PictureNarrow{width:400px}
+#PictureTopNarrow{background-image: url(../../../assets/images/InfoPictureSingleHeader.png);
+    background-size:400px 35px;width:400px; height:35px;}
+#PictureBodyNarrow{background-image: url(../../../assets/images/InfoPictureBody.png);
+    background-size:400px 30px;width:400px; height:30px;}
+#PictureFootNarrow{background-image: url(../../../assets/images/InfoPictureFooter.png);
+    background-size:400px 75px;width:400px; height:75px;}
+
+/*Set style for fonts */
+
+label {
+    font-family: 'DragonForceFont';
+}
+
+textarea {
+width: 90%;
+min-height: 200px;
+margin-top: 20px;
+}
+
+/* Center the image and position the close button */
+
+.imgcontainer {
+    text-align: center;
+    position: relative;
+}
+
+img.avatar {
+    width:250px;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+    margin-top:-32px;
+    width:90%;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+span.psw2 {
+    float: right;
+}
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 20%;
+    width: 50%;
+    /* Half width */
+    height: 50%;
+    /* Half height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding: 20px;
+    border: 2px, black, solid;
+    border-radius: 10px;
+    margin:auto;
+    left: 25%;
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: rgba(170, 170, 170, 0.7);
+    margin: 1% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+
+/* The Close Button (x) */
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+
+/* Add Zoom Animation */
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}

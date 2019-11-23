@@ -9,3 +9,6 @@ h4 {text-align: center;text-transform: uppercase;display:inline-block; border: 1
     -webkit-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
     box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
     background-color: rgba(200, 200, 200, 0.2);}
+#page{
+    background-image: url(../../../assets/images/SpellSheet.png); width: 1200px; height:1552px; background-size: 1200px 1552px;
+}
