@@ -28,6 +28,7 @@ export class InfoComponent implements OnInit {
   Backstory = this.charServe.character.info.backstory;
   Ideals = this.charServe.character.info.ideals;
   Flaws = this.charServe.character.info.flaws;
+  Allies = this.charServe.character.info.alliance;
   //Symbol = this.charServe.character.info.symbol;
   //Picture = this.charServe.character.info.image;
 
@@ -56,24 +57,47 @@ export class InfoComponent implements OnInit {
           this.MaxWidth="MMiddle";
         }
   }
+  Save(){
+    this.charServe.character.character_name=this.Charname;
+    this.charServe.character.info={age:this.Age, alliance: this.Allies, backstory:this.Backstory, bonds:this.Bonds, eyes:this.Eyes, 
+      id:this.charServe.character.info.id, flaws:this.Flaws, height:this.Height, ideals: this.Ideals, image: this.charServe.character.info.image, 
+      personality:this.Personality, symbol:this.charServe.character.info.symbol, weight:this.Weight, hair:this.Hair, skin:this.Skin};
+  }
+
   async SaveAndExit(){
+    this.charServe.character.character_name=this.Charname;
+    this.charServe.character.info={age:this.Age, alliance: this.Allies, backstory:this.Backstory, bonds:this.Bonds, eyes:this.Eyes, 
+id:this.charServe.character.info.id, flaws:this.Flaws, height:this.Height, ideals: this.Ideals, image: this.charServe.character.info.image, 
+personality:this.Personality, symbol:this.charServe.character.info.symbol, weight:this.Weight, hair:this.Hair, skin:this.Skin}
     let x = await this.charServe.saveCharacterHttp(this.charServe.character);
     this.router.navigateByUrl("/character");
   }
-  async Save(){
+  async SaveToDatabase(){
+    this.charServe.character.character_name=this.Charname;
+    this.charServe.character.info={age:this.Age, alliance: this.Allies, backstory:this.Backstory, bonds:this.Bonds, eyes:this.Eyes, 
+      id:this.charServe.character.info.id, flaws:this.Flaws, height:this.Height, ideals: this.Ideals, image: this.charServe.character.info.image, 
+      personality:this.Personality, symbol:this.charServe.character.info.symbol, weight:this.Weight, hair:this.Hair, skin:this.Skin}
     let x = await this.charServe.saveCharacterHttp(this.charServe.character);
   }
   Exit(){
     this.router.navigateByUrl("/character");
   }
   async Copy(){
+    this.charServe.character.character_name=this.Charname;
+    this.charServe.character.info={age:this.Age, alliance: this.Allies, backstory:this.Backstory, bonds:this.Bonds, eyes:this.Eyes, 
+      id:this.charServe.character.info.id, flaws:this.Flaws, height:this.Height, ideals: this.Ideals, image: this.charServe.character.info.image, 
+      personality:this.Personality, symbol:this.charServe.character.info.symbol, weight:this.Weight, hair:this.Hair, skin:this.Skin}
     let x = await this.charServe.copyCharacterHttp(this.charServe.character);
   }
   async Share(){
+    this.charServe.character.character_name=this.Charname;
+    this.charServe.character.info={age:this.Age, alliance: this.Allies, backstory:this.Backstory, bonds:this.Bonds, eyes:this.Eyes, 
+      id:this.charServe.character.info.id, flaws:this.Flaws, height:this.Height, ideals: this.Ideals, image: this.charServe.character.info.image, 
+      personality:this.Personality, symbol:this.charServe.character.info.symbol, weight:this.Weight, hair:this.Hair, skin:this.Skin}
     let Shared = this.charServe.character;
     let x = await this.charServe.shareCharacterHttp(Shared);
   }
   async Delete(){
-    await this.charServe.shareCharacterHttp(this.charServe.character.id);
+    await this.charServe.deleteCharacterHttp(this.charServe.character.id);
   }
 }
