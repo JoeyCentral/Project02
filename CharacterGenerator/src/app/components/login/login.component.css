@@ -74,26 +74,31 @@ button:hover {
 
 /*Picture rotate and sign up pan upwards on form init*/
 
-.avatar {
+#transAvatar {
     transform-style: preserve-3d;
     transition-duration: 2s;
     position: relative;
+    width: 70%;
+    height: 90%;
 }
 
-.avatar:hover {
-    transform: rotateY(-360deg);
-    transition-delay: 1s;
-    transition: all 2s linear 0.2s;
-    -webkit-transform: rotate(90deg) scale(0.6);
-    -moz-transform: rotate(90deg) scale(0.6);
-    -ms-transform: rotate(90deg) scale(0.6);
-    -o-transform: rotate(90deg) scale(0.6);
-    transform: rotateY(-360deg) scale(0.6) translateY(-50%);
+#id02:hover #transAvatar {
+    -webkit-animation: createChar 5s infinite ease-in-out;
 }
 
-#slideup:hover {
-    transition: all 1s linear 0.2s;
-    transform: translate(0rem, -75%);
+#slideup {
+    transition: all 1.7s linear 0.2s;
+    margin: -30% auto 15% auto;
+    z-index: 2;
+}
+
+@-webkit-keyframes createChar {
+    from {
+        -webkit-transform: rotateY(0deg);
+    }
+    to {
+        -webkit-transform: rotateY(359deg);
+    }
 }
 
 
@@ -158,6 +163,7 @@ span.psw2 {
     /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 80%;
+    height: 80%;
     /* Could be more or less, depending on screen size */
     max-width: 400px;
 }
