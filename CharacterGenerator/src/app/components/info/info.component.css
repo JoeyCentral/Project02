@@ -20,6 +20,11 @@ h4 {text-align: center;text-transform: uppercase;display:inline-block; border: 1
     input[type="number"]{background: transparent;border: none;}
     #Charname {font-size:24px;font-weight: bold;}
 
+.Narrow{width:400px;text-align: center;margin:auto;}
+.Middle{width:800px;text-align: center;margin:auto;}
+.Wide{width:1200px;text-align: center;margin:auto;}
+#MMiddle{max-width:800px;text-align: center;}
+#MNarrow{max-width:400px;text-align: center;}
 
 
 
@@ -45,7 +50,6 @@ h4 {text-align: center;text-transform: uppercase;display:inline-block; border: 1
 #BackstoryFoot{background-image: url(../../../assets/images/InfoBackstory.png);
     background-size:400px 33px;width:400px; height:33px;}
 
-#Right{display: inline-block;width:804px;}
 #Allies{width:800px;}
 #AlliesTop{background-image: url(../../../assets/images/InfoPictureDoubleHeader.png);
     background-size:800px 30px;width:800px; height:30px;}
@@ -54,8 +58,6 @@ h4 {text-align: center;text-transform: uppercase;display:inline-block; border: 1
 #AlliesFoot{background-image: url(../../../assets/images/InfoPictureDoubleFooter.png);
     background-size:800px 65px;width:800px; height:65px;}
 
-
-
 #Notes{width:800px;}
 #NotesTop{background-image: url(../../../assets/images/NotesDoubleHeader.png);
     background-size:800px 35px;width:800px; height:35px;}
@@ -63,3 +65,27 @@ h4 {text-align: center;text-transform: uppercase;display:inline-block; border: 1
     background-size:800px 30px;width:800px; height:30px;}
 #NotesFoot{background-image: url(../../../assets/images/NotesDoubleFooter.png);
     background-size:800px 75px;width:800px; height:75px;}
+
+#AlliesNarrow{width:400px;}
+#AlliesTopNarrow{background-image: url(../../../assets/images/InfoPictureSingleHeader.png);
+    background-size:400px 30px;width:400px; height:30px;}
+#AlliesBodyNarrow{background-image: url(../../../assets/images/InfoAlliesBody.png);
+    background-size:400px 30px;width:400px; height:30px;}
+#AlliesFootNarrow{background-image: url(../../../assets/images/InfoAlliesFooter.png);
+    background-size:400px 65px;width:400px; height:65px;}
+
+#NotesNarrow{width:400px;}
+#NotesTopNarrow{background-image: url(../../../assets/images/NotesSingleHeader.png);
+    background-size:400px 35px;width:400px; height:35px;}
+#NotesBodyNarrow{background-image: url(../../../assets/images/NotesSingleBody.png);
+    background-size:400px 30px;width:400px; height:30px;}
+#NotesFootNarrow{background-image: url(../../../assets/images/NotesSingleFooter.png);
+    background-size:400px 75px;width:400px; height:75px;}
+
+#PictureNarrow{width:400px}
+#PictureTopNarrow{background-image: url(../../../assets/images/InfoPictureSingleHeader.png);
+    background-size:400px 35px;width:400px; height:35px;}
+#PictureBodyNarrow{background-image: url(../../../assets/images/InfoPictureBody.png);
+    background-size:400px 30px;width:400px; height:30px;}
+#PictureFootNarrow{background-image: url(../../../assets/images/InfoPictureFooter.png);
+    background-size:400px 75px;width:400px; height:75px;}

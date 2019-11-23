@@ -13,4 +13,5 @@ export class Info{
 	symbol:string;
 	alliance:string;
 	backstory:string;
+	eyes:string;
 }
