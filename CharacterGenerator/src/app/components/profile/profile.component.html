@@ -1,89 +1,78 @@
 <div id="id101" class="modal">
-    <div class="modal-content animate" action="/action_page.php" method="post">
-        <div class="container">
-            <span onclick="document.getElementById('id101').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <div>
-                <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
-                        text-align: center">Save and Exit</h1>
-                <p style="padding: 1rem;">This will SAVE current information on all editted fields to your account's character database and EXIT to main page</p>
-                <button style="position: relative;  margin-bottom: 10% ;" (click)="SaveAndExit()">Save</button>
-            </div>
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id101').style.display='none'" class="close2" title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                        text-align: center; margin-top: 4%;">Save and Exit</h1>
+            <p style="padding: 1rem;">This will SAVE current information on all editted fields to your account's character database and EXIT to main page</p>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="SaveAndExit()">Save</button>
         </div>
     </div>
 </div>
 
 <div id="id102" class="modal">
-    <div class="modal-content animate" action="/action_page.php" method="post">
-        <div class="container">
-            <span onclick="document.getElementById('id102').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <div>
-                <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
-                            text-align: center">Save</h1>
-                <p style="padding: 1rem;">This will SAVE current information on all editted fields to your account's character database</p>
-                <button style="position: relative;  margin-bottom: 10% ;" (click)="Save()">Save</button>
-            </div>
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id102').style.display='none'" class="close2" title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                            text-align: center; margin-top: 4%;">Save</h1>
+            <p style="padding: 1rem;">This will SAVE current information on all editted fields to your account's character database</p>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="SaveToDatabase()">Save</button>
         </div>
     </div>
 </div>
 
 <div id="id103" class="modal">
-    <div class="modal-content animate" action="/action_page.php" method="post">
-        <div class="container">
-            <span onclick="document.getElementById('id103').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <div>
-                <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
-                                text-align: center">Exit without Saving</h1>
-                <p style="padding: 1rem;">Any changes made will NOT be SAVED to your account's character base if you click Exit</p>
-                <button style="position: relative;  margin-bottom: 10% ;" (click)="Exit()">Exit</button>
-            </div>
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+
+        <span onclick="document.getElementById('id103').style.display='none'" class="close2" title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                text-align: center; margin-top: 4%">Exit without Saving</h1>
+            <p style="padding: 1rem;">Any changes made will NOT be SAVED to your account's character base if you click Exit</p>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="Exit()">Exit</button>
         </div>
     </div>
 </div>
 
 <div id="id104" class="modal">
-    <div class="modal-content animate" action="/action_page.php" method="post">
-        <div class="container">
-            <span onclick="document.getElementById('id104').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <div>
-                <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
-                                    text-align: center">Share</h1>
-                <p style="padding: 1rem;">This will share current information with another player </p>
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id104').style.display='none'" class="close2" title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                    text-align: center; margin-top: 4%">Share</h1>
+            <p style="padding: 1rem;">This will share current information with another player </p>
 
-                <p>Enter the name of the user you want to share this character with:</p>
+            <p>Enter the name of the user you want to share this character with:</p>
 
-                <input type="text" [(ngModel)]="placeholderr" placeholder="Username">
-                <br>
-                <br>
-                <button style="position: relative;  margin-bottom: 10% ;" (click)="Share()">Share</button>
-            </div>
+            <input type="text" [(ngModel)]="placeholderr" placeholder="Username">
+            <br>
+            <br>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="Share()">Share</button>
         </div>
     </div>
 </div>
 
 <div id="id105" class="modal">
-    <div class="modal-content animate" action="/action_page.php" method="post">
-        <div class="container">
-            <span onclick="document.getElementById('id105').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <div>
-                <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
-                                        text-align: center">Copy</h1>
-                <p style="padding: 1rem;">This will replicate current character's information and create a cloned character in your account's character database</p>
-                <button style="position: relative;  margin-bottom: 10% ;" (click)="Copy()">Copy</button>
-            </div>
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id105').style.display='none'" class="close2" title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                        text-align: center; margin-top: 4% ">Copy</h1>
+            <p style="padding: 1rem;">This will replicate current character's information and create a cloned character in your account's character database</p>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="Copy()">Copy</button>
         </div>
     </div>
 </div>
 
 <div id="id106" class="modal">
-    <div class="modal-content animate" action="/action_page.php" method="post">
-        <div class="container">
-            <span onclick="document.getElementById('id106').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <div>
-                <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
-                                            text-align: center">Delete</h1>
-                <p style="padding: 1rem;">This will DELETE current character from your account's character database!</p>
-                <button style="position: relative;  margin-bottom: 10% ; color: red" (click)="Delete()">Delete</button>
-            </div>
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id106').style.display='none'" class="close2" title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                            text-align: center; margin-top: 4%;">Delete</h1>
+            <p style="padding: 1rem;">This will DELETE current character from your account's character database!</p>
+            <button style="position: relative;  margin-bottom: 10% ; color: red" (click)="Delete()">Delete</button>
         </div>
     </div>
 </div>
@@ -94,7 +83,7 @@
         <div class="col-4 mx-auto" onclick="document.getElementById('id101').style.display='block'">
             <h4>Save and Exit</h4>
         </div>
-        <div class="col-4 mx-auto" (click)="Save()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id102').style.display='block'">
             <h4>Save</h4>
         </div>
         <div class="col-4 mx-auto" onclick="document.getElementById('id103').style.display='block'">
@@ -146,15 +135,13 @@
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
                                 <div class="col-md-4 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;margin-left: 30px;margin-top: 80px;"
-                                        onclick="document.getElementById('id01').style.display='block'">
+                                    <div style="width: 200px;margin-left: 30px;margin-top: 80px;" onclick="document.getElementById('id01').style.display='block'">
                                         Level {{Classes | level}} {{Classes | class}}
                                     </div>
                                 </div>
                                 <div class="col-md-3 p-0">
                                     <!--Race-->
-                                    <div style="width: 180px;margin-left:10px;margin-top:78px;"
-                                        onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}
+                                    <div style="width: 180px;margin-left:10px;margin-top:78px;" onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}
                                     </div>
                                 </div>
                                 <div class="col-md-5 p-0">
@@ -172,14 +159,12 @@
                                 </div>
                                 <div class="col-md-3 p-0">
                                     <!--Alignment-->
-                                    <div style="margin-top: 24px;width: 180px;margin-left:10px"
-                                        onclick="document.getElementById('id04').style.display='block'">{{Alignment}}
+                                    <div style="margin-top: 24px;width: 180px;margin-left:10px" onclick="document.getElementById('id04').style.display='block'">{{Alignment}}
                                     </div>
                                 </div>
                                 <div class="col-md-5 p-0">
                                     <!--Background-->
-                                    <div style="width: 180px; margin-left:45px;margin-top: 24px;"
-                                        onclick="document.getElementById('id03').style.display='block'">{{Background}}
+                                    <div style="width: 180px; margin-left:45px;margin-top: 24px;" onclick="document.getElementById('id03').style.display='block'">{{Background}}
                                     </div>
                                 </div>
                             </div>
@@ -191,15 +176,13 @@
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:auto;">
                                 <div class="col-md-7 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;margin-left: 79px;margin-top: 36px;"
-                                        onclick="document.getElementById('id01').style.display='block'">
+                                    <div style="width: 200px;margin-left: 79px;margin-top: 36px;" onclick="document.getElementById('id01').style.display='block'">
                                         Level {{Classes | level}} {{Classes | class}}
                                     </div>
                                 </div>
                                 <!--Race-->
                                 <div class="col-md-5 p-0">
-                                    <div style="width: 170px;margin-left:15px;margin-top:36px;"
-                                        onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}
+                                    <div style="width: 170px;margin-left:15px;margin-top:36px;" onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}
                                     </div>
                                 </div>
                             </div>
@@ -213,8 +196,7 @@
                                 </div>
                                 <!--Alignment-->
                                 <div class="col-md-5 p-0">
-                                    <div style="width: 170px;margin-top:28px;margin-left:15px;"
-                                        onclick="document.getElementById('id04').style.display='block'">{{Alignment}}
+                                    <div style="width: 170px;margin-top:28px;margin-left:15px;" onclick="document.getElementById('id04').style.display='block'">{{Alignment}}
                                     </div>
                                 </div>
                             </div>
@@ -227,8 +209,7 @@
                                 </div>
                                 <!--Background-->
                                 <div class="col-md-5 p-0">
-                                    <div style="width: 170px; margin-left: 20px;margin-top:28px;"
-                                        onclick="document.getElementById('id03').style.display='block'">{{Background}}
+                                    <div style="width: 170px; margin-left: 20px;margin-top:28px;" onclick="document.getElementById('id03').style.display='block'">{{Background}}
                                     </div>
                                 </div>
                             </div>
@@ -240,14 +221,12 @@
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
                                 <div class="col-md-6 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;padding-top: 40px;margin-left:20px"
-                                        onclick="document.getElementById('id01').style.display='block'">
+                                    <div style="width: 200px;padding-top: 40px;margin-left:20px" onclick="document.getElementById('id01').style.display='block'">
                                         Level {{Classes | level}} {{Classes | class}} </div>
                                 </div>
                                 <!--Race-->
                                 <div class="col-md-6 p-0">
-                                    <div style="width: 170px;margin-top: 40px;"
-                                        onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}
+                                    <div style="width: 170px;margin-top: 40px;" onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}
                                     </div>
                                 </div>
                             </div>
@@ -261,8 +240,7 @@
                                 </div>
                                 <!--Alignment-->
                                 <div class="col-md-5 p-0">
-                                    <div style="width: 170px;margin-top:28px;margin-left:19px;"
-                                        onclick="document.getElementById('id04').style.display='block'">{{Alignment}}
+                                    <div style="width: 170px;margin-top:28px;margin-left:19px;" onclick="document.getElementById('id04').style.display='block'">{{Alignment}}
                                     </div>
                                 </div>
                             </div>
@@ -274,8 +252,7 @@
                                     </div>
                                     <!--Background-->
                                     <div class="col-md-5 p-0">
-                                        <div style="width: 170px; margin-left: 16px;margin-top:28px;"
-                                            onclick="document.getElementById('id01').style.display='block'">
+                                        <div style="width: 170px; margin-left: 16px;margin-top:28px;" onclick="document.getElementById('id01').style.display='block'">
                                             {{Background}}
                                         </div>
                                     </div>
@@ -363,8 +340,7 @@
                                         <input type="number" [(ngModel)]="MaximumHP" class="HP">
                                         <input type="number" [(ngModel)]="TemporaryHP" class="HP">
                                     </div>
-                                    <input type="number" [(ngModel)]="CurrentHP" class="HP"
-                                        style="margin-top: 70px;font-size:400%;width:100px;margin-left:20px;">
+                                    <input type="number" [(ngModel)]="CurrentHP" class="HP" style="margin-top: 70px;font-size:400%;width:100px;margin-left:20px;">
                                 </div>
                             </div>
                             <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
@@ -380,22 +356,15 @@
                                                     <div style="margin-top:4px;margin-left:60px;">{{HitTwelve}}</div>
                                                 </div>
                                                 <div class="col-3">
-                                                    <input type="number"
-                                                        style="margin-top:28px;margin-left:80px;width:30px;"
-                                                        [(ngModel)]="DiceSix">
-                                                    <input type="number" style="margin-left:80px;width:30px;"
-                                                        [(ngModel)]="DiceEight">
-                                                    <input type="number" style="margin-left:80px;width:30px;"
-                                                        [(ngModel)]="DiceTen">
-                                                    <input type="number" style="margin-left:80px;width:30px;"
-                                                        [(ngModel)]="DiceTwelve">
+                                                    <input type="number" style="margin-top:28px;margin-left:80px;width:30px;" [(ngModel)]="DiceSix">
+                                                    <input type="number" style="margin-left:80px;width:30px;" [(ngModel)]="DiceEight">
+                                                    <input type="number" style="margin-left:80px;width:30px;" [(ngModel)]="DiceTen">
+                                                    <input type="number" style="margin-left:80px;width:30px;" [(ngModel)]="DiceTwelve">
                                                 </div>
                                             </div>
                                             <div class="row" style="font-weight: bold;height:150px;">
-                                                <div class="col-12" style="display: inline-flex;text-align: left;"
-                                                    (click)="DeathPassed()">
-                                                    <div *ngIf="DeathPass>=1"
-                                                        style="margin-top:55px;margin-left:114px;">x
+                                                <div class="col-12" style="display: inline-flex;text-align: left;" (click)="DeathPassed()">
+                                                    <div *ngIf="DeathPass>=1" style="margin-top:55px;margin-left:114px;">x
                                                     </div>
                                                     <div *ngIf="DeathPass>=2" style="margin-top:55px;margin-left:20px;">
                                                         x
@@ -404,8 +373,7 @@
                                                         x
                                                     </div>
                                                 </div>
-                                                <div class="col-12" style="display: inline-flex;height: 16px;"
-                                                    (click)="DeathFailed()">
+                                                <div class="col-12" style="display: inline-flex;height: 16px;" (click)="DeathFailed()">
                                                     <div *ngIf="DeathFail>=1" style="margin-top:3px;margin-left:114px;">
                                                         x
                                                     </div>
@@ -443,8 +411,7 @@
                             <div id="FeaturesTop"></div>
                             <div id="FeaturesBody" *ngFor="let feature of ClassFeatures"></div>
                             <div id="FeaturesBody" *ngFor="let feature of RaceFeatures">{{feature.feat_name}}</div>
-                            <div id="FeaturesBody" *ngFor="let feature of CustomFeatures"
-                                onclick="document.getElementById('id08').style.display='block'"></div>
+                            <div id="FeaturesBody" *ngFor="let feature of CustomFeatures" onclick="document.getElementById('id08').style.display='block'"></div>
                             <div id="FeaturesFoot" onclick="document.getElementById('id08').style.display='block'">
                             </div>
                             <!--Custom Rolls for Wide-->
@@ -471,8 +438,7 @@
                 <div id="FeaturesTop"></div>
                 <div id="FeaturesBody" *ngFor="let feature of ClassFeatures"></div>
                 <div id="FeaturesBody" *ngFor="let feature of RaceFeatures">{{feature.feat_name}}</div>
-                <div id="FeaturesBody" *ngFor="let featureofCustomFeatures"
-                    onclick="document.getElementById('id08').style.display='block'"></div>
+                <div id="FeaturesBody" *ngFor="let featureofCustomFeatures" onclick="document.getElementById('id08').style.display='block'"></div>
                 <div id="FeaturesFoot" onclick="document.getElementById('id08').style.display='block'"></div>
                 <!--Gear for Middle-->
                 <div id="GearTop"></div>
@@ -491,8 +457,7 @@
                 <div id="FeaturesTopNarrow"></div>
                 <div id="FeaturesBodyNarrow" *ngFor="let feature of ClassFeatures"></div>
                 <div id="FeaturesBodyNarrow" *ngFor="let feature of RaceFeatures">{{feature.feat_name}}</div>
-                <div id="FeaturesBodyNarrow" *ngFor="let feature of CustomFeatures"
-                    onclick="document.getElementById('id05').style.display='block'"></div>
+                <div id="FeaturesBodyNarrow" *ngFor="let feature of CustomFeatures" onclick="document.getElementById('id05').style.display='block'"></div>
                 <div id="FeaturesFootNarrow" onclick="document.getElementById('id08').style.display='block'"></div>
                 <!--Gear for Narrow-->
                 <div id="GearTopNarrow"></div>
@@ -506,8 +471,7 @@
 
     <!--First Modal: Class/Level-->
     <div id="id01" class="modal">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
             <div class="container">
 
@@ -517,8 +481,7 @@
 
     <!--Second Modal: Race-->
     <div id="id02" class="modal">
-        <span onclick="document.getElementById('id02').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
+        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
             <div class="container">
                 <div *ngFor="let Raceitem of RaceDisplay">
@@ -530,8 +493,7 @@
 
     <!--Third Modal: Background-->
     <div id="id03" class="modal">
-        <span onclick="document.getElementById('id03').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
+        <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
             <div class="container">
 
@@ -541,8 +503,7 @@
 
     <!--Fourth Modal: Alignment-->
     <div id="id04" class="modal">
-        <span onclick="document.getElementById('id04').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
+        <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
             <div class="container">
                 <table class="table table-hover table-dark">
@@ -568,8 +529,7 @@
 
     <!--Fifth Modal: Attacks-->
     <div id="id05" class="modal">
-        <span onclick="document.getElementById('id05').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
+        <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
             <div class="container">
 
@@ -579,8 +539,7 @@
 
     <!--Sixth Modal: Gear-->
     <div id="id06" class="modal">
-        <span onclick="document.getElementById('id06').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
+        <span onclick="document.getElementById('id06').style.display='none'" class="close" title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
             <div class="container">
                 <textarea [(ngModel)]="Gear" placeholder="Enter equipment here."></textarea>
@@ -590,8 +549,7 @@
 
     <!--Seventh Modal: Languages-->
     <div id="id07" class="modal">
-        <span onclick="document.getElementById('id07').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
+        <span onclick="document.getElementById('id07').style.display='none'" class="close" title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
             <div class="container">
                 <textarea [(ngModel)]="Languages" placeholder="Enter languages here."></textarea>
@@ -600,8 +558,7 @@
     </div>
     <!--Eighth Modal: Features-->
     <div id="id08" class="modal">
-        <span onclick="document.getElementById('id08').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
+        <span onclick="document.getElementById('id08').style.display='none'" class="close" title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
             <div class="container">
 
