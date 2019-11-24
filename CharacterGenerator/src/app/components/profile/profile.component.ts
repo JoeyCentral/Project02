@@ -63,8 +63,37 @@ export class ProfileComponent implements OnInit {
     { id: 13, description: "This is a Half-Elf.", racename: "Half-Elf", features: [{ feat_name: "Example Half-Elf Feat", field_modified: "", id: 0, modifier: 0, prereq: "", reqval: 0 }] },
     { id: 14, description: "This is a Half-Orc.", racename: "Half-Orc", features: [{ feat_name: "Example Half-Orc Feat", field_modified: "", id: 0, modifier: 0, prereq: "", reqval: 0 }] },
     { id: 15, description: "This is a Tiefling.", racename: "Tiefling", features: [{ feat_name: "Example Tiefling Feat", field_modified: "", id: 0, modifier: 0, prereq: "", reqval: 0 }] }];
-
-
+    HitDice = this.charServe.character.profile.hitDice;
+    HitSix=Math.floor((+this.HitDice) / 100000000000000); 
+    HitEight=Math.floor((+this.HitDice) / 1000000000000) - this.HitSix*100;
+    HitTen=Math.floor((+this.HitDice) / 10000000000)- this.HitSix*10000 - this.HitEight*100; 
+    HitTwelve=Math.floor((+this.HitDice) / 100000000) - this.HitSix*1000000 - this.HitEight*10000 -this.HitTen*100;
+    DiceSix=Math.floor((+this.HitDice) / 1000000)- this.HitSix*100000000 - this.HitEight*1000000 -this.HitTen*10000 -this.HitTwelve*100; 
+    DiceEight=Math.floor((+this.HitDice) / 10000)- this.HitSix*10000000000 - this.HitEight*100000000 -this.HitTen*1000000
+     -this.HitTwelve*10000 -this.DiceSix*100; 
+    DiceTen=Math.floor((+this.HitDice) / 100)- this.HitSix*1000000000000 - this.HitEight*10000000000 -this.HitTen*100000000
+    -this.HitTwelve*1000000 -this.DiceSix*10000 - this.DiceEight*100; 
+    DiceTwelve=+this.HitDice- this.HitSix*100000000000000 - this.HitEight*1000000000000 -this.HitTen*10000000000
+    -this.HitTwelve*100000000 -this.DiceSix*1000000 - this.DiceEight*10000 -this.DiceTen*100;
+    DeathPass = Math.floor(this.charServe.character.profile.deathSaves/10);
+    DeathFail = this.charServe.character.profile.deathSaves - this.DeathPass*10;
+    AlignmentLawful: string[] = [
+      "Lawful Good",
+      "Lawful Neutral",
+      "Lawful Evil",
+    ];
+  
+    AlignmentNeutral: string[] = [
+      "Neutral Good",
+      "Neutral",
+      "Neutral Evil"
+    ];
+  
+    AlignmentChaotic: string[] = [
+      "Chaotic Good",
+      "Chaotic Neutral",
+      "Chaotic Evil"
+    ];
 
   /*
   Passive = 15;
@@ -73,20 +102,6 @@ export class ProfileComponent implements OnInit {
   Prof13 = "HProfYes";Prof14 = "HProfYes";Prof15 = "HProfYes";Prof16 = "ProfYes";Prof17 = "HProfYes";Prof18 = "ProfYes";
   Prof19 = "HProfYes";Prof20 = "ProfYes";Prof21 = "HProfYes";Prof22 = "ProfYes";Prof23 = "HProfYes";Prof24 = "ProfYes";
   P1=1;P2=2;P3=3;P4=4;P5=5;P6=6;P7=7;P8=8;P9=9;P10=10;P11=11;P12=12;P13=13;P14=14;P15=15;P16=16;P17=17;P18=18;P19=19;P20=20;P21=21;P22=22;P23=23;P24=24; // custom pipe to show prof number 
-
-  
-  HitSix=0; HitEight=0; HitTen=1; HitTwelve=0;//custom pipe to get dice number from larger number
-  DiceSix=0; DiceEight=0; DiceTen=1; DiceTwelve=0;
-  
-  DeathPass="3";DeathFail="3";//pipe to get value from death saves
-
-
-  races=[{name:"Elf"}, {name:"Dwarf"}, {name:"Human"}]; //should be an array of options
-  aligns=[{name:"Lawful Good"}, {name:"Lawful Neutral"}, {name:"Lawful Evil"}];//"
-  backgrounds=[{name:"Acolyte"}, {name:"Criminal"}, {name:"Entertainer"}];//"
-  
-
-
 */
 
 
@@ -139,6 +154,10 @@ export class ProfileComponent implements OnInit {
     if (x === 1) return "x";
     else return "";
   }
+  Inspired(){
+    this.charServe.character.profile.inspiration *=-1;
+    this.Inspiration = this.Inspire(this.charServe.character.profile.inspiration);
+  }
 
   setRace(race: Race) {
     this.Racenamed = race.racename;
@@ -146,12 +165,27 @@ export class ProfileComponent implements OnInit {
     this.RaceFeatures = race.features;
     document.getElementById('id02').style.display = 'none';
   }
+  setAlignment(alignment: string) {
+    this.Alignment = alignment;
+    document.getElementById('id04').style.display = 'none';
+  }
+
+  DeathPassed(){
+    if (this.DeathPass == 3){this.DeathPass = 0}
+    else {this.DeathPass+=1}
+  }
+  DeathFailed(){
+    if (this.DeathFail == 3){this.DeathFail = 0}
+    else {this.DeathFail+=1}
+  }
+
+
   Save() {
     this.charServe.character.character_name = this.Charname;
-    // this.charServe.character.profile = {};
-    /*  this.charServe.character.info={age:this.Age, alliance: this.Allies, backstory:this.Backstory, bonds:this.Bonds, eyes:this.Eyes, 
-        id:this.charServe.character.info.id, flaws:this.Flaws, height:this.Height, ideals: this.Ideals, image: this.charServe.character.info.image, 
-        personality:this.Personality, symbol:this.charServe.character.info.symbol, weight:this.Weight, hair:this.Hair, skin:this.Skin};*/
+  //  this.charServe.character.profile = {abilityScores: "", ac:0, alignment: "", background:null,
+  //  currentHealth:0, deathSaves:0, experience:0, features:null, hitDice:"", id:0, inspiration:0,
+  //  inventory:"", languages:"", maximumHealth:0, proficiencies:null,  race:null, roll:null,
+  //  tempHP: 0, vision: 0, speed:0}
   }
 
   async SaveAndExit() {
