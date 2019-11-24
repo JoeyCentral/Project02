@@ -23,4 +23,6 @@ export class Profile{
 	features:Features[];
 	roll:CustomRoll[];
 	tempHP:Number;
+	speed:Number;
+	vision:number;
 }
