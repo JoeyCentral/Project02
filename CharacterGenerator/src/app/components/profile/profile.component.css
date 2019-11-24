@@ -401,6 +401,33 @@ input[type="number"] {
     height: 315px;
 }
 
+.modal {
+    display: none;
+    /* Hidden by default *
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 20%;
+    width: 50%;
+    min-width: 400px;
+    /* Half width */
+    height: 50%;
+    /* Half height */
+    /* overflow: auto;  Added a comment here since this was the source of the scrollbar being in the wrong place*/
+    /* Enable scroll if needed */
+    padding: 20px;
+    border: 2px, black, solid;
+    border-radius: 10px;
+    margin: auto;
+    left: 25%;
+}
+
+table {
+    font-size: 20px;
+}
+
 .modal-content2 button {
     padding-left: 10px;
     padding-right: 10px;
