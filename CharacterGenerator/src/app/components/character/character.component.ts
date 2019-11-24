@@ -44,10 +44,10 @@ export class CharacterComponent implements OnInit {
     this.characterService.character = {
       character_name: "", profile: {
         abilityScores: "101010101010", id: 0, ac: 10, maximumHealth: 0, currentHealth: 0, languages: "", inventory: "",
-        tempHP: 0, race: {id:16,raceName:"Select Race", description:"", features:null}, experience: 0, features: null, 
-        hitDice: "0000000000000000", inspiration: 0, proficiencies: null, roll: null, alignment: "",
-        deathSaves: 0, background: {id:13,background_name:"Select Background", description:""}
-      }, id: 0, spellList: null, multiclass: [{ level: 1, charClass: {classname:"Select Class", hit_die:0, feature:null, id:13}, id: 0 }], player: {
+        tempHP: 0, race: {id:16,racename:"Select Race", description:"", features:[]}, experience: 0, features: [], 
+        hitDice: "0000000000000000", inspiration: 0, proficiencies: [], roll: [], alignment: "Select Alignment",
+        deathSaves: 0, background: {id:13,background_name:"Select Background", description:""}, speed: 30, vision: 60
+      }, id: 0, spellList: null, multiclass: [{ level: 1, charClass: {classname:"Select Class", hit_die:0, features:[], id:13}, id: 0 }], player: {
         id: this.loginService.userId,
         password: "", username: this.loginService.playername
       }, playerName: this.loginService.playername, info: {
