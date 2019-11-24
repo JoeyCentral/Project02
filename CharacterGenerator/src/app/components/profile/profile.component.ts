@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Multiclass } from 'src/app/models/multiclass';
 import { Features } from 'src/app/models/features';
 import { Race } from 'src/app/models/race';
+import { Backgrounds } from 'src/app/models/backgrounds';
 
 @Component({
   selector: 'app-profile',
@@ -31,7 +32,8 @@ export class ProfileComponent implements OnInit {
   Alignment = this.charServe.character.profile.alignment;
   Race = this.charServe.character.profile.race;
   Racenamed = this.Race.racename;
-  Background = this.charServe.character.profile.background.background_name;
+  Background = this.charServe.character.profile.background;
+  Backgroundname = this.Background.background_name;
   Abilities = this.charServe.character.profile.abilityScores;
   Str = Math.floor((+this.Abilities) / 10000000000);
   Dex = Math.floor((+this.Abilities) / 100000000) - this.Str * 100;
@@ -94,6 +96,22 @@ export class ProfileComponent implements OnInit {
       "Chaotic Neutral",
       "Chaotic Evil"
     ];
+    BackgroundDisplay: Backgrounds[] = [
+      { id: 1, description: "You were raised in a church.", background_name: "Acolyte"},
+      { id: 2, description: "You made a living tricking and stealing from people.", background_name: "Charlitan"},
+      { id: 3, description: "You made a living breaking the law.", background_name: "Criminal"},
+      { id: 4, description: "You performed for others.", background_name: "Entertainer"},
+      { id: 5, description: "You were a champion of common people.", background_name: "Folk Hero"},
+      { id: 6, description: "You were a member of a guild.", background_name: "Guild Artisan"},
+      { id: 7, description: "You lived alone.", background_name: "Hermit"},
+      { id: 8, description: "You were raised in a wealthy family.", background_name: "Noble"},
+      { id: 9, description: "You grew up near the wild.", background_name: "Outlander"},
+      { id: 10, description: "You lived as a collector of knowledge.", background_name: "Sage"},
+      { id: 11, description: "You grew up on the sea.", background_name: "Sailor"},
+      { id: 12, description: "You were in an army.", background_name: "Soldier"},
+      { id: 13, description: "You grew up poor in a city.", background_name: "Urchin"},
+    ];
+      
 
   /*
   Passive = 15;
@@ -164,6 +182,11 @@ export class ProfileComponent implements OnInit {
     this.Race = race;
     this.RaceFeatures = race.features;
     document.getElementById('id02').style.display = 'none';
+  }
+  setBackground(background: Backgrounds) {
+    this.Backgroundname = background.background_name;
+    this.Background = background;
+    document.getElementById('id03').style.display = 'none';
   }
   setAlignment(alignment: string) {
     this.Alignment = alignment;

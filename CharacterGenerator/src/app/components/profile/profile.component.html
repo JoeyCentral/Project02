@@ -164,7 +164,7 @@
                                 </div>
                                 <div class="col-md-5 p-0">
                                     <!--Background-->
-                                    <div style="width: 180px; margin-left:45px;margin-top: 24px;" onclick="document.getElementById('id03').style.display='block'">{{Background}}
+                                    <div style="width: 180px; margin-left:45px;margin-top: 24px;" onclick="document.getElementById('id03').style.display='block'">{{Backgroundname}}
                                     </div>
                                 </div>
                             </div>
@@ -209,7 +209,7 @@
                                 </div>
                                 <!--Background-->
                                 <div class="col-md-5 p-0">
-                                    <div style="width: 170px; margin-left: 20px;margin-top:28px;" onclick="document.getElementById('id03').style.display='block'">{{Background}}
+                                    <div style="width: 170px; margin-left: 20px;margin-top:28px;" onclick="document.getElementById('id03').style.display='block'">{{Backgroundname}}
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +253,7 @@
                                     <!--Background-->
                                     <div class="col-md-5 p-0">
                                         <div style="width: 170px; margin-left: 16px;margin-top:28px;" onclick="document.getElementById('id01').style.display='block'">
-                                            {{Background}}
+                                            {{Backgroundname}}
                                         </div>
                                     </div>
                                 </div>
@@ -496,7 +496,9 @@
         <div class="modal-content animate" action="/action_page.php" method="post">
             <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
             <div class="container">
-
+                    <div *ngFor="let Backgrounditem of BackgroundDisplay">
+                            <div (click)="setBackground(Backgrounditem)">{{Backgrounditem.background_name}} : {{Backgrounditem.description}}</div>
+                        </div>
             </div>
         </div>
     </div>
