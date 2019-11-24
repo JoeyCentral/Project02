@@ -2,8 +2,8 @@ import { Features } from './features';
 
 export class Race{
 	id:number;
-	raceName:string;
+	racename:string;
 	description:string;
-	features:[Features]
+	features:Features[]
 
 }

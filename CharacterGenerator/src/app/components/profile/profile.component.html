@@ -3,7 +3,7 @@
         <div class="col-4 mx-auto" (click)="SaveAndExit()">
             <h4>Save and Exit</h4>
         </div>
-        <div class="col-4 mx-auto"(click)="Save()">
+        <div class="col-4 mx-auto" (click)="Save()">
             <h4>Save</h4>
         </div>
         <div class="col-4 mx-auto" (click)="Exit()">
@@ -58,13 +58,16 @@
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
                                 <div class="col-md-4 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;margin-left: 30px;margin-top: 80px;">Level
-                                        {{Classes | level}} {{Classes | class}}
+                                    <div style="width: 200px;margin-left: 30px;margin-top: 80px;"
+                                        onclick="document.getElementById('id01').style.display='block'">
+                                        Level {{Classes | level}} {{Classes | class}}
                                     </div>
                                 </div>
                                 <div class="col-md-3 p-0">
                                     <!--Race-->
-                                    <div style="width: 180px;margin-left:10px;margin-top:78px;">{{Race}}</div>
+                                    <div style="width: 180px;margin-left:10px;margin-top:78px;"
+                                        onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}
+                                    </div>
                                 </div>
                                 <div class="col-md-5 p-0">
                                     <!--Player-->
@@ -81,11 +84,14 @@
                                 </div>
                                 <div class="col-md-3 p-0">
                                     <!--Alignment-->
-                                    <div style="margin-top: 24px;width: 180px;margin-left:10px">{{Alignment}}</div>
+                                    <div style="margin-top: 24px;width: 180px;margin-left:10px"
+                                        onclick="document.getElementById('id04').style.display='block'">{{Alignment}}
+                                    </div>
                                 </div>
                                 <div class="col-md-5 p-0">
                                     <!--Background-->
-                                    <div style="width: 180px; margin-left:45px;margin-top: 24px;">{{Background}}
+                                    <div style="width: 180px; margin-left:45px;margin-top: 24px;"
+                                        onclick="document.getElementById('id03').style.display='block'">{{Background}}
                                     </div>
                                 </div>
                             </div>
@@ -97,13 +103,16 @@
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:auto;">
                                 <div class="col-md-7 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;margin-left: 79px;margin-top: 36px;">Level
-                                        {{Classes | level}} {{Classes | class}}
+                                    <div style="width: 200px;margin-left: 79px;margin-top: 36px;"
+                                        onclick="document.getElementById('id01').style.display='block'">
+                                        Level {{Classes | level}} {{Classes | class}}
                                     </div>
                                 </div>
                                 <!--Race-->
                                 <div class="col-md-5 p-0">
-                                    <div style="width: 170px;margin-left:15px;margin-top:36px;">{{Race}}</div>
+                                    <div style="width: 170px;margin-left:15px;margin-top:36px;"
+                                        onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +125,9 @@
                                 </div>
                                 <!--Alignment-->
                                 <div class="col-md-5 p-0">
-                                    <div style="width: 170px;margin-top:28px;margin-left:15px;">{{Alignment}}</div>
+                                    <div style="width: 170px;margin-top:28px;margin-left:15px;"
+                                        onclick="document.getElementById('id04').style.display='block'">{{Alignment}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +139,9 @@
                                 </div>
                                 <!--Background-->
                                 <div class="col-md-5 p-0">
-                                    <div style="width: 170px; margin-left: 20px;margin-top:28px;">{{Background}}</div>
+                                    <div style="width: 170px; margin-left: 20px;margin-top:28px;"
+                                        onclick="document.getElementById('id03').style.display='block'">{{Background}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -139,12 +152,15 @@
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
                                 <div class="col-md-6 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;padding-top: 40px;margin-left:20px">Level
-                                        {{Classes | level}} {{Classes | class}} </div>
+                                    <div style="width: 200px;padding-top: 40px;margin-left:20px"
+                                        onclick="document.getElementById('id01').style.display='block'">
+                                        Level {{Classes | level}} {{Classes | class}} </div>
                                 </div>
                                 <!--Race-->
                                 <div class="col-md-6 p-0">
-                                    <div style="width: 170px;margin-top: 40px;">{{Race}}</div>
+                                    <div style="width: 170px;margin-top: 40px;"
+                                        onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -157,18 +173,24 @@
                                 </div>
                                 <!--Alignment-->
                                 <div class="col-md-5 p-0">
-                                    <div style="width: 170px;margin-top:28px;margin-left:19px;">{{Alignment}}</div>
-                            </div>
-                        </div>
-                        <div class="row" style="width:400px;">
-                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
-                                <div class=" col-md-6 p-0">
-                                    <!--Player-->
-                                    <div style="width: 200px;margin-left: 40px;margin-top:30px;">{{Player}}</div>
+                                    <div style="width: 170px;margin-top:28px;margin-left:19px;"
+                                        onclick="document.getElementById('id04').style.display='block'">{{Alignment}}
+                                    </div>
                                 </div>
-                                <!--Background-->
-                                <div class="col-md-5 p-0">
-                                    <div style="width: 170px; margin-left: 16px;margin-top:28px;">{{Background}}</div>
+                            </div>
+                            <div class="row" style="width:400px;">
+                                <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                    <div class=" col-md-6 p-0">
+                                        <!--Player-->
+                                        <div style="width: 200px;margin-left: 40px;margin-top:30px;">{{Player}}</div>
+                                    </div>
+                                    <!--Background-->
+                                    <div class="col-md-5 p-0">
+                                        <div style="width: 170px; margin-left: 16px;margin-top:28px;"
+                                            onclick="document.getElementById('id01').style.display='block'">
+                                            {{Background}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -176,209 +198,326 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row mx-auto">
-        <div [class]="WidthControl">
-            <div class="row m-0 p-0 mx-auto">
-                <div [class]="SingleColumn">
-                    <div class="row mx-auto">
-                        <!--Abilities-->
-                        <div class="col-md-12 m-0 p-0" id="Abilities">
-                            <div class="col-md-4 m-0 p-0" style="max-width: 135px; text-align: left;">
-                                <div class="AbilityModTop">{{(Str - 10) / 2 | round}}</div>
-                                <input class="AbilityScore" type="number" [(ngModel)]="Str">
-                                <div class="AbilityMod">{{(Dex - 10) / 2 | round}}</div>
-                                <input class="AbilityScore" type="number" [(ngModel)]="Dex">
-                                <div class="AbilityMod">{{(Con - 10) / 2 | round}}</div>
-                                <input class="AbilityScore" type="number" [(ngModel)]="Con">
-                                <div class="AbilityMod">{{(Int - 10) / 2 | round}}</div>
-                                <input class="AbilityScore" type="number" [(ngModel)]="Int">
-                                <div class="AbilityMod">{{(Wis - 10) / 2 | round}}</div>
-                                <input class="AbilityScore" type="number" [(ngModel)]="Wis">
-                                <div class="AbilityMod">{{(Chr - 10) / 2 | round}}</div>
-                                <input class="AbilityScore" type="number" [(ngModel)]="Chr">
-                            </div>
-                            <!--Proficiencies-->
-                            <div class="col-md-8 m-0 p-0" style="text-align: left;">
-                                <div style="margin-left:37px;margin-top:0px;font-size:300%;
-                        height:48px;">{{Inspiration}}</div>
-                                <div style="margin-left:45px;margin-top:28px;font-size:200%;">{{ProfBonus}}</div>
-                                <div class="col-md-12 m-0 p-0">
-                                    <div class={{Prof1}}>{{P1}}</div>
-                                    <div class={{Prof2}}>{{P2}}</div>
-                                    <div class={{Prof3}}>{{P3}}</div>
-                                    <div class={{Prof4}}>{{P4}}</div>
-                                    <div class={{Prof5}}>{{P5}}</div>
-                                    <div class={{Prof6}}>{{P6}}</div>
-                                    <div class={{Prof7}}>{{P7}}</div>
-                                    <div class={{Prof8}}>{{P8}}</div>
-                                    <div class={{Prof9}}>{{P9}}</div>
-                                    <div class={{Prof10}}>{{P10}}</div>
-                                    <div class={{Prof11}}>{{P11}}</div>
-                                    <div class={{Prof12}}>{{P12}}</div>
-                                    <div class={{Prof13}}>{{P13}}</div>
-                                    <div class={{Prof14}}>{{P14}}</div>
-                                    <div class={{Prof15}}>{{P15}}</div>
-                                    <div class={{Prof16}}>{{P16}}</div>
-                                    <div class={{Prof17}}>{{P17}}</div>
-                                    <div class={{Prof18}}>{{P18}}</div>
-                                    <div class={{Prof19}}>{{P19}}</div>
-                                    <div class={{Prof20}}>{{P20}}</div>
-                                    <div class={{Prof21}}>{{P21}}</div>
-                                    <div class={{Prof22}}>{{P22}}</div>
-                                    <div class={{Prof23}}>{{P23}}</div>
-                                    <div class={{Prof24}}>{{P24}}</div>
+        <div class="row mx-auto">
+            <div [class]="WidthControl">
+                <div class="row m-0 p-0 mx-auto">
+                    <div [class]="SingleColumn">
+                        <div class="row mx-auto">
+                            <!--Abilities-->
+                            <div class="col-md-12 m-0 p-0" id="Abilities">
+                                <div class="col-md-4 m-0 p-0" style="max-width: 135px; text-align: left;">
+                                    <div class="AbilityModTop">{{(Str - 10) / 2 | round}}</div>
+                                    <input class="AbilityScore" type="number" [(ngModel)]="Str">
+                                    <div class="AbilityMod">{{(Dex - 10) / 2 | round}}</div>
+                                    <input class="AbilityScore" type="number" [(ngModel)]="Dex">
+                                    <div class="AbilityMod">{{(Con - 10) / 2 | round}}</div>
+                                    <input class="AbilityScore" type="number" [(ngModel)]="Con">
+                                    <div class="AbilityMod">{{(Int - 10) / 2 | round}}</div>
+                                    <input class="AbilityScore" type="number" [(ngModel)]="Int">
+                                    <div class="AbilityMod">{{(Wis - 10) / 2 | round}}</div>
+                                    <input class="AbilityScore" type="number" [(ngModel)]="Wis">
+                                    <div class="AbilityMod">{{(Chr - 10) / 2 | round}}</div>
+                                    <input class="AbilityScore" type="number" [(ngModel)]="Chr">
                                 </div>
-                                <div style="margin-left:37px;margin-top:60px;font-size:200%;
+                                <!--Proficiencies-->
+                                <div class="col-md-8 m-0 p-0" style="text-align: left;">
+                                    <div style="margin-left:37px;margin-top:0px;font-size:300%;
+                        height:48px;" (click)="Inspired()">{{Inspiration}}</div>
+                                    <div style="margin-left:45px;margin-top:28px;font-size:200%;">{{ProfBonus}}</div>
+                                    <div class="col-md-12 m-0 p-0">
+                                        <div class={{Prof1}}>{{P1}}</div>
+                                        <div class={{Prof2}}>{{P2}}</div>
+                                        <div class={{Prof3}}>{{P3}}</div>
+                                        <div class={{Prof4}}>{{P4}}</div>
+                                        <div class={{Prof5}}>{{P5}}</div>
+                                        <div class={{Prof6}}>{{P6}}</div>
+                                        <div class={{Prof7}}>{{P7}}</div>
+                                        <div class={{Prof8}}>{{P8}}</div>
+                                        <div class={{Prof9}}>{{P9}}</div>
+                                        <div class={{Prof10}}>{{P10}}</div>
+                                        <div class={{Prof11}}>{{P11}}</div>
+                                        <div class={{Prof12}}>{{P12}}</div>
+                                        <div class={{Prof13}}>{{P13}}</div>
+                                        <div class={{Prof14}}>{{P14}}</div>
+                                        <div class={{Prof15}}>{{P15}}</div>
+                                        <div class={{Prof16}}>{{P16}}</div>
+                                        <div class={{Prof17}}>{{P17}}</div>
+                                        <div class={{Prof18}}>{{P18}}</div>
+                                        <div class={{Prof19}}>{{P19}}</div>
+                                        <div class={{Prof20}}>{{P20}}</div>
+                                        <div class={{Prof21}}>{{P21}}</div>
+                                        <div class={{Prof22}}>{{P22}}</div>
+                                        <div class={{Prof23}}>{{P23}}</div>
+                                        <div class={{Prof24}}>{{P24}}</div>
+                                    </div>
+                                    <div style="margin-left:37px;margin-top:60px;font-size:200%;
                             margin-bottom:27px;height:48px;">{{Passive}}</div>
+                                </div>
                             </div>
-                        </div>
-                        <!--Languages, for Wide-->
-                        <div class="col-md-12 m-0 p-0" *ngIf="WidthControl=='Wide'">
-                            <div id="LanguagesTop"></div>
-                            <div id="LanguagesBody">
-                                {{Languages}}
+                            <!--Languages, for Wide-->
+                            <div class="col-md-12 m-0 p-0" *ngIf="WidthControl=='Wide'">
+                                <div id="LanguagesTop"></div>
+                                <div id="LanguagesBody" onclick="document.getElementById('id07').style.display='block'">
+                                    {{Languages}}
+                                </div>
+                                <div id="LanguagesFoot"></div>
                             </div>
-                            <div id="LanguagesFoot"></div>
                         </div>
                     </div>
-                </div>
 
-                <div [class]="DoubleColumn">
-                    <div class="row m-0 p-0">
-                        <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
-                            <!--Health-->
-                            <div id="Health">
-                                <div class="row">
-                                    <input type="number" [(ngModel)]="AC" class="HP">
-                                    <input type="number" [(ngModel)]="MaximumHP" class="HP">
-                                    <input type="number" [(ngModel)]="TemporaryHP" class="HP">
-                                </div>
-                                <input type="number" [(ngModel)]="CurrentHP" class="HP"
-                                    style="margin-top: 70px;font-size:400%;width:100px;margin-left:20px;">
-                            </div>
-                        </div>
-                        <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
-                            <!--Other Info-->
-                            <div id="Other">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="row">
-                                            <div class="col-3">
-                                                <div style="margin-top:28px;margin-left:60px;">{{HitSix}}</div>
-                                                <div style="margin-top:4px;margin-left:60px;">{{HitEight}}</div>
-                                                <div style="margin-top:4px;margin-left:60px;">{{HitTen}}</div>
-                                                <div style="margin-top:4px;margin-left:60px;">{{HitTwelve}}</div>
-                                            </div>
-                                            <div class="col-3">
-                                                <div style="margin-top:28px;margin-left:80px;">{{DiceSix}}</div>
-                                                <div style="margin-top:4px;margin-left:80px;">{{DiceEight}}</div>
-                                                <div style="margin-top:4px;margin-left:80px;">{{DiceTen}}</div>
-                                                <div style="margin-top:4px;margin-left:80px;">{{DiceTwelve}}</div>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="font-weight: bold;">
-                                            <div class="col-12" style="display: inline-flex;text-align: left;">
-                                                <div *ngIf="DeathPass>=1" style="margin-top:55px;margin-left:114px;">x
-                                                </div>
-                                                <div *ngIf="DeathPass>=2" style="margin-top:55px;margin-left:20px;">x
-                                                </div>
-                                                <div *ngIf="DeathPass==3" style="margin-top:55px;margin-left:20px;">x
-                                                </div>
-                                            </div>
-                                            <div class="col-12" style="display: inline-flex;height: 16px;">
-                                                <div *ngIf="DeathFail>=1" style="margin-top:3px;margin-left:114px;">x
-                                                </div>
-                                                <div *ngIf="DeathFail>=2" style="margin-top:3px;margin-left:20px">x
-                                                </div>
-                                                <div *ngIf="DeathFail==3" style="margin-top:3px;margin-left:20px;">x
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div [class]="DoubleColumn">
+                        <div class="row m-0 p-0">
+                            <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
+                                <!--Health-->
+                                <div id="Health">
+                                    <div class="row">
+                                        <input type="number" [(ngModel)]="AC" class="HP">
+                                        <input type="number" [(ngModel)]="MaximumHP" class="HP">
+                                        <input type="number" [(ngModel)]="TemporaryHP" class="HP">
                                     </div>
-                                    <div class="col-5">
-                                        <div style="margin-top:40px;font-size:200%">{{Initiative}}</div>
-                                        <div style="margin-top:35px;font-size:200%">{{Speed}}</div>
-                                        <div style="margin-top:35px;font-size:200%">{{Vision}}</div>
-                                    </div>
+                                    <input type="number" [(ngModel)]="CurrentHP" class="HP"
+                                        style="margin-top: 70px;font-size:400%;width:100px;margin-left:20px;">
                                 </div>
                             </div>
-                        </div>
-                        <!--Languages, for Middle and Narrow-->
-                        <div class="col-md-6 m-0 p-0" *ngIf="WidthControl!='Wide'">
-                            <div id="LanguagesTop"></div>
-                            <div id="LanguagesBody">
-                                {{Languages}}
+                            <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
+                                <!--Other Info-->
+                                <div id="Other">
+                                    <div class="row" style="height:300px;">
+                                        <div class="col-6">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <div style="margin-top:28px;margin-left:60px;">{{HitSix}}</div>
+                                                    <div style="margin-top:4px;margin-left:60px;">{{HitEight}}</div>
+                                                    <div style="margin-top:4px;margin-left:60px;">{{HitTen}}</div>
+                                                    <div style="margin-top:4px;margin-left:60px;">{{HitTwelve}}</div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <input type="number"
+                                                        style="margin-top:28px;margin-left:80px;width:30px;"
+                                                        [(ngModel)]="DiceSix">
+                                                    <input type="number" style="margin-left:80px;width:30px;"
+                                                        [(ngModel)]="DiceEight">
+                                                    <input type="number" style="margin-left:80px;width:30px;"
+                                                        [(ngModel)]="DiceTen">
+                                                    <input type="number" style="margin-left:80px;width:30px;"
+                                                        [(ngModel)]="DiceTwelve">
+                                                </div>
+                                            </div>
+                                            <div class="row" style="font-weight: bold;height:150px;">
+                                                <div class="col-12" style="display: inline-flex;text-align: left;"
+                                                    (click)="DeathPassed()">
+                                                    <div *ngIf="DeathPass>=1"
+                                                        style="margin-top:55px;margin-left:114px;">x
+                                                    </div>
+                                                    <div *ngIf="DeathPass>=2" style="margin-top:55px;margin-left:20px;">
+                                                        x
+                                                    </div>
+                                                    <div *ngIf="DeathPass==3" style="margin-top:55px;margin-left:20px;">
+                                                        x
+                                                    </div>
+                                                </div>
+                                                <div class="col-12" style="display: inline-flex;height: 16px;"
+                                                    (click)="DeathFailed()">
+                                                    <div *ngIf="DeathFail>=1" style="margin-top:3px;margin-left:114px;">
+                                                        x
+                                                    </div>
+                                                    <div *ngIf="DeathFail>=2" style="margin-top:3px;margin-left:20px">x
+                                                    </div>
+                                                    <div *ngIf="DeathFail==3" style="margin-top:3px;margin-left:20px;">x
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-5">
+                                            <div style="margin-top:40px;font-size:200%">{{(Dex - 10) / 2 | round}}</div>
+                                            <div style="margin-top:35px;font-size:200%">{{Speed}}</div>
+                                            <div style="margin-top:35px;font-size:200%">{{Vision}}</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div id="LanguagesFoot"></div>
+                            <!--Languages, for Middle and Narrow-->
+                            <div class="col-md-6 m-0 p-0" *ngIf="WidthControl!='Wide'">
+                                <div id="LanguagesTop"></div>
+                                <div id="LanguagesBody" onclick="document.getElementById('id07').style.display='block'">
+                                    {{Languages}}
+                                </div>
+                                <div id="LanguagesFoot"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div *ngIf="WidthControl=='Wide'">
-                        <!--Custom Rolls for Wide-->
-                        <div id="AttacksTop"></div>
-                        <div id="AttacksBody">
-                            {{Attacks}}
+                        <div *ngIf="WidthControl=='Wide'">
+                            <!--Custom Rolls for Wide-->
+                            <div id="AttacksTop"></div>
+                            <div id="AttacksBody" *ngFor="let customroll of Attacks">
+                            </div>
+                            <div id="AttacksFoot" onclick="document.getElementById('id05').style.display='block'"></div>
+                            <!--Features for Wide-->
+                            <div id="FeaturesTop"></div>
+                            <div id="FeaturesBody" *ngFor="let feature of ClassFeatures"></div>
+                            <div id="FeaturesBody" *ngFor="let feature of RaceFeatures">{{feature.feat_name}}</div>
+                            <div id="FeaturesBody" *ngFor="let feature of CustomFeatures"
+                                onclick="document.getElementById('id08').style.display='block'"></div>
+                            <div id="FeaturesFoot" onclick="document.getElementById('id08').style.display='block'">
+                            </div>
+                            <!--Custom Rolls for Wide-->
+                            <div id="GearTop"></div>
+                            <div id="GearBody" onclick="document.getElementById('id06').style.display='block'">
+                                {{Gear}}
+                            </div>
+                            <div id="GearFoot"></div>
                         </div>
-                        <div id="AttacksFoot"></div>
-                        <!--Features for Wide-->
-                        <div id="FeaturesTop"></div>
-                        <div id="FeaturesBody">
-                            {{Features}}
-                        </div>
-                        <div id="FeaturesFoot"></div>
-                        <!--Custom Rolls for Wide-->
-                        <div id="GearTop"></div>
-                        <div id="GearBody">
-                            {{Gear}}
-                        </div>
-                        <div id="GearFoot"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="col-12 mx-auto">
-    <div class="row mx-auto" [id]="MaxWidth">
-        <div *ngIf="WidthControl=='Middle'">
-            <!--Custom Rolls for Middle-->
-            <div id="AttacksTop"></div>
-            <div id="AttacksBody">
-                {{Attacks}}
+    <div class="col-12 mx-auto">
+        <div class="row mx-auto" [id]="MaxWidth">
+            <div *ngIf="WidthControl=='Middle'">
+                <!--Custom Rolls for Middle-->
+                <div id="AttacksTop"></div>
+                <div id="AttacksBody" *ngFor="let customroll of Attacks">
+                </div>
+                <div id="AttacksFoot" onclick="document.getElementById('id05').style.display='block'"></div>
+                <!--Features for Middle-->
+                <div id="FeaturesTop"></div>
+                <div id="FeaturesBody" *ngFor="let feature of ClassFeatures"></div>
+                <div id="FeaturesBody" *ngFor="let feature of RaceFeatures">{{feature.feat_name}}</div>
+                <div id="FeaturesBody" *ngFor="let featureofCustomFeatures"
+                    onclick="document.getElementById('id08').style.display='block'"></div>
+                <div id="FeaturesFoot" onclick="document.getElementById('id08').style.display='block'"></div>
+                <!--Gear for Middle-->
+                <div id="GearTop"></div>
+                <div id="GearBody" onclick="document.getElementById('id06').style.display='block'">
+                    {{Gear}}
+                </div>
+                <div id="GearFoot"></div>
             </div>
-            <div id="AttacksFoot"></div>
-            <!--Features for Middle-->
-            <div id="FeaturesTop"></div>
-            <div id="FeaturesBody">
-                {{Features}}
+            <div *ngIf="WidthControl=='Narrow'">
+                <!--Custom Rolls for Narrow-->
+                <div id="AttacksTopNarrow"></div>
+                <div id="AttacksBodyNarrow" *ngFor="let customroll of Attacks">
+                </div>
+                <div id="AttacksFootNarrow" onclick="document.getElementById('id08').style.display='block'"></div>
+                <!--Features for Narrow-->
+                <div id="FeaturesTopNarrow"></div>
+                <div id="FeaturesBodyNarrow" *ngFor="let feature of ClassFeatures"></div>
+                <div id="FeaturesBodyNarrow" *ngFor="let feature of RaceFeatures">{{feature.feat_name}}</div>
+                <div id="FeaturesBodyNarrow" *ngFor="let feature of CustomFeatures"
+                    onclick="document.getElementById('id05').style.display='block'"></div>
+                <div id="FeaturesFootNarrow" onclick="document.getElementById('id08').style.display='block'"></div>
+                <!--Gear for Narrow-->
+                <div id="GearTopNarrow"></div>
+                <div id="GearBodyNarrow" onclick="document.getElementById('id06').style.display='block'">
+                    {{Gear}}
+                </div>
+                <div id="GearFootNarrow"></div>
             </div>
-            <div id="FeaturesFoot"></div>
-            <!--Gear for Middle-->
-            <div id="GearTop"></div>
-            <div id="GearBody">
-                {{Gear}}
-            </div>
-            <div id="GearFoot"></div>
         </div>
-        <div *ngIf="WidthControl=='Narrow'">
-            <!--Custom Rolls for Narrow-->
-            <div id="AttacksTopNarrow"></div>
-            <div id="AttacksBodyNarrow">
-                {{Attacks}}
+    </div>
+
+    <!--First Modal: Class/Level-->
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <div class="modal-content animate" action="/action_page.php" method="post">
+            <div class="container">
+
             </div>
-            <div id="AttacksFootNarrow"></div>
-            <!--Features for Narrow-->
-            <div id="FeaturesTopNarrow"></div>
-            <div id="FeaturesBodyNarrow">
-                {{Features}}
+        </div>
+    </div>
+
+    <!--Second Modal: Race-->
+    <div id="id02" class="modal">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <div class="modal-content animate" action="/action_page.php" method="post">
+            <div class="container">
+                <div *ngFor="let Raceitem of RaceDisplay">
+                    <div (click)="setRace(Raceitem)">{{Raceitem.racename}} : {{Raceitem.description}}</div>
+                </div>
             </div>
-            <div id="FeaturesFootNarrow"></div>
-            <!--Gear for Narrow-->
-            <div id="GearTopNarrow"></div>
-            <div id="GearBodyNarrow">
-                {{Gear}}
+        </div>
+    </div>
+
+    <!--Third Modal: Background-->
+    <div id="id03" class="modal">
+        <span onclick="document.getElementById('id03').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <div class="modal-content animate" action="/action_page.php" method="post">
+            <div class="container">
+
             </div>
-            <div id="GearFootNarrow"></div>
+        </div>
+    </div>
+
+    <!--Fourth Modal: Alignment-->
+    <div id="id04" class="modal">
+        <span onclick="document.getElementById('id04').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <div class="modal-content animate" action="/action_page.php" method="post">
+            <div class="container">
+                <table class="table table-hover table-dark">
+                    <thead></thead>
+                    <tr>
+                        <td *ngFor="let alignment of AlignmentLawful" (click)="setAlignment(alignment)">{{ alignment }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td *ngFor="let alignment of AlignmentNeutral" (click)="setAlignment(alignment)">{{ alignment }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td *ngFor="let alignment of AlignmentChaotic" (click)="setAlignment(alignment)">{{ alignment }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--Fifth Modal: Attacks-->
+    <div id="id05" class="modal">
+        <span onclick="document.getElementById('id05').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <div class="modal-content animate" action="/action_page.php" method="post">
+            <div class="container">
+
+            </div>
+        </div>
+    </div>
+
+    <!--Sixth Modal: Gear-->
+    <div id="id06" class="modal">
+        <span onclick="document.getElementById('id06').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <div class="modal-content animate" action="/action_page.php" method="post">
+            <div class="container">
+                <textarea [(ngModel)]="Gear" placeholder="Enter equipment here."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!--Seventh Modal: Languages-->
+    <div id="id07" class="modal">
+        <span onclick="document.getElementById('id07').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <div class="modal-content animate" action="/action_page.php" method="post">
+            <div class="container">
+                <textarea [(ngModel)]="Languages" placeholder="Enter languages here."></textarea>
+            </div>
+        </div>
+    </div>
+    <!--Eighth Modal: Features-->
+    <div id="id08" class="modal">
+        <span onclick="document.getElementById('id08').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <div class="modal-content animate" action="/action_page.php" method="post">
+            <div class="container">
+
+            </div>
         </div>
     </div>
 </div>
