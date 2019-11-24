@@ -97,15 +97,6 @@ button:hover {
     margin-bottom: 0;
 }
 
-@-webkit-keyframes createChar {
-    from {
-        -webkit-transform: rotateY(0deg);
-    }
-    to {
-        -webkit-transform: rotateY(359deg);
-    }
-}
-
 
 /* Center the image and position the close button */
 

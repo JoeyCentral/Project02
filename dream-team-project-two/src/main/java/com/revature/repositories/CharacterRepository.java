@@ -44,15 +44,21 @@ public class CharacterRepository {
 		if (myCharacter.getId() == 0) {
 			System.out.println(myCharacter);
 		Session session = em.unwrap(Session.class);
-		Profile myProfile = myCharacter.getProfile();
-		Info myInfo = myCharacter.getInfo();
-		SpellList mySpells = myCharacter.getSpellList();
-		List<Multiclass> myClasses = myCharacter.getMulticlass();
-		session.save(myProfile);
-		session.save(myInfo);
-		session.save(mySpells);
 		session.save(myCharacter);
-		session.save(myClasses);
+		Profile myProfile = myCharacter.getProfile();
+		myProfile.setId(0);
+		session.save(myProfile);
+		Info myInfo = myCharacter.getInfo();
+		myInfo.setId(0);
+		session.save(myInfo);
+		SpellList mySpells = myCharacter.getSpellList();
+		session.save(mySpells);
+		mySpells.setId(0);
+		List<Multiclass> myClasses = myCharacter.getMulticlass();
+		for (Multiclass x:myClasses) {
+			x.setId(0);
+			session.save(x);
+		}
 		} else {
 			Session session = em.unwrap(Session.class);
 			Profile myProfile = myCharacter.getProfile();
@@ -62,6 +68,11 @@ public class CharacterRepository {
 			session.update(myInfo);
 			session.update(mySpells);
 			session.update(myCharacter);
+			List<Multiclass> myClasses = myCharacter.getMulticlass();
+			for (Multiclass x:myClasses) {
+				x.setId(0);
+				session.update(x);
+			}
 		}
 		return myCharacter.getId();
 	}
