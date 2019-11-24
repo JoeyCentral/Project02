@@ -32,7 +32,27 @@ public class Profile {
 	
 	@Value("0")
 	private int experience;
+	@Value("0")
+	private int speed;
+	@Value("0")
+	private int vision;
 	
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+	public int getVision() {
+		return vision;
+	}
+
+	public void setVision(int vision) {
+		this.vision = vision;
+	}
+
 	@Value("1")
 	private int maximumHealth;
 	
@@ -65,16 +85,20 @@ public class Profile {
 		super();
 	}
 	
-	public Profile(int id, String abilityScores, int inspiration, String alignment, int experience, int maximumHealth,
-			int ac, int deathsaves, String hitDice, int currentHealth, String inventory, String languages, Race race,
-			Backgrounds background, List<CustomRolls> customRolls, List<Proficiencies> proficiencies,
-			List<Features> features) {
+
+	
+	public Profile(int id, String abilityScores, int inspiration, String alignment, int experience, int speed,
+			int vision, int maximumHealth, int ac, int deathsaves, String hitDice, int currentHealth, String inventory,
+			String languages, Race race, Backgrounds background, List<CustomRolls> customRolls,
+			List<Proficiencies> proficiencies, List<Features> features) {
 		super();
 		this.id = id;
 		this.abilityScores = abilityScores;
 		this.inspiration = inspiration;
 		this.alignment = alignment;
 		this.experience = experience;
+		this.speed = speed;
+		this.vision = vision;
 		this.maximumHealth = maximumHealth;
 		this.ac = ac;
 		this.deathsaves = deathsaves;
@@ -88,7 +112,7 @@ public class Profile {
 		this.proficiencies = proficiencies;
 		this.features = features;
 	}
-	
+
 	public List<CustomRolls> getCustomRolls() {
 		return customRolls;
 	}
@@ -261,6 +285,8 @@ public class Profile {
 		result = prime * result + maximumHealth;
 		result = prime * result + ((proficiencies == null) ? 0 : proficiencies.hashCode());
 		result = prime * result + ((race == null) ? 0 : race.hashCode());
+		result = prime * result + speed;
+		result = prime * result + vision;
 		return result;
 	}
 
@@ -337,17 +363,21 @@ public class Profile {
 				return false;
 		} else if (!race.equals(other.race))
 			return false;
+		if (speed != other.speed)
+			return false;
+		if (vision != other.vision)
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "Profile [id=" + id + ", abilityScores=" + abilityScores + ", inspiration=" + inspiration
-				+ ", alignment=" + alignment + ", experience=" + experience + ", maximumHealth=" + maximumHealth
-				+ ", ac=" + ac + ", deathsaves=" + deathsaves + ", hitDice=" + hitDice + ", currentHealth="
-				+ currentHealth + ", inventory=" + inventory + ", languages=" + languages + ", race=" + race
-				+ ", background=" + background + ", customRolls=" + customRolls + ", proficiencies=" + proficiencies
-				+ ", features=" + features + "]";
+				+ ", alignment=" + alignment + ", experience=" + experience + ", speed=" + speed + ", vision=" + vision
+				+ ", maximumHealth=" + maximumHealth + ", ac=" + ac + ", deathsaves=" + deathsaves + ", hitDice="
+				+ hitDice + ", currentHealth=" + currentHealth + ", inventory=" + inventory + ", languages=" + languages
+				+ ", race=" + race + ", background=" + background + ", customRolls=" + customRolls + ", proficiencies="
+				+ proficiencies + ", features=" + features + "]";
 	}
 
 
