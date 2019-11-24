@@ -71,7 +71,7 @@ public class CharacterRepository {
 			List<Multiclass> myClasses = myCharacter.getMulticlass();
 			for (Multiclass x:myClasses) {
 				x.setId(0);
-				session.update(x);
+				session.saveOrUpdate(x);
 			}
 		}
 		return myCharacter.getId();
