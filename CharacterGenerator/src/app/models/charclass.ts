@@ -4,5 +4,5 @@ export class CharClass{
 	id:number;
 	classname:string;
 	hit_die:number;
-    feature:[Features];
+    features:Features[];
 }
