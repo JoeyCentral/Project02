@@ -1,23 +1,114 @@
+<div id="id101" class="modal">
+    <div class="modal-content animate" action="/action_page.php" method="post">
+        <div class="container">
+            <span onclick="document.getElementById('id101').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <div>
+                <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                        text-align: center">Save and Exit</h1>
+                <p style="padding: 1rem;">This will SAVE current information on all editted fields to your account's character database and EXIT to main page</p>
+                <button style="position: relative;  margin-bottom: 10% ;" (click)="SaveAndExit()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="id102" class="modal">
+    <div class="modal-content animate" action="/action_page.php" method="post">
+        <div class="container">
+            <span onclick="document.getElementById('id102').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <div>
+                <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                            text-align: center">Save</h1>
+                <p style="padding: 1rem;">This will SAVE current information on all editted fields to your account's character database</p>
+                <button style="position: relative;  margin-bottom: 10% ;" (click)="Save()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="id103" class="modal">
+    <div class="modal-content animate" action="/action_page.php" method="post">
+        <div class="container">
+            <span onclick="document.getElementById('id103').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <div>
+                <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                text-align: center">Exit without Saving</h1>
+                <p style="padding: 1rem;">Any changes made will NOT be SAVED to your account's character base if you click Exit</p>
+                <button style="position: relative;  margin-bottom: 10% ;" (click)="Exit()">Exit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="id104" class="modal">
+    <div class="modal-content animate" action="/action_page.php" method="post">
+        <div class="container">
+            <span onclick="document.getElementById('id104').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <div>
+                <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                    text-align: center">Share</h1>
+                <p style="padding: 1rem;">This will share current information with another player </p>
+
+                <p>Enter the name of the user you want to share this character with:</p>
+
+                <input type="text" [(ngModel)]="placeholderr" placeholder="Username">
+                <br>
+                <br>
+                <button style="position: relative;  margin-bottom: 10% ;" (click)="Share()">Share</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="id105" class="modal">
+    <div class="modal-content animate" action="/action_page.php" method="post">
+        <div class="container">
+            <span onclick="document.getElementById('id105').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <div>
+                <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                        text-align: center">Copy</h1>
+                <p style="padding: 1rem;">This will replicate current character's information and create a cloned character in your account's character database</p>
+                <button style="position: relative;  margin-bottom: 10% ;" (click)="Copy()">Copy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="id106" class="modal">
+    <div class="modal-content animate" action="/action_page.php" method="post">
+        <div class="container">
+            <span onclick="document.getElementById('id106').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <div>
+                <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                            text-align: center">Delete</h1>
+                <p style="padding: 1rem;">This will DELETE current character from your account's character database!</p>
+                <button style="position: relative;  margin-bottom: 10% ; color: red" (click)="Delete()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="bevelBox">
     <div class="row mx-auto" style="margin-top: 10px;">
-        <div class="col-4 mx-auto" (click)="SaveAndExit()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id101').style.display='block'">
             <h4>Save and Exit</h4>
         </div>
-        <div class="col-4 mx-auto"(click)="Save()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id102').style.display='block'">
             <h4>Save</h4>
         </div>
-        <div class="col-4 mx-auto" (click)="Exit()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id103').style.display='block'">
             <h4>Exit Without Saving</h4>
         </div>
     </div>
     <div class="row mx-auto">
-        <div class="col-4 mx-auto" (click)="Share()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id104').style.display='block'">
             <h4>Share</h4>
         </div>
-        <div class="col-4 mx-auto" (click)="Copy()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id105').style.display='block'">
             <h4>Copy</h4>
         </div>
-        <div class="col-4 mx-auto" (click)="Delete()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id106').style.display='block'">
             <h4>Delete</h4>
         </div>
     </div>
@@ -44,12 +135,9 @@
         <div class="col-md-12 m-0 p-0 mx-auto" style="margin:auto">
             <div class="row" id={{Header}}>
                 <div class="col-md-5" style="height:160px;min-width: 300px;">
-                    <input *ngIf="Header=='HeaderWide'" type="text" id="Charname"
-                        style="margin-left: 64px;margin-top: 100px;" [(ngModel)]="Charname">
-                    <input *ngIf="Header=='HeaderMiddle'" type="text" id="Charname"
-                        style="margin-left: 64px;margin-top: 100px;" [(ngModel)]="Charname">
-                    <input *ngIf="Header=='HeaderNarrow'" type="text" id="Charname"
-                        style="margin-left: 64px;margin-top: 75px;width:300px" [(ngModel)]="Charname">
+                    <input *ngIf="Header=='HeaderWide'" type="text" id="Charname" style="margin-left: 64px;margin-top: 100px;" [(ngModel)]="Charname">
+                    <input *ngIf="Header=='HeaderMiddle'" type="text" id="Charname" style="margin-left: 64px;margin-top: 100px;" [(ngModel)]="Charname">
+                    <input *ngIf="Header=='HeaderNarrow'" type="text" id="Charname" style="margin-left: 64px;margin-top: 75px;width:300px" [(ngModel)]="Charname">
                 </div>
                 <div class="col-md-7" style="height:249px">
                     <!--Wide-->
@@ -58,8 +146,7 @@
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
                                 <div class="col-md-4 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;margin-left: 30px;margin-top: 80px;">Level
-                                        {{Classes | level}} {{Classes | class}}
+                                    <div style="width: 200px;margin-left: 30px;margin-top: 80px;">Level {{Classes | level}} {{Classes | class}}
                                     </div>
                                 </div>
                                 <div class="col-md-3 p-0">
@@ -97,8 +184,7 @@
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:auto;">
                                 <div class="col-md-7 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;margin-left: 79px;margin-top: 36px;">Level
-                                        {{Classes | level}} {{Classes | class}}
+                                    <div style="width: 200px;margin-left: 79px;margin-top: 36px;">Level {{Classes | level}} {{Classes | class}}
                                     </div>
                                 </div>
                                 <!--Race-->
@@ -139,8 +225,7 @@
                             <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
                                 <div class="col-md-6 p-0">
                                     <!--Class and Level-->
-                                    <div style="width: 200px;padding-top: 40px;margin-left:20px">Level
-                                        {{Classes | level}} {{Classes | class}} </div>
+                                    <div style="width: 200px;padding-top: 40px;margin-left:20px">Level {{Classes | level}} {{Classes | class}} </div>
                                 </div>
                                 <!--Race-->
                                 <div class="col-md-6 p-0">
@@ -158,17 +243,18 @@
                                 <!--Alignment-->
                                 <div class="col-md-5 p-0">
                                     <div style="width: 170px;margin-top:28px;margin-left:19px;">{{Alignment}}</div>
-                            </div>
-                        </div>
-                        <div class="row" style="width:400px;">
-                            <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
-                                <div class=" col-md-6 p-0">
-                                    <!--Player-->
-                                    <div style="width: 200px;margin-left: 40px;margin-top:30px;">{{Player}}</div>
                                 </div>
-                                <!--Background-->
-                                <div class="col-md-5 p-0">
-                                    <div style="width: 170px; margin-left: 16px;margin-top:28px;">{{Background}}</div>
+                            </div>
+                            <div class="row" style="width:400px;">
+                                <div class="col-md-12 p-0" style="display: inline-flex;margin:0;">
+                                    <div class=" col-md-6 p-0">
+                                        <!--Player-->
+                                        <div style="width: 200px;margin-left: 40px;margin-top:30px;">{{Player}}</div>
+                                    </div>
+                                    <!--Background-->
+                                    <div class="col-md-5 p-0">
+                                        <div style="width: 170px; margin-left: 16px;margin-top:28px;">{{Background}}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -176,209 +262,207 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row mx-auto">
-        <div [class]="WidthControl">
-            <div class="row m-0 p-0 mx-auto">
-                <div [class]="SingleColumn">
-                    <div class="row mx-auto">
-                        <!--Abilities-->
-                        <div class="col-md-12 m-0 p-0" id="Abilities">
-                            <div class="col-md-4 m-0 p-0" style="max-width: 135px; text-align: left;">
-                                <div class="AbilityModTop">{{(Str - 10) / 2 | round}}</div>
-                                <input class="AbilityScore" type="number" [(ngModel)]="Str">
-                                <div class="AbilityMod">{{(Dex - 10) / 2 | round}}</div>
-                                <input class="AbilityScore" type="number" [(ngModel)]="Dex">
-                                <div class="AbilityMod">{{(Con - 10) / 2 | round}}</div>
-                                <input class="AbilityScore" type="number" [(ngModel)]="Con">
-                                <div class="AbilityMod">{{(Int - 10) / 2 | round}}</div>
-                                <input class="AbilityScore" type="number" [(ngModel)]="Int">
-                                <div class="AbilityMod">{{(Wis - 10) / 2 | round}}</div>
-                                <input class="AbilityScore" type="number" [(ngModel)]="Wis">
-                                <div class="AbilityMod">{{(Chr - 10) / 2 | round}}</div>
-                                <input class="AbilityScore" type="number" [(ngModel)]="Chr">
-                            </div>
-                            <!--Proficiencies-->
-                            <div class="col-md-8 m-0 p-0" style="text-align: left;">
-                                <div style="margin-left:37px;margin-top:0px;font-size:300%;
+        <div class="row mx-auto">
+            <div [class]="WidthControl">
+                <div class="row m-0 p-0 mx-auto">
+                    <div [class]="SingleColumn">
+                        <div class="row mx-auto">
+                            <!--Abilities-->
+                            <div class="col-md-12 m-0 p-0" id="Abilities">
+                                <div class="col-md-4 m-0 p-0" style="max-width: 135px; text-align: left;">
+                                    <div class="AbilityModTop">{{(Str - 10) / 2 | round}}</div>
+                                    <input class="AbilityScore" type="number" [(ngModel)]="Str">
+                                    <div class="AbilityMod">{{(Dex - 10) / 2 | round}}</div>
+                                    <input class="AbilityScore" type="number" [(ngModel)]="Dex">
+                                    <div class="AbilityMod">{{(Con - 10) / 2 | round}}</div>
+                                    <input class="AbilityScore" type="number" [(ngModel)]="Con">
+                                    <div class="AbilityMod">{{(Int - 10) / 2 | round}}</div>
+                                    <input class="AbilityScore" type="number" [(ngModel)]="Int">
+                                    <div class="AbilityMod">{{(Wis - 10) / 2 | round}}</div>
+                                    <input class="AbilityScore" type="number" [(ngModel)]="Wis">
+                                    <div class="AbilityMod">{{(Chr - 10) / 2 | round}}</div>
+                                    <input class="AbilityScore" type="number" [(ngModel)]="Chr">
+                                </div>
+                                <!--Proficiencies-->
+                                <div class="col-md-8 m-0 p-0" style="text-align: left;">
+                                    <div style="margin-left:37px;margin-top:0px;font-size:300%;
                         height:48px;">{{Inspiration}}</div>
-                                <div style="margin-left:45px;margin-top:28px;font-size:200%;">{{ProfBonus}}</div>
-                                <div class="col-md-12 m-0 p-0">
-                                    <div class={{Prof1}}>{{P1}}</div>
-                                    <div class={{Prof2}}>{{P2}}</div>
-                                    <div class={{Prof3}}>{{P3}}</div>
-                                    <div class={{Prof4}}>{{P4}}</div>
-                                    <div class={{Prof5}}>{{P5}}</div>
-                                    <div class={{Prof6}}>{{P6}}</div>
-                                    <div class={{Prof7}}>{{P7}}</div>
-                                    <div class={{Prof8}}>{{P8}}</div>
-                                    <div class={{Prof9}}>{{P9}}</div>
-                                    <div class={{Prof10}}>{{P10}}</div>
-                                    <div class={{Prof11}}>{{P11}}</div>
-                                    <div class={{Prof12}}>{{P12}}</div>
-                                    <div class={{Prof13}}>{{P13}}</div>
-                                    <div class={{Prof14}}>{{P14}}</div>
-                                    <div class={{Prof15}}>{{P15}}</div>
-                                    <div class={{Prof16}}>{{P16}}</div>
-                                    <div class={{Prof17}}>{{P17}}</div>
-                                    <div class={{Prof18}}>{{P18}}</div>
-                                    <div class={{Prof19}}>{{P19}}</div>
-                                    <div class={{Prof20}}>{{P20}}</div>
-                                    <div class={{Prof21}}>{{P21}}</div>
-                                    <div class={{Prof22}}>{{P22}}</div>
-                                    <div class={{Prof23}}>{{P23}}</div>
-                                    <div class={{Prof24}}>{{P24}}</div>
-                                </div>
-                                <div style="margin-left:37px;margin-top:60px;font-size:200%;
+                                    <div style="margin-left:45px;margin-top:28px;font-size:200%;">{{ProfBonus}}</div>
+                                    <div class="col-md-12 m-0 p-0">
+                                        <div class={{Prof1}}>{{P1}}</div>
+                                        <div class={{Prof2}}>{{P2}}</div>
+                                        <div class={{Prof3}}>{{P3}}</div>
+                                        <div class={{Prof4}}>{{P4}}</div>
+                                        <div class={{Prof5}}>{{P5}}</div>
+                                        <div class={{Prof6}}>{{P6}}</div>
+                                        <div class={{Prof7}}>{{P7}}</div>
+                                        <div class={{Prof8}}>{{P8}}</div>
+                                        <div class={{Prof9}}>{{P9}}</div>
+                                        <div class={{Prof10}}>{{P10}}</div>
+                                        <div class={{Prof11}}>{{P11}}</div>
+                                        <div class={{Prof12}}>{{P12}}</div>
+                                        <div class={{Prof13}}>{{P13}}</div>
+                                        <div class={{Prof14}}>{{P14}}</div>
+                                        <div class={{Prof15}}>{{P15}}</div>
+                                        <div class={{Prof16}}>{{P16}}</div>
+                                        <div class={{Prof17}}>{{P17}}</div>
+                                        <div class={{Prof18}}>{{P18}}</div>
+                                        <div class={{Prof19}}>{{P19}}</div>
+                                        <div class={{Prof20}}>{{P20}}</div>
+                                        <div class={{Prof21}}>{{P21}}</div>
+                                        <div class={{Prof22}}>{{P22}}</div>
+                                        <div class={{Prof23}}>{{P23}}</div>
+                                        <div class={{Prof24}}>{{P24}}</div>
+                                    </div>
+                                    <div style="margin-left:37px;margin-top:60px;font-size:200%;
                             margin-bottom:27px;height:48px;">{{Passive}}</div>
+                                </div>
                             </div>
-                        </div>
-                        <!--Languages, for Wide-->
-                        <div class="col-md-12 m-0 p-0" *ngIf="WidthControl=='Wide'">
-                            <div id="LanguagesTop"></div>
-                            <div id="LanguagesBody">
-                                {{Languages}}
+                            <!--Languages, for Wide-->
+                            <div class="col-md-12 m-0 p-0" *ngIf="WidthControl=='Wide'">
+                                <div id="LanguagesTop"></div>
+                                <div id="LanguagesBody">
+                                    {{Languages}}
+                                </div>
+                                <div id="LanguagesFoot"></div>
                             </div>
-                            <div id="LanguagesFoot"></div>
                         </div>
                     </div>
-                </div>
 
-                <div [class]="DoubleColumn">
-                    <div class="row m-0 p-0">
-                        <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
-                            <!--Health-->
-                            <div id="Health">
-                                <div class="row">
-                                    <input type="number" [(ngModel)]="AC" class="HP">
-                                    <input type="number" [(ngModel)]="MaximumHP" class="HP">
-                                    <input type="number" [(ngModel)]="TemporaryHP" class="HP">
-                                </div>
-                                <input type="number" [(ngModel)]="CurrentHP" class="HP"
-                                    style="margin-top: 70px;font-size:400%;width:100px;margin-left:20px;">
-                            </div>
-                        </div>
-                        <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
-                            <!--Other Info-->
-                            <div id="Other">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="row">
-                                            <div class="col-3">
-                                                <div style="margin-top:28px;margin-left:60px;">{{HitSix}}</div>
-                                                <div style="margin-top:4px;margin-left:60px;">{{HitEight}}</div>
-                                                <div style="margin-top:4px;margin-left:60px;">{{HitTen}}</div>
-                                                <div style="margin-top:4px;margin-left:60px;">{{HitTwelve}}</div>
-                                            </div>
-                                            <div class="col-3">
-                                                <div style="margin-top:28px;margin-left:80px;">{{DiceSix}}</div>
-                                                <div style="margin-top:4px;margin-left:80px;">{{DiceEight}}</div>
-                                                <div style="margin-top:4px;margin-left:80px;">{{DiceTen}}</div>
-                                                <div style="margin-top:4px;margin-left:80px;">{{DiceTwelve}}</div>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="font-weight: bold;">
-                                            <div class="col-12" style="display: inline-flex;text-align: left;">
-                                                <div *ngIf="DeathPass>=1" style="margin-top:55px;margin-left:114px;">x
-                                                </div>
-                                                <div *ngIf="DeathPass>=2" style="margin-top:55px;margin-left:20px;">x
-                                                </div>
-                                                <div *ngIf="DeathPass==3" style="margin-top:55px;margin-left:20px;">x
-                                                </div>
-                                            </div>
-                                            <div class="col-12" style="display: inline-flex;height: 16px;">
-                                                <div *ngIf="DeathFail>=1" style="margin-top:3px;margin-left:114px;">x
-                                                </div>
-                                                <div *ngIf="DeathFail>=2" style="margin-top:3px;margin-left:20px">x
-                                                </div>
-                                                <div *ngIf="DeathFail==3" style="margin-top:3px;margin-left:20px;">x
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div [class]="DoubleColumn">
+                        <div class="row m-0 p-0">
+                            <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
+                                <!--Health-->
+                                <div id="Health">
+                                    <div class="row">
+                                        <input type="number" [(ngModel)]="AC" class="HP">
+                                        <input type="number" [(ngModel)]="MaximumHP" class="HP">
+                                        <input type="number" [(ngModel)]="TemporaryHP" class="HP">
                                     </div>
-                                    <div class="col-5">
-                                        <div style="margin-top:40px;font-size:200%">{{Initiative}}</div>
-                                        <div style="margin-top:35px;font-size:200%">{{Speed}}</div>
-                                        <div style="margin-top:35px;font-size:200%">{{Vision}}</div>
-                                    </div>
+                                    <input type="number" [(ngModel)]="CurrentHP" class="HP" style="margin-top: 70px;font-size:400%;width:100px;margin-left:20px;">
                                 </div>
                             </div>
-                        </div>
-                        <!--Languages, for Middle and Narrow-->
-                        <div class="col-md-6 m-0 p-0" *ngIf="WidthControl!='Wide'">
-                            <div id="LanguagesTop"></div>
-                            <div id="LanguagesBody">
-                                {{Languages}}
+                            <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
+                                <!--Other Info-->
+                                <div id="Other">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <div style="margin-top:28px;margin-left:60px;">{{HitSix}}</div>
+                                                    <div style="margin-top:4px;margin-left:60px;">{{HitEight}}</div>
+                                                    <div style="margin-top:4px;margin-left:60px;">{{HitTen}}</div>
+                                                    <div style="margin-top:4px;margin-left:60px;">{{HitTwelve}}</div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div style="margin-top:28px;margin-left:80px;">{{DiceSix}}</div>
+                                                    <div style="margin-top:4px;margin-left:80px;">{{DiceEight}}</div>
+                                                    <div style="margin-top:4px;margin-left:80px;">{{DiceTen}}</div>
+                                                    <div style="margin-top:4px;margin-left:80px;">{{DiceTwelve}}</div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="font-weight: bold;">
+                                                <div class="col-12" style="display: inline-flex;text-align: left;">
+                                                    <div *ngIf="DeathPass>=1" style="margin-top:55px;margin-left:114px;">x
+                                                    </div>
+                                                    <div *ngIf="DeathPass>=2" style="margin-top:55px;margin-left:20px;">x
+                                                    </div>
+                                                    <div *ngIf="DeathPass==3" style="margin-top:55px;margin-left:20px;">x
+                                                    </div>
+                                                </div>
+                                                <div class="col-12" style="display: inline-flex;height: 16px;">
+                                                    <div *ngIf="DeathFail>=1" style="margin-top:3px;margin-left:114px;">x
+                                                    </div>
+                                                    <div *ngIf="DeathFail>=2" style="margin-top:3px;margin-left:20px">x
+                                                    </div>
+                                                    <div *ngIf="DeathFail==3" style="margin-top:3px;margin-left:20px;">x
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-5">
+                                            <div style="margin-top:40px;font-size:200%">{{Initiative}}</div>
+                                            <div style="margin-top:35px;font-size:200%">{{Speed}}</div>
+                                            <div style="margin-top:35px;font-size:200%">{{Vision}}</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div id="LanguagesFoot"></div>
+                            <!--Languages, for Middle and Narrow-->
+                            <div class="col-md-6 m-0 p-0" *ngIf="WidthControl!='Wide'">
+                                <div id="LanguagesTop"></div>
+                                <div id="LanguagesBody">
+                                    {{Languages}}
+                                </div>
+                                <div id="LanguagesFoot"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div *ngIf="WidthControl=='Wide'">
-                        <!--Custom Rolls for Wide-->
-                        <div id="AttacksTop"></div>
-                        <div id="AttacksBody">
-                            {{Attacks}}
+                        <div *ngIf="WidthControl=='Wide'">
+                            <!--Custom Rolls for Wide-->
+                            <div id="AttacksTop"></div>
+                            <div id="AttacksBody">
+                                {{Attacks}}
+                            </div>
+                            <div id="AttacksFoot"></div>
+                            <!--Features for Wide-->
+                            <div id="FeaturesTop"></div>
+                            <div id="FeaturesBody">
+                                {{Features}}
+                            </div>
+                            <div id="FeaturesFoot"></div>
+                            <!--Custom Rolls for Wide-->
+                            <div id="GearTop"></div>
+                            <div id="GearBody">
+                                {{Gear}}
+                            </div>
+                            <div id="GearFoot"></div>
                         </div>
-                        <div id="AttacksFoot"></div>
-                        <!--Features for Wide-->
-                        <div id="FeaturesTop"></div>
-                        <div id="FeaturesBody">
-                            {{Features}}
-                        </div>
-                        <div id="FeaturesFoot"></div>
-                        <!--Custom Rolls for Wide-->
-                        <div id="GearTop"></div>
-                        <div id="GearBody">
-                            {{Gear}}
-                        </div>
-                        <div id="GearFoot"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="col-12 mx-auto">
-    <div class="row mx-auto" [id]="MaxWidth">
-        <div *ngIf="WidthControl=='Middle'">
-            <!--Custom Rolls for Middle-->
-            <div id="AttacksTop"></div>
-            <div id="AttacksBody">
-                {{Attacks}}
+    <div class="col-12 mx-auto">
+        <div class="row mx-auto" [id]="MaxWidth">
+            <div *ngIf="WidthControl=='Middle'">
+                <!--Custom Rolls for Middle-->
+                <div id="AttacksTop"></div>
+                <div id="AttacksBody">
+                    {{Attacks}}
+                </div>
+                <div id="AttacksFoot"></div>
+                <!--Features for Middle-->
+                <div id="FeaturesTop"></div>
+                <div id="FeaturesBody">
+                    {{Features}}
+                </div>
+                <div id="FeaturesFoot"></div>
+                <!--Gear for Middle-->
+                <div id="GearTop"></div>
+                <div id="GearBody">
+                    {{Gear}}
+                </div>
+                <div id="GearFoot"></div>
             </div>
-            <div id="AttacksFoot"></div>
-            <!--Features for Middle-->
-            <div id="FeaturesTop"></div>
-            <div id="FeaturesBody">
-                {{Features}}
+            <div *ngIf="WidthControl=='Narrow'">
+                <!--Custom Rolls for Narrow-->
+                <div id="AttacksTopNarrow"></div>
+                <div id="AttacksBodyNarrow">
+                    {{Attacks}}
+                </div>
+                <div id="AttacksFootNarrow"></div>
+                <!--Features for Narrow-->
+                <div id="FeaturesTopNarrow"></div>
+                <div id="FeaturesBodyNarrow">
+                    {{Features}}
+                </div>
+                <div id="FeaturesFootNarrow"></div>
+                <!--Gear for Narrow-->
+                <div id="GearTopNarrow"></div>
+                <div id="GearBodyNarrow">
+                    {{Gear}}
+                </div>
+                <div id="GearFootNarrow"></div>
             </div>
-            <div id="FeaturesFoot"></div>
-            <!--Gear for Middle-->
-            <div id="GearTop"></div>
-            <div id="GearBody">
-                {{Gear}}
-            </div>
-            <div id="GearFoot"></div>
-        </div>
-        <div *ngIf="WidthControl=='Narrow'">
-            <!--Custom Rolls for Narrow-->
-            <div id="AttacksTopNarrow"></div>
-            <div id="AttacksBodyNarrow">
-                {{Attacks}}
-            </div>
-            <div id="AttacksFootNarrow"></div>
-            <!--Features for Narrow-->
-            <div id="FeaturesTopNarrow"></div>
-            <div id="FeaturesBodyNarrow">
-                {{Features}}
-            </div>
-            <div id="FeaturesFootNarrow"></div>
-            <!--Gear for Narrow-->
-            <div id="GearTopNarrow"></div>
-            <div id="GearBodyNarrow">
-                {{Gear}}
-            </div>
-            <div id="GearFootNarrow"></div>
         </div>
     </div>
-</div>
