@@ -402,7 +402,7 @@ span.psw2 {
     font-weight: bold;
 }
 
-.close:hover,
+.close:hover, .close2:hover, .close2:focus, 
 .close:focus {
     color: red;
     cursor: pointer;

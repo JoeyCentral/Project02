@@ -22,7 +22,7 @@ export class Profile{
 	proficiencies:Proficiencies[];
 	features:Features[];
 	roll:CustomRoll[];
-	tempHP:Number;
-	speed:Number;
+	tempHP:number;
+	speed:number;
 	vision:number;
 }
