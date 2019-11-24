@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.models.Characters;
 import com.revature.models.Info;
+import com.revature.models.Multiclass;
 import com.revature.models.Profile;
 import com.revature.models.SpellList;
 
@@ -46,10 +47,12 @@ public class CharacterRepository {
 		Profile myProfile = myCharacter.getProfile();
 		Info myInfo = myCharacter.getInfo();
 		SpellList mySpells = myCharacter.getSpellList();
+		List<Multiclass> myClasses = myCharacter.getMulticlass();
 		session.save(myProfile);
 		session.save(myInfo);
 		session.save(mySpells);
 		session.save(myCharacter);
+		session.save(myClasses);
 		} else {
 			Session session = em.unwrap(Session.class);
 			Profile myProfile = myCharacter.getProfile();

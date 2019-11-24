@@ -60,13 +60,14 @@
                                     <!--Class and Level-->
                                     <div style="width: 200px;margin-left: 30px;margin-top: 80px;"
                                         onclick="document.getElementById('id01').style.display='block'">
-                                        Level{{Classes | level}} {{Classes | class}}
+                                        Level {{Classes | level}} {{Classes | class}}
                                     </div>
                                 </div>
                                 <div class="col-md-3 p-0">
                                     <!--Race-->
                                     <div style="width: 180px;margin-left:10px;margin-top:78px;"
-                                        onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}</div>
+                                        onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}
+                                    </div>
                                 </div>
                                 <div class="col-md-5 p-0">
                                     <!--Player-->
@@ -103,14 +104,15 @@
                                 <div class="col-md-7 p-0">
                                     <!--Class and Level-->
                                     <div style="width: 200px;margin-left: 79px;margin-top: 36px;"
-                                        onclick="document.getElementById('id01').style.display='block'">Level
-                                        {{Classes | level}} {{Classes | class}}
+                                        onclick="document.getElementById('id01').style.display='block'">
+                                        Level {{Classes | level}} {{Classes | class}}
                                     </div>
                                 </div>
                                 <!--Race-->
                                 <div class="col-md-5 p-0">
                                     <div style="width: 170px;margin-left:15px;margin-top:36px;"
-                                        onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}</div>
+                                        onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -151,13 +153,14 @@
                                 <div class="col-md-6 p-0">
                                     <!--Class and Level-->
                                     <div style="width: 200px;padding-top: 40px;margin-left:20px"
-                                        onclick="document.getElementById('id01').style.display='block'">Level
-                                        {{Classes | level}} {{Classes | class}} </div>
+                                        onclick="document.getElementById('id01').style.display='block'">
+                                        Level {{Classes | level}} {{Classes | class}} </div>
                                 </div>
                                 <!--Race-->
                                 <div class="col-md-6 p-0">
                                     <div style="width: 170px;margin-top: 40px;"
-                                        onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}</div>
+                                        onclick="document.getElementById('id02').style.display='block'">{{Racenamed}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -219,7 +222,7 @@
                                 <!--Proficiencies-->
                                 <div class="col-md-8 m-0 p-0" style="text-align: left;">
                                     <div style="margin-left:37px;margin-top:0px;font-size:300%;
-                        height:48px;">{{Inspiration}}</div>
+                        height:48px;" (click)="Inspired()">{{Inspiration}}</div>
                                     <div style="margin-left:45px;margin-top:28px;font-size:200%;">{{ProfBonus}}</div>
                                     <div class="col-md-12 m-0 p-0">
                                         <div class={{Prof1}}>{{P1}}</div>
@@ -254,7 +257,7 @@
                             <!--Languages, for Wide-->
                             <div class="col-md-12 m-0 p-0" *ngIf="WidthControl=='Wide'">
                                 <div id="LanguagesTop"></div>
-                                <div id="LanguagesBody"onclick="document.getElementById('id07').style.display='block'">
+                                <div id="LanguagesBody" onclick="document.getElementById('id07').style.display='block'">
                                     {{Languages}}
                                 </div>
                                 <div id="LanguagesFoot"></div>
@@ -279,7 +282,7 @@
                             <div class="col-md-6 m-0 p-0" style="min-width: 400px;">
                                 <!--Other Info-->
                                 <div id="Other">
-                                    <div class="row">
+                                    <div class="row" style="height:300px;">
                                         <div class="col-6">
                                             <div class="row">
                                                 <div class="col-3">
@@ -289,14 +292,20 @@
                                                     <div style="margin-top:4px;margin-left:60px;">{{HitTwelve}}</div>
                                                 </div>
                                                 <div class="col-3">
-                                                    <div style="margin-top:28px;margin-left:80px;">{{DiceSix}}</div>
-                                                    <div style="margin-top:4px;margin-left:80px;">{{DiceEight}}</div>
-                                                    <div style="margin-top:4px;margin-left:80px;">{{DiceTen}}</div>
-                                                    <div style="margin-top:4px;margin-left:80px;">{{DiceTwelve}}</div>
+                                                    <input type="number"
+                                                        style="margin-top:28px;margin-left:80px;width:30px;"
+                                                        [(ngModel)]="DiceSix">
+                                                    <input type="number" style="margin-left:80px;width:30px;"
+                                                        [(ngModel)]="DiceEight">
+                                                    <input type="number" style="margin-left:80px;width:30px;"
+                                                        [(ngModel)]="DiceTen">
+                                                    <input type="number" style="margin-left:80px;width:30px;"
+                                                        [(ngModel)]="DiceTwelve">
                                                 </div>
                                             </div>
-                                            <div class="row" style="font-weight: bold;">
-                                                <div class="col-12" style="display: inline-flex;text-align: left;">
+                                            <div class="row" style="font-weight: bold;height:150px;">
+                                                <div class="col-12" style="display: inline-flex;text-align: left;"
+                                                    (click)="DeathPassed()">
                                                     <div *ngIf="DeathPass>=1"
                                                         style="margin-top:55px;margin-left:114px;">x
                                                     </div>
@@ -307,7 +316,8 @@
                                                         x
                                                     </div>
                                                 </div>
-                                                <div class="col-12" style="display: inline-flex;height: 16px;">
+                                                <div class="col-12" style="display: inline-flex;height: 16px;"
+                                                    (click)="DeathFailed()">
                                                     <div *ngIf="DeathFail>=1" style="margin-top:3px;margin-left:114px;">
                                                         x
                                                     </div>
@@ -346,8 +356,9 @@
                             <div id="FeaturesBody" *ngFor="let feature of ClassFeatures"></div>
                             <div id="FeaturesBody" *ngFor="let feature of RaceFeatures">{{feature.feat_name}}</div>
                             <div id="FeaturesBody" *ngFor="let feature of CustomFeatures"
-                             onclick="document.getElementById('id08').style.display='block'"></div>
-                            <div id="FeaturesFoot" onclick="document.getElementById('id08').style.display='block'"></div>
+                                onclick="document.getElementById('id08').style.display='block'"></div>
+                            <div id="FeaturesFoot" onclick="document.getElementById('id08').style.display='block'">
+                            </div>
                             <!--Custom Rolls for Wide-->
                             <div id="GearTop"></div>
                             <div id="GearBody" onclick="document.getElementById('id06').style.display='block'">
@@ -373,7 +384,7 @@
                 <div id="FeaturesBody" *ngFor="let feature of ClassFeatures"></div>
                 <div id="FeaturesBody" *ngFor="let feature of RaceFeatures">{{feature.feat_name}}</div>
                 <div id="FeaturesBody" *ngFor="let featureofCustomFeatures"
-                onclick="document.getElementById('id08').style.display='block'"></div>
+                    onclick="document.getElementById('id08').style.display='block'"></div>
                 <div id="FeaturesFoot" onclick="document.getElementById('id08').style.display='block'"></div>
                 <!--Gear for Middle-->
                 <div id="GearTop"></div>
@@ -392,8 +403,8 @@
                 <div id="FeaturesTopNarrow"></div>
                 <div id="FeaturesBodyNarrow" *ngFor="let feature of ClassFeatures"></div>
                 <div id="FeaturesBodyNarrow" *ngFor="let feature of RaceFeatures">{{feature.feat_name}}</div>
-                <div id="FeaturesBodyNarrow" *ngFor="let feature of CustomFeatures" 
-                onclick="document.getElementById('id05').style.display='block'"></div>
+                <div id="FeaturesBodyNarrow" *ngFor="let feature of CustomFeatures"
+                    onclick="document.getElementById('id05').style.display='block'"></div>
                 <div id="FeaturesFootNarrow" onclick="document.getElementById('id08').style.display='block'"></div>
                 <!--Gear for Narrow-->
                 <div id="GearTopNarrow"></div>
@@ -446,7 +457,23 @@
             title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
             <div class="container">
+                <table class="table table-hover table-dark">
+                    <thead></thead>
+                    <tr>
+                        <td *ngFor="let alignment of AlignmentLawful" (click)="setAlignment(alignment)">{{ alignment }}
+                        </td>
+                    </tr>
 
+                    <tr>
+                        <td *ngFor="let alignment of AlignmentNeutral" (click)="setAlignment(alignment)">{{ alignment }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td *ngFor="let alignment of AlignmentChaotic" (click)="setAlignment(alignment)">{{ alignment }}
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
