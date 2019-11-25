@@ -47,7 +47,7 @@ export class CharacterComponent implements OnInit {
         tempHP: 0, race: {id:16,racename:"Select Race", description:"", features:[]}, experience: 0, features: [], 
         hitDice: "0000000000000000", inspiration: 0, proficiencies: [], roll: [], alignment: "Select Alignment",
         deathSaves: 0, background: {id:13,background_name:"Select Background", description:""}, speed: 30, vision: 60
-      }, id: 0, spellList: null, multiclass: [{ level: 1, charClass: {classname:"Select Class", hit_die:0, features:[], id:13}, id: 0 }], player: {
+      }, id: 0, spellList: {castingFocus:"", component:"", features:[], id:0, spellsAvilable:[], spellsKnown:[], spellsLeft:0}, multiclass: [{ level: 1, charClass: {classname:"Select Class", hit_die:0, features:[], id:13}, id: 0 }], player: {
         id: this.loginService.userId,
         password: "", username: this.loginService.playername
       }, playerName: this.loginService.playername, info: {

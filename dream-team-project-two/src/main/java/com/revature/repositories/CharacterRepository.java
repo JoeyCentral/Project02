@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -44,35 +45,32 @@ public class CharacterRepository {
 		if (myCharacter.getId() == 0) {
 			System.out.println(myCharacter);
 		Session session = em.unwrap(Session.class);
-		session.save(myCharacter);
 		Profile myProfile = myCharacter.getProfile();
-		myProfile.setId(0);
-		session.save(myProfile);
 		Info myInfo = myCharacter.getInfo();
-		myInfo.setId(0);
-		session.save(myInfo);
 		SpellList mySpells = myCharacter.getSpellList();
-		session.save(mySpells);
-		mySpells.setId(0);
 		List<Multiclass> myClasses = myCharacter.getMulticlass();
+		session.save(myProfile);
+		session.save(myInfo);
+		session.save(mySpells);
+		session.save(myCharacter);
 		for (Multiclass x:myClasses) {
-			x.setId(0);
 			session.save(x);
 		}
 		} else {
 			Session session = em.unwrap(Session.class);
+			Transaction tx=session.beginTransaction();
 			Profile myProfile = myCharacter.getProfile();
 			Info myInfo = myCharacter.getInfo();
 			SpellList mySpells = myCharacter.getSpellList();
-			session.update(myProfile);
-			session.update(myInfo);
-			session.update(mySpells);
-			session.update(myCharacter);
 			List<Multiclass> myClasses = myCharacter.getMulticlass();
+			session.saveOrUpdate(myProfile);
+			session.saveOrUpdate(myInfo);
+			session.saveOrUpdate(mySpells);
+			session.saveOrUpdate(myCharacter);
 			for (Multiclass x:myClasses) {
-				x.setId(0);
 				session.saveOrUpdate(x);
 			}
+			tx.commit();
 		}
 		return myCharacter.getId();
 	}
