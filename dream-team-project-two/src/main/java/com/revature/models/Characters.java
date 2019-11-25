@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -17,6 +19,9 @@ import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 @Table(name= "my_characters")
+@NamedQueries({ @NamedQuery(name = "updateCharacters", query = 
+"Update Characters SET character_name=:character_name, playername=:playername, "
++ "info_id=:info_id, user_id=:user_id, profile_id=:profile_id, spell_list_id=:spell_list_id WHERE char_id=:id")})
 public class Characters {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
