@@ -18,27 +18,31 @@ import com.revature.services.LoginService;
 public class LoginController {
 	LoginService loginService;
 
-	@PostMapping("/login")
+	@PostMapping("/login")					//Tested successfully with Postman
 	//return user id if logged in in successfully
 	public int checkUser(@RequestBody Users user) {
 		System.out.println("Attempting Login");
 		System.out.println("User Input:"+ user.getUsername() + " " + user.getHashpass());
-		int OldUserId = loginService.checkUser2(user);
+		int OldUserId = loginService.checkUser(user);
 		return OldUserId;
 	}
 
-	@PostMapping("/create")
+	@PostMapping("/create")					//Tested successfully with Postman
 	@ResponseStatus(HttpStatus.CREATED)
-	public Users newUser(@RequestBody Users user) {
-		// return loginService.newUser(user);
+	public int newUser(@RequestBody Users user) {
 		System.out.println("Attempting User Creation...");
 		return loginService.createUser(user);
 
 	}
-
 	@Autowired
 	public LoginController(LoginService loginService) {
 		super();
 		this.loginService = loginService;
 	}
 }
+
+
+
+
+
+

@@ -1,12 +1,15 @@
 package com.revature.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Backgrounds {
@@ -17,13 +20,41 @@ public class Backgrounds {
 	
 	private String background_name;
 	
-	@ManyToOne
-	@JoinColumn(name = "prof_id")
-	private Proficiencies proficiency1;
+	private String description;
 	
-	@ManyToOne
-	@JoinColumn(name = "prof_id", insertable = false, updatable = false)
-	private Proficiencies proficiency2;
+	@ManyToMany
+	@JoinTable(name = "prof_background", joinColumns = { @JoinColumn(name = "background_id") }, inverseJoinColumns = { 
+			@JoinColumn(name = "prof_id") })
+	private List<Proficiencies> proficiencies;
+	
+	public Backgrounds() {
+		super();
+	}
+
+	public Backgrounds(int id, String background_name, String description) {
+		super();
+		this.id = id;
+		this.background_name = background_name;
+		this.description = description;
+	}
+
+
+	public Backgrounds(int id, String background_name, String description, List<Proficiencies> proficiencies) {
+		super();
+		this.id = id;
+		this.background_name = background_name;
+		this.description = description;
+		this.proficiencies = proficiencies;
+	}
+	
+
+	public List<Proficiencies> getProficiencies() {
+		return proficiencies;
+	}
+
+	public void setProficiencies(List<Proficiencies> proficiencies) {
+		this.proficiencies = proficiencies;
+	}
 
 	public int getId() {
 		return id;
@@ -41,20 +72,12 @@ public class Backgrounds {
 		this.background_name = background_name;
 	}
 
-	public Proficiencies getProficiency1() {
-		return proficiency1;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setProficiency1(Proficiencies proficiency1) {
-		this.proficiency1 = proficiency1;
-	}
-
-	public Proficiencies getProficiency2() {
-		return proficiency2;
-	}
-
-	public void setProficiency2(Proficiencies proficiency2) {
-		this.proficiency2 = proficiency2;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@Override
@@ -62,9 +85,9 @@ public class Backgrounds {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((background_name == null) ? 0 : background_name.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((proficiency1 == null) ? 0 : proficiency1.hashCode());
-		result = prime * result + ((proficiency2 == null) ? 0 : proficiency2.hashCode());
+		result = prime * result + ((proficiencies == null) ? 0 : proficiencies.hashCode());
 		return result;
 	}
 
@@ -82,38 +105,27 @@ public class Backgrounds {
 				return false;
 		} else if (!background_name.equals(other.background_name))
 			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
 		if (id != other.id)
 			return false;
-		if (proficiency1 == null) {
-			if (other.proficiency1 != null)
+		if (proficiencies == null) {
+			if (other.proficiencies != null)
 				return false;
-		} else if (!proficiency1.equals(other.proficiency1))
-			return false;
-		if (proficiency2 == null) {
-			if (other.proficiency2 != null)
-				return false;
-		} else if (!proficiency2.equals(other.proficiency2))
+		} else if (!proficiencies.equals(other.proficiencies))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Backgrounds [id=" + id + ", background_name=" + background_name + ", proficiency1=" + proficiency1
-				+ ", proficiency2=" + proficiency2 + "]";
+		return "Backgrounds [id=" + id + ", background_name=" + background_name + ", description=" + description
+				+ ", proficiencies=" + proficiencies + "]";
 	}
 
-	public Backgrounds(int id, String background_name, Proficiencies proficiency1, Proficiencies proficiency2) {
-		super();
-		this.id = id;
-		this.background_name = background_name;
-		this.proficiency1 = proficiency1;
-		this.proficiency2 = proficiency2;
-	}
-
-	public Backgrounds() {
-		super();
-	}
 
 	
 }

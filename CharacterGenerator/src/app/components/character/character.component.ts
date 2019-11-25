@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterService } from 'src/app/services/character-service.service';
+import { Character } from 'src/app/models/character';
+import { HttpClient } from '@angular/common/http';
+import { LoginService } from 'src/app/services/login-service.service';
+import { Multiclass } from 'src/app/models/multiclass';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-character',
@@ -7,10 +15,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterComponent implements OnInit {
 
-  constructor() { }
+  characterList: Character[];
+
+  constructor(private httpClient: HttpClient, private characterService: CharacterService, private loginService: LoginService,
+    private router: Router) { }
+  player = this.loginService.playername;
+  ClassList: Multiclass[];
+  Classes = "";
+
+
 
   ngOnInit() {
-    let ClassLevel = 'No class selected';
+    this.getCharactersHttp();
   }
+  async getCharactersHttp() {
+    const url = `http://localhost:8081/character/view/${this.loginService.userId}`;
+    const data = await this.httpClient.get(url).toPromise();
+    this.characterList = JSON.parse(JSON.stringify(data));
+  };
 
+  async selectCharacter(c: Character) {
+    const url = `http://localhost:8081/character/select/${c.id}`;
+    const data = await this.httpClient.get(url).toPromise();
+    this.characterService.character = JSON.parse(JSON.stringify(data));
+    this.router.navigateByUrl("/profile");
+  };
+  newCharacter() {
+    this.characterService.character = {
+      character_name: "", profile: {
+        abilityScores: "101010101010", id: 0, ac: 10, maximumHealth: 0, currentHealth: 0, languages: "", inventory: "",
+        tempHP: 0, race: {id:16,racename:"Select Race", description:"", features:[]}, experience: 0, features: [], 
+        hitDice: "0000000000000000", inspiration: 0, proficiencies: [], roll: [], alignment: "Select Alignment",
+        deathSaves: 0, background: {id:13,background_name:"Select Background", description:""}, speed: 30, vision: 60
+      }, id: 0, spellList: {castingFocus:"", component:"", features:[], id:0, spellsAvilable:[], spellsKnown:[], spellsLeft:0}, multiclass: [{ level: 1, charClass: {classname:"Select Class", hit_die:0, features:[], id:13}, id: 0 }], player: {
+        id: this.loginService.userId,
+        password: "", username: this.loginService.playername
+      }, playerName: this.loginService.playername, info: {
+        backstory: "", id: 0, age: 0, alliance: "",
+        bonds: "", flaws: "", hair: "", height: 0, ideals: "", image: "", personality: "", skin: "", symbol: "", weight: 0, eyes:""
+      }
+    }
+    this.router.navigateByUrl("/profile");
+  }
+  logout() {
+    this.loginService.userId=0;
+    this.loginService.authenticated=false;
+    this.loginService.playername="";
+    this.router.navigateByUrl("/login");
+  }
 }
