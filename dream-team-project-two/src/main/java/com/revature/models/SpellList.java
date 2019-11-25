@@ -11,9 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 import org.springframework.beans.factory.annotation.Value;
+
 @Entity
+@NamedQueries({ @NamedQuery(name = "updateSpellList",
+query = "Update SpellList SET casting_focus=:castingfocus, component=:component, spells_left=:spellsleft WHERE spell_list_id=:id") })
 public class SpellList {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

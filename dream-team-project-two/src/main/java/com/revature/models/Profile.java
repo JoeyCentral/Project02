@@ -11,11 +11,21 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 import org.springframework.beans.factory.annotation.Value;
 
 @Entity
+@NamedQueries({ @NamedQuery(name = "updateProfile",
+query = "UPDATE Profile SET ability_scores=:abilityscores, ac=:ac, "
+		+ "alignment=:alignment, current_health=:currenthealth, "
+		+ "deathsaves=:deathsaves, experience=:experience, "
+		+ "hit_dice=:hitdice, inspiration=:inspiration, "
+		+ "inventory=:inventory, languages=:languages, "
+		+ "maximum_health=:maximum_health, background_id=:backgroundid, "
+		+ "race_id=:raceid, vision=:vision, speed=:speed WHERE profile_id=:profileid") })
 public class Profile {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

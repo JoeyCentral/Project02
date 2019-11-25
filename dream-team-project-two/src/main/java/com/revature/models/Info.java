@@ -1,13 +1,22 @@
 package com.revature.models;
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 import org.springframework.beans.factory.annotation.Value;
+
 @Entity
+@NamedQueries({ @NamedQuery(name = "updateInfo", 
+query = "Update Info set age=:age, alliance=:alliance, backstory=:backstory, "
+        + "bonds=:bonds, flaws=:flaws, hair=:hair, height=:height, ideals=:ideals, "
+        + "image=:image, personality=:personality, skin=:skin, symbol=:symbol, "
+        + "weight=:weight where info_id= :id") })
 public class Info {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

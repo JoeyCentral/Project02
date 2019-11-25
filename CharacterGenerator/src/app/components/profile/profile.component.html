@@ -1,39 +1,39 @@
 <div class="bevelBox">
     <div class="row mx-auto" style="margin-top: 10px;">
-        <div class="col-4 mx-auto" (click)="SaveAndExit()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id101').style.display='block'">
             <h4>Save and Exit</h4>
         </div>
-        <div class="col-4 mx-auto" (click)="Save()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id102').style.display='block'">
             <h4>Save</h4>
         </div>
-        <div class="col-4 mx-auto" (click)="Exit()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id103').style.display='block'">
             <h4>Exit Without Saving</h4>
         </div>
     </div>
     <div class="row mx-auto">
-        <div class="col-4 mx-auto" (click)="Share()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id104').style.display='block'">
             <h4>Share</h4>
         </div>
-        <div class="col-4 mx-auto" (click)="Copy()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id105').style.display='block'">
             <h4>Copy</h4>
         </div>
-        <div class="col-4 mx-auto" (click)="Delete()">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id106').style.display='block'">
             <h4>Delete</h4>
         </div>
     </div>
     <div class="row mx-auto">
         <div class="col-4 mx-auto">
-            <a class="nav-link" routerLink="/profile" style="width:100%;padding: 0;">
+            <a class="nav-link" routerLink="/profile" style="width:100%;padding: 0;" (click)="Save()">
                 <h4>Abilities</h4>
             </a>
         </div>
         <div class="col-4 mx-auto">
-            <a class="nav-link" routerLink="/info" style="width:100%;padding: 0;">
+            <a class="nav-link" routerLink="/info" style="width:100%;padding: 0;" (click)="Save()">
                 <h4>Info</h4>
             </a>
         </div>
         <div class="col-4 mx-auto">
-            <a class="nav-link" routerLink="/spells" style="width:100%;padding: 0;">
+            <a class="nav-link" routerLink="/spells" style="width:100%;padding: 0;" (click)="Save()"> 
                 <h4>Spells</h4>
             </a>
         </div>
@@ -59,8 +59,9 @@
                                 <div class="col-md-4 p-0">
                                     <!--Class and Level-->
                                     <div style="width: 200px;margin-left: 30px;margin-top: 80px;"
-                                        onclick="document.getElementById('id01').style.display='block'">
-                                        Level {{Classes | level}} {{Classes | class}}
+                                        onclick="document.getElementById('id01').style.display='block'"
+                                        (click)="SortClasses()">
+                                        Level {{Levelcount}} {{Classes | class}}
                                     </div>
                                 </div>
                                 <div class="col-md-3 p-0">
@@ -80,7 +81,7 @@
                                 <div class="col-md-4 p-0">
                                     <!--Experience-->
                                     <input type="number" id="Experience" min=0 value=0 style="width: 200px;
-                                        margin-top:26px;margin-left:20px;text-align: right;">
+                                        margin-top:26px;margin-left:20px;text-align: right;" [(ngModel)]="Experience">
                                 </div>
                                 <div class="col-md-3 p-0">
                                     <!--Alignment-->
@@ -91,7 +92,8 @@
                                 <div class="col-md-5 p-0">
                                     <!--Background-->
                                     <div style="width: 180px; margin-left:45px;margin-top: 24px;"
-                                        onclick="document.getElementById('id03').style.display='block'">{{Background}}
+                                        onclick="document.getElementById('id03').style.display='block'">
+                                        {{Backgroundname}}
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +106,8 @@
                                 <div class="col-md-7 p-0">
                                     <!--Class and Level-->
                                     <div style="width: 200px;margin-left: 79px;margin-top: 36px;"
-                                        onclick="document.getElementById('id01').style.display='block'">
+                                        onclick="document.getElementById('id01').style.display='block'"
+                                        (click)="SortClasses()">
                                         Level {{Classes | level}} {{Classes | class}}
                                     </div>
                                 </div>
@@ -121,7 +124,7 @@
                                 <!--Experience-->
                                 <div class="col-md-7 p-0">
                                     <input type="number" id="Experience" min=0 value=0 style="width: 170px;
-                                    margin-top:24px;margin-left:80px;text-align: right;">
+                                    margin-top:24px;margin-left:80px;text-align: right;" [(ngModel)]="Experience">
                                 </div>
                                 <!--Alignment-->
                                 <div class="col-md-5 p-0">
@@ -140,7 +143,8 @@
                                 <!--Background-->
                                 <div class="col-md-5 p-0">
                                     <div style="width: 170px; margin-left: 20px;margin-top:28px;"
-                                        onclick="document.getElementById('id03').style.display='block'">{{Background}}
+                                        onclick="document.getElementById('id03').style.display='block'">
+                                        {{Backgroundname}}
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +157,8 @@
                                 <div class="col-md-6 p-0">
                                     <!--Class and Level-->
                                     <div style="width: 200px;padding-top: 40px;margin-left:20px"
-                                        onclick="document.getElementById('id01').style.display='block'">
+                                        onclick="document.getElementById('id01').style.display='block'"
+                                        (click)="SortClasses()">
                                         Level {{Classes | level}} {{Classes | class}} </div>
                                 </div>
                                 <!--Race-->
@@ -169,7 +174,7 @@
                                 <!--Experience-->
                                 <div class="col-md-7 p-0">
                                     <input type="number" id="Experience" min=0 value=0 style="width: 170px;
-                                    margin-top:24px;margin-left:20px;text-align: right;">
+                                    margin-top:24px;margin-left:20px;text-align: right;" [(ngModel)]="Experience">
                                 </div>
                                 <!--Alignment-->
                                 <div class="col-md-5 p-0">
@@ -188,7 +193,7 @@
                                     <div class="col-md-5 p-0">
                                         <div style="width: 170px; margin-left: 16px;margin-top:28px;"
                                             onclick="document.getElementById('id01').style.display='block'">
-                                            {{Background}}
+                                            {{Backgroundname}}
                                         </div>
                                     </div>
                                 </div>
@@ -225,30 +230,30 @@
                         height:48px;" (click)="Inspired()">{{Inspiration}}</div>
                                     <div style="margin-left:45px;margin-top:28px;font-size:200%;">{{ProfBonus}}</div>
                                     <div class="col-md-12 m-0 p-0">
-                                        <div class={{Prof1}}>{{P1}}</div>
-                                        <div class={{Prof2}}>{{P2}}</div>
-                                        <div class={{Prof3}}>{{P3}}</div>
-                                        <div class={{Prof4}}>{{P4}}</div>
-                                        <div class={{Prof5}}>{{P5}}</div>
-                                        <div class={{Prof6}}>{{P6}}</div>
-                                        <div class={{Prof7}}>{{P7}}</div>
-                                        <div class={{Prof8}}>{{P8}}</div>
-                                        <div class={{Prof9}}>{{P9}}</div>
-                                        <div class={{Prof10}}>{{P10}}</div>
-                                        <div class={{Prof11}}>{{P11}}</div>
-                                        <div class={{Prof12}}>{{P12}}</div>
-                                        <div class={{Prof13}}>{{P13}}</div>
-                                        <div class={{Prof14}}>{{P14}}</div>
-                                        <div class={{Prof15}}>{{P15}}</div>
-                                        <div class={{Prof16}}>{{P16}}</div>
-                                        <div class={{Prof17}}>{{P17}}</div>
-                                        <div class={{Prof18}}>{{P18}}</div>
-                                        <div class={{Prof19}}>{{P19}}</div>
-                                        <div class={{Prof20}}>{{P20}}</div>
-                                        <div class={{Prof21}}>{{P21}}</div>
-                                        <div class={{Prof22}}>{{P22}}</div>
-                                        <div class={{Prof23}}>{{P23}}</div>
-                                        <div class={{Prof24}}>{{P24}}</div>
+                                        <div class={{Prof1}} (click)="toggleProf(Prof1, 1)">{{P1}}</div>
+                                        <div class={{Prof2}} (click)="toggleProf(Prof2, 2)">{{P2}}</div>
+                                        <div class={{Prof3}} (click)="toggleProf(Prof3, 3)">{{P3}}</div>
+                                        <div class={{Prof4}} (click)="toggleProf(Prof4, 4)">{{P4}}</div>
+                                        <div class={{Prof5}} (click)="toggleProf(Prof5, 5)">{{P5}}</div>
+                                        <div class={{Prof6}} (click)="toggleProf(Prof6, 6)">{{P6}}</div>
+                                        <div class={{Prof7}} (click)="toggleProf(Prof7, 7)">{{P7}}</div>
+                                        <div class={{Prof8}} (click)="toggleProf(Prof8, 8)">{{P8}}</div>
+                                        <div class={{Prof9}} (click)="toggleProf(Prof9, 9)">{{P9}}</div>
+                                        <div class={{Prof10}} (click)="toggleProf(Prof10, 10)">{{P10}}</div>
+                                        <div class={{Prof11}} (click)="toggleProf(Prof11, 11)">{{P11}}</div>
+                                        <div class={{Prof12}} (click)="toggleProf(Prof12, 12)">{{P12}}</div>
+                                        <div class={{Prof13}} (click)="toggleProf(Prof13, 13)">{{P13}}</div>
+                                        <div class={{Prof14}} (click)="toggleProf(Prof14, 14)">{{P14}}</div>
+                                        <div class={{Prof15}} (click)="toggleProf(Prof15, 15)">{{P15}}</div>
+                                        <div class={{Prof16}} (click)="toggleProf(Prof16, 16)">{{P16}}</div>
+                                        <div class={{Prof17}} (click)="toggleProf(Prof17, 17)">{{P17}}</div>
+                                        <div class={{Prof18}} (click)="toggleProf(Prof18, 18)">{{P18}}</div>
+                                        <div class={{Prof19}} (click)="toggleProf(Prof19, 19)">{{P19}}</div>
+                                        <div class={{Prof20}} (click)="toggleProf(Prof20, 20)">{{P20}}</div>
+                                        <div class={{Prof21}} (click)="toggleProf(Prof21, 21)">{{P21}}</div>
+                                        <div class={{Prof22}} (click)="toggleProf(Prof22, 22)">{{P22}}</div>
+                                        <div class={{Prof23}} (click)="toggleProf(Prof23, 23)">{{P23}}</div>
+                                        <div class={{Prof24}} (click)="toggleProf(Prof24, 24)">{{P24}}</div>
                                     </div>
                                     <div style="margin-left:37px;margin-top:60px;font-size:200%;
                             margin-bottom:27px;height:48px;">{{Passive}}</div>
@@ -418,20 +423,40 @@
 
     <!--First Modal: Class/Level-->
     <div id="id01" class="modal">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
             <div class="container">
-
+                <div *ngFor="let myClass of Classes" style="display: inline-flex;width:100%">
+                    <div style="width: 60%;">Level {{myClass.level}} {{myClass.charClass.classname}}</div>
+                    <div style="width: 20%;border: solid;border-radius: 5px;" (click)="LevelUp(myClass)">Level Up.</div>
+                    <div style="width: 20%;border: solid;border-radius: 5px;" (click)="LevelDown(myClass)">Remove Level.</div>
+                </div>
+                <br>
+                <select [(ngModel)]="SelectedClass">
+                    <option *ngIf="!HaveBarb" value="0">Barbarian</option>
+                    <option *ngIf="!HaveBard" value="1">Bard</option>
+                    <option *ngIf="!HaveCleric" value="2">Cleric</option>
+                    <option *ngIf="!HaveDru" value="3">Druid</option>
+                    <option *ngIf="!HaveFght" value="4">Fighter</option>
+                    <option *ngIf="!HavePal" value="5">Paladin</option>
+                    <option *ngIf="!HaveMonk" value="6">Monk</option>
+                    <option *ngIf="!HaveRang" value="7">Ranger</option>
+                    <option *ngIf="!HaveRog" value="8">Rogue</option>
+                    <option *ngIf="!HaveSor" value="9">Sorcerer</option>
+                    <option *ngIf="!HaveWar" value="10">Warlock</option>
+                    <option *ngIf="!HaveWiz" value="11">Wizard</option>
+                </select>
+                <button style="position: relative;  margin-bottom: 10% ;" (click)="AddClass()">Add Class</button>
             </div>
         </div>
     </div>
 
     <!--Second Modal: Race-->
     <div id="id02" class="modal">
-        <span onclick="document.getElementById('id02').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
             <div class="container">
                 <div *ngFor="let Raceitem of RaceDisplay">
                     <div (click)="setRace(Raceitem)">{{Raceitem.racename}} : {{Raceitem.description}}</div>
@@ -442,20 +467,23 @@
 
     <!--Third Modal: Background-->
     <div id="id03" class="modal">
-        <span onclick="document.getElementById('id03').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
+            <span onclick="document.getElementById('id03').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
             <div class="container">
-
+                <div *ngFor="let Backgrounditem of BackgroundDisplay">
+                    <div (click)="setBackground(Backgrounditem)">{{Backgrounditem.background_name}} :
+                        {{Backgrounditem.description}}</div>
+                </div>
             </div>
         </div>
     </div>
 
     <!--Fourth Modal: Alignment-->
     <div id="id04" class="modal">
-        <span onclick="document.getElementById('id04').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
+            <span onclick="document.getElementById('id04').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
             <div class="container">
                 <table class="table table-hover table-dark">
                     <thead></thead>
@@ -463,12 +491,10 @@
                         <td *ngFor="let alignment of AlignmentLawful" (click)="setAlignment(alignment)">{{ alignment }}
                         </td>
                     </tr>
-
                     <tr>
                         <td *ngFor="let alignment of AlignmentNeutral" (click)="setAlignment(alignment)">{{ alignment }}
                         </td>
                     </tr>
-
                     <tr>
                         <td *ngFor="let alignment of AlignmentChaotic" (click)="setAlignment(alignment)">{{ alignment }}
                         </td>
@@ -480,9 +506,9 @@
 
     <!--Fifth Modal: Attacks-->
     <div id="id05" class="modal">
-        <span onclick="document.getElementById('id05').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
+            <span onclick="document.getElementById('id05').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
             <div class="container">
 
             </div>
@@ -491,9 +517,9 @@
 
     <!--Sixth Modal: Gear-->
     <div id="id06" class="modal">
-        <span onclick="document.getElementById('id06').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
+            <span onclick="document.getElementById('id06').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
             <div class="container">
                 <textarea [(ngModel)]="Gear" placeholder="Enter equipment here."></textarea>
             </div>
@@ -502,9 +528,9 @@
 
     <!--Seventh Modal: Languages-->
     <div id="id07" class="modal">
-        <span onclick="document.getElementById('id07').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
+            <span onclick="document.getElementById('id07').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
             <div class="container">
                 <textarea [(ngModel)]="Languages" placeholder="Enter languages here."></textarea>
             </div>
@@ -512,12 +538,102 @@
     </div>
     <!--Eighth Modal: Features-->
     <div id="id08" class="modal">
-        <span onclick="document.getElementById('id08').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
         <div class="modal-content animate" action="/action_page.php" method="post">
+            <span onclick="document.getElementById('id08').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
             <div class="container">
 
             </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="id101" class="modal">
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id101').style.display='none'" class="close2"
+            title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                            text-align: center; margin-top: 4%;">Save and Exit</h1>
+            <p style="padding: 1rem;">This will SAVE current information on all editted fields to your account's
+                character database and EXIT to main page</p>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="SaveAndExit()">Save</button>
+        </div>
+    </div>
+</div>
+
+<div id="id102" class="modal">
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id102').style.display='none'" class="close2"
+            title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                text-align: center; margin-top: 4%;">Save</h1>
+            <p style="padding: 1rem;">This will SAVE current information on all editted fields to your account's
+                character database</p>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="SaveToDatabase()">Save</button>
+        </div>
+    </div>
+</div>
+
+<div id="id103" class="modal">
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+
+        <span onclick="document.getElementById('id103').style.display='none'" class="close2"
+            title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                    text-align: center; margin-top: 4%">Exit without Saving</h1>
+            <p style="padding: 1rem;">Any changes made will NOT be SAVED to your account's character base if you click
+                Exit</p>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="Exit()">Exit</button>
+        </div>
+    </div>
+</div>
+
+<div id="id104" class="modal">
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id104').style.display='none'" class="close2"
+            title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                        text-align: center; margin-top: 4%">Share</h1>
+            <p style="padding: 1rem;">This will share current information with another player </p>
+
+            <p>Enter the name of the user you want to share this character with:</p>
+
+            <input type="text" [(ngModel)]="placeholderr" placeholder="Username">
+            <br>
+            <br>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="Share()">Share</button>
+        </div>
+    </div>
+</div>
+
+<div id="id105" class="modal">
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id105').style.display='none'" class="close2"
+            title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                            text-align: center; margin-top: 4% ">Copy</h1>
+            <p style="padding: 1rem;">This will replicate current character's information and create a cloned character
+                in your account's character database</p>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="Copy()">Copy</button>
+        </div>
+    </div>
+</div>
+
+<div id="id106" class="modal">
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id106').style.display='none'" class="close2"
+            title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                                text-align: center; margin-top: 4%;">Delete</h1>
+            <p style="padding: 1rem;">This will DELETE current character from your account's character database!</p>
+            <button style="position: relative;  margin-bottom: 10% ; color: red" (click)="Delete()">Delete</button>
         </div>
     </div>
 </div>
