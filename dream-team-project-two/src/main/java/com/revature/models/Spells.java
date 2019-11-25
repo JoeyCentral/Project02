@@ -1,10 +1,17 @@
 package com.revature.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 public class Spells {
@@ -12,23 +19,28 @@ public class Spells {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "spell_id")
 	private int id;
-	
+	@Value("")
 	private String spellname;
-	
+	@Value("0")
 	private int spelllevel;
-	
+	@Value("0")
 	private int school;
-	
+	@Value("")
 	private String casttime;
-	
+	@Value("0")
 	private int spellrange;
-	
+	@Value("")
 	private String components;
-	
+	@Value("")
 	private String duration;
-	
+	@Value("")
 	private String description;
-
+	
+	@ManyToMany
+	@JoinTable(name = "spell_feats", joinColumns = { @JoinColumn(name = "spell_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "feat_id") })
+	private List<Features> features;
+	
 	public int getId() {
 		return id;
 	}
@@ -100,6 +112,14 @@ public class Spells {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public List<Features> getFeatures() {
+		return features;
+	}
+
+	public void setFeatures(List<Features> features) {
+		this.features = features;
+	}
 
 	@Override
 	public int hashCode() {
@@ -109,6 +129,7 @@ public class Spells {
 		result = prime * result + ((components == null) ? 0 : components.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((duration == null) ? 0 : duration.hashCode());
+		result = prime * result + ((features == null) ? 0 : features.hashCode());
 		result = prime * result + id;
 		result = prime * result + school;
 		result = prime * result + spelllevel;
@@ -146,6 +167,11 @@ public class Spells {
 				return false;
 		} else if (!duration.equals(other.duration))
 			return false;
+		if (features == null) {
+			if (other.features != null)
+				return false;
+		} else if (!features.equals(other.features))
+			return false;
 		if (id != other.id)
 			return false;
 		if (school != other.school)
@@ -166,11 +192,11 @@ public class Spells {
 	public String toString() {
 		return "Spells [id=" + id + ", spellname=" + spellname + ", spelllevel=" + spelllevel + ", school=" + school
 				+ ", casttime=" + casttime + ", spellrange=" + spellrange + ", components=" + components + ", duration="
-				+ duration + ", description=" + description + "]";
+				+ duration + ", description=" + description + ", features=" + features + "]";
 	}
 
 	public Spells(int id, String spellname, int spelllevel, int school, String casttime, int spellrange,
-			String components, String duration, String description) {
+			String components, String duration, String description, List<Features> features) {
 		super();
 		this.id = id;
 		this.spellname = spellname;
@@ -181,6 +207,7 @@ public class Spells {
 		this.components = components;
 		this.duration = duration;
 		this.description = description;
+		this.features = features;
 	}
 
 	public Spells() {

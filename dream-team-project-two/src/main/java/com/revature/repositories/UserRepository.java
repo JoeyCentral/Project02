@@ -1,7 +1,6 @@
 package com.revature.repositories;
 
 
-import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -18,13 +17,16 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.models.Users;
 
+
+
 @Repository
 public class UserRepository {
 
 	@Autowired(required = true)
 	EntityManager em;
-
-	public Users createUser(Users user) {
+	
+	
+	public Users create(Users user) {
 		Session session = em.unwrap(Session.class);
 		session.save(user);
 		return user;
@@ -63,16 +65,6 @@ public class UserRepository {
 			ValidUser = session.createQuery(hql, Users.class)
 					.setParameter("username", user.getUsername(), StringType.INSTANCE)
 					.setParameter("password", InputPasswordHashed, StringType.INSTANCE).getSingleResult();
-//			String DBPassword = ValidUser.getHashpass();
-//			
-//			System.out.println("Password from DB: " + DBPassword);
-//			System.out.println("Salt from DB: " + salt);
-//			System.out.println("Password from input: " + user.getHashpass());
-//			System.out.println("Password after hashing:" + InputPasswordHashed);
-//			
-//			if (DBPassword.equals(InputPasswordHashed)) {
-//				System.out.println("Password matched, Returning user id: " + ValidUser.getId());
-//			}
 			System.out.println("Returned ID of "+ValidUser.getId());
 			return ValidUser.getId();
 			
@@ -110,6 +102,16 @@ public class UserRepository {
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public Users getUserByName(String username) {
+		Session session = em.unwrap(Session.class);
+		String hql = "from Users where username is :username";
+		Users user = session
+				.createQuery(hql, Users.class)
+				.setParameter("username", username, StringType.INSTANCE)
+				.getSingleResult();
+		return user;
 	}
 
 }

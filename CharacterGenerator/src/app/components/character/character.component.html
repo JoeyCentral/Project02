@@ -1,23 +1,44 @@
-<!--<header>
-    <section id='name'>
-        <input type="text" id="Charname" width="16rem" >
-    </section>
-    <section id='info'>
-        <input type="text" id="Class" width="10rem">
-        <input type="text" id="Race" width="10rem">
-        <input type="text" id="Player" width="10rem">
-        <input type="text" id="Experiance" width="10rem">
-        <input type="text" id="Alignment" width="10rem">
-        <input type="text" id="Background" width="10rem">
-    </section>
-</header>
-<div id='main'>
-    <div id='AbilitiesProficiencies'>
-        <div id='AbilityScores'>
-            
+<div class="background"></div>
+
+<div class="col-12 mx-auto" id="overlay">
+    <div class="bevelBox" style="margin-top: 50px;margin-bottom: 20px;">
+        <div class="col-12" style="margin-bottom: 10px;">
+            <h1>Welcome {{player}}</h1>
+            <div class="row">
+                <div class="col-12 p-0 m-0" style="display: inline-flex;">
+                    <div class="col-6 p-0 m-0">
+                        <h1>Character Name</h1>
+                    </div>
+                    <div class="col-4 p-0 m-0">
+                        <h1>Class</h1>
+                    </div>
+                    <div class="col-2 p-0 m-0">
+                        <h1>Lv.</h1>
+                    </div>
+                </div>
+            </div>
+            <hr style="width: 95%; size:10px; border: 2px solid;margin:0;">
+            <div class="col-12 p-0 m-0" *ngFor="let character of characterList" style="display: inline-flex;" 
+            id="linker" (click)="selectCharacter(character)">
+                <div class="col-6">
+                    <h3>{{character.character_name}}</h3>
+                </div>
+                <div class="col-4">
+                    <h3>{{character.multiclass | class}}</h3>
+                </div>
+                <div class="col-2">
+                    <h3>{{character.multiclass | level}}</h3>
+                </div>
+            </div>
         </div>
     </div>
-    <div id='OtherInfo'>
-        <p>content</p>
+
+    <div class="row mx-auto" style="width: 65%;min-width: 400px;">
+        <div class="col-5 bevelBox" id="linker" style="margin-bottom: 10px;" (click)="newCharacter()">
+            <h1>Create Character</h1>
+        </div>
+        <div class="col-5 bevelBox" id="linker" style="margin-bottom: 10px;" (click)="logout()">
+            <h1>Log Out</h1>
+        </div>
     </div>
-</div> -->
+</div>

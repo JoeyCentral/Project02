@@ -8,35 +8,107 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
-@Table(name="profile")
+@NamedQueries({ @NamedQuery(name = "updateProfile",
+query = "UPDATE Profile SET ability_scores=:abilityscores, ac=:ac, "
+		+ "alignment=:alignment, current_health=:currenthealth, "
+		+ "deathsaves=:deathsaves, experience=:experience, "
+		+ "hit_dice=:hitdice, inspiration=:inspiration, "
+		+ "inventory=:inventory, languages=:languages, "
+		+ "maximum_health=:maximum_health, background_id=:backgroundid, "
+		+ "race_id=:raceid, vision=:vision, speed=:speed WHERE profile_id=:profileid") })
 public class Profile {
-	private List<String> abilityScores;
-	private String inspiration;
-	private String alignment;
-	private Integer experience;
-	private int maximumHealth;
-	private String ac;
-	private String deathsaves;
-	private String hitDice;
-	private Integer currentHealth;
-	private List<String> inventory;
-	private List<String> languages;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "profile_id")
+	private int id;
 	
-	public Profile(List<String> abilityScores, String inspiration, String alignment, Integer experience,
-			int maximumHealth, String ac, String deathsaves, String hitDice, Integer currentHealth,
-			List<String> inventory, List<String> languages, Race race, Character character, Proficiencies prof,
-			Backgrounds background, Features feature, CharClass charClass) {
+	@Value("")
+	private String abilityScores;
+	
+	@Value("0")
+	private int inspiration;
+	@Value("")
+	private String alignment;
+	
+	@Value("0")
+	private int experience;
+	@Value("0")
+	private int speed;
+	@Value("0")
+	private int vision;
+	
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+	public int getVision() {
+		return vision;
+	}
+
+	public void setVision(int vision) {
+		this.vision = vision;
+	}
+
+	@Value("1")
+	private int maximumHealth;
+	
+	@Value("10")
+	private int ac;
+	
+	@Value("0")
+	private int deathsaves;
+	
+	private String hitDice;
+	
+	@Value("1")
+	private int currentHealth;
+	private String inventory;
+	private String languages;
+	
+	@ManyToOne
+	@JoinColumn(name = "race_id")
+	private Race race;
+	
+	@ManyToOne
+	@JoinColumn(name = "background_id")
+	private Backgrounds background;
+	
+	@OneToMany
+	@JoinColumn(name = "custom_id")
+	private List<CustomRolls> customRolls;
+
+	public Profile() {
 		super();
+	}
+	
+
+	
+	public Profile(int id, String abilityScores, int inspiration, String alignment, int experience, int speed,
+			int vision, int maximumHealth, int ac, int deathsaves, String hitDice, int currentHealth, String inventory,
+			String languages, Race race, Backgrounds background, List<CustomRolls> customRolls,
+			List<Proficiencies> proficiencies, List<Features> features) {
+		super();
+		this.id = id;
 		this.abilityScores = abilityScores;
 		this.inspiration = inspiration;
 		this.alignment = alignment;
 		this.experience = experience;
+		this.speed = speed;
+		this.vision = vision;
 		this.maximumHealth = maximumHealth;
 		this.ac = ac;
 		this.deathsaves = deathsaves;
@@ -45,50 +117,51 @@ public class Profile {
 		this.inventory = inventory;
 		this.languages = languages;
 		this.race = race;
-		this.character = character;
-		this.prof = prof;
 		this.background = background;
-		this.feature = feature;
-		this.charClass = charClass;
+		this.customRolls = customRolls;
+		this.proficiencies = proficiencies;
+		this.features = features;
 	}
-	
-	@ManyToOne
-	@JoinColumn(name="race_id")
-	private Race race;
-	
-	@OneToOne
-	@JoinColumn(name="character_id")
-	private Character character;
-	
-	@ManyToMany
-	@JoinColumn(name="prof_id")
-	private Proficiencies prof;
-	
-	@ManyToOne
-	@JoinColumn(name="background_id")
-	private Backgrounds background;
-	
-	@ManyToMany
-	@JoinColumn(name="feature_id")
-	private Features feature;
-	
-	@ManyToMany
-	@JoinColumn(name="class_id")
-	private CharClass charClass;
 
-	public List<String> getAbilityScores() {
+	public List<CustomRolls> getCustomRolls() {
+		return customRolls;
+	}
+
+	public void setCustomRolls(List<CustomRolls> customRolls) {
+		this.customRolls = customRolls;
+	}
+
+	@ManyToMany
+	@JoinTable(name = "my_Profs", joinColumns = { @JoinColumn(name = "profile_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "prof_id") })
+	private List<Proficiencies> proficiencies;
+	
+	@ManyToMany
+	@JoinTable(name = "my_Feats", joinColumns = { @JoinColumn(name = "profile_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "feat_id") })
+	private List<Features> features;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getAbilityScores() {
 		return abilityScores;
 	}
 
-	public void setAbilityScores(List<String> abilityScores) {
+	public void setAbilityScores(String abilityScores) {
 		this.abilityScores = abilityScores;
 	}
 
-	public String getInspiration() {
+	public int getInspiration() {
 		return inspiration;
 	}
 
-	public void setInspiration(String inspiration) {
+	public void setInspiration(int inspiration) {
 		this.inspiration = inspiration;
 	}
 
@@ -100,11 +173,11 @@ public class Profile {
 		this.alignment = alignment;
 	}
 
-	public Integer getExperience() {
+	public int getExperience() {
 		return experience;
 	}
 
-	public void setExperience(Integer experience) {
+	public void setExperience(int experience) {
 		this.experience = experience;
 	}
 
@@ -116,21 +189,24 @@ public class Profile {
 		this.maximumHealth = maximumHealth;
 	}
 
-	public String getAc() {
+	public int getAc() {
 		return ac;
 	}
 
-	public void setAc(String ac) {
+	public void setAc(int ac) {
 		this.ac = ac;
 	}
 
-	public String getDeathsaves() {
+	public int getDeathsaves() {
 		return deathsaves;
 	}
 
-	public void setDeathsaves(String deathsaves) {
+	public void setDeathsaves(int deathsaves) {
 		this.deathsaves = deathsaves;
 	}
+
+
+
 
 	public String getHitDice() {
 		return hitDice;
@@ -140,27 +216,27 @@ public class Profile {
 		this.hitDice = hitDice;
 	}
 
-	public Integer getCurrentHealth() {
+	public int getCurrentHealth() {
 		return currentHealth;
 	}
 
-	public void setCurrentHealth(Integer currentHealth) {
+	public void setCurrentHealth(int currentHealth) {
 		this.currentHealth = currentHealth;
 	}
 
-	public List<String> getInventory() {
+	public String getInventory() {
 		return inventory;
 	}
 
-	public void setInventory(List<String> inventory) {
+	public void setInventory(String inventory) {
 		this.inventory = inventory;
 	}
 
-	public List<String> getLanguages() {
+	public String getLanguages() {
 		return languages;
 	}
 
-	public void setLanguages(List<String> languages) {
+	public void setLanguages(String languages) {
 		this.languages = languages;
 	}
 
@@ -172,22 +248,6 @@ public class Profile {
 		this.race = race;
 	}
 
-	public Character getCharacter() {
-		return character;
-	}
-
-	public void setCharacter(Character character) {
-		this.character = character;
-	}
-
-	public Proficiencies getProf() {
-		return prof;
-	}
-
-	public void setProf(Proficiencies prof) {
-		this.prof = prof;
-	}
-
 	public Backgrounds getBackground() {
 		return background;
 	}
@@ -196,43 +256,47 @@ public class Profile {
 		this.background = background;
 	}
 
-	public Features getFeature() {
-		return feature;
+	public List<Proficiencies> getProficiencies() {
+		return proficiencies;
 	}
 
-	public void setFeature(Features feature) {
-		this.feature = feature;
+	public void setProficiencies(List<Proficiencies> proficiencies) {
+		this.proficiencies = proficiencies;
 	}
 
-	public CharClass getCharClass() {
-		return charClass;
+	public List<Features> getFeatures() {
+		return features;
 	}
 
-	public void setCharClass(CharClass charClass) {
-		this.charClass = charClass;
+	public void setFeatures(List<Features> features) {
+		this.features = features;
 	}
+
+
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((abilityScores == null) ? 0 : abilityScores.hashCode());
-		result = prime * result + ((ac == null) ? 0 : ac.hashCode());
+		result = prime * result + ac;
 		result = prime * result + ((alignment == null) ? 0 : alignment.hashCode());
 		result = prime * result + ((background == null) ? 0 : background.hashCode());
-		result = prime * result + ((charClass == null) ? 0 : charClass.hashCode());
-		result = prime * result + ((character == null) ? 0 : character.hashCode());
-		result = prime * result + ((currentHealth == null) ? 0 : currentHealth.hashCode());
-		result = prime * result + ((deathsaves == null) ? 0 : deathsaves.hashCode());
-		result = prime * result + ((experience == null) ? 0 : experience.hashCode());
-		result = prime * result + ((feature == null) ? 0 : feature.hashCode());
+		result = prime * result + currentHealth;
+		result = prime * result + ((customRolls == null) ? 0 : customRolls.hashCode());
+		result = prime * result + deathsaves;
+		result = prime * result + experience;
+		result = prime * result + ((features == null) ? 0 : features.hashCode());
 		result = prime * result + ((hitDice == null) ? 0 : hitDice.hashCode());
-		result = prime * result + ((inspiration == null) ? 0 : inspiration.hashCode());
+		result = prime * result + id;
+		result = prime * result + inspiration;
 		result = prime * result + ((inventory == null) ? 0 : inventory.hashCode());
 		result = prime * result + ((languages == null) ? 0 : languages.hashCode());
 		result = prime * result + maximumHealth;
-		result = prime * result + ((prof == null) ? 0 : prof.hashCode());
+		result = prime * result + ((proficiencies == null) ? 0 : proficiencies.hashCode());
 		result = prime * result + ((race == null) ? 0 : race.hashCode());
+		result = prime * result + speed;
+		result = prime * result + vision;
 		return result;
 	}
 
@@ -250,10 +314,7 @@ public class Profile {
 				return false;
 		} else if (!abilityScores.equals(other.abilityScores))
 			return false;
-		if (ac == null) {
-			if (other.ac != null)
-				return false;
-		} else if (!ac.equals(other.ac))
+		if (ac != other.ac)
 			return false;
 		if (alignment == null) {
 			if (other.alignment != null)
@@ -265,45 +326,30 @@ public class Profile {
 				return false;
 		} else if (!background.equals(other.background))
 			return false;
-		if (charClass == null) {
-			if (other.charClass != null)
-				return false;
-		} else if (!charClass.equals(other.charClass))
+		if (currentHealth != other.currentHealth)
 			return false;
-		if (character == null) {
-			if (other.character != null)
+		if (customRolls == null) {
+			if (other.customRolls != null)
 				return false;
-		} else if (!character.equals(other.character))
+		} else if (!customRolls.equals(other.customRolls))
 			return false;
-		if (currentHealth == null) {
-			if (other.currentHealth != null)
-				return false;
-		} else if (!currentHealth.equals(other.currentHealth))
+		if (deathsaves != other.deathsaves)
 			return false;
-		if (deathsaves == null) {
-			if (other.deathsaves != null)
-				return false;
-		} else if (!deathsaves.equals(other.deathsaves))
+		if (experience != other.experience)
 			return false;
-		if (experience == null) {
-			if (other.experience != null)
+		if (features == null) {
+			if (other.features != null)
 				return false;
-		} else if (!experience.equals(other.experience))
-			return false;
-		if (feature == null) {
-			if (other.feature != null)
-				return false;
-		} else if (!feature.equals(other.feature))
+		} else if (!features.equals(other.features))
 			return false;
 		if (hitDice == null) {
 			if (other.hitDice != null)
 				return false;
 		} else if (!hitDice.equals(other.hitDice))
 			return false;
-		if (inspiration == null) {
-			if (other.inspiration != null)
-				return false;
-		} else if (!inspiration.equals(other.inspiration))
+		if (id != other.id)
+			return false;
+		if (inspiration != other.inspiration)
 			return false;
 		if (inventory == null) {
 			if (other.inventory != null)
@@ -317,31 +363,33 @@ public class Profile {
 			return false;
 		if (maximumHealth != other.maximumHealth)
 			return false;
-		if (prof == null) {
-			if (other.prof != null)
+		if (proficiencies == null) {
+			if (other.proficiencies != null)
 				return false;
-		} else if (!prof.equals(other.prof))
+		} else if (!proficiencies.equals(other.proficiencies))
 			return false;
 		if (race == null) {
 			if (other.race != null)
 				return false;
 		} else if (!race.equals(other.race))
 			return false;
+		if (speed != other.speed)
+			return false;
+		if (vision != other.vision)
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Profile [abilityScores=" + abilityScores + ", inspiration=" + inspiration + ", alignment=" + alignment
-				+ ", experience=" + experience + ", maximumHealth=" + maximumHealth + ", ac=" + ac + ", deathsaves="
-				+ deathsaves + ", hitDice=" + hitDice + ", currentHealth=" + currentHealth + ", inventory=" + inventory
-				+ ", languages=" + languages + ", race=" + race + ", character=" + character + ", prof=" + prof
-				+ ", background=" + background + ", feature=" + feature + ", charClass=" + charClass + "]";
+		return "Profile [id=" + id + ", abilityScores=" + abilityScores + ", inspiration=" + inspiration
+				+ ", alignment=" + alignment + ", experience=" + experience + ", speed=" + speed + ", vision=" + vision
+				+ ", maximumHealth=" + maximumHealth + ", ac=" + ac + ", deathsaves=" + deathsaves + ", hitDice="
+				+ hitDice + ", currentHealth=" + currentHealth + ", inventory=" + inventory + ", languages=" + languages
+				+ ", race=" + race + ", background=" + background + ", customRolls=" + customRolls + ", proficiencies="
+				+ proficiencies + ", features=" + features + "]";
 	}
 
 
-	
-	
-	
 	
 }

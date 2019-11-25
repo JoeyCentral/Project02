@@ -1,0 +1,122 @@
+<div id="id101" class="modal3">
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id101').style.display='none'" class="close2" title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                        text-align: center; margin-top: 4%;">Save and Exit</h1>
+            <p style="padding: 1rem;">This will SAVE current information on all editted fields to your account's character database and EXIT to main page</p>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="SaveAndExit()">Save</button>
+        </div>
+    </div>
+</div>
+
+<div id="id102" class="modal3">
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id102').style.display='none'" class="close2" title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                            text-align: center; margin-top: 4%;">Save</h1>
+            <p style="padding: 1rem;">This will SAVE current information on all editted fields to your account's character database</p>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="SaveToDatabase()">Save</button>
+        </div>
+    </div>
+</div>
+
+<div id="id103" class="modal3">
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+
+        <span onclick="document.getElementById('id103').style.display='none'" class="close2" title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                text-align: center; margin-top: 4%">Exit without Saving</h1>
+            <p style="padding: 1rem;">Any changes made will NOT be SAVED to your account's character base if you click Exit</p>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="Exit()">Exit</button>
+        </div>
+    </div>
+</div>
+
+<div id="id104" class="modal3">
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id104').style.display='none'" class="close2" title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                    text-align: center; margin-top: 4%">Share</h1>
+            <p style="padding: 1rem;">This will share current information with another player </p>
+
+            <p>Enter the name of the user you want to share this character with:</p>
+
+            <input type="text" [(ngModel)]="placeholderr" placeholder="Username">
+            <br>
+            <br>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="Share()">Share</button>
+        </div>
+    </div>
+</div>
+
+<div id="id105" class="modal3">
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id105').style.display='none'" class="close2" title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                        text-align: center; margin-top: 4% ">Copy</h1>
+            <p style="padding: 1rem;">This will replicate current character's information and create a cloned character in your account's character database</p>
+            <button style="position: relative;  margin-bottom: 10% ;" (click)="Copy()">Copy</button>
+        </div>
+    </div>
+</div>
+
+<div id="id106" class="modal3">
+    <div class="modal-content2 animate" action="/action_page.php" method="post">
+        <span onclick="document.getElementById('id106').style.display='none'" class="close2" title="Close Modal">&times;</span>
+        <div>
+            <h1 style="font-family: 'DragonForceFont';font-size: 4rem; 
+                                            text-align: center; margin-top: 4%;">Delete</h1>
+            <p style="padding: 1rem;">This will DELETE current character from your account's character database!</p>
+            <button style="position: relative;  margin-bottom: 10% ; color: red" (click)="Delete()">Delete</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="bevelBox">
+    <div class="row mx-auto" style="margin-top: 10px;">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id101').style.display='block'">
+            <h4>Save and Exit</h4>
+        </div>
+        <div class="col-4 mx-auto" onclick="document.getElementById('id102').style.display='block'">
+            <h4>Save</h4>
+        </div>
+        <div class="col-4 mx-auto" onclick="document.getElementById('id103').style.display='block'">
+            <h4>Exit Without Saving</h4>
+        </div>
+    </div>
+    <div class="row mx-auto">
+        <div class="col-4 mx-auto" onclick="document.getElementById('id104').style.display='block'">
+            <h4>Share</h4>
+        </div>
+        <div class="col-4 mx-auto" onclick="document.getElementById('id105').style.display='block'">
+            <h4>Copy</h4>
+        </div>
+        <div class="col-4 mx-auto" onclick="document.getElementById('id106').style.display='block'">
+            <h4>Delete</h4>
+        </div>
+    </div>
+    <div class="row mx-auto">
+        <div class="col-4 mx-auto">
+            <a class="nav-link" routerLink="/profile" style="width:100%;padding: 0;">
+                <h4>Abilities</h4>
+            </a>
+        </div>
+        <div class="col-4 mx-auto">
+            <a class="nav-link" routerLink="/info" style="width:100%;padding: 0;">
+                <h4>Info</h4>
+            </a>
+        </div>
+        <div class="col-4 mx-auto">
+            <a class="nav-link" routerLink="/spells" style="width:100%;padding: 0;">
+                <h4>Spells</h4>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="page"></div>

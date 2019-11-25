@@ -18,7 +18,7 @@ public class Proficiencies {
 	private int ability;
 	
 	private String description;
-
+	
 	public int getId() {
 		return id;
 	}
@@ -49,6 +49,21 @@ public class Proficiencies {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	
+	public Proficiencies(int id, String prof_name, int ability, String description) {
+		super();
+		this.id = id;
+		this.prof_name = prof_name;
+		this.ability = ability;
+		this.description = description;
+	}
+
+	@Override
+	public String toString() {
+		return "Proficiencies [id=" + id + ", prof_name=" + prof_name + ", ability=" + ability + ", description="
+				+ description + "]";
 	}
 
 	@Override
@@ -86,20 +101,6 @@ public class Proficiencies {
 		} else if (!prof_name.equals(other.prof_name))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Proficiencies [id=" + id + ", prof_name=" + prof_name + ", ability=" + ability + ", description="
-				+ description + "]";
-	}
-
-	public Proficiencies(int id, String prof_name, int ability, String description) {
-		super();
-		this.id = id;
-		this.prof_name = prof_name;
-		this.ability = ability;
-		this.description = description;
 	}
 
 	public Proficiencies() {

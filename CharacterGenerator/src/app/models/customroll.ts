@@ -5,5 +5,4 @@ export class CustomRoll {
     modifier:number;
     damage_amount:number;
     damage_type:string;
-    char_id:number;
 }
