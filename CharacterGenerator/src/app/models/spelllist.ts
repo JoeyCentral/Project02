@@ -6,8 +6,8 @@ export class SpellList{
 	castingFocus:string;
 	spellsLeft:number;
 	component:string;
-	spellsKnown:[Spells];
-	spellsAvilable:[Spells];
-	features:[Features];
+	spellsKnown:Spells[];
+	spellsAvilable:Spells[];
+	features:Features[];
 	
 }

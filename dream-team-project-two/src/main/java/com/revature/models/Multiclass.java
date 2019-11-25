@@ -7,9 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 import org.springframework.beans.factory.annotation.Value;
+
 @Entity
+@NamedQueries({ @NamedQuery(name = "updateClasses", query = 
+"Update Multiclass SET level=:level, class_id=:class_id, character_id=:character_id WHERE multiclass_id=:id")})
 public class Multiclass {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
